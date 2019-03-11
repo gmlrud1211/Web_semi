@@ -1,22 +1,17 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>studyopen</title>
-	    
-	
-	<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />  
+<meta charset="UTF-8">
+<title>Insert title here</title>
 
+
+	<!--datepicker-->    
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/>css" /> 
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>  
-
 	<script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>  
 	
-	
-		
-		
 	<script>
 	
 	$(function() {
@@ -27,13 +22,10 @@
 	    $( "#studyperiod" ).datepicker({
 	    });
 	});
-	
-	
 	</script>
-</head>
+	
+</head>	
 <body>
-
-
 	<h3>스터디 개설하기</h3>
 	<hr>
 	<div>	
