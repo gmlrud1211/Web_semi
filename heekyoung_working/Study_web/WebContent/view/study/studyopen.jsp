@@ -8,9 +8,9 @@
 
 
 	<!--datepicker-->    
-	<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/>css" /> 
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>  
-	<script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>  
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	
 	<script type="text/javascript">
 	$(function() {
@@ -22,7 +22,7 @@
 	    });
 	});
 	</script>
-	
+	<!-- 
 	<script type="text/javascript">
 		function fnGetCate(param) {
 			var $target = $("select[name='st_code']");
@@ -57,7 +57,7 @@
 			});
 			
 		} 
-	</script>
+	</script> -->
 	
 	
 	
@@ -146,11 +146,11 @@
 		</label>
 		<br><br>
 		<label> 스터디기간
-			<input type="text" id="study_opendate"> ~ <input type="text" id="study_period"> 
+			<input type="text" name="study_opendate" id="studyopendate" > ~ <input type="text" name="study_period" id="studyperiod"> 
 		</label>
 		<br><br>
 		<label> 상세 내용 
-				<textarea name="study_detail" cols="50" row="15" placeholder="하고싶은말을 자유롭게 작성해주세요"> </textarea>
+				<textarea name="study_detail" cols="50" row="15" placeholder="하고싶은말을 자유롭게 작성해주세요" > </textarea>  
 		</label>
 		<br><br>
 	</form>
