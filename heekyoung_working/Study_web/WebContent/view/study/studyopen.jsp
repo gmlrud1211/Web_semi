@@ -6,11 +6,18 @@
 <meta charset="UTF-8">
 <title>studyopen</title>
 
+	<!-- jQuery 2.2.4 -->
+	<script type="text/javascript" src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
 
-	<!--datepicker-->    
+	<!--datepicker쓰기위한 jQuery-->  
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+	<!-- 부트스트랩 3.3.2 -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 	
 	<script type="text/javascript">
 	$(function() {
@@ -65,29 +72,31 @@
 <body>
 	<h3>스터디 개설하기</h3>
 	<hr>
-	<div>	
+	<div class="container">	
 	<form action="/study/open" method="post" class="form-horizontal">
-	
-	
+		
+		
+		
+		
 		<label for="study_name" >스터디제목 <input type="text" id="study_name" name="study_name" /> </label>
 		<br><br>
 		<label for="st_code"> 카테고리 
-							<select name="st_catecode" id="st_catecode" onchange="fnGetCate(this.value);">
-								<option value="">1차분류</option>
-								<option value="1">IT·프로그래밍</option>
-								<option value="2">디자인</option>
-								<option value="3">콘텐츠 제작</option>
-								<option value="4">자격증</option>
-								<option value="5">취업</option>
-								<option value="6">외국어</option>
-								<option value="7">음악</option>
-								<option value="8">뷰티</option>
-								<option value="9">수능</option>
-							</select>
+					<select name="st_catecode" id="st_catecode" onchange="fnGetCate(this.value);">
+						<option value="">1차분류</option>
+						<option value="1">IT·프로그래밍</option>
+						<option value="2">디자인</option>
+						<option value="3">콘텐츠 제작</option>
+						<option value="4">자격증</option>
+						<option value="5">취업</option>
+						<option value="6">외국어</option>
+						<option value="7">음악</option>
+						<option value="8">뷰티</option>
+						<option value="9">수능</option>
+					</select>
 							
-							<select name="st_code" id="st_code">
+					<select name="st_code" id="st_code">
 						
-							</select>
+					</select>
 		</label>
 		<br><br>
 		<label for="study_region" > 지역  </label>  
@@ -150,7 +159,7 @@
 		</label>
 		<br><br>
 		<label> 상세 내용 
-				<textarea name="study_detail" cols="50" row="15" placeholder="하고싶은말을 자유롭게 작성해주세요" > </textarea>  
+			<textarea name="study_detail" cols="50" rows="7" placeholder="하고싶은말을 자유롭게 작성해주세용" > </textarea>  
 		</label>
 		<br><br>
 	</form>
