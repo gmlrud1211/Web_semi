@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -5,12 +6,16 @@
 <head>
 	<meta charset="UTF-8">
 	<title>studyopen</title>
+	    
 	
 	<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />  
-	<!--  jQuery 기본 js파일 -->
+
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>  
-	<!-- jQuery UI 라이브러리 js파일 -->
+
 	<script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>  
+	
+	
+		
 		
 	<script>
 	
@@ -125,7 +130,7 @@
 		</label>
 		<br><br>
 		<label> 상세 내용 
-				<textarea name="study_detail" cols="50" row="15" placeholder="스터디의 목표 및 방향, 하고싶은말을 자유롭게 작성해주세요"></textarea>
+				<textarea name="study_detail" cols="50" row="15" placeholder="하고싶은말을 자유롭게 작성해주세요"> </textarea>
 		</label>
 		<br><br>
 	</form>

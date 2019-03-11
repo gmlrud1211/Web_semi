@@ -28,6 +28,9 @@ public class StudyServiceImpl implements StudyService {
 		String study_period =(String)req.getParameter("study_period");
 		String study_detail =(String)req.getParameter("study_detail");
 		
+		study.setStudy_name(study_name);
+		study.setStudy_region(study_region);
+
 				
 		
 		return study;

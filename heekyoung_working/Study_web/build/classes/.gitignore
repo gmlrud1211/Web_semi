@@ -1,4 +1,4 @@
-/controller/
+/dao/
+/dbutil/
 /dto/
 /service/
-/dao/
