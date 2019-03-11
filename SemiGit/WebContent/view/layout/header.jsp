@@ -1,235 +1,178 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>MOMO</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <!-- Place favicon.ico in the root directory -->
-    <link rel="shortcut icon" type="/assets/image/x-icon" href="/assets/images/favicon.ico">
-    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-    
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Insert title here</title>
 
-    <!-- All css files are included here. -->
-    <!-- Bootstrap fremwork main css -->
-    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-    <!-- Owl Carousel min css -->
-    <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="/assets/css/owl.theme.default.min.css">
-    <!-- This core.css file contents all plugings css file. -->
-    <link rel="stylesheet" href="/assets/css/core.css">
-    <!-- Theme shortcodes/elements style -->
-    <link rel="stylesheet" href="/assets/css/shortcode/shortcodes.css">
-    <!-- Theme main style -->
-    <link rel="stylesheet" href="/assets/style.css">
-    <!-- Responsive css -->
-    <link rel="stylesheet" href="/assets/css/responsive.css">
-    <!-- User style -->
-    <link rel="stylesheet" href="/assets/css/custom.css">
-    
+<!-- Theme main style -->
+<link href="/css/bootstrap.css" rel="stylesheet">
+<link href="/css/bootstrap-theme.css" rel="stylesheet">
+<link href="/css/custom.css" rel="stylesheet">
 
-    <!-- Modernizr JS -->
-    <script src="/assets/js/vendor/modernizr-3.5.0.min.js"></script>
+<!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
+<script src="/js/bootstrap.min.js"></script>
+
 </head>
-
 <body>
-<div id="sticky-header-with-topbar" class="mainmenu__wrap sticky__header">
-                <div class="container">
-                    <div class="row">
-                        <div class="menumenu__container clearfix">
-                            <div class="col-lg-2 col-md-2 col-sm-3 col-xs-5"> 
-                                <div class="logo">
-                                     <a href="/assets/index.html"><img src="/assets/images/logo/4.png" alt="logo images"></a>
-                                </div>
-                            </div>
-                            
-                            <div class="col-md-7 col-lg-8 col-sm-5 col-xs-3">
-                                <div class="header__right">
-                                    <div class="header__noticeBoard">
-                                        <a href="#">공지사항</a>
-                                    </div>
-                                    <div class="header__faq">
-                                        <a href="#">FAQ</a>
-                                    </div>
-                                    <div class="header__board">
-                                        <a href="#">자유게시판</a>
-                                    </div>
-                                    <div class="header__createStudy">
-                                        <a href="#">스터디 개설하기</a>
-                                    </div>
-                                    <div class="header__login">
-                                        <a href="#">로그인</a>
-                                    </div>
-                                    <div class="header__join">
-                                        <a href="#">회원가입</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mobile-menu-area"></div>
-                </div>
-            </div>
-            
-            
-            
-            <div id="sticky-header-with-topbar" class="mainmenu__wrap sticky__header">
-                <div class="container">
-                    <div class="row">
-                        <div class="menumenu__container clearfix">
-                            <div class="col-lg-2 col-md-2 col-sm-3 col-xs-5"> 
-                                <div class="logo">
-                                     <a href="/assets/index.html"><img src="/assets/images/logo/4.png" alt="logo images"></a>
-                                </div>
-                            </div>
-                            
-                            <div class="col-md-7 col-lg-8 col-sm-5 col-xs-3">
-                                <nav class="main__menu__nav hidden-xs hidden-sm">
-                                    <ul class="main__menu">
-                                        <li class="drop"><a href="/assets/index.html">Home</a></li>
-                                        <li class="drop"><a href="#">women</a>
-                                            <ul class="dropdown mega_dropdown">
-                                                <!-- Start Single Mega MEnu -->
-                                                <li><a class="mega__title" href="/assets/product-grid.html">Shop Pages</a>
-                                                    <ul class="mega__item">
-                                                        <li><a href="/assets/product-grid.html">Product Grid</a></li>
-                                                        <li><a href="/assets/cart.html">cart</a></li>
-                                                        <li><a href="/assets/checkout.html">checkout</a></li>
-                                                        <li><a href="/assets/wishlist.html">wishlist</a></li>
-                                                    </ul>
-                                                </li>
-                                                <!-- End Single Mega MEnu -->
-                                                <!-- Start Single Mega MEnu -->
-                                                <li><a class="mega__title" href="/assets/product-grid.html">Variable Product</a>
-                                                    <ul class="mega__item">
-                                                        <li><a href="#">Category</a></li>
-                                                        <li><a href="#">My Account</a></li>
-                                                        <li><a href="/assets/wishlist.html">Wishlist</a></li>
-                                                        <li><a href="/assets/cart.html">Shopping Cart</a></li>
-                                                        <li><a href="/assets/checkout.html">Checkout</a></li>
-                                                    </ul>
-                                                </li>
-                                                <!-- End Single Mega MEnu -->
-                                                <!-- Start Single Mega MEnu -->
-                                                <li><a class="mega__title" href="/assets/product-grid.html">Product Types</a>
-                                                    <ul class="mega__item">
-                                                        <li><a href="#">Simple Product</a></li>
-                                                        <li><a href="#">Variable Product</a></li>
-                                                        <li><a href="#">Grouped Product</a></li>
-                                                        <li><a href="#">Downloadable Product</a></li>
-                                                        <li><a href="#">Simple Product</a></li>
-                                                    </ul>
-                                                </li>
-                                                <!-- End Single Mega MEnu -->
-                                            </ul>
-                                        </li>
-                                        <li class="drop"><a href="#">men</a>
-                                            <ul class="dropdown mega_dropdown">
-                                                <!-- Start Single Mega MEnu -->
-                                                <li><a class="mega__title" href="/assets/product-grid.html">Shop Pages</a>
-                                                    <ul class="mega__item">
-                                                        <li><a href="/assets/product-grid.html">Product Grid</a></li>
-                                                        <li><a href="/assets/cart.html">cart</a></li>
-                                                        <li><a href="/assets/checkout.html">checkout</a></li>
-                                                        <li><a href="/assets/wishlist.html">wishlist</a></li>
-                                                    </ul>
-                                                </li>
-                                                <!-- End Single Mega MEnu -->
-                                                <!-- Start Single Mega MEnu -->
-                                                <li><a class="mega__title" href="/assets/product-grid.html">Variable Product</a>
-                                                    <ul class="mega__item">
-                                                        <li><a href="#">Category</a></li>
-                                                        <li><a href="#">My Account</a></li>
-                                                        <li><a href="/assets/wishlist.html">Wishlist</a></li>
-                                                        <li><a href="/assets/cart.html">Shopping Cart</a></li>
-                                                        <li><a href="/assets/checkout.html">Checkout</a></li>
-                                                    </ul>
-                                                </li>
-                                                <!-- End Single Mega MEnu -->
-                                                <!-- Start Single Mega MEnu -->
-                                                <li><a class="mega__title" href="/assets/product-grid.html">Product Types</a>
-                                                    <ul class="mega__item">
-                                                        <li><a href="#">Simple Product</a></li>
-                                                        <li><a href="#">Variable Product</a></li>
-                                                        <li><a href="#">Grouped Product</a></li>
-                                                        <li><a href="#">Downloadable Product</a></li>
-                                                        <li><a href="#">Simple Product</a></li>
-                                                    </ul>
-                                                </li>
-                                                <!-- End Single Mega MEnu -->
-                                            </ul>
-                                        </li>
-                                        <li class="drop"><a href="#">Product</a>
-                                            <ul class="dropdown">
-                                                <li><a href="/assets/product-grid.html">Product Grid</a></li>
-                                                <li><a href="/assets/product-details.html">Product Details</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="drop"><a href="/assets/blog.html">blog</a>
-                                            <ul class="dropdown">
-                                                <li><a href="/assets/blog.html">Blog Grid</a></li>
-                                                <li><a href="/assets/blog-details.html">Blog Details</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="drop"><a href="#">Pages</a>
-                                            <ul class="dropdown">
-                                                <li><a href="/assets/blog.html">Blog</a></li>
-                                                <li><a href="/assets/blog-details.html">Blog Details</a></li>
-                                                <li><a href="/assets/cart.html">Cart page</a></li>
-                                                <li><a href="/assets/checkout.html">checkout</a></li>
-                                                <li><a href="/assets/contact.html">contact</a></li>
-                                                <li><a href="/assets/product-grid.html">product grid</a></li>
-                                                <li><a href="/assets/product-details.html">product details</a></li>
-                                                <li><a href="/assets/wishlist.html">wishlist</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="/assets/contact.html">contact</a></li>
-                                    </ul>
-                                </nav>
+<!-- Start Header Area -->
+<nav class="navbar navbar-default navbar-fixed-top" style="background-image:linear-gradient(to bottom, #fff 100%, #f8f8f8 100%);position: sticky; z-index: 9999;"">
+      <div class="container">
+      <div class="row">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#" style="color:#F67280"><h2><strong>MOMO</strong></h2></a>
+        </div>
+        <div id="navbar" class="navbar-right">
+          <ul class="nav navbar-nav" style="font-size: 0.8em;">
+            <li><a href="#">공지사항</a></li>
+			  <li><a href="#">FAQ</a></li>
+			  <li><a href="#">자유게시판</a></li>
+			  <li><a href="#">스터디개설</a></li>
+			  
+			  <c:if test="${login }">
+			  <li><a href="#"><strong>${u_id }님 안녕하세요!</strong></a></li>
+			  </c:if>
+			  <c:if test="${!login }">
+			  <li><a href="/users/login">로그인</a></li>
+			  <li><a href="#">회원가입</a></li>			  
+			  </c:if>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+		<div id="navbar">
+      		<ul class="nav navbar-nav navbar-center">
+              <li class="dropdown">
+              	 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">IT프로그래밍<span class="caret"></span></a>
+              		<ul class="dropdown-menu" role="menu">
+                	<li><a href="#">Java·JSP</a></li>
+	                <li><a href="#">C언어</a></li>
+	                <li><a href="#">파이썬</a></li>
+	                <li><a href="#">APP개발</a></li>
+	                <li><a href="#">HTML·CSS 퍼블리싱</a></li>
+	                <li><a href="#">Database</a></li>
+	                <li><a href="#">해킹</a></li>
+	                <li><a href="#">알고리즘</a></li>
+	                <li><a href="#">기타</a></li>
+	              </ul>
+	            </li>
+             <li class="dropdown">
+              	 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">디자인<span class="caret"></span></a>
+              		<ul class="dropdown-menu" role="menu">
+                	<li><a href="#">웹·모바일 디자인</a></li>
+	                <li><a href="#">3D 모델링·도면</a></li>
+	                <li><a href="#">로고디자인</a></li>
+	                <li><a href="#">포토샵편집</a></li>
+	                <li><a href="#">웹툰·캐릭터</a></li>
+	                <li><a href="#">캘리그라피</a></li>
+	                <li><a href="#">공간·인테리어</a></li>
+	                <li><a href="#">기타</a></li>
+	              </ul>
+	            </li>
+	         <li class="dropdown">
+              	 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">콘텐츠제작<span class="caret"></span></a>
+              		<ul class="dropdown-menu" role="menu">
+                	<li><a href="#">영상</a></li>
+	                <li><a href="#">3D 모델링·도면</a></li>
+	                <li><a href="#">사진</a></li>
+	                <li><a href="#">더빙·녹음</a></li>
+	                <li><a href="#">음악·사운드</a></li>
+	                <li><a href="#">엔터테이너</a></li>
+	                <li><a href="#">기타</a></li>
+	              </ul>
+	            </li>
+	         <li class="dropdown">
+              	 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">자격증<span class="caret"></span></a>
+              		<ul class="dropdown-menu" role="menu">
+                	<li><a href="#">정보기술</a></li>
+	                <li><a href="#">전자</a></li>
+	                <li><a href="#">디자인</a></li>
+	                <li><a href="#">건축</a></li>
+	                <li><a href="#">도시·교통</a></li>
+	                <li><a href="#">금속·재료</a></li>
+	                <li><a href="#">생산관리</a></li>
+	                <li><a href="#">조리·제과제빵</a></li>
+	                <li><a href="#">보건의료</a></li>
+	                <li><a href="#">기타</a></li>
+	              </ul>
+	            </li>
+             <li class="dropdown">
+              	 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">취업<span class="caret"></span></a>
+              		<ul class="dropdown-menu" role="menu">
+                	<li><a href="#">이력서·자소서</a></li>
+	                <li><a href="#">면접</a></li>
+	                <li><a href="#">인적성</a></li>
+	                <li><a href="#">기타</a></li>
+	              </ul>
+	            </li> 
+             <li class="dropdown">
+              	 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">외국어<span class="caret"></span></a>
+              		<ul class="dropdown-menu" role="menu">
+                	<li><a href="#">영어회화</a></li>
+	                <li><a href="#">중국어</a></li>
+	                <li><a href="#">일본어</a></li>
+	                <li><a href="#">토익/토플</a></li>
+	                <li><a href="#">스페인어</a></li>
+	                <li><a href="#">프랑스어</a></li>
+	                <li><a href="#">독일어</a></li>
+	                <li><a href="#">기타</a></li>
+	              </ul>
+	            </li>
+	         <li class="dropdown">
+              	 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">음악<span class="caret"></span></a>
+              		<ul class="dropdown-menu" role="menu">
+                	<li><a href="#">보컬</a></li>
+	                <li><a href="#">피아노</a></li>
+	                <li><a href="#">작곡</a></li>
+	                <li><a href="#">기타연주</a></li>
+	                <li><a href="#">랩</a></li>
+	                <li><a href="#">디제잉</a></li>
+	                <li><a href="#">바이올린</a></li>
+	                <li><a href="#">성악</a></li>
+	                <li><a href="#">첼로</a></li>
+	                <li><a href="#">기타</a></li>
+	              </ul>
+	            </li>
+             <li class="dropdown">
+              	 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">뷰티<span class="caret"></span></a>
+              		<ul class="dropdown-menu" role="menu">
+                	<li><a href="#">메이크업</a></li>
+	                <li><a href="#">헤어</a></li>
+	                <li><a href="#">네일</a></li>
+	                <li><a href="#">스킨케어/마사지</a></li>
+	                <li><a href="#">기타</a></li>
+	              </ul>
+	            </li> 
+             <li class="dropdown">
+              	 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">수능<span class="caret"></span></a>
+              		<ul class="dropdown-menu" role="menu">
+                	<li><a href="#">언어</a></li>
+	                <li><a href="#">수학</a></li>
+	                <li><a href="#">외국어</a></li>
+	                <li><a href="#">사탐</a></li>
+	                <li><a href="#">과탐</a></li>
+	                <li><a href="#">제2외국어</a></li>
+	                <li><a href="#">기타</a></li>
+	              </ul>
+	            </li>
+           </ul>
+		 </div>
+      </div>  
+		 </div>
+    </nav>
+ <!-- End Header Area -->  
 
-                                <div class="mobile-menu clearfix visible-xs visible-sm">
-                                    <nav id="mobile_dropdown">
-                                        <ul>
-                                            <li><a href="/assets/index.html">Home</a></li>
-                                            <li><a href="/assets/blog.html">blog</a></li>
-                                            <li><a href="#">pages</a>
-                                                <ul>
-                                                    <li><a href="/assets/blog.html">Blog</a></li>
-                                                    <li><a href="/assets/blog-details.html">Blog Details</a></li>
-                                                    <li><a href="/assets/cart.html">Cart page</a></li>
-                                                    <li><a href="/assets/checkout.html">checkout</a></li>
-                                                    <li><a href="/assets/contact.html">contact</a></li>
-                                                    <li><a href="/assets/product-grid.html">product grid</a></li>
-                                                    <li><a href="/assets/product-details.html">product details</a></li>
-                                                    <li><a href="/assets/wishlist.html">wishlist</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="/assets/contact.html">contact</a></li>
-                                        </ul>
-                                    </nav>
-                                </div>  
-                            </div>
-                            <div class="col-md-3 col-lg-2 col-sm-4 col-xs-4">
-                                <div class="header__right">
-                                    <div class="header__search search search__open">
-                                        <a href="#"><i class="icon-magnifier icons"></i></a>
-                                    </div>
-                                    <div class="header__account">
-                                        <a href="#"><i class="icon-user icons"></i></a>
-                                    </div>
-                                    <div class="htc__shopping__cart">
-                                        <a class="cart__menu" href="#"><i class="icon-handbag icons"></i></a>
-                                        <a href="#"><span class="htc__qua">2</span></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mobile-menu-area"></div>
-                </div>
-            </div>
-            
+
+    
