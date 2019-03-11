@@ -37,8 +37,8 @@
 	
 		<label for="study_name" >스터디제목 <input type="text" id="study_name" name="study_name" /> </label>
 		<br><br>
-		<label for="st_code">카테고리 
-							<select name="st_code" id="st_code">
+		<label for="st_code"> 카테고리 
+							<select name="st_catecode" id="st_catecode">
 								<option value="">1차분류</option>
 								<option value="1">IT·프로그래밍</option>
 								<option value="2">디자인</option>
@@ -51,7 +51,7 @@
 								<option value="9">수능</option>
 							</select>
 							
-							<select name="st_catecode" id="st_catecode">
+							<select name="st_code" id="st_code">
 								<option value="">2차분류</option>
 								<option value="1">IT·프로그래밍</option>
 								<option value="2">디자인</option>
@@ -76,7 +76,7 @@
 				<input type="checkbox" name="study_region" value="부산" /> 부산
 				<input type="checkbox" name="study_region" value="김포" /> 김포   
 		<br><br>
-		<label for="study_tiem"> 시간대 </label>
+		<label for="study_time"> 시간대 </label>
 				<input type="checkbox" name="study_time" value="전시간가능" /> 전시간 가능 
 				<input type="checkbox" name="study_time" value="주중 시간무관" /> 주중 시간무관
 				<input type="checkbox" name="study_time" value="주중 오전" /> 주중 오전 
@@ -114,19 +114,18 @@
 				</select>
 		</label>
 		<br><br>
-		<label> 성별 
+		<label for="study_gender"> 성별 
 			<input type="checkbox" name="study_gender" value="무관" /> 무관			
 			<input type="checkbox" name="study_gender" value="여자" /> 여자
 			<input type="checkbox" name="study_gender" value="남자" /> 남자
 		</label>
 		<br><br>
 		<label> 스터디기간
-			<input type="text" id="studyopendate"> ~ <input type="text" id="studyperiod"> 
+			<input type="text" id="study_opendate"> ~ <input type="text" id="study_period"> 
 		</label>
 		<br><br>
 		<label> 상세 내용 
-				<textarea name="study_detail" cols="40" row="10">
-				</textarea>
+				<textarea name="study_detail" cols="50" row="15" placeholder="스터디의 목표 및 방향, 하고싶은말을 자유롭게 작성해주세요"></textarea>
 		</label>
 		<br><br>
 	</form>
