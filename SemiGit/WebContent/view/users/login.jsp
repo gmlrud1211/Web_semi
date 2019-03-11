@@ -18,6 +18,8 @@
         </div>
         <button class="btn btn-lg btn-block" type="submit" style="color:#ffffff; background:#F67280">로그인</button>
       </form>
-
+	<div class="apiLogin">
+		<jsp:include page="./loginNaver.jsp"/>
+	</div>
     </div>
 </div>

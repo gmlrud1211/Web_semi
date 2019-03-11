@@ -9,11 +9,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.users.face.UsersDao;
-import dao.users.impl.UsersDaoImpl;
+import dao.users.UsersDao;
+import dao.users.UsersDaoImpl;
 import dto.users.Users;
-import service.users.face.UsersService;
-import service.users.impl.UsersServiceImpl;
+import service.users.UsersService;
+import service.users.UsersServiceImpl;
 
 
 @WebServlet("/users/login")

@@ -1,4 +1,4 @@
-package dao.users.face;
+package dao.users;
 
 import dto.users.Users;
 

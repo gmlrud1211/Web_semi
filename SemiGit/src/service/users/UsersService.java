@@ -1,4 +1,4 @@
-package service.users.face;
+package service.users;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

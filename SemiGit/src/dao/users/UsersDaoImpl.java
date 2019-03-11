@@ -1,11 +1,10 @@
-package dao.users.impl;
+package dao.users;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import dao.users.face.UsersDao;
 import dto.users.Users;
 import utill.DBConn;
 

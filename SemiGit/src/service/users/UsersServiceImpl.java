@@ -1,12 +1,11 @@
-package service.users.impl;
+package service.users;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.users.face.UsersDao;
-import dao.users.impl.UsersDaoImpl;
+import dao.users.UsersDao;
+import dao.users.UsersDaoImpl;
 import dto.users.Users;
-import service.users.face.UsersService;
 
 public class UsersServiceImpl implements UsersService {
 	
