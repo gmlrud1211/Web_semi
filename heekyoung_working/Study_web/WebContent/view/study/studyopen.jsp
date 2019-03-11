@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>studyopen</title>
 
 
 	<!--datepicker-->    
@@ -12,8 +12,7 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>  
 	<script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>  
 	
-	<script>
-	
+	<script type="text/javascript">
 	$(function() {
 	    $( "#studyopendate" ).datepicker({
 	    });
@@ -23,6 +22,44 @@
 	    });
 	});
 	</script>
+	
+	<script type="text/javascript">
+		function fnGetCate(param) {
+			var $target = $("select[name='st_code']");
+			
+			$target.empty();
+			if(param==""){
+				$target.append("<option value="">선택</option>");
+				return;
+			}
+			
+			$.ajax ({
+				type="post",
+				url ="/view/study/studyopen.jsp",
+				async : false,
+				data:{st_code:param},
+				dataType : "json",
+				success : function(data) {
+					if(data.length ==0) {
+						$target.append("<opction value="">선택</option>");
+					} else {
+						$(data).each(function(i){
+							$target.append("<option value="+data[i].st_code+">"+data[i].st_name+"</option>");
+							
+						});
+					}
+				}, error:function(xhr){
+					console.log(xhr.responseText);
+					alert("잠시 후 다시 이용해주세요.")
+					return;
+				}
+				
+			});
+			
+		} 
+	</script>
+	
+	
 	
 </head>	
 <body>
@@ -35,7 +72,7 @@
 		<label for="study_name" >스터디제목 <input type="text" id="study_name" name="study_name" /> </label>
 		<br><br>
 		<label for="st_code"> 카테고리 
-							<select name="st_catecode" id="st_catecode">
+							<select name="st_catecode" id="st_catecode" onchange="fnGetCate(this.value);">
 								<option value="">1차분류</option>
 								<option value="1">IT·프로그래밍</option>
 								<option value="2">디자인</option>
@@ -49,16 +86,7 @@
 							</select>
 							
 							<select name="st_code" id="st_code">
-								<option value="">2차분류</option>
-								<option value="1">IT·프로그래밍</option>
-								<option value="2">디자인</option>
-								<option value="3">콘텐츠 제작</option>
-								<option value="4">자격증</option>
-								<option value="5">취업</option>
-								<option value="6">외국어</option>
-								<option value="7">음악</option>
-								<option value="8">뷰티</option>
-								<option value="9">수능</option>
+						
 							</select>
 		</label>
 		<br><br>
