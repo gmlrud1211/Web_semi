@@ -1,5 +1,10 @@
 package service;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -16,6 +21,9 @@ public class StudyServiceImpl implements StudyService {
 		
 		Study study = new Study();
 		
+
+		
+		
 		String study_name =(String)req.getParameter("study_name");
 		String st_code = (String)req.getParameter("st_code");
 		String study_region =(String)req.getParameter("study_region");
@@ -24,8 +32,14 @@ public class StudyServiceImpl implements StudyService {
 		String study_min =(String)req.getParameter("study_min");
 		String study_max =(String)req.getParameter("study_max");
 		String study_gender =(String)req.getParameter("study_gender");
-		String study_opendate =(String)req.getParameter("study_opendate");
-		String study_period =(String)req.getParameter("study_period");
+		
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		try {
+			String study_opendate =df.format(req.getParameter("study_opendate"));
+			String study_period =df.format(req.getParameter("study_period"));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
 		String study_detail =(String)req.getParameter("study_detail");
 		
 		study.setStudy_name(study_name);
@@ -36,8 +50,8 @@ public class StudyServiceImpl implements StudyService {
 		//study.setStudy_min(study_min);
 		//study.setStudy_max(study_max);
 		study.setStudy_gender(study_gender);
-		//study.setStudy_opendate(study_opendate);
-		//study.setStudy_period(study_period);
+		study.setStudy_opendate(study_opendate);
+		study.setStudy_period(study_period);
 		study.setStudy_details(study_detail);
 
 				
