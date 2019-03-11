@@ -8,8 +8,8 @@ public class DBConn {
 	// DB 연결 정보
 	private static final String DRIVER = "oracle.jdbc.driver.OracleDriver";
 	private static final String URL = "jdbc:oracle:thin:@localhost:1521:XE";
-	private static final String USERNAME = "scott";
-	private static final String PASSWORD = "tiger";
+	private static final String USERNAME = "MOMO";
+	private static final String PASSWORD = "admin2019";
 
 	// DB 연결 객체
 	private static Connection conn = null; //연결객체
