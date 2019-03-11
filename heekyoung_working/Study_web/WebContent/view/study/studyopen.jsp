@@ -29,7 +29,7 @@
 <body>
 
 
-	<h3>스터디 개설 페이지</h3>
+	<h3>스터디 개설하기</h3>
 	<hr>
 	<div>	
 	<form action="/study/open" method="post" class="form-horizontal">
