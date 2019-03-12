@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import dto.users.Users;
+import dto.Users;
 import utill.DBConn;
 
 public class UsersDaoImpl implements UsersDao {
@@ -63,8 +63,8 @@ private Connection conn = DBConn.getConnection();
 			rs = ps.executeQuery();
 
 			while(rs.next()) {
+				user.setU_no(rs.getInt("u_no"));
 				user.setU_id(rs.getString("u_id"));
-				user.setU_pw(rs.getString("u_pw"));
 				user.setU_name(rs.getString("u_name"));
 			} 
 			

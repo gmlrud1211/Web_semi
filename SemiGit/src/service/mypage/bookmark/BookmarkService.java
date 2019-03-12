@@ -1,13 +1,13 @@
-package service.bookmark;
+package service.mypage.bookmark;
 
 import java.util.List;
 
-import dto.bookmark.Bookmark;
+import dto.Bookmark;
 
 public interface BookmarkService {
 
 	public List getBookmarkListByUno(int u_no);
 	
-	public void deleteBookmark(Bookmark bm);
+	public void deleteBookmark(int bm_no);
 	
 }

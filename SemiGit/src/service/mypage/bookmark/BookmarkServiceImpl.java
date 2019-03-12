@@ -1,10 +1,10 @@
-package service.bookmark;
+package service.mypage.bookmark;
 
 import java.util.List;
 
-import dao.bookmark.BookmarkDao;
-import dao.bookmark.BookmarkDaoImpl;
-import dto.bookmark.Bookmark;
+import dao.mypage.bookmark.BookmarkDao;
+import dao.mypage.bookmark.BookmarkDaoImpl;
+import dto.Bookmark;
 
 public class BookmarkServiceImpl implements BookmarkService {
 
@@ -16,8 +16,11 @@ public class BookmarkServiceImpl implements BookmarkService {
 	}
 
 	@Override
-	public void deleteBookmark(Bookmark bm) {
-		bmDao.deleteBookmark(bm);
+	public void deleteBookmark(int bm_no) {
+		bmDao.deleteBookmark(bm_no);
 	}
+
+	
+
 
 }

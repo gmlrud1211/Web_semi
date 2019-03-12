@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.users.UsersDao;
 import dao.users.UsersDaoImpl;
-import dto.users.Users;
+import dto.Users;
 
 public class UsersServiceImpl implements UsersService {
 	

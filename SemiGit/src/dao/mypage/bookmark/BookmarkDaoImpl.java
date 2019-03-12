@@ -1,4 +1,4 @@
-package dao.bookmark;
+package dao.mypage.bookmark;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,9 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
-import dto.bookmark.Bookmark;
-import dto.users.Users;
+import dto.Bookmark;
 import utill.DBConn;
 
 public class BookmarkDaoImpl implements BookmarkDao {
@@ -22,8 +20,17 @@ public class BookmarkDaoImpl implements BookmarkDao {
 	public List selectByUserno(int u_no) {
 		
 		String sql = "";
-		sql +="SELECT * FROM bookmark";
-		sql +=" WHERE u_no=?";
+				
+		sql += "SELECT  B.bm_no, B.u_no, B.study_no, S.study_name, S.file_no, F.file_originname, "
+				+ "F.file_storedname, B.bm_date"; 
+		sql += " FROM study S";
+		sql += " LEFT OUTER JOIN bookmark B";
+		sql += " ON S.study_no = B.study_no";
+		sql += " LEFT OUTER JOIN fileupload F";
+		sql += " ON S.file_no = F.file_no";
+		sql += " WHERE B.u_no=?";
+		sql += " ORDER BY b.bm_date";
+		
 
 		List<Bookmark> bmList = new ArrayList<>();
 		
@@ -40,6 +47,10 @@ public class BookmarkDaoImpl implements BookmarkDao {
 				bm.setBm_no(rs.getInt("bm_no"));
 				bm.setU_no(rs.getInt("u_no"));
 				bm.setStudy_no(rs.getInt("study_no"));
+				bm.setStudy_name(rs.getString("study_name"));
+				bm.setFile_no(rs.getInt("file_no"));
+				bm.setFile_originname(rs.getString("file_originname"));
+				bm.setFile_storedname(rs.getString("file_storedname"));
 				bm.setBm_date(rs.getDate("bm_date"));
 				
 				bmList.add(bm);
@@ -49,15 +60,12 @@ public class BookmarkDaoImpl implements BookmarkDao {
 			e.printStackTrace();
 		} finally {
 			try {
-				// --- 자원 해제 ---
 				if(rs!=null)	rs.close();
 				if(ps!=null)	ps.close();
-				// --------------
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 		} 
-		
 		return bmList;
 	}
 
@@ -87,19 +95,18 @@ public class BookmarkDaoImpl implements BookmarkDao {
 			}
 		}	
 		
-		// 전체 게시글 수 반환
 		return cnt;
 	}
 
 	@Override
-	public void deleteBookmark(Bookmark bm) {
+	public void deleteBookmark(int bm_no) {
 		String sql="";
 		sql += "DELETE FROM bookmark";
 		sql += " WHERE bm_no=?";
 		
 		try {
 			ps = conn.prepareStatement(sql);
-			ps.setInt(1, bm.getBm_no());
+			ps.setInt(1, bm_no);
 			
 			ps.executeUpdate();
 
@@ -118,5 +125,6 @@ public class BookmarkDaoImpl implements BookmarkDao {
 		
 	}
 
+	
 
 }

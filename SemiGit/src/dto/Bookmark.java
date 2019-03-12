@@ -1,4 +1,4 @@
-package dto.bookmark;
+package dto;
 
 import java.util.Date;
 
