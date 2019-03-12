@@ -9,6 +9,7 @@ public class StudyBoard {
 	private String sb_content;
 	private int file_no;
 	private Date sb_date;
+	
 	public int getStudy_no() {
 		return study_no;
 	}
