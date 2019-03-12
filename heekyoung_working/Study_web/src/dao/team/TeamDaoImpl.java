@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import dto.file.FileUpload;
 import dto.study.StudyBoard;
 import util.DBConn;
 import util.Paging;
@@ -107,6 +108,97 @@ public class TeamDaoImpl implements TeamDao{
 			}
 		}
 			return boardList;
+		
+	}
+
+	@Override
+	public int getSb_no() {
+		String sql = "";
+		sql += "SELECT STUDYBOARD_SEQ.nextval FROM dual";
+		
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		
+		int sb_no = -1;
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			rs = ps.executeQuery();
+			
+			rs.next();
+		
+			sb_no = rs.getInt(1);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs!=null)	rs.close();
+				if(ps!=null)	ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}		
+		
+		return sb_no;
+	}
+
+	@Override
+	public void insertTeamBoard(StudyBoard board) {
+
+		String sql = "";
+		sql += "INSERT INTO studyboard ( study_no , u_no, sb_content, file_no, sb_date, sb_no)";
+		sql += " VALUES ( 1, 1, ?, ?, sysdate, STUDYBOARD_SEQ.nextval  )";
+		
+		//INSERT INTO STUDYBOARD(STUDY_NO,U_NO,SB_CONTENT,FILE_NO,SB_DATE,SB_NO) VALUES (1,	1,'자료받아가세용~5',39,'2019/03/05',STUDYBOARD_SEQ.nextval);
+		
+		PreparedStatement ps = null;
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			
+			ps.setString(1, board.getSb_content());
+			ps.setInt(2, board.getFile_no());
+			
+			ps.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(ps!=null)	ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	@Override
+	public void updateFile(FileUpload fileupload) {
+		String sql = "";
+		sql += "UPDATE fileUpload SET boardno = ?";
+		sql += " WHERE fileno = ?";
+
+		PreparedStatement ps = null;
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			
+			
+			ps.setInt(2, fileupload.getFile_no());
+			
+			ps.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(ps!=null)	ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
 		
 	}
 

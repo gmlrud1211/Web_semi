@@ -20,6 +20,20 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 	
+		<script type="text/javascript">
+		$(document).ready(function() {
+					
+			//글쓰기 버튼 이벤트
+			$("#btnWrite").click(function() {
+				location.href ="/team/board/write";
+			});
+			
+		});
+		</script>
+		
+		
+		
+		
 		<style>
 			h3 {text-align : center;}
 		</style>
@@ -38,8 +52,8 @@
 					<th style="width: 10%">번호</th>
 					<th style="width: 45%">제목</th>
 					<th style="width: 20%">작성자</th>
-					<th style="width: 20%">작성일</th>
-					<th style="width: 10%">다운로드</th>
+					<th style="width: 15%">작성일</th>
+					<th style="width: 15%">다운로드</th>
 				</tr>
 			</thead>
 			
