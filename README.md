@@ -3,13 +3,19 @@
 
 20190122~ing
 
+
 기획, 설계  完
 -----------------
  └ 요구사항정의서
+ 
  └ 스토리보드 
+ 
  └ UseCase 
+ 
  └ ERD 
+ 
  └ Class Diagram 
+ 
  └ Sequence Diagram
 
 구현 ~ ing (3/28)
