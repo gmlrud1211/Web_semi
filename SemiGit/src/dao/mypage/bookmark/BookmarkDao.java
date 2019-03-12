@@ -11,7 +11,7 @@ public interface BookmarkDao {
 	public List selectByUserno(int u_no);
 	
 	// 총 북마크 수 반환
-	public int selectCntBookmark();
+	public int selectCntBookmark(int u_no);
 	
 	// 북마크 삭제
 	public void deleteBookmark(int bm_no);
