@@ -49,6 +49,7 @@
 	
 		<!-- 상위카테고리 선택에 따른 하위카테고리  리스트 보여줌--> 
  <!-- 	<script type="text/javascript">
+	
 		function fnGetCate(param) {
 			var $target = $("select[name='st_code']");
 			
@@ -60,7 +61,7 @@
 			
 			$.ajax ({
 				type="post",
-				url ="/view/study/studyopen.jsp",
+				url ="/view/study/cate",
 				async : false,
 				data:{st_catecode:param},
 				dataType : "json",
@@ -102,135 +103,167 @@
 		}
 	</script>
 	
-</head>	
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#btnFile").click(function() {
+				
+				//화면크기 구하기
+				var w = screen.availWidth;
+				var h = screen.availHeight;
+				
+				//팝업 띄우기
+				var popup = window.open(
+						"",
+						"",
+						"status=no" //하단 상태바
+						+",menubar=no" //상단 메뉴
+						+",scrollbars=no" //스크롤바
+						+",resizable=no" //사이즈변경
+						+",width=300" //너비
+						+",height=200" //높이
+						+",left="+(w-300)/2 //x 위치
+						+",top="+(h-200)/2 ); //y 위치
+				
+				//팝업 url 설정
+				popup.location = "/file/newtab";
+			});
+		});
+		
+		function sendData(no, name) {
+			$("#fileno").val(no); //파일번호넣기
+			$("#upResult").html(name); //파일이름 넣기
+		}
+	</script>
+	
+</head>
+	
 <body>
 	<h3>스터디 개설하기</h3>
 	<hr>
 	<div class="container">	
-	<form action="/study/open" method="post" class="form-horizontal">
-				<div class="form-group" >
-			<label for="file_no" class="col-sm-3 col-sm-offset-1 control-label">대표 이미지선택</label>
-		
-			<div class="col-sm-5">
-				<input type="file" id="LoadImg" name="file_no" onchange="LoadImg(this);" />
-				<img id="LoadImg" src="#" />	
-			</div>	
-		</div>
-
-		<div class="form-group">
-			<label for="study_name" class="col-sm-3 col-sm-offset-1 control-label">스터디제목 </label> 
-			<div class="col-sm-5">
-				<input type="text" id="study_name" name="study_name" />
+	
+		<form action="/study/open" method="post" class="form-horizontal">
+			
+			<div class="form-group">
+					<input type="hidden" id="file_no" name="file_no" />
+					<button type="button" id="btnFile">대표이미지 파일 첨부</button>
+					<span id="upResult"></span>
 			</div>
-		</div>
-		
-		<div class="form-group">
-		<label for="st_code" class="col-sm-3 col-sm-offset-1 control-label"> 카테고리  </label>
+			
+			<div class="form-group">
+				<label for="study_name" class="col-sm-3 col-sm-offset-1 control-label">스터디제목 </label> 
 				<div class="col-sm-5">
-					<select name="st_catecode" id="st_catecode" onchange="fnGetCate(this.value);">
-						<option value="">1차분류</option>
-						<option value="1">IT·프로그래밍</option>
-						<option value="2">디자인</option>
-						<option value="3">콘텐츠 제작</option>
-						<option value="4">자격증</option>
-						<option value="5">취업</option>
-						<option value="6">외국어</option>
-						<option value="7">음악</option>
-						<option value="8">뷰티</option>
-						<option value="9">수능</option>
-					</select>
+					<input type="text" id="study_name" name="study_name" />
+				</div>
+			</div>
+			
+			<div class="form-group">
+			<label for="st_code" class="col-sm-3 col-sm-offset-1 control-label"> 카테고리  </label>
+					<div class="col-sm-5">
+						<select name="st_catecode" id="st_catecode" onchange="fnGetCate(this.value);">
+							<option value="">1차분류</option>
+							<option value="1">IT·프로그래밍</option>
+							<option value="2">디자인</option>
+							<option value="3">콘텐츠 제작</option>
+							<option value="4">자격증</option>
+							<option value="5">취업</option>
+							<option value="6">외국어</option>
+							<option value="7">음악</option>
+							<option value="8">뷰티</option>
+							<option value="9">수능</option>
+						</select>
+								
+						<select name="st_code" id="st_code">
 							
-					<select name="st_code" id="st_code">
-						
+						</select>
+					</div>
+			</div>
+	
+			<div class="form-group">
+			<label for="study_region" class="col-sm-3 col-sm-offset-1 control-label"> 지역  </label>  
+					<div class="col-sm-5">
+						<input type="radio" name="study_region" value="서울" /> 서울 
+						<input type="radio" name="study_region" value="인천" /> 인천
+						<input type="radio" name="study_region" value="분당" /> 분당
+						<input type="radio" name="study_region" value="수원" /> 수원
+						<input type="radio" name="study_region" value="시흥" /> 시흥
+						<input type="radio" name="study_region" value="대구" /> 대구
+						<input type="radio" name="study_region" value="대전" /> 대전
+						<input type="radio" name="study_region" value="부산" /> 부산
+						<input type="radio" name="study_region" value="김포" /> 김포   
+					</div>
+			</div>		
+			<div class="form-group">
+			<label for="study_time" class="col-sm-3 col-sm-offset-1 control-label"> 시간대  </label>
+				<div class="col-sm-5">
+					
+					<input type="radio" name="study_time" value="전시간가능" /> 전시간 가능 
+					<input type="radio" name="study_time" value="주중 시간무관" /> 주중 시간무관
+					<input type="radio" name="study_time" value="주중 오전" /> 주중 오전 
+					<input type="radio" name="study_time" value="주중 오후" /> 주중 오후
+					<input type="radio" name="study_time" value="주말 시간무관" /> 주말 시간무관
+					<input type="radio" name="study_time" value="주말 오전" /> 주말 오전	
+			 		<input type="radio" name="study_time" value="주말 오후" /> 주말 오후
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="study_freq" class="col-sm-3 col-sm-offset-1 control-label"> 스터디 횟수  </label>
+				<div class="col-sm-5">
+					<input type="text" id="study_freq" name="study_freq" placeholder="횟수를 입력해주세요" /> 회
+				</div>
+			</div>
+			<div class="form-group">
+			<label class="col-sm-3 col-sm-offset-1 control-label"> 모집인원 </label> 
+				<div class="col-sm-5">
+					<select name="study_min" id="study_min">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+					</select> ~ 
+					<select name="study_max" id="study_max">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
 					</select>
 				</div>
-		</div>
-
-		<div class="form-group">
-		<label for="study_region" class="col-sm-3 col-sm-offset-1 control-label"> 지역  </label>  
+			</div>
+			<div class="form-group">
+			<label for="study_gender" class="col-sm-3 col-sm-offset-1 control-label"> 성별</label>  
 				<div class="col-sm-5">
-					<input type="radio" name="study_region" value="서울" /> 서울 
-					<input type="radio" name="study_region" value="인천" /> 인천
-					<input type="radio" name="study_region" value="분당" /> 분당
-					<input type="radio" name="study_region" value="수원" /> 수원
-					<input type="radio" name="study_region" value="시흥" /> 시흥
-					<input type="radio" name="study_region" value="대구" /> 대구
-					<input type="radio" name="study_region" value="대전" /> 대전
-					<input type="radio" name="study_region" value="부산" /> 부산
-					<input type="radio" name="study_region" value="김포" /> 김포   
+					<input type="radio" name="study_gender" value="무관" /> 무관			
+					<input type="radio" name="study_gender" value="여자" /> 여자
+					<input type="radio" name="study_gender" value="남자" /> 남자
 				</div>
-		</div>		
-		<div class="form-group">
-		<label for="study_time" class="col-sm-3 col-sm-offset-1 control-label"> 시간대  </label>
-			<div class="col-sm-5">
-				
-				<input type="radio" name="study_time" value="전시간가능" /> 전시간 가능 
-				<input type="radio" name="study_time" value="주중 시간무관" /> 주중 시간무관
-				<input type="radio" name="study_time" value="주중 오전" /> 주중 오전 
-				<input type="radio" name="study_time" value="주중 오후" /> 주중 오후
-				<input type="radio" name="study_time" value="주말 시간무관" /> 주말 시간무관
-				<input type="radio" name="study_time" value="주말 오전" /> 주말 오전	
-		 		<input type="radio" name="study_time" value="주말 오후" /> 주말 오후
 			</div>
-		</div>
-		
-		<div class="form-group">
-			<label for="study_freq" class="col-sm-3 col-sm-offset-1 control-label"> 스터디 횟수  </label>
-			<div class="col-sm-5">
-				<input type="text" id="study_freq" name="study_freq" placeholder="횟수를 입력해주세요" /> 회
+			<div class="form-group">
+			<label class="col-sm-3 col-sm-offset-1 control-label"> 스터디기간  </label>
+				<div class="col-sm-5">
+					<input type="text" name="study_opendate" id="studyopendate" > ~ <input type="text" name="study_period" id="studyperiod"> 
+				</div>
 			</div>
-		</div>
-		<div class="form-group">
-		<label class="col-sm-3 col-sm-offset-1 control-label"> 모집인원 </label> 
-			<div class="col-sm-5">
-				<select name="study_min" id="study_min">
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
-						<option value="5">5</option>
-						<option value="6">6</option>
-						<option value="7">7</option>
-						<option value="8">8</option>
-						<option value="9">9</option>
-						<option value="10">10</option>
-				</select> ~ 
-				<select name="study_max" id="study_max">
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
-						<option value="5">5</option>
-						<option value="6">6</option>
-						<option value="7">7</option>
-						<option value="8">8</option>
-						<option value="9">9</option>
-						<option value="10">10</option>
-				</select>
-			</div>
-		</div>
-		<div class="form-group">
-		<label for="study_gender" class="col-sm-3 col-sm-offset-1 control-label"> 성별</label>  
-			<div class="col-sm-5">
-				<input type="radio" name="study_gender" value="무관" /> 무관			
-				<input type="radio" name="study_gender" value="여자" /> 여자
-				<input type="radio" name="study_gender" value="남자" /> 남자
-			</div>
-		</div>
-		<div class="form-group">
-		<label class="col-sm-3 col-sm-offset-1 control-label"> 스터디기간  </label>
-			<div class="col-sm-5">
-				<input type="text" name="study_opendate" id="studyopendate" > ~ <input type="text" name="study_period" id="studyperiod"> 
-			</div>
-		</div>
-		<div class="form-group">
-		<label class="col-sm-3 col-sm-offset-1 control-label"> 상세 내용 </label>  
-			<div class="col-sm-5">
-			<textarea name="study_detail" cols="50" rows="7" placeholder="하고싶은말을 자유롭게 작성해주세용" > </textarea>  
-			</div>
-		</div>		   
-
-	</form>	
+			<div class="form-group">
+			<label class="col-sm-3 col-sm-offset-1 control-label"> 상세 내용 </label>  
+				<div class="col-sm-5">
+				<textarea name="study_detail" cols="50" rows="7" placeholder="하고싶은말을 자유롭게 작성해주세용" > </textarea>  
+				</div>
+			</div>		   
+	
+		</form>	
 	</div>
 
 

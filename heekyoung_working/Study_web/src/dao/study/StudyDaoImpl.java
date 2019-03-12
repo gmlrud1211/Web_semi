@@ -5,8 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import dbutil.DBConn;
 import dto.study.Study;
+import util.DBConn;
 
 public class StudyDaoImpl implements StudyDao {
 
