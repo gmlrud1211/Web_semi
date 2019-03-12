@@ -1,4 +1,4 @@
-package service;
+package service.study;
 
 import java.util.List;
 

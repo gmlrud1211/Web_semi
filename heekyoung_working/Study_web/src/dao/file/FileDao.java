@@ -8,4 +8,5 @@ public interface FileDao {
 		
 		//파일 삽입
 		public void insertFile(FileUpload file);
+
 }

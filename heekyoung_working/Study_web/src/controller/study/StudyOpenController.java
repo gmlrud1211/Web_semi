@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dto.study.Study;
-import service.StudyService;
-import service.StudyServiceImpl;
+import service.study.StudyService;
+import service.study.StudyServiceImpl;
 
 @WebServlet("/study/open")
 public class StudyOpenController extends HttpServlet {

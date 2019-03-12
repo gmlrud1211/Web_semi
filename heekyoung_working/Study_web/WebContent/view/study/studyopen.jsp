@@ -140,16 +140,12 @@
 <body>
 	<h3>스터디 개설하기</h3>
 	<hr>
+	
+	
 	<div class="container">	
 	
 		<form action="/study/open" method="post" class="form-horizontal">
-			
-			<div class="form-group">
-					<input type="hidden" id="file_no" name="file_no" />
-					<button type="button" id="btnFile">대표이미지 파일 첨부</button>
-					<span id="upResult"></span>
-			</div>
-			
+
 			<div class="form-group">
 				<label for="study_name" class="col-sm-3 col-sm-offset-1 control-label">스터디제목 </label> 
 				<div class="col-sm-5">
@@ -263,6 +259,12 @@
 				</div>
 			</div>		   
 	
+			<div class="col-sm-offset-4">
+				<input type="hidden" id="file_no" name="file_no" />
+				<button type="button" id="btnFile" class="btn btn-default" >대표이미지 파일 첨부</button>
+				<span id="upResult"></span>
+			</div>
+			<br><br>
 		</form>	
 	</div>
 

@@ -52,7 +52,7 @@ public class FileDaoImpl implements FileDao{
 	public void insertFile(FileUpload file) {
 		String sql = "";
 		sql += "INSERT INTO fileupload ( file_no, file_originname, file_storedname, file_uploaddate, fut_code )";
-		sql += " VALUES ( FILEUPLOAD_SEQ.nextval, ?, ?, sysdate, 5 )";
+		sql += " VALUES ( FILEUPLOAD_SEQ.nextval, ?, ?, sysdate, ?)";
 				
 		//INSERT INTO fileUpload(file_no, file_originname, file_storedname, file_uploaddate, fut_code) 
 		//VALUES(FILEUPLOAD_SEQ.nextval,'파일1','저장파일1',TO_DATE('20190201'),1);
@@ -64,6 +64,7 @@ public class FileDaoImpl implements FileDao{
 		
 			ps.setString(1, file.getFile_originname());
 			ps.setString(2, file.getFile_storedname());
+			ps.setInt(3, file.getFut_code());
 			
 			ps.executeUpdate();
 			

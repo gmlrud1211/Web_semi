@@ -10,7 +10,7 @@ import util.DBConn;
 
 public class StudyDaoImpl implements StudyDao {
 
-private Connection conn = DBConn.getConnection();
+	private Connection conn = DBConn.getConnection();
 	
 	private PreparedStatement ps;
 	private ResultSet rs;
