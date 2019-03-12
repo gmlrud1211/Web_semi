@@ -1,4 +1,4 @@
-package controller.bookmark;
+package controller.mypage.bookmark;
 
 import java.io.IOException;
 import java.util.List;
@@ -10,10 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.bookmark.BookmarkDao;
-import dao.bookmark.BookmarkDaoImpl;
-import service.bookmark.BookmarkService;
-import service.bookmark.BookmarkServiceImpl;
+import dao.mypage.bookmark.BookmarkDao;
+import dao.mypage.bookmark.BookmarkDaoImpl;
+import service.mypage.bookmark.BookmarkService;
+import service.mypage.bookmark.BookmarkServiceImpl;
 
 
 @WebServlet("/bookmark")
