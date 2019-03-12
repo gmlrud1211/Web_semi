@@ -32,7 +32,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#" style="color:#F67280"><h2><strong>MOMO</strong></h2></a>
+          <a class="navbar-brand" href="/main" style="color:#F67280"><h2><strong>MOMO</strong></h2></a>
         </div>
         <div id="navbar" class="navbar-right">
           <ul class="nav navbar-nav" style="font-size: 0.8em;">
@@ -42,7 +42,8 @@
 			  <li><a href="#">스터디개설</a></li>
 			  
 			  <c:if test="${login }">
-			  <li><a href="#"><strong>${u_id }님 안녕하세요!</strong></a></li>
+			  <li><a href="/view/mypage/mypage.jsp">마이페이지</a></li>
+			  <li><a href="/view/users/logout.jsp">로그아웃</a></li>
 			  </c:if>
 			  <c:if test="${!login }">
 			  <li><a href="/users/login">로그인</a></li>

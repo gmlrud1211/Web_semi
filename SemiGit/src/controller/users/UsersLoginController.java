@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import dao.users.UsersDao;
 import dao.users.UsersDaoImpl;
-import dto.users.Users;
+import dto.Users;
 import service.users.UsersService;
 import service.users.UsersServiceImpl;
 
@@ -35,12 +35,10 @@ public class UsersLoginController extends HttpServlet {
 		
 		if(login==true) {
 			Users u = uServ.getUserByUid(user);
-			
-			String u_id = user.getU_id();
-			String u_name = user.getU_name();
-		
-			session.setAttribute("u_id", u_id);
-			session.setAttribute("u_name", u_name);
+
+			session.setAttribute("u_no", u.getU_no());
+			session.setAttribute("u_id", u.getU_id());
+			session.setAttribute("u_name", u.getU_name());
 
 		}
 		

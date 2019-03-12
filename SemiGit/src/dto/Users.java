@@ -1,4 +1,4 @@
-package dto.users;
+package dto;
 
 import java.util.Date;
 
