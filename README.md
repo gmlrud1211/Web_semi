@@ -3,19 +3,17 @@
 
 20190122~ing
 
-기획, 설계 단계
---------------
-요구사항정의서 完
+기획, 설계  完
+-----------------
+ └ 요구사항정의서
+ └ 스토리보드 
+ └ UseCase 
+ └ ERD 
+ └ Class Diagram 
+ └ Sequence Diagram
 
-스토리보드 完
+구현 ~ ing (3/28)
+-----------------
 
-UseCase 完
-
-테이블 정의서
-
-ERD 
-
-Class Diagram
-
-Sequence Diagram
-
+발표 (3/29)
+-----------------
