@@ -1,6 +1,4 @@
-# Web_semi
-스터디 모집관리 웹사이트(kh semi_pjt)
-
+# Web_semi <스터디 모집관리 웹사이트>
 20190122~ing
 
 
