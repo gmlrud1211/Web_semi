@@ -1,4 +1,4 @@
-package dao.bookmark;
+package dao.mypage.bookmark;
 
 import java.util.List;
 

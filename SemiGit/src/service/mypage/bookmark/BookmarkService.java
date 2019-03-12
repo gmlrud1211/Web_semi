@@ -1,4 +1,4 @@
-package service.bookmark;
+package service.mypage.bookmark;
 
 import java.util.List;
 
