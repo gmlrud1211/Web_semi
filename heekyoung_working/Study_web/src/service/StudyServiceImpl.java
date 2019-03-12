@@ -2,6 +2,7 @@ package service;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.List;
 import java.sql.Date;
 
 import javax.servlet.http.HttpServletRequest;
@@ -65,8 +66,10 @@ public class StudyServiceImpl implements StudyService {
 
 	@Override
 	public void studyopen(Study study) {
-		studyDao.studyopen(study);
+		
 	}
+
+
 
 	
 }

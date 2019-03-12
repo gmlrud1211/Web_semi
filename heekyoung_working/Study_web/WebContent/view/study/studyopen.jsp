@@ -47,7 +47,8 @@
 	
 	
 	
-<!-- 	<script type="text/javascript" src="httpRequest.js">
+		<!-- 상위카테고리 선택에 따른 하위카테고리  리스트 보여줌--> 
+ <!-- 	<script type="text/javascript">
 		function fnGetCate(param) {
 			var $target = $("select[name='st_code']");
 			
@@ -61,7 +62,7 @@
 				type="post",
 				url ="/view/study/studyopen.jsp",
 				async : false,
-				data:{st_code:param},
+				data:{st_catecode:param},
 				dataType : "json",
 				success : function(data) {
 					if(data.length ==0) {
@@ -82,8 +83,8 @@
 			});
 			
 		} 
-	</script> 
-	 -->
+	</script>  -->
+	
 	 
 	 <style type="text/css">
 		h3 { text-align : center;}
@@ -148,27 +149,28 @@
 		<div class="form-group">
 		<label for="study_region" class="col-sm-3 col-sm-offset-1 control-label"> 지역  </label>  
 				<div class="col-sm-5">
-					<input type="checkbox" name="study_region" value="서울" /> 서울 
-					<input type="checkbox" name="study_region" value="인천" /> 인천
-					<input type="checkbox" name="study_region" value="분당" /> 분당
-					<input type="checkbox" name="study_region" value="수원" /> 수원
-					<input type="checkbox" name="study_region" value="시흥" /> 시흥
-					<input type="checkbox" name="study_region" value="대구" /> 대구
-					<input type="checkbox" name="study_region" value="대전" /> 대전
-					<input type="checkbox" name="study_region" value="부산" /> 부산
-					<input type="checkbox" name="study_region" value="김포" /> 김포   
+					<input type="radio" name="study_region" value="서울" /> 서울 
+					<input type="radio" name="study_region" value="인천" /> 인천
+					<input type="radio" name="study_region" value="분당" /> 분당
+					<input type="radio" name="study_region" value="수원" /> 수원
+					<input type="radio" name="study_region" value="시흥" /> 시흥
+					<input type="radio" name="study_region" value="대구" /> 대구
+					<input type="radio" name="study_region" value="대전" /> 대전
+					<input type="radio" name="study_region" value="부산" /> 부산
+					<input type="radio" name="study_region" value="김포" /> 김포   
 				</div>
 		</div>		
 		<div class="form-group">
 		<label for="study_time" class="col-sm-3 col-sm-offset-1 control-label"> 시간대  </label>
 			<div class="col-sm-5">
-				<input type="checkbox" name="study_time" value="전시간가능" /> 전시간 가능 
-				<input type="checkbox" name="study_time" value="주중 시간무관" /> 주중 시간무관
-				<input type="checkbox" name="study_time" value="주중 오전" /> 주중 오전 
-				<input type="checkbox" name="study_time" value="주중 오후" /> 주중 오후
-				<input type="checkbox" name="study_time" value="주말 시간무관" /> 주말 시간무관
-				<input type="checkbox" name="study_time" value="주말 오전" /> 주말 오전	
-		 		<input type="checkbox" name="study_time" value="주말 오후" /> 주말 오후
+				
+				<input type="radio" name="study_time" value="전시간가능" /> 전시간 가능 
+				<input type="radio" name="study_time" value="주중 시간무관" /> 주중 시간무관
+				<input type="radio" name="study_time" value="주중 오전" /> 주중 오전 
+				<input type="radio" name="study_time" value="주중 오후" /> 주중 오후
+				<input type="radio" name="study_time" value="주말 시간무관" /> 주말 시간무관
+				<input type="radio" name="study_time" value="주말 오전" /> 주말 오전	
+		 		<input type="radio" name="study_time" value="주말 오후" /> 주말 오후
 			</div>
 		</div>
 		
@@ -210,9 +212,9 @@
 		<div class="form-group">
 		<label for="study_gender" class="col-sm-3 col-sm-offset-1 control-label"> 성별</label>  
 			<div class="col-sm-5">
-				<input type="checkbox" name="study_gender" value="무관" /> 무관			
-				<input type="checkbox" name="study_gender" value="여자" /> 여자
-				<input type="checkbox" name="study_gender" value="남자" /> 남자
+				<input type="radio" name="study_gender" value="무관" /> 무관			
+				<input type="radio" name="study_gender" value="여자" /> 여자
+				<input type="radio" name="study_gender" value="남자" /> 남자
 			</div>
 		</div>
 		<div class="form-group">

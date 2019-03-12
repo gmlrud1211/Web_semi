@@ -8,6 +8,7 @@ public class FileUpload {
 	private String file_storedname;
 	private Date file_uploaddate;
 	private int fut_code;
+	
 	public int getFile_no() {
 		return file_no;
 	}

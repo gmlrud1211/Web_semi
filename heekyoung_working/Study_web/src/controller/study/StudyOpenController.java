@@ -12,7 +12,7 @@ import service.StudyService;
 import service.StudyServiceImpl;
 
 @WebServlet("/study/open")
-public class StudyopenController extends HttpServlet {
+public class StudyOpenController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	private StudyService studyservice = new StudyServiceImpl();
