@@ -76,7 +76,6 @@
 	
 	</div>
 	
-	</div>
 	
 	
 	<jsp:include page="../layout/paging.jsp"/>
