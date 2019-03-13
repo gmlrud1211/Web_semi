@@ -7,9 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dto.study.Study;
-import service.StudyService;
-import service.StudyServiceImpl;
+import dto.Study;
+import service.study.StudyService;
+import service.study.StudyServiceImpl;
 
 @WebServlet("/study/open")
 public class StudyOpenController extends HttpServlet {
@@ -33,6 +33,8 @@ public class StudyOpenController extends HttpServlet {
 		
 		//스터디 정보 등록
 		studyservice.studyopen(study);
+		
+		resp.sendRedirect("/main");
 		
 	}
 

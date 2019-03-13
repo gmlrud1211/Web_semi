@@ -15,7 +15,7 @@ import com.oreilly.servlet.multipart.FileRenamePolicy;
 
 import dao.file.FileDao;
 import dao.file.FileDaoImpl;
-import dto.file.FileUpload;
+import dto.FileUpload;
 
 @WebServlet("/file/newtab")
 public class NewTabController extends HttpServlet {
@@ -53,6 +53,9 @@ public class NewTabController extends HttpServlet {
 		file.setFile_no(fileno);
 		file.setFile_originname(mul.getOriginalFileName("upfile"));
 		file.setFile_storedname(mul.getFilesystemName("upfile"));
+		//(req.getRequestURI()=="/study/open")
+			//file.setFut_code(5);
+			file.setFut_code(3);
 		
 		//파일삽입
 		filedao.insertFile(file);

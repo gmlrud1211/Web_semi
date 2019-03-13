@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import dto.file.FileUpload;
+import dto.FileUpload;
 import util.DBConn;
 
 public class FileDaoImpl implements FileDao{
@@ -52,7 +52,7 @@ public class FileDaoImpl implements FileDao{
 	public void insertFile(FileUpload file) {
 		String sql = "";
 		sql += "INSERT INTO fileupload ( file_no, file_originname, file_storedname, file_uploaddate, fut_code )";
-		sql += " VALUES ( FILEUPLOAD_SEQ.nextval, ?, ?, sysdate, 5 )";
+		sql += " VALUES ( ?, ?, ?, sysdate, ?)";
 				
 		//INSERT INTO fileUpload(file_no, file_originname, file_storedname, file_uploaddate, fut_code) 
 		//VALUES(FILEUPLOAD_SEQ.nextval,'파일1','저장파일1',TO_DATE('20190201'),1);
@@ -62,8 +62,10 @@ public class FileDaoImpl implements FileDao{
 		try {
 			ps = conn.prepareStatement(sql);
 		
-			ps.setString(1, file.getFile_originname());
-			ps.setString(2, file.getFile_storedname());
+			ps.setInt(1, file.getFile_no());
+			ps.setString(2, file.getFile_originname());
+			ps.setString(3, file.getFile_storedname());
+			ps.setInt(4, file.getFut_code());
 			
 			ps.executeUpdate();
 			

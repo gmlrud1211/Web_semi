@@ -7,9 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dto.cate.StudyCategory;
-import service.StudyService;
-import service.StudyServiceImpl;
+import dto.StudyCategory;
+import service.study.StudyService;
+import service.study.StudyServiceImpl;
 
 
 public class StudyCateController extends HttpServlet {

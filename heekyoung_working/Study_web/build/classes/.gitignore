@@ -1,6 +1,5 @@
 /controller/
+/dao/
 /dto/
 /service/
-/dao/
-/dbutil/
 /util/
