@@ -30,7 +30,9 @@ public class TeamBoardWriteController extends HttpServlet {
 
 		//요청파라미터
 		String sb_content = req.getParameter("sb_content");
-		String user_no = req.getParameter("u_no");
+		//int u_no = Integer.parseInt(req.getParameter("u_no"));
+//		int study_no = Integer.parseInt(req.getParameter("study_no"));
+				
 		
 		//파일번호 구하기
 		String filenoParam = req.getParameter("file_no");
@@ -47,7 +49,11 @@ public class TeamBoardWriteController extends HttpServlet {
 		StudyBoard studyboard = new StudyBoard();
 		studyboard.setSb_no(sb_no);
 		studyboard.setSb_content(sb_content);
-
+		studyboard.setFile_no(file_no);
+//		studyboard.setStudy_no(study_no);
+		//studyboard.setU_no(u_no);
+		
+		
 		//게시글 삽입
 		teamDao.insertTeamBoard(studyboard);
 		
