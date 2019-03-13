@@ -5,21 +5,22 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
    
-    
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
+
+<jsp:include page="../layout/header.jsp"/>    
+
 		<title>팀별 자료실</title>
+		
 	
-		<!-- jQuery 2.2.4 -->
-		<script type="text/javascript" src="http://code.jquery.com/jquery-2.2.4.min.js"></script>	
+	 	<!-- jQuery 2.2.4 -->
+	<!-- 	<script type="text/javascript" src="http://code.jquery.com/jquery-2.2.4.min.js"></script>	
 			
-		<!-- 부트스트랩 3.3.2 -->
+		부트스트랩 3.3.2
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-	
+ -->
+ 
+ 
 		<script type="text/javascript">
 		$(document).ready(function() {
 					
@@ -32,16 +33,8 @@
 		</script>
 		
 		
-		
-		
-		<style>
-			h3 {text-align : center;}
-		</style>
-		
-	</head>
-	
-	<body>
-		<h3>팀별 자료실</h3>
+
+		<h3 style="text-align: center;">팀별 자료실</h3>
 		<hr>		
 		
 		<div class="container">
@@ -73,9 +66,8 @@
 	
 	<jsp:include page="../layout/paging.jsp"/>
 
-	<div id="btnBox">
-		<button id="btnWrite" class="btn btn-primary">게시글 작성</button>
+	<div id="btnBox" class="btn pull-right">
+		<button id="btnWrite" class="btn btn-sm" style="color:#ffffff; background:#F67280">게시글 작성</button>
 	</div>
-		
-	</body>
+	
 </html>

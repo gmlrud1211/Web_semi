@@ -6,7 +6,7 @@
 
 <!--  페이지네이션 요소 --> 
 <div class="text-center">
-<ul class="pagination">
+<ul class="pagination" >
 		<li>
 			<!-- 첫페이지가 아니라면 처음 버튼 보이기 -->
 			<c:if test="${paging.curPage ne 1}">
@@ -34,7 +34,7 @@
 		<c:forEach begin ="${paging.startPage }" end="${paging.endPage }" var="i">
 			
 			<c:if test="${paging.curPage eq i }">		
-				<li class="active"><a href="/board/paginglist?curPage=${i }">${i }</a>		
+				<li class="active" ><a href="/board/paginglist?curPage=${i }" style="color:#ffffff; background:#F67280; border-color:#F67280;">${i }</a>		
 			</c:if>
 			<c:if test="${paging.curPage ne i }">
 				<li><a href="/board/paginglist?curPage=${i }">${i }</a>	
