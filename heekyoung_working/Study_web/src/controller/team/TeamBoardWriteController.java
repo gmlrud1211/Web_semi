@@ -65,6 +65,10 @@ public class TeamBoardWriteController extends HttpServlet {
 			//게시글과 파일을 연결
 			teamDao.updateFile(fileupload);
 		}
+		
+		resp.sendRedirect("/team/board");
+		
 	}
+	
 
 }
