@@ -36,7 +36,19 @@
 
 		<h3 style="text-align: center;">팀별 자료실</h3>
 		<hr>		
-		
+
+<!--		nav 부분 	
+			<div class="name"><h3>Team Page</h3></div>
+	          <div class="list-group" style="box-shadow: none;">
+	            <a href="#" class="list-group-item" style="border:none;">스터디 메인</a>
+	            <a href="#" class="list-group-item" style="border:none;">일정관리</a>
+	            <a href="#" class="list-group-item" style="border:none;">목표 관리</a>
+	            <a href="/team/board" class="list-group-item" style="border:none;">자료실 </a>
+	            <a href="#" class="list-group-item" style="border:none;">스터디룸</a>
+			  </div>
+ -->
+ 
+ 
 		<div class="container">
 		
 		<table class="table table-hover table-striped table-condensed">
@@ -46,7 +58,7 @@
 					<th style="width: 45%">내용</th>
 					<th style="width: 20%">작성일</th>
 					<th style="width: 10%">다운로드</th>
-					<th style="width: 20%">작성자</th>
+					<th style="width: 15%">작성자</th>
 				</tr>
 			</thead>
 			
@@ -63,6 +75,9 @@
 		</table>
 	
 	</div>
+	
+	</div>
+	
 	
 	<jsp:include page="../layout/paging.jsp"/>
 
