@@ -28,7 +28,7 @@ public interface MessageDao {
 	public Message selectSentMessageByMno(int m_no);
 	
 	// 쪽지 보내기
-	public void sendMessage(Message msg);
+	public void sendMessage(int sender_no, int receiver_no, String m_comment);
 	
 	
 }

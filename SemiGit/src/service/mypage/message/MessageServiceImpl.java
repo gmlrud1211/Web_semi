@@ -36,8 +36,8 @@ public class MessageServiceImpl implements MessageService {
 	}
 
 	@Override
-	public void sendMessage(Message msg) {
-		msgDao.sendMessage(msg);
+	public void sendMessage(int sender_no, int receiver_no, String m_comment) {
+		msgDao.sendMessage(sender_no, receiver_no, m_comment);
 	}
 
 //	@Override

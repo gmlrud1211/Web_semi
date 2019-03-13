@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>쪽지확인</title>
+<title>쪽지보내기</title>
 <!-- Theme main style -->
 <link href="/css/bootstrap.css" rel="stylesheet">
 <link href="/css/bootstrap-theme.css" rel="stylesheet">
@@ -20,24 +20,34 @@
 <body>
 <div class="panel panel-default" style="margin: 5px;border: none; box-shadow: none;">
   <div class="panel-heading" style="background: transparent; border: none;">
-    <h3 class="panel-title" style="font-size: 12px;"><strong>보낸사람: ${rMsg.u_name }</strong></h3>
+    <h3 class="panel-title" style="font-size: 12px;"><strong>받는사람: ${sMsg.u_name }</strong></h3>
   </div>
   <div class="panel-body">
-    ${rMsg.m_comment }
-  </div>
-  <div style="margin: 15px; float: right;">
-
-  <button>닫기</button>
-  <button onclick="popup(${rMsg.m_no });">답장</button>
-
+  	<form action="/message/send" method="post" onsubmit="self.close();">
+  	  <textarea name="m_comment" rows="10" cols="45"></textarea>
+  	  <input type="hidden" name="m_no" value="${sMsg.m_no }"/>
+  	  <input type="hidden" name="sender_no" value="${sMsg.receiver_no }"/>
+  	  <input type="hidden" name="receiver_no" value="${sMsg.sender_no }"/>
+ 	<div style="margin: 15px; float: right;">
+  		<button type="button">닫기</button>
+  		<button type="submit">보내기</button>
+ 	 </div>
+  	</form>
   </div>
 </div>
 
 <script>
-function popup(m_no){
-	window.open("/message/send?m_no="+m_no, "window팝업", "width=400, height=350, menubar=no, status=no, toolbar=no");
-};
+function selectValue(){
+   
+    var requestValue = document.getElementById("Name").value;                   // 전송 파라미터 값
+    var theURL = "/servlet/servlet.ExampleCloseUrl?requestValue="+requestValue; // 전송 URL
+    // 호출 한 부모 페이지에서 URL 호출
+    opener.window.location = url;
+    // 호출 한 뒤 현재 팝업 창 닫기 이벤트
+    close();
+} 
 </script>
+
 
 
 </body>

@@ -23,9 +23,9 @@ public class SentMessageController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(true);
 		int u_no = (int)session.getAttribute("u_no"); 
-		List msgList = mServ.getSentMessageListByUno(u_no); 
+		List sList = mServ.getSentMessageListByUno(u_no); 
 		
-		session.setAttribute("msgList", msgList);
+		session.setAttribute("sList", sList);
 		
 		request.getRequestDispatcher("/view/mypage/message/sentList.jsp").forward(request, response);	
 	}

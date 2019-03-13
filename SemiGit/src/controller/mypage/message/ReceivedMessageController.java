@@ -23,11 +23,12 @@ public class ReceivedMessageController extends HttpServlet {
 		
 		HttpSession session = request.getSession(true);
 		int u_no = (int)session.getAttribute("u_no"); 
-		List msgList = mServ.getReceivedMessageListByUno(u_no); 
+		List rList = mServ.getReceivedMessageListByUno(u_no); 
 		
-		session.setAttribute("msgList", msgList);
+		session.setAttribute("rList", rList);
 		
-		request.getRequestDispatcher("/view/mypage/message/receivedList.jsp").forward(request, response);	
+		request.getRequestDispatcher("/view/mypage/message/receivedListPop.jsp").forward(request, response);	
+
 
 	}
 

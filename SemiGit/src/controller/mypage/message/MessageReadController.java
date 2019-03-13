@@ -25,12 +25,17 @@ public class MessageReadController extends HttpServlet {
 		HttpSession session = request.getSession(true);
 		
 		int m_no = Integer.parseInt(request.getParameter("m_no"));
-		Message msg = mServ.getReceivedMessageByMno(m_no);
+		Message rMsg = mServ.getReceivedMessageByMno(m_no);
 		
-		session.setAttribute("msg", msg);
+		if(rMsg.getM_read().equals("n")) {
+			mServ.updateRead(m_no);			
+		}
+		
+		session.setAttribute("rMsg", rMsg);
 		
 		request.getRequestDispatcher("/view/mypage/message/readMsg.jsp").forward(request, response);
 		
 	}
+	
 
 }

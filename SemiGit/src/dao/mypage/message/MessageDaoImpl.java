@@ -25,11 +25,11 @@ public class MessageDaoImpl implements MessageDao {
 		sql += "SELECT M.m_no, M.m_comment, M.m_read, M.m_date, M.sender_no, M.accepter_no, U.u_name"; 
 		sql += " FROM message M";
 		sql += " JOIN users U";
-		sql += " ON M.accepter_no = U.u_no";
-		sql += " WHERE M.sender_no=?";
+		sql += " ON M.sender_no = U.u_no";
+		sql += " WHERE M.accepter_no=?";
 		sql += " ORDER BY M.m_date";
 		
-		List msgList = new ArrayList<>();
+		List<Message> rList = new ArrayList<>();
 		
 		try {
 			ps = conn.prepareStatement(sql);
@@ -49,7 +49,7 @@ public class MessageDaoImpl implements MessageDao {
 				msg.setReceiver_no(rs.getInt("accepter_no"));
 				msg.setU_name(rs.getString("u_name"));
 				
-				msgList.add(msg);
+				rList.add(msg);
 			}
 			
 		} catch (SQLException e) {
@@ -62,7 +62,7 @@ public class MessageDaoImpl implements MessageDao {
 				e.printStackTrace();
 			}
 		} 
-		return msgList;
+		return rList;
 	}
 
 	@Override
@@ -129,14 +129,13 @@ public class MessageDaoImpl implements MessageDao {
 		
 		String sql = "";
 		
-		sql += "SELECT M.m_no, M.m_comment, M.m_read, M.m_date, "
-				+ "M.sender_no, U.u_name, M.accepter_no "; 
+		sql += "SELECT M.m_no, M.m_comment, M.m_read, M.m_date, M.sender_no, M.accepter_no, U.u_name"; 
 		sql += " FROM message M";
 		sql += " JOIN users U";
 		sql += " ON M.sender_no = U.u_no";
 		sql += " WHERE M.m_no=?";
-
-		Message msg = new Message();
+		
+		Message rMsg = new Message();
 
 		
 		try {
@@ -149,13 +148,13 @@ public class MessageDaoImpl implements MessageDao {
 			
 			while(rs.next()) {
 				
-				msg.setM_no(rs.getInt("m_no"));
-				msg.setM_comment(rs.getString("m_comment"));
-				msg.setM_read(rs.getString("m_read"));
-				msg.setM_date(rs.getDate("m_date"));
-				msg.setSender_no(rs.getInt("sender_no"));
-				msg.setReceiver_no(rs.getInt("accepter_no"));
-				msg.setU_name(rs.getString("u_name"));
+				rMsg.setM_no(rs.getInt("m_no"));
+				rMsg.setM_comment(rs.getString("m_comment"));
+				rMsg.setM_read(rs.getString("m_read"));
+				rMsg.setM_date(rs.getDate("m_date"));
+				rMsg.setSender_no(rs.getInt("sender_no"));
+				rMsg.setReceiver_no(rs.getInt("accepter_no"));
+				rMsg.setU_name(rs.getString("u_name"));
 				
 
 			}
@@ -170,14 +169,14 @@ public class MessageDaoImpl implements MessageDao {
 				e.printStackTrace();
 			}
 		} 
-		return msg;
+		return rMsg;
 	}
 
 	@Override
 	public void updateRead(int m_no) {
 		String sql="";
 		sql += "UPDATE message";
-		sql += " SET m_read=y AND m_rdate=sysdate";
+		sql += " SET m_read='y', m_rdate=sysdate";
 		sql += " WHERE m_no=?";
 		
 		try {
@@ -203,15 +202,15 @@ public class MessageDaoImpl implements MessageDao {
 	public List selectSentListByUserno(int u_no) {
 		String sql = "";
 		
-		sql += "SELECT M.m_no, M.m_comment, M.m_read, M.m_date, "
-				+ "M.sender_no, U.u_name, M.accepter_no "; 
+		sql += " M.m_no, M.m_comment, M.m_read, M.m_date, M.sender_no, U.u_name, M.accepter_no"; 
 		sql += " FROM message M";
 		sql += " JOIN users U";
 		sql += " ON M.accepter_no = U.u_no";
 		sql += " WHERE M.sender_no=?";
 		sql += " ORDER BY M.m_date";
+		
 
-		List<Message> msgList = new ArrayList<>();
+		List<Message> sList = new ArrayList<>();
 		
 		try {
 			ps = conn.prepareStatement(sql);
@@ -231,7 +230,7 @@ public class MessageDaoImpl implements MessageDao {
 				msg.setReceiver_no(rs.getInt("accepter_no"));
 				msg.setU_name(rs.getString("u_name"));
 				
-				msgList.add(msg);
+				sList.add(msg);
 			}
 			
 		} catch (SQLException e) {
@@ -244,23 +243,21 @@ public class MessageDaoImpl implements MessageDao {
 				e.printStackTrace();
 			}
 		} 
-		return msgList;
+		return sList;
 	}
 
 	@Override
 	public Message selectSentMessageByMno(int m_no) {
 		String sql = "";
 		
-		sql += "SELECT M.m_no, M.m_comment, M.m_read, M.m_date, "
-				+ "M.sender_no, U.u_name, M.accepter_no "; 
+		sql += " M.m_no, M.m_comment, M.m_read, M.m_date, M.sender_no, U.u_name, M.accepter_no"; 
 		sql += " FROM message M";
 		sql += " JOIN users U";
 		sql += " ON M.accepter_no = U.u_no";
 		sql += " WHERE M.m_no=?";
-
-		Message msg = new Message();
-
 		
+		Message sMsg = new Message();
+
 		try {
 			ps = conn.prepareStatement(sql);
 			
@@ -271,13 +268,13 @@ public class MessageDaoImpl implements MessageDao {
 			
 			while(rs.next()) {
 				
-				msg.setM_no(rs.getInt("m_no"));
-				msg.setM_comment(rs.getString("m_comment"));
-				msg.setM_read(rs.getString("m_read"));
-				msg.setM_date(rs.getDate("m_date"));
-				msg.setSender_no(rs.getInt("sender_no"));
-				msg.setReceiver_no(rs.getInt("accepter_no"));
-				msg.setU_name(rs.getString("u_name"));
+				sMsg.setM_no(rs.getInt("m_no"));
+				sMsg.setM_comment(rs.getString("m_comment"));
+				sMsg.setM_read(rs.getString("m_read"));
+				sMsg.setM_date(rs.getDate("m_date"));
+				sMsg.setSender_no(rs.getInt("sender_no"));
+				sMsg.setReceiver_no(rs.getInt("accepter_no"));
+				sMsg.setU_name(rs.getString("u_name"));
 				
 
 			}
@@ -292,21 +289,21 @@ public class MessageDaoImpl implements MessageDao {
 				e.printStackTrace();
 			}
 		} 
-		return msg;
+		return sMsg;
 	}
 
 	@Override
-	public void sendMessage(Message msg) {
+	public void sendMessage(int sender_no, int receiver_no, String m_comment) {
 		String sql = "";
-		sql += "INSERT INTO message(m_no, m_comment, m_read, m_date, sender_no, receiver_no)";
-		sql += " VALUES(Message_SEQ.nextval,?,n,sysdate,?,?)";
+		sql += "INSERT INTO message(m_no, m_comment, m_read, m_date, sender_no, accepter_no)";
+		sql += " VALUES(Message_SEQ.nextval,?,'n',sysdate,?,?)";
 		
 		try {
 			
 			ps = conn.prepareStatement(sql);
-			ps.setString(1, msg.getM_comment());
-			ps.setInt(2, msg.getSender_no());
-			ps.setInt(3, msg.getReceiver_no());
+			ps.setString(1, m_comment);
+			ps.setInt(2, sender_no);
+			ps.setInt(3, receiver_no);
 			
 			
 			ps.executeUpdate();

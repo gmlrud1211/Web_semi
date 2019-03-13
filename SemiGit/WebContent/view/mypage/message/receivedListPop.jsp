@@ -36,30 +36,30 @@
           </div>
           
           <ul class="nav nav-tabs" role="tablist" style="margin-bottom: 30px;">
-	        <li role="presentation"><a href="/message/received" style="color: #555;">받은쪽지함</a></li>
-	        <li role="presentation" class="active"><a href="/message/sent" style="color: #F67280;">보낸쪽지함</a></li>
+	        <li role="presentation" class="active"><a href="/message/received" style="color: #F67280;">받은쪽지함</a></li>
+	        <li role="presentation"><a href="/message/sent" style="color: #555;">보낸쪽지함</a></li>
 	      </ul>
-         
+          
           <div class="row" style="margin: 0px;">
 	       <div class="table-responsive">
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th>받는사람</th>
+                  <th>보낸사람</th>
                   <th>내용</th>
                   <th>확인여부</th>
-                  <th>보낸날짜</th>
+                  <th>받은날짜</th>
                 </tr>
               </thead>
-   				<c:if test="${sList.size()>0 }">
-   				<c:forEach var="i" begin="0" end="${sList.size()-1 }">
+   				<c:if test="${rList.size()>0 }">
+   				<c:forEach var="i" begin="0" end="${rList.size()-1 }">
 	              <tbody>
 	                <tr>
-	                  <td>${sList.get(i).u_name }</td>
-	                  <td>${sList.get(i).m_comment }</td>
-	                  <c:if test="${sList.get(i).m_read eq 'y'}"><td style="color: #355C7D;">확인</td></c:if>
-	                  <c:if test="${sList.get(i).m_read eq 'n'}"><td style="color: #C06C84;">미확인</td></c:if>
-	                  <td>${sList.get(i).m_date }</td>
+	                  <td>${rList.get(i).u_name }</td>
+	                  <td><div onclick="popup(${rList.get(i).m_no });">${rList.get(i).m_comment }</div></td>
+	                  <c:if test="${rList.get(i).m_read eq 'y' }"><td style="color: #355C7D;">확인</td></c:if>
+	                  <c:if test="${rList.get(i).m_read eq 'n' }"><td style="color: #C06C84;">미확인</td></c:if>
+	                  <td>${rList.get(i).m_date }</td>
 	                </tr>
 	              </tbody>
    			</c:forEach>
@@ -76,3 +76,11 @@
 
 </div>
 </div>
+
+<script>
+function popup(m_no){
+// 	window.open("/message/read?m_no="+m_no);
+	window.open("/message/read?m_no="+m_no, "window팝업", "width=400, height=350, menubar=no, status=no, toolbar=no");
+};
+</script>
+

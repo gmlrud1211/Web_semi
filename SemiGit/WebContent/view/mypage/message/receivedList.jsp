@@ -1,28 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
-<html>
-  <head>
-  <meta charset="utf-8">
-<!-- <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script> -->
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>jQuery UI Dialog - Default functionality</title>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
- 
-<script>
-$(document).ready(function(){
-	
-$( function() {
-  $( "#dialog" ).dialog();
-} );
-});
-</script>
-</head>
 <jsp:include page="/view/layout/header.jsp"/>
+
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<!--   <link rel="stylesheet" href="//resources/demos/style.css"> -->
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <div class="wrapper">
 <div class="container">
@@ -71,16 +54,16 @@ $( function() {
                   <th>받은날짜</th>
                 </tr>
               </thead>
-   				<c:if test="${msgList.size()>0 }">
-   				<c:forEach var="i" begin="0" end="${msgList.size()-1 }">
+   				<c:if test="${rList.size()>0 }">
+   				<c:forEach var="i" begin="0" end="${rList.size()-1 }">
 	              <tbody>
 	                <tr>
-	                  <td>${msgList.get(i).u_name }</td>
-<%-- 	                  <td><div onclick="dialog(${msgList.get(i).m_no })">${msgList.get(i).m_comment }</div></td> --%>
-	                  <td><div id="dialog">${msgList.get(i).m_comment }</div></td>
-	                  <c:if test="${msgList.get(i).m_read eq 'y' }"><td style="color: #355C7D;">확인</td></c:if>
-	                  <c:if test="${msgList.get(i).m_read eq 'n' }"><td style="color: #C06C84;">미확인</td></c:if>
-	                  <td>${msgList.get(i).m_date }</td>
+	                  <td>${rList.get(i).u_name }</td>
+<%-- 	                  <td><div onclick="dialog(${rList.get(i).m_no })">${rList.get(i).m_comment }</div></td> --%>
+	                  <td><div class="msgClick">${rList.get(i).m_comment }</div></td>  		 
+	                  <c:if test="${rList.get(i).m_read eq 'y' }"><td style="color: #355C7D;">확인</td></c:if>
+	                  <c:if test="${rList.get(i).m_read eq 'n' }"><td style="color: #C06C84;">미확인</td></c:if>
+	                  <td>${rList.get(i).m_date }</td>
 	                </tr>
 	              </tbody>
    			</c:forEach>
@@ -97,3 +80,34 @@ $( function() {
 
 </div>
 </div>
+
+<script>
+$(document).ready(function(){
+	
+	$("#msgRead").dialog({
+		title : '쪽지확인',
+		autoOpen : false, // dialog가 선언되면 자동으로 열릴것인가?
+        width : 400,  // dialog 넓이 지정
+        height : 300, // dialog 높이 지정
+        modal : true,      // dialog를 modal 창으로 띄울것인지 결정
+        resizeable : false,// 사이즈 조절가능 여부
+        draggable: false,  // 드래그 가능 여부
+        open: function(){} // 시작할 때  실행되는 부분
+        
+	})
+	
+	$('.msgClick').on('click', msgClick);
+});	
+
+
+function openDialog(){
+	$("#msgRead").html("너무 어렵다");
+	$("#msgRead").dialog('open');
+}
+
+function msgClick(){
+	openDialog();
+}
+
+</script>
+<div id="msgRead"></div>
