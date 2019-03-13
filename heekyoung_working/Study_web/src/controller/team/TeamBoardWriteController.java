@@ -33,11 +33,11 @@ public class TeamBoardWriteController extends HttpServlet {
 		String user_no = req.getParameter("u_no");
 		
 		//파일번호 구하기
-		String filenoParam = req.getParameter("fileno");
-		int fileno = -1;
+		String filenoParam = req.getParameter("file_no");
+		int file_no = -1;
 		
 		if(filenoParam!=null && !"".equals(filenoParam)) {
-			fileno = Integer.parseInt(filenoParam);
+			file_no = Integer.parseInt(filenoParam);
 		}
 		
 		//게시글 번호 얻기
@@ -51,14 +51,14 @@ public class TeamBoardWriteController extends HttpServlet {
 		//게시글 삽입
 		teamDao.insertTeamBoard(studyboard);
 		
-		/*//파일첨부가 존재하면 처리
-		if(fileno != -1) {
+		 //파일첨부가 존재하면 처리
+		if(file_no != -1) {
 			FileUpload fileupload = new FileUpload();
-			fileupload.setFile_no(fileno);
+			fileupload.setFile_no(file_no);
 
 			//게시글과 파일을 연결
 			teamDao.updateFile(fileupload);
-		}*/
+		}
 	}
 
 }

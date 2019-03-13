@@ -59,6 +59,7 @@ public class TeamDaoImpl implements TeamDao{
 
 	@Override
 	public List selectPagingList(Paging paging) {
+		
 		//sql작성
 		String sql = "";
 		sql+="select * from (";
@@ -176,16 +177,16 @@ public class TeamDaoImpl implements TeamDao{
 	@Override
 	public void updateFile(FileUpload fileupload) {
 		String sql = "";
-		sql += "UPDATE fileUpload SET boardno = ?";
-		sql += " WHERE fileno = ?";
+		sql += "UPDATE fileUpload SET fut_code = 3";
+		sql += " WHERE file_no = ?";
 
 		PreparedStatement ps = null;
 		
 		try {
 			ps = conn.prepareStatement(sql);
 			
-			
-			ps.setInt(2, fileupload.getFile_no());
+			//ps.setInt(1, fileupload.getFut_code());
+			ps.setInt(1, fileupload.getFile_no());
 			
 			ps.executeUpdate();
 			

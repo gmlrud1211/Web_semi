@@ -34,6 +34,8 @@ public class StudyOpenController extends HttpServlet {
 		//스터디 정보 등록
 		studyservice.studyopen(study);
 		
+		resp.sendRedirect("/main");
+		
 	}
 
 }

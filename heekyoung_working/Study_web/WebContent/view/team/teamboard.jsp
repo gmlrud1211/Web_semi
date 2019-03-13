@@ -61,9 +61,8 @@
 				<c:forEach items="${boardList }" var="studyboard">
 					<tr>
 						<td>${studyboard.sb_no }</td>
-						<!-- <td>${studyboard.sb_content }</td> -->
-						<!-- <a href="/board/view?boardno=${board.boardno }"></a> -->
-						<td><fmt:formatDate value="${studyboard.sb_date }" pattern="yyyy-MM-dd"/></td>
+						 <td>${studyboard.sb_content }</td> 
+						<td><fmt:formatDate value="${studyboard.sb_date }" pattern="yyyy-mm-dd"/></td>
 					</tr>
 				</c:forEach>
 			</tbody>
