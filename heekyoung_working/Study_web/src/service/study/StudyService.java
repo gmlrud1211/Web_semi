@@ -5,10 +5,9 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.study.StudyDao;
 import dao.study.StudyDaoImpl;
-import dto.cate.StudyCategory;
-import dto.study.Study;
+import dto.Study;
+import dto.StudyCategory;
 
 public interface StudyService{
 	
@@ -16,7 +15,7 @@ public interface StudyService{
 	public Study getParam(HttpServletRequest req, HttpServletResponse resp);
 
 	//스터디 개설(등록)
-	public void studyopen(Study study);
+	public Study studyopen(Study study);
 
 	//스터디 카테고리 가져옴
 	//public int getCategory();

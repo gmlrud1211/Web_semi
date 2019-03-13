@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dto.study.StudyBoard;
+import dto.StudyBoard;
 import util.Paging;
 import service.team.TeamService;
 import service.team.TeamServiceImpl;

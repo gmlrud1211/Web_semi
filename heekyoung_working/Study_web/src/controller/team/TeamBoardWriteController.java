@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.team.TeamDao;
 import dao.team.TeamDaoImpl;
-import dto.file.FileUpload;
-import dto.study.StudyBoard;
+import dto.FileUpload;
+import dto.StudyBoard;
 
 @WebServlet("/team/board/write")
 public class TeamBoardWriteController extends HttpServlet {

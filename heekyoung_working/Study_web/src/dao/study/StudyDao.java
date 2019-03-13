@@ -1,6 +1,6 @@
 package dao.study;
 
-import dto.study.Study;
+import dto.Study;
 
 public interface StudyDao {
 

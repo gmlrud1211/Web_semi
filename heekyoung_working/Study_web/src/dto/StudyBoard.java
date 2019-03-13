@@ -1,4 +1,4 @@
-package dto.study;
+package dto;
 
 import java.util.Date;
 

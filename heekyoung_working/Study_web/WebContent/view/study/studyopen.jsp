@@ -23,29 +23,20 @@
 
 	$(function() {
 	    $( "#studyopendate" ).datepicker({
+
 	    });
+	   	$( "#studyopendate" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
+	    
 	});
 	$(function() {
 	    $( "#studyperiod" ).datepicker({
 	    });
+	    $( "#studyperiod" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
+	    
 	});
 	</script>
 	
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$("input").eq(0).focus();
-			
-			$("#btnOpen").click(function() {
-				$(this).parents("form").submit();
-			})
-			
-			$("#btnCancel").click(function() {
-				history.go(-1);
-			})
-		});
-		</script>
-	
-	
+
 	
 		<!-- 상위카테고리 선택에 따른 하위카테고리  리스트 보여줌--> 
  <!-- 	<script type="text/javascript">
@@ -91,17 +82,7 @@
 		h3 { text-align : center;}
 	 </style>
 	
-	<script type="text/javascript">
-		function LoadImg(value) {
-			if(value.files && value.files[0]){
-				var reader = new FileReader();
-				reader.onload = function(e) {
-					$('#LoadImg').attr('src',e.target.result);
-				}
-				reader.readAsDataURL(value.files[0]);
-			}
-		}
-	</script>
+	
 	
 	<script type="text/javascript">
 		$(document).ready(function() {
@@ -133,7 +114,22 @@
 			$("#fileno").val(no); //파일번호넣기
 			$("#upResult").html(name); //파일이름 넣기
 		}
+		
 	</script>
+	
+	<script type="text/javascript">
+		$(document).ready(function() {
+		
+			$("#btnOpen").click(function() {
+				$("form").submit();
+			})
+			
+			$("#btnCancel").click(function() {
+				history.go(-1);
+			})
+		});
+		</script>
+	
 	
 </head>
 	
@@ -156,7 +152,8 @@
 			<div class="form-group">
 			<label for="st_code" class="col-sm-3 col-sm-offset-1 control-label"> 카테고리  </label>
 					<div class="col-sm-5">
-						<select name="st_catecode" id="st_catecode" onchange="fnGetCate(this.value);">
+						<select name="st_catecode" id="st_catecode" >
+								 <!-- onchange="fnGetCate(this.value);" -->
 							<option value="">1차분류</option>
 							<option value="1">IT·프로그래밍</option>
 							<option value="2">디자인</option>
@@ -167,10 +164,20 @@
 							<option value="7">음악</option>
 							<option value="8">뷰티</option>
 							<option value="9">수능</option>
+
 						</select>
 								
 						<select name="st_code" id="st_code">
-							
+							<option value="">2차분류</option>
+							<option value="101">Java·Jsp</option>
+							<option value="102">C언어</option>
+							<option value="103">Python</option>
+							<option value="104">App개발</option>
+							<option value="105">HTML·CSS 퍼블리싱</option>
+							<option value="106">Database</option>
+							<option value="107">해킹</option>
+							<option value="108">알고리즘</option>
+							<option value="109">기타</option>
 						</select>
 					</div>
 			</div>
@@ -193,7 +200,7 @@
 			<label for="study_time" class="col-sm-3 col-sm-offset-1 control-label"> 시간대  </label>
 				<div class="col-sm-5">
 					
-					<input type="radio" name="study_time" value="전시간가능" /> 전시간 가능 
+					<input type="radio" name="study_time" value="전 시간가능" /> 전시간 가능 
 					<input type="radio" name="study_time" value="주중 시간무관" /> 주중 시간무관
 					<input type="radio" name="study_time" value="주중 오전" /> 주중 오전 
 					<input type="radio" name="study_time" value="주중 오후" /> 주중 오후

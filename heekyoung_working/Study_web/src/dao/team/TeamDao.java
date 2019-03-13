@@ -2,8 +2,8 @@ package dao.team;
 
 import java.util.List;
 
-import dto.file.FileUpload;
-import dto.study.StudyBoard;
+import dto.FileUpload;
+import dto.StudyBoard;
 import util.Paging;
 
 public interface TeamDao {

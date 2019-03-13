@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import dto.file.FileUpload;
+import dto.FileUpload;
 import util.DBConn;
 
 public class FileDaoImpl implements FileDao{

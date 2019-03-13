@@ -1,4 +1,4 @@
-package dto.cate;
+package dto;
 
 public class StudyCategory {
 

@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dto.study.Study;
+import dto.Study;
 import service.study.StudyService;
 import service.study.StudyServiceImpl;
 

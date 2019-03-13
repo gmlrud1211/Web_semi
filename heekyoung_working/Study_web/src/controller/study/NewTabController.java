@@ -15,7 +15,7 @@ import com.oreilly.servlet.multipart.FileRenamePolicy;
 
 import dao.file.FileDao;
 import dao.file.FileDaoImpl;
-import dto.file.FileUpload;
+import dto.FileUpload;
 
 @WebServlet("/file/newtab")
 public class NewTabController extends HttpServlet {

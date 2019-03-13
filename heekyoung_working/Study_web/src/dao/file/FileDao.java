@@ -1,6 +1,6 @@
 package dao.file;
 
-import dto.file.FileUpload;
+import dto.FileUpload;
 
 public interface FileDao {
 		//시퀀스에서 파일 번호 얻기

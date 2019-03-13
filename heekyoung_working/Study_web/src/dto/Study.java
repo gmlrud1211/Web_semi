@@ -1,4 +1,4 @@
-package dto.study;
+package dto;
 
 import java.sql.Date;
 
@@ -15,22 +15,10 @@ public class Study {
 	private int study_max;
 	private String study_gender;
 	private String study_details;
-	private Date study_opendate;
-	private Date study_period;
-	private Date study_addrecruit;
+	private String study_opendate;
+	private String study_period;
+	private String study_addrecruit;
 	private int u_no;
-	
-	
-	@Override
-	public String toString() {
-		return "Study [study_no=" + study_no + ", st_code=" + st_code + ", study_name=" + study_name + ", file_no="
-				+ file_no + ", study_region=" + study_region + ", study_time=" + study_time + ", study_freq="
-				+ study_freq + ", study_min=" + study_min + ", study_max=" + study_max + ", study_gender="
-				+ study_gender + ", study_details=" + study_details + ", study_opendate=" + study_opendate
-				+ ", study_period=" + study_period + ", study_addrecruit=" + study_addrecruit + ", u_no=" + u_no + "]";
-	}
-	
-	
 	
 	public int getStudy_no() {
 		return study_no;
@@ -98,22 +86,22 @@ public class Study {
 	public void setStudy_details(String study_details) {
 		this.study_details = study_details;
 	}
-	public Date getStudy_opendate() {
+	public String getStudy_opendate() {
 		return study_opendate;
 	}
-	public void setStudy_opendate(Date study_opendate) {
+	public void setStudy_opendate(String study_opendate) {
 		this.study_opendate = study_opendate;
 	}
-	public Date getStudy_period() {
+	public String getStudy_period() {
 		return study_period;
 	}
-	public void setStudy_period(Date study_period) {
+	public void setStudy_period(String study_period) {
 		this.study_period = study_period;
 	}
-	public Date getStudy_addrecruit() {
+	public String getStudy_addrecruit() {
 		return study_addrecruit;
 	}
-	public void setStudy_addrecruit(Date study_addrecruit) {
+	public void setStudy_addrecruit(String study_addrecruit) {
 		this.study_addrecruit = study_addrecruit;
 	}
 	public int getU_no() {
@@ -122,6 +110,18 @@ public class Study {
 	public void setU_no(int u_no) {
 		this.u_no = u_no;
 	}
+	@Override
+	public String toString() {
+		return "Study [study_no=" + study_no + ", st_code=" + st_code + ", study_name=" + study_name + ", file_no="
+				+ file_no + ", study_region=" + study_region + ", study_time=" + study_time + ", study_freq="
+				+ study_freq + ", study_min=" + study_min + ", study_max=" + study_max + ", study_gender="
+				+ study_gender + ", study_details=" + study_details + ", study_opendate=" + study_opendate
+				+ ", study_period=" + study_period + ", study_addrecruit=" + study_addrecruit + ", u_no=" + u_no + "]";
+	}
+	
+	
+		
+	
 
 	
 	
