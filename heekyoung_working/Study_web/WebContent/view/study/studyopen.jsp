@@ -1,19 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>studyopen</title>
 
+
+<jsp:include page="../layout/header.jsp"/>    
+
+	<title>studyopen</title>
+	
 	<!-- jQuery 2.2.4 -->
-	<script type="text/javascript" src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+	
+<!-- 	<script type="text/javascript" src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
 
-	<!-- 부트스트랩 3.3.2 -->
+	부트스트랩 3.3.2
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-
+ -->
+ 
+ 
 	<!--datepicker쓰기위한 jQuery-->  
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -76,13 +79,7 @@
 			
 		} 
 	</script>  -->
-	
-	 
-	 <style type="text/css">
-		h3 { text-align : center;}
-	 </style>
-	
-	
+		
 	
 	<script type="text/javascript">
 		$(document).ready(function() {
@@ -130,11 +127,8 @@
 		});
 		</script>
 	
-	
-</head>
-	
 <body>
-	<h3>스터디 개설하기</h3>
+	<h3 style="text-align: center;">스터디 개설하기</h3>
 	<hr>
 	
 	
@@ -277,8 +271,8 @@
 
 
 	<div class="col-sm-offset-4">
-			<button type="button" id="btnOpen" class="btn btn-primary">등록</button>
-			<button type="button" id="btnCancel" class="btn btn-danger">취소</button>
+			<button type="button" id="btnOpen" class="btn btn-sm" style="color:#ffffff; background:#F67280">등록</button>
+			<button type="button" id="btnCancel" class="btn btn-sm" style="color:#ffffff; background:#FA4C64">취소</button>
 	</div>
 
 
