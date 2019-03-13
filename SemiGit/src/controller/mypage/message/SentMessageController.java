@@ -13,22 +13,21 @@ import javax.servlet.http.HttpSession;
 import service.mypage.message.MessageService;
 import service.mypage.message.MessageServiceImpl;
 
-@WebServlet("/message")
-public class MessageController extends HttpServlet {
+
+@WebServlet("/message/sent")
+public class SentMessageController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	MessageService mServ = new MessageServiceImpl();
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		HttpSession session = request.getSession(true);
-		int u_no = (int)session.getAttribute("u_no"); // u_no 받아오기
-		List msgList = mServ.getMessageListByUno(u_no); 
+		int u_no = (int)session.getAttribute("u_no"); 
+		List msgList = mServ.getSentMessageListByUno(u_no); 
 		
 		session.setAttribute("msgList", msgList);
 		
-		request.getRequestDispatcher("/view/mypage/message/list.jsp").forward(request, response);	
-
+		request.getRequestDispatcher("/view/mypage/message/sentList.jsp").forward(request, response);	
 	}
 
 }

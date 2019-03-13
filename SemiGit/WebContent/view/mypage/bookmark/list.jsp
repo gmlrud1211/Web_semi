@@ -47,8 +47,8 @@
    			<c:forEach var="i" begin="0" end="${bmList.size()-1 }">
 	            <div class="col-xs-6 col-lg-4">
 	              <input type="button" value="X" onclick="bookmark_delete(${bmList.get(i).bm_no });" style="background: transparent;float: right;-webkit-appearance: button-bevel;"> 
-	              <div><a href="#"><img src="/upload/${bmList.get(i).getFile_storedname() }" alt="study images"></a></div>
-	              <h4><a href="#" style="color: inherit;">${bmList.get(i).getStudy_name() }</a></h4>
+	              <div><a href="#"><img src="/upload/${bmList.get(i).file_storedname }" alt="study images"></a></div>
+	              <h4><a href="#" style="color: inherit;">${bmList.get(i).study_name }</a></h4>
              
 	            </div><!--/.col-xs-6.col-lg-4-->	
    			</c:forEach>

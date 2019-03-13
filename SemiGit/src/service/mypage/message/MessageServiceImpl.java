@@ -11,13 +11,13 @@ public class MessageServiceImpl implements MessageService {
 	private MessageDao msgDao = new MessageDaoImpl();
 	
 	@Override
-	public List getMessageListByUno(int u_no) {
-		return msgDao.selectByUserno(u_no);
+	public List getReceivedMessageListByUno(int u_no) {
+		return msgDao.selectReceivedListByUserno(u_no);
 	}
 
 	@Override
-	public Message getMessageByMno(int m_no) {
-		return msgDao.selectByMessageno(m_no);
+	public Message getReceivedMessageByMno(int m_no) {
+		return msgDao.selectReceivedMessageByMno(m_no);
 	}
 
 	@Override
@@ -26,10 +26,26 @@ public class MessageServiceImpl implements MessageService {
 	}
 
 	@Override
-	public void deleteMessage(int m_no) {
-		msgDao.deleteMesssage(m_no);
+	public List getSentMessageListByUno(int u_no) {
+		return msgDao.selectSentListByUserno(u_no);
 	}
 
+	@Override
+	public Message getSentMessageByMno(int m_no) {
+		return msgDao.selectSentMessageByMno(m_no);
+	}
+
+	@Override
+	public void sendMessage(Message msg) {
+		msgDao.sendMessage(msg);
+	}
+
+//	@Override
+//	public void deleteMessage(int m_no) {
+//		msgDao.deleteMesssage(m_no);
+//	}
+
+	
 
 	
 	

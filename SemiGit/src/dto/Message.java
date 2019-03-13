@@ -12,6 +12,7 @@ public class Message {
 	private int sender_no;
 	private String u_name;
 	private int receiver_no;
+	
 	public int getM_no() {
 		return m_no;
 	}

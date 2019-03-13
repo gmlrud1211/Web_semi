@@ -15,7 +15,7 @@
 	            <a href="#" class="list-group-item" style="border:none;">나의 스터디룸</a>
 	            <a href="#" class="list-group-item" style="border:none;">진행예정 스터디</a>
 	            <a href="/bookmark" class="list-group-item" style="border:none;">관심 스터디</a>
-	            <a href="#" class="list-group-item" style="border:none;">나의 쪽지함</a>
+	            <a href="/message/received" class="list-group-item" style="border:none;">나의 쪽지함</a>
 	            <a href="#" class="list-group-item" style="border:none;">내가 쓴 게시글</a>
 	            <a href="#" class="list-group-item" style="border:none;">나의 1:1 문의</a>
 	            <a href="#" class="list-group-item" style="border:none;">개인 정보 관리</a>
