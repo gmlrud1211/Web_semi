@@ -203,4 +203,46 @@ public class TeamDaoImpl implements TeamDao{
 		
 	}
 
+	@Override
+	public FileUpload selectByFileno(int file_no) {
+		String sql ="";
+		sql += "select * from fileupload";
+		sql += " where file_no = ?";
+		sql += " order by file_no";
+		
+		FileUpload fu = new FileUpload();
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, file_no);
+			
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				
+				fu.setFile_no(rs.getInt("file_no"));
+				fu.setFile_originname(rs.getString("file_originname"));
+				fu.setFile_storedname(rs.getString("file_storedname"));
+				fu.setFile_uploaddate(rs.getDate("file_uploaddate"));
+				fu.setFut_code(rs.getInt("fut_code"));
+					
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				//--- 자원 해제 ---
+				if(rs!=null)	rs.close();
+				if(ps!=null)	ps.close();
+				//-----------------
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	
+		
+		return fu;
+	}
+
 }

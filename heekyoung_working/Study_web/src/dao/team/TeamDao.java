@@ -22,6 +22,9 @@ public interface TeamDao {
 		
 	//삽입된 파일에 게시글번호 입력하기
 	public void updateFile(FileUpload fileupload);
+
+	//다운받을 파일 선택
+	public FileUpload selectByFileno(int file_no);
 	
 	
 	

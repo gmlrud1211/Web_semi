@@ -63,7 +63,7 @@
 						<td>${studyboard.sb_no }</td>
 						<td>${studyboard.sb_content }</td>   
 						<td><fmt:formatDate value="${studyboard.sb_date }" pattern="yyyy-MM-dd"/></td>
-						<td><a href="/team/filedown?file_no=${studyboard.file_no }"><img src="/images/down.png" alt="다운" /></a></td>
+						<td><a href="/file/down?file_no=${studyboard.file_no }"><img src="/images/down.png" alt="다운" /></a></td>
 					</tr>
 				</c:forEach>
 			</tbody>
