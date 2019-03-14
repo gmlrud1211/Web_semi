@@ -10,7 +10,7 @@
 					
 		//글쓰기 버튼 이벤트
 		$("#btnEnroll").click(function() {
-			location.href ="/team/achvieEnroll.jsp";
+			location.href ="/team/achive/write";
 		});
 			
 	});

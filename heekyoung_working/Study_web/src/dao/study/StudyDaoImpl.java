@@ -62,4 +62,37 @@ public class StudyDaoImpl implements StudyDao {
 	}
 
 
+	@Override
+	public int getStudy_no(Study study) {
+		String sql = "";
+		sql += "SELECT STUDY_SEQ.nextval FROM dual";
+		
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		
+		int study_no = -1;
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			rs = ps.executeQuery();
+			
+			rs.next();
+		
+			study_no = rs.getInt(1);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs!=null)	rs.close();
+				if(ps!=null)	ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}		
+		
+		return study_no;
+	}
+
+
 }

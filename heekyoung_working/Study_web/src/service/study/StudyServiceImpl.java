@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.study.StudyDao;
 import dao.study.StudyDaoImpl;
+import dto.FileUpload;
 import dto.Study;
 
 public class StudyServiceImpl implements StudyService {
@@ -61,6 +62,19 @@ public class StudyServiceImpl implements StudyService {
 		return study;
 
 	}
+
+	@Override
+	public Study getStudy_no(Study study) {
+		studyDao.getStudy_no(study);
+		return null;
+	}
+
+	@Override
+	public void updateFile(FileUpload fileupload) {
+		
+	}
+	
+
 
 
 
