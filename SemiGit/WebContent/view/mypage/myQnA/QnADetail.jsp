@@ -2,13 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 <jsp:include page="/view/layout/header.jsp"/>
-<script>
-function detail(one_no) {
-	location.href="/board/list?b_no="+b_no;
-}
-</script>
 <div class="wrapper">
-
 
 <div class="container">
 
@@ -24,36 +18,33 @@ function detail(one_no) {
           
           <div class="jumbotron" style="padding: 5px;background-color: #eee0;border-bottom: 1px solid #f67280;
           border-radius: 0;" >
-            <h2>내가 쓴 게시글</h2>
-            <p style="font-size: 16px">작성한 게시글을 확인할 수 있습니다</p>
+            <h2>나의 1:1 문의</h2>
+            <p style="font-size: 16px">관리자에게 궁금한 점을 언제든지 질문하세요!</p>
           </div>
-          <div class="row" style="margin: 0px;">
+          <div class="row">
    
    			<table class="table table-hover">
 		      <thead>
 		        <tr>
-		          <th>게시글 번호</th>
-		          <th>말머리</th>
+		          <th>번호</th>
 		          <th>제목</th>
-		          <th>추천수</th>
-		          <th>조회수</th>
 		          <th>작성일</th>
+		          <th>상태</th>
 		        </tr>
 		      </thead>
 		      <tbody>
-		        <c:if test="${qnaList.size()>0 }">
-   				<c:forEach var="i" begin="0" end="${mbList.size()-1 }">
 	              <tbody>
-	               <tr onclick="detail(${mbList.get(i).b_no });" style="cursor:pointer">
-	                  <td>${mbList.get(i).b_no }</td>
-	                  <td>${mbList.get(i).b_title }</td>
-	                  <td>${mbList.get(i).b_upcount }</td>
-	                  <td>${mbList.get(i).b_count }</td>
-	                  <td>${mbList.get(i).b_date }</td>
-	                </tr>
-	              </tbody>
+		        <c:if test="${qnaList.size()>0 }">
+   				<c:forEach var="i" begin="0" end="${qnaList.size()-1 }">
+<%-- 	                	<tr data-no="${qnaList.get(i).one_no }"> --%> <!-- jQuery로 셀렉하기 -->
+	                	<tr onclick="detail(${qnaList.get(i).one_no });">
+		                  <td>${qnaList.get(i).one_title }</td>
+		                  <td>${qnaList.get(i).one_date }</td>
+		                  <td>${qnaList.get(i).one_status }</td>
+	                   	</tr>
    			</c:forEach>
    			</c:if>
+              </tbody>
 		      </tbody>
 		    </table>
    
@@ -65,5 +56,4 @@ function detail(one_no) {
     </div>
 
 
-</div>
 </div>
