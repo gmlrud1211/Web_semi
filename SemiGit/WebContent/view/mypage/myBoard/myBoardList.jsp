@@ -14,8 +14,8 @@
 	          <div class="list-group" style="box-shadow: none;">
 	            <a href="#" class="list-group-item" style="border:none;">나의 스터디룸</a>
 	            <a href="#" class="list-group-item" style="border:none;">진행예정 스터디</a>
-	            <a href="/bookmark" class="list-group-item" style="border:none;">관심 스터디</a>
-	            <a href="/message/received" class="list-group-item" style="border:none;">나의 쪽지함</a>
+	            <a href="#" class="list-group-item" style="border:none;">관심 스터디</a>
+	            <a href="#" class="list-group-item" style="border:none;">나의 쪽지함</a>
 	            <a href="#" class="list-group-item" style="border:none;">내가 쓴 게시글</a>
 	            <a href="#" class="list-group-item" style="border:none;">나의 1:1 문의</a>
 	            <a href="#" class="list-group-item" style="border:none;">개인 정보 관리</a>
@@ -30,12 +30,39 @@
           
           <div class="jumbotron" style="padding: 5px;background-color: #eee0;border-bottom: 1px solid #f67280;
           border-radius: 0;" >
-            <h2>나의 스터디룸</h2>
-            <p style="font-size: 16px">현재 진행중인 스터디 목록입니다</p>
+            <h2>내가 쓴 게시물</h2>
+            <p style="font-size: 16px">작성한 게시글을 확인할 수 있습니다</p>
           </div>
           <div class="row">
    
-   			
+   			<table class="table table-hover">
+		      <thead>
+		        <tr>
+		          <th>말머리</th>
+		          <th>제목</th>
+		          <th>추천수</th>
+		          <th>조회수</th>
+		          <th>작성일</th>
+		        </tr>
+		      </thead>
+		      <tbody>
+		        <c:if test="${mbList.size()>0 }">
+   				<c:forEach var="i" begin="0" end="${mbList.size()-1 }">
+	              <tbody>
+	                <tr>
+	                <a href="/board?b_no=${mbList.get(i).b_no }">
+	                  <td>${mbList.get(i).b_head }</td>
+	                  <td>${mbList.get(i).b_title }</td>
+	                  <td>${mbList.get(i).b_upcount }</td>
+	                  <td>${mbList.get(i).b_count }</td>
+	                  <td>${mbList.get(i).b_date }</td>
+	                  </a>
+	                </tr>
+	              </tbody>
+   			</c:forEach>
+   			</c:if>
+		      </tbody>
+		    </table>
    
           </div><!--/row-->
         </div><!--/.col-xs-12.col-sm-9-->

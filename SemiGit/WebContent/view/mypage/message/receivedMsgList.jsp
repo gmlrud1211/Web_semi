@@ -2,14 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 <jsp:include page="/view/layout/header.jsp"/>
-<script type="text/javascript">
-	function bookmark_delete(bm_no){
-	var res = confirm("북마크를 삭제하시겠습니까?");
-	if(res){
-	location.href="/bookmark/delete?bm_no="+bm_no;
-		}
-	}
-</script>
 
 <div class="wrapper">
 <div class="container">
@@ -39,24 +31,44 @@
           
           <div class="jumbotron" style="padding: 5px;background-color: #eee0;border-bottom: 1px solid #f67280;
           border-radius: 0;" >
-            <h2>관심 스터디</h2>
-            <p style="font-size: 16px">찜한 스터디 목록입니다</p>
+            <h2>나의 쪽지함</h2>
+            <p style="font-size: 16px">보내고 받은 쪽지를 확인할 수 있습니다</p>
           </div>
-          <div class="row">
-   			<c:if test="${bmList.size()>0 }">
-   			<c:forEach var="i" begin="0" end="${bmList.size()-1 }">
-	            <div class="col-xs-6 col-lg-4">
-	              <input type="button" value="X" onclick="bookmark_delete(${bmList.get(i).bm_no });" style="background: transparent;float: right;-webkit-appearance: button-bevel;"> 
-	              <div><a href="#"><img src="/upload/${bmList.get(i).getFile_storedname() }" alt="study images"></a></div>
-	              <h4><a href="#" style="color: inherit;">${bmList.get(i).getStudy_name() }</a></h4>
-             
-	            </div><!--/.col-xs-6.col-lg-4-->	
+          
+          <ul class="nav nav-tabs" role="tablist" style="margin-bottom: 30px;">
+	        <li role="presentation" class="active"><a href="/message/received" style="color: #F67280;">받은쪽지함</a></li>
+	        <li role="presentation"><a href="/message/sent" style="color: #555;">보낸쪽지함</a></li>
+	      </ul>
+          
+          <div class="row" style="margin: 0px;">
+	       <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>보낸사람</th>
+                  <th>내용</th>
+                  <th>확인여부</th>
+                  <th>받은날짜</th>
+                </tr>
+              </thead>
+   				<c:if test="${rList.size()>0 }">
+   				<c:forEach var="i" begin="0" end="${rList.size()-1 }">
+	              <tbody>
+	                <tr>
+	                  <td>${rList.get(i).u_name }</td>
+	                  <td><div onclick="popup(${rList.get(i).m_no });">${rList.get(i).m_comment }</div></td>
+	                  <c:if test="${rList.get(i).m_read eq 'y' }"><td style="color: #355C7D;">확인</td></c:if>
+	                  <c:if test="${rList.get(i).m_read eq 'n' }"><td style="color: #C06C84;">미확인</td></c:if>
+	                  <td>${rList.get(i).m_date }</td>
+	                </tr>
+	              </tbody>
    			</c:forEach>
    			</c:if>
-   
+            </table>
+          </div>
+	      
           </div><!--/row-->
         </div><!--/.col-xs-12.col-sm-9-->
-
       </div><!--/row-->
 
     </div>
@@ -64,3 +76,11 @@
 
 </div>
 </div>
+
+<script>
+function popup(m_no){
+// 	window.open("/message/read?m_no="+m_no);
+	window.open("/message/read?m_no="+m_no, "window팝업", "width=400, height=350, menubar=no, status=no, toolbar=no");
+};
+</script>
+

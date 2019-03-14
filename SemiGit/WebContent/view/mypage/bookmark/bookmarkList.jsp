@@ -2,6 +2,15 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 <jsp:include page="/view/layout/header.jsp"/>
+<script type="text/javascript">
+	function bookmark_delete(bm_no){
+	var res = confirm("북마크를 삭제하시겠습니까?");
+	if(res){
+	location.href="/bookmark/delete?bm_no="+bm_no;
+		}
+	}
+</script>
+
 <div class="wrapper">
 <div class="container">
 
@@ -14,8 +23,8 @@
 	          <div class="list-group" style="box-shadow: none;">
 	            <a href="#" class="list-group-item" style="border:none;">나의 스터디룸</a>
 	            <a href="#" class="list-group-item" style="border:none;">진행예정 스터디</a>
-	            <a href="/bookmark" class="list-group-item" style="border:none;">관심 스터디</a>
-	            <a href="/message/received" class="list-group-item" style="border:none;">나의 쪽지함</a>
+	            <a href="#" class="list-group-item" style="border:none;">관심 스터디</a>
+	            <a href="#" class="list-group-item" style="border:none;">나의 쪽지함</a>
 	            <a href="#" class="list-group-item" style="border:none;">내가 쓴 게시글</a>
 	            <a href="#" class="list-group-item" style="border:none;">나의 1:1 문의</a>
 	            <a href="#" class="list-group-item" style="border:none;">개인 정보 관리</a>
@@ -30,12 +39,20 @@
           
           <div class="jumbotron" style="padding: 5px;background-color: #eee0;border-bottom: 1px solid #f67280;
           border-radius: 0;" >
-            <h2>나의 스터디룸</h2>
-            <p style="font-size: 16px">현재 진행중인 스터디 목록입니다</p>
+            <h2>관심 스터디</h2>
+            <p style="font-size: 16px">찜한 스터디 목록입니다</p>
           </div>
           <div class="row">
-   
-   			
+   			<c:if test="${bmList.size()>0 }">
+   			<c:forEach var="i" begin="0" end="${bmList.size()-1 }">
+	            <div class="col-xs-6 col-lg-4">
+	              <input type="button" value="X" onclick="bookmark_delete(${bmList.get(i).bm_no });" style="background: transparent;float: right;-webkit-appearance: button-bevel;"> 
+	              <div><a href="#"><img src="/upload/${bmList.get(i).file_storedname }" alt="study images"></a></div>
+	              <h4><a href="#" style="color: inherit;">${bmList.get(i).study_name }</a></h4>
+             
+	            </div><!--/.col-xs-6.col-lg-4-->	
+   			</c:forEach>
+   			</c:if>
    
           </div><!--/row-->
         </div><!--/.col-xs-12.col-sm-9-->
