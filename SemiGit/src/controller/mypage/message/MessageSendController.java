@@ -19,12 +19,11 @@ public class MessageSendController extends HttpServlet {
 	MessageService mServ = new MessageServiceImpl();
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession(true);
 
 		int m_no = Integer.parseInt(request.getParameter("m_no"));
 		Message sMsg = mServ.getReceivedMessageByMno(m_no);
 		
-		session.setAttribute("sMsg", sMsg);
+		request.setAttribute("sMsg", sMsg);
 		
 		request.getRequestDispatcher("/view/mypage/message/sendMsg.jsp").forward(request, response);
 	}

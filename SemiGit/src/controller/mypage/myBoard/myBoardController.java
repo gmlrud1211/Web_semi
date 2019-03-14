@@ -1,4 +1,4 @@
-package controller.mypage.message;
+package controller.mypage.myBoard;
 
 import java.io.IOException;
 import java.util.List;
@@ -10,24 +10,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import service.mypage.message.MessageService;
-import service.mypage.message.MessageServiceImpl;
+import service.mypage.myBoard.myBoardService;
+import service.mypage.myBoard.myBoardServiceImpl;
 
 
-@WebServlet("/message/sent")
-public class SentMessageController extends HttpServlet {
+@WebServlet("/mypage/myboard")
+public class myBoardController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	MessageService mServ = new MessageServiceImpl();
+    
+	myBoardService mbServ = new myBoardServiceImpl();
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(true);
-		int u_no = (int)session.getAttribute("u_no"); 
-		List sList = mServ.getSentMessageListByUno(u_no); 
+		int u_no = (int) session.getAttribute("u_no");
+		List mbList = mbServ.getBoardListByUno(u_no);
 		
-		request.setAttribute("sList", sList);
+		request.setAttribute("mbList", mbList);
 		
-		request.getRequestDispatcher("/view/mypage/message/sentMsgList.jsp").forward(request, response);	
+		request.getRequestDispatcher("/view/mypage/myBoard/myBoardList.jsp").forward(request, response);
 	}
+
 
 }

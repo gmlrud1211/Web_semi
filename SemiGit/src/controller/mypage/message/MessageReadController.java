@@ -31,7 +31,7 @@ public class MessageReadController extends HttpServlet {
 			mServ.updateRead(m_no);			
 		}
 		
-		session.setAttribute("rMsg", rMsg);
+		request.setAttribute("rMsg", rMsg);
 		
 		request.getRequestDispatcher("/view/mypage/message/readMsg.jsp").forward(request, response);
 		
