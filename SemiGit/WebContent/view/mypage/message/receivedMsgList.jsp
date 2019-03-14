@@ -10,19 +10,8 @@
 
       <div class="row row-offcanvas row-offcanvas-right">
 
-		<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
-			<div class="name"><h2>MY PAGE</h2></div>
-	          <div class="list-group" style="box-shadow: none;">
-	            <a href="#" class="list-group-item" style="border:none;">나의 스터디룸</a>
-	            <a href="#" class="list-group-item" style="border:none;">진행예정 스터디</a>
-	            <a href="#" class="list-group-item" style="border:none;">관심 스터디</a>
-	            <a href="#" class="list-group-item" style="border:none;">나의 쪽지함</a>
-	            <a href="#" class="list-group-item" style="border:none;">내가 쓴 게시글</a>
-	            <a href="#" class="list-group-item" style="border:none;">나의 1:1 문의</a>
-	            <a href="#" class="list-group-item" style="border:none;">개인 정보 관리</a>
+		<jsp:include page="/view/layout/mypage.jsp"/>
 
-          </div>
-        </div><!--/.sidebar-offcanvas-->
 
         <div class="col-xs-12 col-sm-9">
           <p class="pull-right visible-xs">
@@ -37,12 +26,11 @@
           
           <ul class="nav nav-tabs" role="tablist" style="margin-bottom: 30px;">
 	        <li role="presentation" class="active"><a href="/message/received" style="color: #F67280;">받은쪽지함</a></li>
-	        <li role="presentation"><a href="/message/sent" style="color: #555;">보낸쪽지함</a></li>
+	        <li role="presentation"><a href="/mypage/message/sent" style="color: #555;">보낸쪽지함</a></li>
 	      </ul>
           
           <div class="row" style="margin: 0px;">
-	       <div class="table-responsive">
-            <table class="table table-striped">
+   			<table class="table table-hover">
               <thead>
                 <tr>
                   <th>보낸사람</th>
@@ -56,7 +44,7 @@
 	              <tbody>
 	                <tr>
 	                  <td>${rList.get(i).u_name }</td>
-	                  <td><div onclick="popup(${rList.get(i).m_no });">${rList.get(i).m_comment }</div></td>
+	                  <td><div onclick="popup(${rList.get(i).m_no });" style="cursor:pointer">${rList.get(i).m_comment }</div></td>
 	                  <c:if test="${rList.get(i).m_read eq 'y' }"><td style="color: #355C7D;">확인</td></c:if>
 	                  <c:if test="${rList.get(i).m_read eq 'n' }"><td style="color: #C06C84;">미확인</td></c:if>
 	                  <td>${rList.get(i).m_date }</td>
@@ -74,7 +62,6 @@
     </div>
 
 
-</div>
 </div>
 
 <script>
