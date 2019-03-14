@@ -1,3 +1,4 @@
+
 package dao.mypage.bookmark;
 
 import java.util.List;
@@ -17,3 +18,4 @@ public interface BookmarkDao {
 	
 	
 }
+
