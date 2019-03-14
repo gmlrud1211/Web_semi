@@ -10,4 +10,5 @@ public interface BookmarkService {
 	
 	public void deleteBookmark(int bm_no);
 	
+	
 }
