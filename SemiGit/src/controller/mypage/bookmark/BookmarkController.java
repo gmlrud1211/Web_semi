@@ -30,11 +30,7 @@ public class BookmarkController extends HttpServlet {
 		
 		session.setAttribute("bmList", bmList);
 		
-		request.getRequestDispatcher("/view/mypage/bookmark/bookmarkList.jsp").forward(request, response);	
-
-	}
-	
-
-
-
+		request.getRequestDispatcher("/view/mypage/bookmark/bookmarkList.jsp").forward(request, response);
+  }
+  
 }
