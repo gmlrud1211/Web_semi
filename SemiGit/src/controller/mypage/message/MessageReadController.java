@@ -15,7 +15,7 @@ import service.mypage.message.MessageService;
 import service.mypage.message.MessageServiceImpl;
 
 
-@WebServlet("/message/read")
+@WebServlet("/mypage/message/read")
 public class MessageReadController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

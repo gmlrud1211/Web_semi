@@ -16,7 +16,7 @@ import service.mypage.bookmark.BookmarkService;
 import service.mypage.bookmark.BookmarkServiceImpl;
 
 
-@WebServlet("/bookmark")
+@WebServlet("/mypage/bookmark")
 public class BookmarkController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

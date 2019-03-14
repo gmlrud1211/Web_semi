@@ -12,7 +12,7 @@ public class BookmarkServiceImpl implements BookmarkService {
 	
 	@Override
 	public List getBookmarkListByUno(int u_no) {
-		return bmDao.selectByUserno(u_no);
+		return bmDao.selectBookmarkByUno(u_no);
 	}
 
 	@Override

@@ -6,7 +6,7 @@
 	function bookmark_delete(bm_no){
 	var res = confirm("북마크를 삭제하시겠습니까?");
 	if(res){
-	location.href="/bookmark/delete?bm_no="+bm_no;
+	location.href="/mypage/bookmark/delete?bm_no="+bm_no;
 		}
 	}
 </script>
@@ -53,7 +53,7 @@
 	            </div><!--/.col-xs-6.col-lg-4-->	
    			</c:forEach>
    			</c:if>
-   
+   			<jsp:include page="/view/layout/paging.jsp"/>
           </div><!--/row-->
         </div><!--/.col-xs-12.col-sm-9-->
 
