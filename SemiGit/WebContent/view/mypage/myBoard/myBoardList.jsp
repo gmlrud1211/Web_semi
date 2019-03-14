@@ -38,6 +38,7 @@
    			<table class="table table-hover">
 		      <thead>
 		        <tr>
+		          <th>번호</th>
 		          <th>말머리</th>
 		          <th>제목</th>
 		          <th>추천수</th>
@@ -51,6 +52,7 @@
 	              <tbody>
 	                <tr>
 	                <a href="/board?b_no=${mbList.get(i).b_no }">
+	                  <td></td>
 	                  <td>${mbList.get(i).b_head }</td>
 	                  <td>${mbList.get(i).b_title }</td>
 	                  <td>${mbList.get(i).b_upcount }</td>

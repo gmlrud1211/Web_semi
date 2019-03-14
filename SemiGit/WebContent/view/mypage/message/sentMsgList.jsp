@@ -36,8 +36,8 @@
           </div>
           
           <ul class="nav nav-tabs" role="tablist" style="margin-bottom: 30px;">
-	        <li role="presentation"><a href="/message/received" style="color: #555;">받은쪽지함</a></li>
-	        <li role="presentation" class="active"><a href="/message/sent" style="color: #F67280;">보낸쪽지함</a></li>
+	        <li role="presentation"><a href="/mypage/message/received" style="color: #555;">받은쪽지함</a></li>
+	        <li role="presentation" class="active"><a href="/mypage/message/sent" style="color: #F67280;">보낸쪽지함</a></li>
 	      </ul>
          
           <div class="row" style="margin: 0px;">

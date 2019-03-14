@@ -12,7 +12,7 @@ import dto.Message;
 import service.mypage.message.MessageService;
 import service.mypage.message.MessageServiceImpl;
 
-@WebServlet("/message/send")
+@WebServlet("/mypage/message/send")
 public class MessageSendController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

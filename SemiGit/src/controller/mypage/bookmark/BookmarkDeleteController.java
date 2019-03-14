@@ -13,7 +13,7 @@ import service.mypage.bookmark.BookmarkService;
 import service.mypage.bookmark.BookmarkServiceImpl;
 
 
-@WebServlet("/bookmark/delete")
+@WebServlet("/mypage/bookmark/delete")
 public class BookmarkDeleteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -26,7 +26,7 @@ public class BookmarkDeleteController extends HttpServlet {
 		
 		bServ.deleteBookmark(bm_no);
 		
-		response.sendRedirect("/bookmark");
+		response.sendRedirect("/mypage/bookmark");
 		
 	}
 

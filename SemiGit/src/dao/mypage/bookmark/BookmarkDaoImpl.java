@@ -1,3 +1,4 @@
+
 package dao.mypage.bookmark;
 
 import java.sql.Connection;
@@ -8,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dto.Bookmark;
+import dto.Message;
 import utill.DBConn;
 
 public class BookmarkDaoImpl implements BookmarkDao {
@@ -17,7 +19,7 @@ public class BookmarkDaoImpl implements BookmarkDao {
 	private ResultSet rs;
 	
 	@Override
-	public List selectByUserno(int u_no) {
+	public List selectBookmarkByUno(int u_no) {
 		
 		String sql = "";
 				
@@ -70,20 +72,18 @@ public class BookmarkDaoImpl implements BookmarkDao {
 	}
 
 	@Override
-
 	public int selectCntBookmark(int u_no) {
 		String sql = "";
 		sql +="SELECT COUNT(*) FROM bookmark";
 		sql += " WHERE u_no=?";
-	
+		
 		int cnt=0;
 
 		try {
 			ps = conn.prepareStatement(sql);
-
 			ps.setInt(1, u_no);
 			
-
+			rs = ps.executeQuery();
 			
 			rs.next();
 			
@@ -131,5 +131,4 @@ public class BookmarkDaoImpl implements BookmarkDao {
 	}
 
 	
-
 }

@@ -1,3 +1,4 @@
+
 package controller.mypage.bookmark;
 
 import java.io.IOException;
@@ -16,7 +17,7 @@ import service.mypage.bookmark.BookmarkService;
 import service.mypage.bookmark.BookmarkServiceImpl;
 
 
-@WebServlet("/bookmark")
+@WebServlet("/mypage/bookmark")
 public class BookmarkController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -30,7 +31,11 @@ public class BookmarkController extends HttpServlet {
 		
 		session.setAttribute("bmList", bmList);
 		
-		request.getRequestDispatcher("/view/mypage/bookmark/bookmarkList.jsp").forward(request, response);
-  }
-  
+		request.getRequestDispatcher("/view/mypage/bookmark/bookmarkList.jsp").forward(request, response);	
+
+	}
+	
+
+
+
 }

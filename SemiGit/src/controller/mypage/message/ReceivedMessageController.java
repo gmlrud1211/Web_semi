@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 import service.mypage.message.MessageService;
 import service.mypage.message.MessageServiceImpl;
 
-@WebServlet("/message/received")
+@WebServlet("/mypage/message/received")
 public class ReceivedMessageController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
