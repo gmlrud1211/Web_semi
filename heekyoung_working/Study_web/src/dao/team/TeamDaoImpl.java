@@ -7,7 +7,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import dto.Achive;
 import dto.FileUpload;
+import dto.Study;
 import dto.StudyBoard;
 import util.DBConn;
 import util.Paging;
@@ -244,5 +246,78 @@ public class TeamDaoImpl implements TeamDao{
 		
 		return fu;
 	}
+
+	@Override
+	public Achive insertAchive(Achive achive) {
+		String sql ="";
+		sql+= "INSERT INTO ACHIVE(STUDY_NO,A_NO,A_TITLE,A_SDATE,A_DDATE)";
+		sql+= " VALUES(1 ,Achive_seq.nextval, ? , sysdate, ? )";
+		//세션 연결안해서 임의로 study_no='1' 집어넣음
+		
+		//INSERT INTO ACHIVE(STUDY_NO,A_NO,A_TITLE,A_SDATE,A_DDATE)
+		//VALUES (1,Achive_seq.nextval	,'JAVA·JSP 기초 연습문제 2','2019/03/05',null);
+
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			
+			//ps.setInt(parameterIndex, achive.getStudy_no());
+			
+			ps.setString(1, achive.getA_title());
+			ps.setString(2, achive.getA_ddate());
+			
+			ps.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		} finally {
+			try {
+				//--- 자원 해제 ---
+				if(rs!=null)	rs.close();
+				if(ps!=null)	ps.close();
+				//-----------------
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+				
+		return achive;
+	}
+
+	@Override
+	public int getStudy_no(Study study) {
+		String sql = "";
+		sql += "SELECT STUDY_SEQ.nextval FROM dual";
+		
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		
+		int study_no = -1;
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			rs = ps.executeQuery();
+			
+			rs.next();
+		
+			study_no = rs.getInt(1);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs!=null)	rs.close();
+				if(ps!=null)	ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}		
+		
+		return study_no;
+	}
+	
+	
 
 }

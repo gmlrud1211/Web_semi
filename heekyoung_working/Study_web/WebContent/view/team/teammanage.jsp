@@ -19,10 +19,9 @@
 
 
 
-<h3 style="text-align: center;">스터디룸 관리</h3>
+<h3 style="text-align: center;">스터디룸 관리<small> &laquo;목표관리&raquo; </small></h3>
 <hr>	
 
-	<p>목표관리</p>
 	
 	<div id="btnBox" class="btn pull-right">
 		<button id="btnEnroll" class="btn btn-sm" style="color:#ffffff; background:#F67280">새로운 목표 등록</button>

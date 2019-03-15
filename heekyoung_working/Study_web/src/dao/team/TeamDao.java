@@ -2,7 +2,9 @@ package dao.team;
 
 import java.util.List;
 
+import dto.Achive;
 import dto.FileUpload;
+import dto.Study;
 import dto.StudyBoard;
 import util.Paging;
 
@@ -26,6 +28,11 @@ public interface TeamDao {
 	//다운받을 파일 선택
 	public FileUpload selectByFileno(int file_no);
 	
+	//새 목표 등록
+	public Achive insertAchive(Achive achive);
+	
+	//스터디 번호 조회
+	public int getStudy_no(Study study);
 	
 	
 }

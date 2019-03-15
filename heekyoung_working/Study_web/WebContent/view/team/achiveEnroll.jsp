@@ -61,16 +61,6 @@
 
 
 
-
-<!-- 
-<div class="form-group">
-				<label for="study_freq" class="col-sm-3 col-sm-offset-1 control-label"> 스터디 횟수  </label>
-				<div class="col-sm-5">
-					<input type="text" id="study_freq" name="study_freq" placeholder="횟수를 입력해주세요" /> 회
-				</div>
-			</div>
-
- -->
 	
 	<div class="container">
 	
@@ -82,14 +72,17 @@
 				</div>
 			</div>
 			<br><br>
+			
 			<div class="form-group">
-				<label for="a_name" class="col-sm-3 col-sm-offset-1 control-label">목표 제목</label>
+				<label for="a_titles" class="col-sm-3 col-sm-offset-1 control-label">목표 제목</label>
 				<div class="col-sm-5">
-					<input type="text" name="a_name" />
+					<input type="text" name="a_title" />
 				</div>
 			</div>
 			<br><br>
-			<div class="form-group1">
+			
+		
+			 <div class="form-group">
 				<label for="sub_name" class="col-sm-3 col-sm-offset-1 control-label">세부 목표</label>
 				<div class="col-sm-5">
 					<input type="text" name="sub_name" />
@@ -97,7 +90,7 @@
 				</div>
 			</div>
 			<br><br>
-			
+		
 			
 			
 		</form>

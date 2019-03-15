@@ -3,7 +3,9 @@ package service.team;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
+import dto.Achive;
 import util.Paging;
 
 public interface TeamService {
@@ -16,6 +18,16 @@ public interface TeamService {
 		
 	//페이징 리스트 얻기
 	public List getPagingList(Paging paging);
+
+	
+	//요청 파라미터 처리
+	public Achive getParam(HttpServletRequest req, HttpServletResponse resp);
+
+	//목표 등록
+	public Achive InsertAchive(Achive achive);
+	
+	//목표 번호 가져오기 
+	
 	
 	
 }

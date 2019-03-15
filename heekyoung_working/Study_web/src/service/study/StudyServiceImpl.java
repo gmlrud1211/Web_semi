@@ -66,7 +66,7 @@ public class StudyServiceImpl implements StudyService {
 	@Override
 	public Study getStudy_no(Study study) {
 		studyDao.getStudy_no(study);
-		return null;
+		return study;
 	}
 
 	@Override
