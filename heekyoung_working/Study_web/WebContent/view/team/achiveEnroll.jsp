@@ -38,7 +38,8 @@
 				
 			//세부목표 추가하는 버튼 이벤트
 			$("#btnAdd").click(function() {
-				$("#form-group1").after(tag);
+				$("#form-group1").apppend(tag);
+				
 			});
 			
 			/* 	"<div class='col-sm-4 col-sm-offset-1 contorl-label'>"+
