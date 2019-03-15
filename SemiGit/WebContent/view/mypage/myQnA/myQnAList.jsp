@@ -50,11 +50,12 @@ function detail(one_no) {
 		        <c:if test="${qnaList.size()>0 }">
    				<c:forEach var="i" begin="0" end="${qnaList.size()-1 }">
 <%-- 	                	<tr data-no="${qnaList.get(i).one_no }"> --%> <!-- jQuery로 셀렉하기 -->
-	                	<tr onclick="detail(${qnaList.get(i).one_no });">
+	                	<tr>
 	                	  <td>${qnaList.get(i).one_no }</td>
-		                  <td>${qnaList.get(i).one_title }</td>
+		                  <td onclick="detail(${qnaList.get(i).one_no });" style="cursor:pointer">${qnaList.get(i).one_title }</td>
 		                  <td>${qnaList.get(i).one_date }</td>
-		                  <td>${qnaList.get(i).one_status }</td>
+		                  <c:if test="${qnaList.get(i).one_status eq 'y' }"><td>답변완료</td></c:if>
+		                  <c:if test="${qnaList.get(i).one_status eq 'n' }"><td>대기중</td></c:if>
 	                   	</tr>
    			</c:forEach>
    			</c:if>
@@ -63,6 +64,11 @@ function detail(one_no) {
 		    </table>
    
           </div><!--/row-->
+          
+          <c:if test="${qnaList.size()>0 }">
+          <jsp:include page="./pagingMyQnA.jsp"/>
+          </c:if>
+          
         </div><!--/.col-xs-12.col-sm-9-->
 
       </div><!--/row-->

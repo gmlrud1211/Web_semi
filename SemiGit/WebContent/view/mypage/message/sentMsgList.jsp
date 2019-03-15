@@ -28,33 +28,31 @@
 	      </ul>
          
           <div class="row" style="margin: 0px;">
-	       <div class="table-responsive">
-            <table class="table table-striped">
+            <table class="table table-hover">
               <thead>
                 <tr>
                   <th>받는사람</th>
                   <th>내용</th>
-                  <th>확인여부</th>
+                  <th>상대방 확인</th>
                   <th>보낸날짜</th>
                 </tr>
               </thead>
-   				<c:if test="${sList.size()>0 }">
-   				<c:forEach var="i" begin="0" end="${sList.size()-1 }">
+   				<c:if test="${msgList.size()>0 }">
+   				<c:forEach var="i" begin="0" end="${msgList.size()-1 }">
 	              <tbody>
 	                <tr>
-	                  <td>${sList.get(i).u_name }</td>
-	                  <td><div onclick="popup(${sList.get(i).m_no });" style="cursor:pointer">${sList.get(i).m_comment }</div></td>	                  
-	                  <c:if test="${sList.get(i).m_read eq 'y'}"><td style="color: #355C7D;">확인</td></c:if>
-	                  <c:if test="${sList.get(i).m_read eq 'n'}"><td style="color: #C06C84;">미확인</td></c:if>
-	                  <td>${sList.get(i).m_date }</td>
+	                  <td>${msgList.get(i).receiver_name }</td>
+	                  <td><div onclick="popup(${msgList.get(i).m_no });" style="cursor:pointer">${msgList.get(i).m_comment }</div></td>	                  
+	                  <c:if test="${msgList.get(i).m_read eq 'y'}"><td style="color: #355C7D;">확인</td></c:if>
+	                  <c:if test="${msgList.get(i).m_read eq 'n'}"><td style="color: #C06C84;">미확인</td></c:if>
+	                  <td>${msgList.get(i).m_date }</td>
 	                </tr>
 	              </tbody>
    			</c:forEach>
    			</c:if>
             </table>
-          </div>
 	      
-          <c:if test="${sList.size()>0 }">
+          <c:if test="${msgList.size()>0 }">
           <jsp:include page="./pagingSentMsg.jsp"/>
           </c:if>
           </div><!--/row-->

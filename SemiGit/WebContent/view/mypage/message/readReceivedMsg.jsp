@@ -20,15 +20,15 @@
 <body>
 <div class="panel panel-default" style="margin: 5px;border: none; box-shadow: none;">
   <div class="panel-heading" style="background: transparent; border: none;">
-    <h3 class="panel-title" style="font-size: 12px;"><strong>보낸사람: ${rMsg.u_name }</strong></h3>
+    <h3 class="panel-title" style="font-size: 12px;"><strong>보낸사람: ${msg.sender_name }</strong></h3>
   </div>
   <div class="panel-body">
-    ${rMsg.m_comment }
+    ${msg.m_comment }
   </div>
   <div style="margin: 15px; float: right;">
 
-  <button>닫기</button>
-  <button onclick="popup(${rMsg.m_no });">답장</button>
+  <button onclick="self.close();">닫기</button>
+  <button onclick="popup(${msg.m_no });">답장</button>
 
   </div>
 </div>

@@ -10,40 +10,31 @@ import utill.Paging;
 
 public interface MessageService {
 
-	
-		// ¹ŞÀº ¸®½ºÆ®¿¡¼­ ¼±ÅÃÇÑ ÂÊÁö ¹İÈ¯ 
-		public Message getReceivedMessageByMno(int m_no);
-			
-		// º¸³½ ¸®½ºÆ®¿¡¼­ ¼±ÅÃÇÑ ÂÊÁö ¹İÈ¯
-		public Message getSentMessageByMno(int m_no);
-		
-		// ÀĞÀº »óÅÂ ¾÷µ¥ÀÌÆ®
+
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
 		public void updateRead(int m_no);
 			
-		// ÂÊÁö »èÁ¦
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //		public void deleteMessage(int m_no);
 		
-		// »ç¿ëÀÚº° º¸³½ ÂÊÁö Á¶È¸
-//		public List getSentMessageListByUno(int u_no);
 		
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		public void sendMsg(Message msg);
 		
-		// ÂÊÁö ´äÀå º¸³»±â
-		public void replyMessage(int sender_no, int receiver_no, String m_comment);
-	
-		
-		// ¿äÃ»ÆÄ¶ó¹ÌÅÍ¿¡¼­ curPage ¹İÈ¯
+		// ï¿½ï¿½Ã»ï¿½Ä¶ï¿½ï¿½ï¿½Í¿ï¿½ï¿½ï¿½ curPage ï¿½ï¿½È¯
 		public int getCurPage(HttpServletRequest req);
+
 		
-		// ÃÑ ¹ŞÀº ÂÊÁö ¼ö ¾ò±â
-		public int getTotalReceivedMsgCount(int receiver_no);
+		// ìª½ì§€ í˜ì´ì§• ì²˜ë¦¬ ë¦¬ìŠ¤íŠ¸ ë°˜í™˜
+		public List getMsgPagingList(int side, int u_no, Paging paging);
 		
-		// ÃÑ º¸³½ ÂÊÁö ¼ö ¾ò±â
-		public int getTotalSentMsgCount(int sender_no);
+		// ì´ ìª½ì§€ ìˆ˜ ë°˜í™˜
+		public int getTotalMsgCount(int side, int u_no);
 		
-		// »ç¿ëÀÚº° ¹ŞÀº ÂÊÁö ÆäÀÌÂ¡ ¸®½ºÆ® ¾ò±â
-		public List getReceivedMsgPagingList(int u_no, Paging paging);
-	
-		// »ç¿ëÀÚº° ¹ŞÀº ÂÊÁö ÆäÀÌÂ¡ ¸®½ºÆ® ¾ò±â
-		public List getSentMsgPagingList(int u_no, Paging paging);
+		// ì„ íƒí•œ ìª½ì§€ ë°˜í™˜
+		public Message getMsgByMno(int m_no);
+		
+		public String getSide(HttpServletRequest req, HttpServletResponse resp);
+		
 	
 }

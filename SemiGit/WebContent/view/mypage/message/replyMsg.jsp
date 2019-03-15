@@ -20,14 +20,13 @@
 <body>
 <div class="panel panel-default" style="margin: 5px;border: none; box-shadow: none;">
   <div class="panel-heading" style="background: transparent; border: none;">
-    <h3 class="panel-title" style="font-size: 12px;"><strong>받는사람: ${sMsg.u_name }</strong></h3>
+    <h3 class="panel-title" style="font-size: 12px;"><strong>받는사람: ${msg.receiver_name }</strong></h3>
   </div>
   <div class="panel-body">
   	<form action="/mypage/message/reply" method="post" onsubmit="self.close();">
   	  <textarea name="m_comment" rows="10" cols="45"></textarea>
-  	  <input type="hidden" name="m_no" value="${sMsg.m_no }"/>
-  	  <input type="hidden" name="sender_no" value="${sMsg.receiver_no }"/>
-  	  <input type="hidden" name="receiver_no" value="${sMsg.sender_no }"/>
+  	  <input type="hidden" name="sender_no" value="${msg.receiver_no }"/>
+  	  <input type="hidden" name="receiver_no" value="${msg.sender_no }"/>
  	<div style="margin: 15px; float: right;">
   		<button type="button">닫기</button>
   		<button type="submit">보내기</button>

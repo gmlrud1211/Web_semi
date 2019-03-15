@@ -10,7 +10,9 @@ import java.util.List;
 
 import dto.Bookmark;
 import dto.Message;
+import dto.MyBoard;
 import utill.DBConn;
+import utill.Paging;
 
 public class BookmarkDaoImpl implements BookmarkDao {
 
@@ -18,61 +20,9 @@ public class BookmarkDaoImpl implements BookmarkDao {
 	private PreparedStatement ps;
 	private ResultSet rs;
 	
-	@Override
-	public List selectBookmarkByUno(int u_no) {
-		
-		String sql = "";
-				
-		sql += "SELECT  B.bm_no, B.u_no, B.study_no, S.study_name, S.file_no, F.file_originname, "
-				+ "F.file_storedname, B.bm_date"; 
-		sql += " FROM study S";
-		sql += " LEFT OUTER JOIN bookmark B";
-		sql += " ON S.study_no = B.study_no";
-		sql += " LEFT OUTER JOIN fileupload F";
-		sql += " ON S.file_no = F.file_no";
-		sql += " WHERE B.u_no=?";
-		sql += " ORDER BY b.bm_date";
-		
-
-		List<Bookmark> bmList = new ArrayList<>();
-		
-		try {
-			ps = conn.prepareStatement(sql);
-			
-			ps.setInt(1, u_no);
-			
-			rs = ps.executeQuery();
-			
-			while(rs.next()) {
-				Bookmark bm = new Bookmark();
-				
-				bm.setBm_no(rs.getInt("bm_no"));
-				bm.setU_no(rs.getInt("u_no"));
-				bm.setStudy_no(rs.getInt("study_no"));
-				bm.setStudy_name(rs.getString("study_name"));
-				bm.setFile_no(rs.getInt("file_no"));
-				bm.setFile_originname(rs.getString("file_originname"));
-				bm.setFile_storedname(rs.getString("file_storedname"));
-				bm.setBm_date(rs.getDate("bm_date"));
-				
-				bmList.add(bm);
-			}
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				if(rs!=null)	rs.close();
-				if(ps!=null)	ps.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		} 
-		return bmList;
-	}
 
 	@Override
-	public int selectCntBookmark(int u_no) {
+	public int CntBookmark(int u_no) {
 		String sql = "";
 		sql +="SELECT COUNT(*) FROM bookmark";
 		sql += " WHERE u_no=?";
@@ -129,6 +79,71 @@ public class BookmarkDaoImpl implements BookmarkDao {
 		
 		
 	}
+
+
+	@Override
+	public List selectBookmarkPagingList(int u_no, Paging paging) {
+		String sql = "";
+		
+		sql += "SELECT * FROM (";
+		sql += "	SELECT rownum rnum, A.* FROM(";
+		sql += "		SELECT  B.bm_no, B.u_no, B.study_no, S.study_name, S.file_no, F.file_originname, ";
+		sql += "				F.file_storedname, B.bm_date"; 
+		sql += " 		FROM study S";
+		sql += " 		LEFT OUTER JOIN bookmark B";
+		sql += " 		ON S.study_no = B.study_no";
+		sql += " 		LEFT OUTER JOIN fileupload F";
+		sql += " 		ON S.file_no = F.file_no";
+		sql += " 		WHERE B.u_no=?";
+		sql += " 		ORDER BY b.bm_date";
+		sql += "		) A";
+		sql += "	ORDER BY rnum";
+		sql += ") R";
+		sql += " WHERE rnum BETWEEN ? AND ?";	
+		
+	
+		List<Bookmark> bmList = new ArrayList<>();
+
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, u_no);
+			ps.setInt(2, paging.getStartNo());
+			ps.setInt(3, paging.getEndNo());
+			
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				
+				Bookmark bm = new Bookmark();
+				
+				bm.setBm_no(rs.getInt("bm_no"));
+				bm.setU_no(rs.getInt("u_no"));
+				bm.setStudy_no(rs.getInt("study_no"));
+				bm.setStudy_name(rs.getString("study_name"));
+				bm.setFile_no(rs.getInt("file_no"));
+				bm.setFile_originname(rs.getString("file_originname"));
+				bm.setFile_storedname(rs.getString("file_storedname"));
+				bm.setBm_date(rs.getDate("bm_date"));
+				
+				bmList.add(bm);
+			}
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs!=null) rs.close();
+				if(ps!=null) ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}	
+		
+		return bmList;
+	}
+	
 
 	
 }

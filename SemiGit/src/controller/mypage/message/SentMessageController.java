@@ -26,26 +26,17 @@ public class SentMessageController extends HttpServlet {
 		HttpSession session = request.getSession(true);
 		int u_no = (int)session.getAttribute("u_no"); 
 		
+		int side = 2;
 		
-		// ���� ������ ��ȣ ���
 		int curPage = mServ.getCurPage(request);
-				
-		// �� ���� ���� �� ���
-		int totalCount = mServ.getTotalSentMsgCount(u_no);
-				
-		// ������ ��ü ����
-		Paging paging = new Paging(totalCount, curPage);
-
-				
-		// �Խñ� ��� MODEL�� �߰�
+		int totalCount = mServ.getTotalMsgCount(side, u_no);
 		
-		List<Message> sList = mServ.getSentMsgPagingList(u_no, paging);
-		request.setAttribute("sList", sList);
-				
-				
-		// ����¡ ��ü MODEL�� �߰�
+		Paging paging = new Paging(totalCount, curPage);
+		
+
+		List<Message> msgList = mServ.getMsgPagingList(side, u_no, paging);
+		request.setAttribute("msgList", msgList);	
 		request.setAttribute("paging", paging);
-				
 		
 		request.getRequestDispatcher("/view/mypage/message/sentMsgList.jsp").forward(request, response);	
 	}

@@ -32,20 +32,18 @@ public class myBoardServiceImpl implements myBoardService {
 			return curPage;
 		}
 
-		// nullÀÌ³ª ""¸é 0À¸·Î ¹ÝÈ¯
+		// nullï¿½Ì³ï¿½ ""ï¿½ï¿½ 0ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
 		return 0;
 	}
 	
 	@Override
 	public int getTotalMyBoardCount(int u_no) {
-		// TODO Auto-generated method stub
-		return 0;
+		return mbDao.cntMyBoard(u_no);
 	}
 	
 	@Override
 	public List getMyBoardPagingList(int u_no, Paging paging) {
-		// TODO Auto-generated method stub
-		return null;
+		return mbDao.selectMyBoardPagingList(u_no, paging);
 	}
 
 }

@@ -1,8 +1,6 @@
 package service.mypage.message;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,28 +17,14 @@ public class MessageServiceImpl implements MessageService {
 	
 
 	@Override
-	public Message getReceivedMessageByMno(int m_no) {
-		return msgDao.selectReceivedMessageByMno(m_no);
-	}
-
-	@Override
 	public void updateRead(int m_no) {
 		msgDao.updateRead(m_no);
 	}
 
-//	@Override
-//	public List getSentMessageListByUno(int u_no) {
-//		return msgDao.selectSentListByUserno(u_no);
-//	}
 
 	@Override
-	public Message getSentMessageByMno(int m_no) {
-		return msgDao.selectSentMessageByMno(m_no);
-	}
-
-	@Override
-	public void replyMessage(int sender_no, int receiver_no, String m_comment) {
-		msgDao.replyMessage(sender_no, receiver_no, m_comment);
+	public void sendMsg(Message msg) {
+		msgDao.sendMsg(msg);
 	}
 
 
@@ -53,32 +37,35 @@ public class MessageServiceImpl implements MessageService {
 			return curPage;
 		}
 
-		// null이나 ""면 0으로 반환
 		return 0;
 	}
 
 	@Override
-	public int getTotalReceivedMsgCount(int receiver_no) {
+	public List getMsgPagingList(int side, int u_no, Paging paging) {
+		return msgDao.selectMsgPagingList(side, u_no, paging);
+	}
+
+	@Override
+	public int getTotalMsgCount(int side, int u_no) {
+		return msgDao.cntMsg(side, u_no);
+	}
+
+
+	@Override
+	public Message getMsgByMno(int m_no) {
+		return msgDao.selectMsgByMno(m_no);
+	}
+
+
+	@Override
+	public String getSide(HttpServletRequest req, HttpServletResponse resp) {
+				
+		String side = "sender";
 		
-		return msgDao.cntReceivedMessage(receiver_no);
+		return side;
 	}
-
-	@Override
-	public List getReceivedMsgPagingList(int u_no, Paging paging) {
-		
-		return msgDao.selectReceivedPagingList(u_no, paging);
-	}
-
-	@Override
-	public int getTotalSentMsgCount(int sender_no) {
-		return msgDao.cntSentMessage(sender_no);
-	}
-
-	@Override
-	public List getSentMsgPagingList(int u_no, Paging paging) {
-		return msgDao.selectSentPagingList(u_no, paging);
-	}
-
+	
+	
 //	@Override
 //	public void deleteMessage(int m_no) {
 //		msgDao.deleteMesssage(m_no);

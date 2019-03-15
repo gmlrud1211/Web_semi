@@ -24,24 +24,19 @@ public class ReceivedMessageController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		HttpSession session = request.getSession(true);
-		int u_no = (int)session.getAttribute("u_no"); 
-		
-		// 현재 페이지 번호 얻기
+		int u_no = (int)session.getAttribute("u_no"); 		
+
+		int side = 1;
+
 		int curPage = mServ.getCurPage(request);
+		int totalCount = mServ.getTotalMsgCount(side, u_no);
 		
-		// 총 받은 쪽지 수 얻기
-		int totalCount = mServ.getTotalReceivedMsgCount(u_no);
-		
-		// 페이지 객체 생성
 		Paging paging = new Paging(totalCount, curPage);
 		
-		// 게시글 목록 MODEL로 추가
 
-		List<Message> rList = mServ.getReceivedMsgPagingList(u_no, paging);
-		request.setAttribute("rList", rList);
+		List<Message> msgList = mServ.getMsgPagingList(side, u_no, paging);
 		
-		
-		// 페이징 객체 MODEL로 추가
+		request.setAttribute("msgList", msgList);
 		request.setAttribute("paging", paging);
 		
 		request.getRequestDispatcher("/view/mypage/message/receivedMsgList.jsp").forward(request, response);	

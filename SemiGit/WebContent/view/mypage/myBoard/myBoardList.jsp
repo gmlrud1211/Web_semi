@@ -46,6 +46,7 @@ function detail(one_no) {
 	              <tbody>
 	               <tr onclick="detail(${mbList.get(i).b_no });" style="cursor:pointer">
 	                  <td>${mbList.get(i).b_no }</td>
+	                  <td>${mbList.get(i).b_head }</td>
 	                  <td>${mbList.get(i).b_title }</td>
 	                  <td>${mbList.get(i).b_upcount }</td>
 	                  <td>${mbList.get(i).b_count }</td>
@@ -59,7 +60,7 @@ function detail(one_no) {
    
           </div><!--/row-->
           <c:if test="${mbList.size()>0 }">
-          <jsp:include page="/view/layout/paging.jsp"/>
+          <jsp:include page="./pagingMyBoard.jsp"/>
           </c:if>
           
         </div><!--/.col-xs-12.col-sm-9-->
@@ -68,6 +69,4 @@ function detail(one_no) {
 
     </div>
 
-
-</div>
 </div>

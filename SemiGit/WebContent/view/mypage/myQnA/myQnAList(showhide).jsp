@@ -8,26 +8,20 @@ $(document).ready(function() {
 // 	$("tbody tr").click(function() {
 // 		console.log($(this).attr("data-no"));
 // 	})
+	function detail(){
+		$().click(function(){
+			
+		})
+	}
+
 });
 
 
-function detail(tab, num, p_totcount, one_no)	{
-	  for (i=0; i<p_totcount; i++)   {
-		  menu=eval("document.all.QnAblock"+tab+i+".style");
 
-		  if (num==i ){
-			if (menu.display=="table-row"){
-				menu.display="none";
-			}else{
-			  menu.display="table-row";
-			}
-		  }else{
-			 menu.display="none";
-		  }
-		}
-	}
-
+	
 </script>
+
+
 
 <div class="wrapper">
 
@@ -64,14 +58,15 @@ function detail(tab, num, p_totcount, one_no)	{
 		        <c:if test="${qnaList.size()>0 }">
    				<c:forEach var="i" begin="0" end="${qnaList.size()-1 }">
 <%-- 	                	<tr data-no="${qnaList.get(i).one_no }"> --%> <!-- jQuery로 셀렉하기 -->
-	                	<tr onclick="detail(${paging.curPage,  ${qnaList.get(i).one_no });"> tab, num, p_totcount, one_no
+	                	<tr> 
+	                	  <td onclick="detail();" style="cursor:pointer">${qnaList.get(i).one_title }</td>
 		                  <td>${qnaList.get(i).one_title }</td>
 		                  <td>${qnaList.get(i).one_date }</td>
-		                  <td>${qnaList.get(i).one_status }</td>
+		                  <c:if test="${qnaList.get(i).one_status eq 'y' }"><td>답변완료</td></c:if>
+		                  <c:if test="${qnaList.get(i).one_status eq 'n' }"><td>대기중</td></c:if>
 	                   	</tr>
-	                   	<tr class="answer" id="QnAblock">
-	                   	<td colspan="2" class="detail">
-	                   	</td>
+	                   	<tr class="answer" id="QnAblock" style="DISPLAY:none;">
+	                   		<td colspan="2" class="detail"> ${qnaList.get(i).one_content }</td>
 	                   	</tr> 
    			</c:forEach>
    			</c:if>
@@ -82,7 +77,7 @@ function detail(tab, num, p_totcount, one_no)	{
           </div><!--/row-->
           
           <c:if test="${qnaList.size()>0 }">
-          <jsp:include page="/view/layout/paging.jsp"/>
+          <jsp:include page="./pagingMyQnA.jsp"/>
           </c:if>
           
           <button style="float: right;">1:1 문의하기</button>
