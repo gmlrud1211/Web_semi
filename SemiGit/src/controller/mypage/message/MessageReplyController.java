@@ -12,8 +12,8 @@ import dto.Message;
 import service.mypage.message.MessageService;
 import service.mypage.message.MessageServiceImpl;
 
-@WebServlet("/mypage/message/send")
-public class MessageSendController extends HttpServlet {
+@WebServlet("/mypage/message/reply")
+public class MessageReplyController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	MessageService mServ = new MessageServiceImpl();
@@ -25,7 +25,7 @@ public class MessageSendController extends HttpServlet {
 		
 		request.setAttribute("sMsg", sMsg);
 		
-		request.getRequestDispatcher("/view/mypage/message/sendMsg.jsp").forward(request, response);
+		request.getRequestDispatcher("/view/mypage/message/replyMsg.jsp").forward(request, response);
 	}
 
 	
@@ -39,7 +39,7 @@ public class MessageSendController extends HttpServlet {
 //		System.out.println("s"+ sender_no);
 //		System.out.println("r"+ receiver_no);
 		
-		mServ.sendMessage(sender_no, receiver_no, m_comment);
+		mServ.replyMessage(sender_no, receiver_no, m_comment);
 		
 	}
 

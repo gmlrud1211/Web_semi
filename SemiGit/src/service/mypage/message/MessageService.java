@@ -2,31 +2,48 @@ package service.mypage.message;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import dto.Message;
+import utill.Paging;
 
 public interface MessageService {
 
-	// ì‚¬ìš©ìë³„ ë°›ì€ ìª½ì§€ ì¡°íšŒ
-	public List getReceivedMessageListByUno(int u_no);
+	
+		// ¹ŞÀº ¸®½ºÆ®¿¡¼­ ¼±ÅÃÇÑ ÂÊÁö ¹İÈ¯ 
+		public Message getReceivedMessageByMno(int m_no);
+			
+		// º¸³½ ¸®½ºÆ®¿¡¼­ ¼±ÅÃÇÑ ÂÊÁö ¹İÈ¯
+		public Message getSentMessageByMno(int m_no);
 		
-	// ë°›ì€ ë¦¬ìŠ¤íŠ¸ì—ì„œ ì„ íƒí•œ ìª½ì§€ ë°˜í™˜ 
-	public Message getReceivedMessageByMno(int m_no);
+		// ÀĞÀº »óÅÂ ¾÷µ¥ÀÌÆ®
+		public void updateRead(int m_no);
+			
+		// ÂÊÁö »èÁ¦
+//		public void deleteMessage(int m_no);
 		
-	// ì½ì€ ìƒíƒœ ì—…ë°ì´íŠ¸
-	public void updateRead(int m_no);
+		// »ç¿ëÀÚº° º¸³½ ÂÊÁö Á¶È¸
+//		public List getSentMessageListByUno(int u_no);
 		
-	// ìª½ì§€ ì‚­ì œ
-//	public void deleteMessage(int m_no);
+		
+		// ÂÊÁö ´äÀå º¸³»±â
+		public void replyMessage(int sender_no, int receiver_no, String m_comment);
 	
-	// ì‚¬ìš©ìë³„ ë³´ë‚¸ ìª½ì§€ ì¡°íšŒ
-	public List getSentMessageListByUno(int u_no);
+		
+		// ¿äÃ»ÆÄ¶ó¹ÌÅÍ¿¡¼­ curPage ¹İÈ¯
+		public int getCurPage(HttpServletRequest req);
+		
+		// ÃÑ ¹ŞÀº ÂÊÁö ¼ö ¾ò±â
+		public int getTotalReceivedMsgCount(int receiver_no);
+		
+		// ÃÑ º¸³½ ÂÊÁö ¼ö ¾ò±â
+		public int getTotalSentMsgCount(int sender_no);
+		
+		// »ç¿ëÀÚº° ¹ŞÀº ÂÊÁö ÆäÀÌÂ¡ ¸®½ºÆ® ¾ò±â
+		public List getReceivedMsgPagingList(int u_no, Paging paging);
 	
-	// ë³´ë‚¸ ë¦¬ìŠ¤íŠ¸ì—ì„œ ì„ íƒí•œ ìª½ì§€ ë°˜í™˜
-	public Message getSentMessageByMno(int m_no);
-	
-	// ìª½ì§€ ë³´ë‚´ê¸°
-	public void sendMessage(int sender_no, int receiver_no, String m_comment);
-	
-	
+		// »ç¿ëÀÚº° ¹ŞÀº ÂÊÁö ÆäÀÌÂ¡ ¸®½ºÆ® ¾ò±â
+		public List getSentMsgPagingList(int u_no, Paging paging);
 	
 }

@@ -6,8 +6,6 @@
 <div class="wrapper">
 <div class="container">
 
-<div class="container">
-
       <div class="row row-offcanvas row-offcanvas-right">
 
 		<jsp:include page="/view/layout/mypage.jsp"/>
@@ -25,7 +23,7 @@
           </div>
           
           <ul class="nav nav-tabs" role="tablist" style="margin-bottom: 30px;">
-	        <li role="presentation" class="active"><a href="/message/received" style="color: #F67280;">받은쪽지함</a></li>
+	        <li role="presentation" class="active"><a href="/mypage/message/received" style="color: #F67280;">받은쪽지함</a></li>
 	        <li role="presentation"><a href="/mypage/message/sent" style="color: #555;">보낸쪽지함</a></li>
 	      </ul>
           
@@ -55,14 +53,20 @@
             </table>
           </div>
 	      
-          </div><!--/row-->
-        </div><!--/.col-xs-12.col-sm-9-->
-      </div><!--/row-->
+          <c:if test="${rList.size()>0 }">
+          <jsp:include page="./pagingReceivedMsg.jsp"/>
+          </c:if>
+          
+          </div><!--/.col-xs-12.col-sm-9-->
+          
+          
+        </div>
+      </div>
 
     </div>
 
 
-</div>
+
 
 <script>
 function popup(m_no){

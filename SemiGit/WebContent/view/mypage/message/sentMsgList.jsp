@@ -6,8 +6,6 @@
 <div class="wrapper">
 <div class="container">
 
-<div class="container">
-
       <div class="row row-offcanvas row-offcanvas-right">
 
 		<jsp:include page="/view/layout/mypage.jsp"/>
@@ -45,7 +43,7 @@
 	              <tbody>
 	                <tr>
 	                  <td>${sList.get(i).u_name }</td>
-	                  <td>${sList.get(i).m_comment }</td>
+	                  <td><div onclick="popup(${sList.get(i).m_no });" style="cursor:pointer">${sList.get(i).m_comment }</div></td>	                  
 	                  <c:if test="${sList.get(i).m_read eq 'y'}"><td style="color: #355C7D;">확인</td></c:if>
 	                  <c:if test="${sList.get(i).m_read eq 'n'}"><td style="color: #C06C84;">미확인</td></c:if>
 	                  <td>${sList.get(i).m_date }</td>
@@ -56,7 +54,12 @@
             </table>
           </div>
 	      
+          <c:if test="${sList.size()>0 }">
+          <jsp:include page="./pagingSentMsg.jsp"/>
+          </c:if>
           </div><!--/row-->
+          
+          
         </div><!--/.col-xs-12.col-sm-9-->
       </div><!--/row-->
 
@@ -64,4 +67,12 @@
 
 
 </div>
-</div>
+
+<script>
+
+function popup(m_no){
+// 	window.open("/message/read?m_no="+m_no);
+	window.open("/mypage/message/read?m_no="+m_no, "window팝업", "width=400, height=350, menubar=no, status=no, toolbar=no");
+};
+
+</script>

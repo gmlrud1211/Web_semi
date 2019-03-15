@@ -14,8 +14,6 @@
 <div class="wrapper">
 <div class="container">
 
-<div class="container">
-
       <div class="row row-offcanvas row-offcanvas-right">
 
 		<jsp:include page="/view/layout/mypage.jsp"/>
@@ -41,7 +39,9 @@
 	            </div><!--/.col-xs-6.col-lg-4-->	
    			</c:forEach>
    			</c:if>
-   			<jsp:include page="/view/layout/paging.jsp"/>
+   			<c:if test="${bmList.size()>0 }">
+          <jsp:include page="/view/layout/paging.jsp"/>
+          </c:if>
           </div><!--/row-->
         </div><!--/.col-xs-12.col-sm-9-->
 
@@ -51,4 +51,4 @@
 
 
 </div>
-</div>
+

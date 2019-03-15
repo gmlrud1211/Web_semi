@@ -10,8 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dto.MyBoard;
 import service.mypage.myBoard.myBoardService;
 import service.mypage.myBoard.myBoardServiceImpl;
+import utill.Paging;
 
 
 @WebServlet("/mypage/myboard")
@@ -23,10 +25,24 @@ public class myBoardController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(true);
 		int u_no = (int) session.getAttribute("u_no");
-		List mbList = mbServ.getBoardListByUno(u_no);
 		
-		request.setAttribute("mbList", mbList);
-		
+		// 현재 페이지 번호 얻기
+		int curPage = mbServ.getCurPage(request);
+						
+		// 총 보낸 쪽지 수 얻기
+		int totalCount = mbServ.getTotalMyBoardCount(u_no);
+						
+		// 페이지 객체 생성
+		Paging paging = new Paging(totalCount, curPage);
+
+						
+		// 게시글 목록 MODEL로 추가
+		List<MyBoard> mbList = mbServ.getMyBoardPagingList(u_no, paging);
+		request.setAttribute("mbList", mbList);					
+						
+		// 페이징 객체 MODEL로 추가
+		request.setAttribute("paging", paging);
+
 		request.getRequestDispatcher("/view/mypage/myBoard/myBoardList.jsp").forward(request, response);
 	}
 

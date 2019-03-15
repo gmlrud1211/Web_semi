@@ -23,7 +23,7 @@
     <h3 class="panel-title" style="font-size: 12px;"><strong>받는사람: ${sMsg.u_name }</strong></h3>
   </div>
   <div class="panel-body">
-  	<form action="/mypage/message/send" method="post" onsubmit="self.close();">
+  	<form action="/mypage/message/reply" method="post" onsubmit="self.close();">
   	  <textarea name="m_comment" rows="10" cols="45"></textarea>
   	  <input type="hidden" name="m_no" value="${sMsg.m_no }"/>
   	  <input type="hidden" name="sender_no" value="${sMsg.receiver_no }"/>

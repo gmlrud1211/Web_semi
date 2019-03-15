@@ -41,7 +41,7 @@ function detail(one_no) {
 		        </tr>
 		      </thead>
 		      <tbody>
-		        <c:if test="${qnaList.size()>0 }">
+		        <c:if test="${mbList.size()>0 }">
    				<c:forEach var="i" begin="0" end="${mbList.size()-1 }">
 	              <tbody>
 	               <tr onclick="detail(${mbList.get(i).b_no });" style="cursor:pointer">
@@ -58,6 +58,10 @@ function detail(one_no) {
 		    </table>
    
           </div><!--/row-->
+          <c:if test="${mbList.size()>0 }">
+          <jsp:include page="/view/layout/paging.jsp"/>
+          </c:if>
+          
         </div><!--/.col-xs-12.col-sm-9-->
 
       </div><!--/row-->

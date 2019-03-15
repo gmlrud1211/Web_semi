@@ -64,7 +64,7 @@ function detail(tab, num, p_totcount, one_no)	{
 		        <c:if test="${qnaList.size()>0 }">
    				<c:forEach var="i" begin="0" end="${qnaList.size()-1 }">
 <%-- 	                	<tr data-no="${qnaList.get(i).one_no }"> --%> <!-- jQuery로 셀렉하기 -->
-	                	<tr onclick="detail(${qnaList.get(i).one_no });">
+	                	<tr onclick="detail(${paging.curPage,  ${qnaList.get(i).one_no });"> tab, num, p_totcount, one_no
 		                  <td>${qnaList.get(i).one_title }</td>
 		                  <td>${qnaList.get(i).one_date }</td>
 		                  <td>${qnaList.get(i).one_status }</td>
@@ -80,6 +80,13 @@ function detail(tab, num, p_totcount, one_no)	{
 		    </table>
    
           </div><!--/row-->
+          
+          <c:if test="${qnaList.size()>0 }">
+          <jsp:include page="/view/layout/paging.jsp"/>
+          </c:if>
+          
+          <button style="float: right;">1:1 문의하기</button>
+          
         </div><!--/.col-xs-12.col-sm-9-->
 
       </div><!--/row-->

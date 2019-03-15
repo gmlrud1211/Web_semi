@@ -10,6 +10,7 @@ import java.util.List;
 import dto.MyBoard;
 import dto.QnA;
 import utill.DBConn;
+import utill.Paging;
 
 public class myQnADaoImpl implements myQnADao {
 	
@@ -17,51 +18,51 @@ public class myQnADaoImpl implements myQnADao {
 	private PreparedStatement ps;
 	private ResultSet rs;
 	
-	@Override
-	public List selectQnAListByUno(int u_no) {
-		
-		String sql = "";
-		sql +="SELECT * FROM oneandboard";
-		sql +=" WHERE u_no=?";
-
-		List<QnA> qnaList = new ArrayList<>();
-		
-		try {
-			ps = conn.prepareStatement(sql);
-			
-			ps.setInt(1, u_no);
-			
-			rs = ps.executeQuery();
-			
-			while(rs.next()) {
-				QnA qna = new QnA();
-				
-				qna.setU_no(rs.getInt("u_no"));
-				qna.setOne_no(rs.getInt("one_no"));
-				qna.setOne_title(rs.getString("one_title"));
-				qna.setOne_content(rs.getString("one_content"));
-				qna.setOne_status(rs.getString("one_status"));
-				qna.setOne_date(rs.getDate("one_date"));
-				qna.setOne_anscontent(rs.getString("one_anscontent"));
-				qna.setOne_ansdate(rs.getDate("one_ansdate"));
-				qna.setFile_no(rs.getInt("file_no"));
-									
-				qnaList.add(qna);
-			}
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				if(rs!=null)	rs.close();
-				if(ps!=null)	ps.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		} 
-	
-		return qnaList;
-	}
+//	@Override
+//	public List selectQnAListByUno(int u_no) {
+//		
+//		String sql = "";
+//		sql +="SELECT * FROM oneandboard";
+//		sql +=" WHERE u_no=?";
+//
+//		List<QnA> qnaList = new ArrayList<>();
+//		
+//		try {
+//			ps = conn.prepareStatement(sql);
+//			
+//			ps.setInt(1, u_no);
+//			
+//			rs = ps.executeQuery();
+//			
+//			while(rs.next()) {
+//				QnA qna = new QnA();
+//				
+//				qna.setU_no(rs.getInt("u_no"));
+//				qna.setOne_no(rs.getInt("one_no"));
+//				qna.setOne_title(rs.getString("one_title"));
+//				qna.setOne_content(rs.getString("one_content"));
+//				qna.setOne_status(rs.getString("one_status"));
+//				qna.setOne_date(rs.getDate("one_date"));
+//				qna.setOne_anscontent(rs.getString("one_anscontent"));
+//				qna.setOne_ansdate(rs.getDate("one_ansdate"));
+//				qna.setFile_no(rs.getInt("file_no"));
+//									
+//				qnaList.add(qna);
+//			}
+//			
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		} finally {
+//			try {
+//				if(rs!=null)	rs.close();
+//				if(ps!=null)	ps.close();
+//			} catch (SQLException e) {
+//				e.printStackTrace();
+//			}
+//		} 
+//	
+//		return qnaList;
+//	}
 
 	@Override
 	public QnA selectQnAByOneno(int one_no) {
@@ -190,4 +191,93 @@ public class myQnADaoImpl implements myQnADao {
 		
 	}
 
+	@Override
+	public int cntMyQnA(int u_no) {
+		String sql = "";
+		sql +="SELECT COUNT(*) FROM oneandboard";
+		sql +=" WHERE u_no=?";
+		
+		int cnt=0;
+
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, u_no);
+
+			rs = ps.executeQuery();
+			
+			rs.next();
+			
+			cnt = rs.getInt(1);	
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs!=null) rs.close();
+				if(ps!=null) ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}	
+		
+		return cnt;
+	}
+
+	@Override
+	public List selectMyQnAPagingList(int u_no, Paging paging) {
+		
+		String sql = "";
+		
+		sql += "SELECT * FROM (";
+		sql += "	SELECT rownum rnum, B.* FROM(";
+		sql += "		SELECT * FROM oneandboard";
+		sql += " 			WHERE u_no=?";
+		sql += " 			ORDER BY one_no";
+		sql += "		) B";
+		sql += "	ORDER BY rnum";
+		sql += ") R";
+		sql += " WHERE rnum BETWEEN ? AND ?";
+		
+		List<QnA> qnaList = new ArrayList<>();
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, u_no);
+			ps.setInt(2, paging.getStartNo());
+			ps.setInt(3, paging.getEndNo());
+			
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				
+				QnA qna = new QnA();
+
+				qna.setU_no(rs.getInt("u_no"));
+				qna.setOne_no(rs.getInt("one_no"));
+				qna.setOne_title(rs.getString("one_title"));
+				qna.setOne_content(rs.getString("one_content"));
+				qna.setOne_status(rs.getString("one_status"));
+				qna.setOne_date(rs.getDate("one_date"));
+				qna.setOne_anscontent(rs.getString("one_anscontent"));
+				qna.setOne_ansdate(rs.getDate("one_ansdate"));
+				qna.setFile_no(rs.getInt("file_no"));
+									
+				qnaList.add(qna);
+			}
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs!=null) rs.close();
+				if(ps!=null) ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}	
+		
+		return qnaList;
+
+	}
 }
