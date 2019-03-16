@@ -31,30 +31,31 @@ public class StudyOpenController extends HttpServlet {
 	
 		//요청파라미터
 		Study study = studyservice.getParam(req,resp);
+		//int u_no = Integer.parseInt(req.getParameter("u_no"));
 		
-	/*	//파일번호 구하기
+		//파일번호 구하기
 		String filenoParam = req.getParameter("file_no");
+	
 		int file_no=-1;
 		
 		if(filenoParam!=null && !"".equals(filenoParam)) {
 			file_no = Integer.parseInt(filenoParam);
 		}
-		//스터디 번호 얻기
-		int study_no = studyservice.getStudy_no();*/
+		
+		//스터디 번호 얻기(조회시 필요?)
+		//int study_no = studyservice.getStudy_no();
 				
 		//스터디 정보 등록
 		studyservice.studyopen(study);
-//		
-//		//파일첨부 존재하면 처리
-//		if(file_no !=-1) {
-//			FileUpload fileupload = new FileUpload();
-//			fileupload.setFile_no(file_no);
-//			
-//			//게시글,파일 연결
-//			studyservice.updateFile(fileupload);
-//		}
-//		
-//		
+		
+		//파일첨부 존재하면 처리
+		if(file_no !=-1) {
+			FileUpload fileupload = new FileUpload();
+			fileupload.setFile_no(file_no);
+			
+			//게시글,파일 연결
+			studyservice.updateFile(fileupload);
+		}
 		
 		resp.sendRedirect("/main");
 		

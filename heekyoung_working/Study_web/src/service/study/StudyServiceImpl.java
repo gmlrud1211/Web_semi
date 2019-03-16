@@ -24,7 +24,7 @@ public class StudyServiceImpl implements StudyService {
 	
 		String study_name =(String)req.getParameter("study_name");
 		int st_code = Integer.parseInt(req.getParameter("st_code"));
-	//	int file_no = Integer.parseInt(req.getParameter("file_no"));
+		//int file_no = Integer.parseInt(req.getParameter("file_no"));
 		String study_region =(String)req.getParameter("study_region");
 		String study_time =(String)req.getParameter("study_time");
 		String study_freq =(String)req.getParameter("study_freq");
@@ -59,23 +59,23 @@ public class StudyServiceImpl implements StudyService {
 	@Override
 	public Study studyopen(Study study) {
 		studyDao.studyopen(study);
+		
 		return study;
 
-	}
-
-	@Override
-	public Study getStudy_no(Study study) {
-		studyDao.getStudy_no(study);
-		return study;
 	}
 
 	@Override
 	public void updateFile(FileUpload fileupload) {
+		studyDao.updateFile(fileupload);
 		
 	}
+
+	@Override
+	public int getStudy_no() {
+		return studyDao.getStudy_no();
+	}
+
 	
-
-
 
 
 	
