@@ -58,7 +58,7 @@
 					<th style="width: 45%">내용</th>
 					<th style="width: 20%">작성일</th>
 					<th style="width: 10%">다운로드</th>
-					<th style="width: 15%">작성자</th>
+					<!--  <th style="width: 15%">작성자</th> -->
 				</tr>
 			</thead>
 			
