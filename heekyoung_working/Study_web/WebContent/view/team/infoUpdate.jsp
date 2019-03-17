@@ -117,7 +117,7 @@
 		</script>
 	
 <body>
-	<h3 style="text-align: center;"><small>스터디 개설하기</small></h3>
+	<h3 style="text-align: center;"><small>스터디 정보 수정</small></h3>
 	<hr>
 	
 	
@@ -270,7 +270,7 @@
 
 
 	<div class="col-sm-offset-4">
-			<button type="button" id="btnOpen" class="btn btn-sm" style="color:#ffffff; background:#F67280">등록</button>
+			<button type="button" id="btnOpen" class="btn btn-sm" style="color:#ffffff; background:#F67280">수정완료</button>
 			<button type="button" id="btnCancel" class="btn btn-sm" style="color:#ffffff; background:#FA4C64">취소</button>
 	</div>
 

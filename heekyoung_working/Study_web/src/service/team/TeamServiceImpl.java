@@ -43,8 +43,7 @@ public class TeamServiceImpl implements TeamService {
 	public Achive getParam(HttpServletRequest req, HttpServletResponse resp) {
 		
 		Achive achive = new Achive();
-		
-		
+	
 		//int study_no = Integer.parseInt(req.getParameter("study_no"));
 		//int a_no = Integer.parseInt(req.getParameter("a_no"));
 		String a_title=(String)req.getParameter("a_title");
