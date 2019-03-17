@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<form action="/file/newtab" method="post" enctype="multipart/form-data">
+<form action="/study/open/file" method="post" enctype="multipart/form-data">
 파일선택 <input type="file" name="upfile" /><br><br>
 
 <button style="color:#ffffff; background:#F67280">업로드</button>

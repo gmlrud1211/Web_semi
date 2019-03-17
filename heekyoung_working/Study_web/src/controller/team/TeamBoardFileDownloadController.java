@@ -16,7 +16,7 @@ import dao.team.TeamDao;
 import dao.team.TeamDaoImpl;
 import dto.FileUpload;
 @WebServlet("/file/down")
-public class TeamBoardFileController extends HttpServlet {
+public class TeamBoardFileDownloadController extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	

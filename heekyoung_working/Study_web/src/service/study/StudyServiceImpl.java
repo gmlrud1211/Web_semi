@@ -7,6 +7,7 @@ import java.sql.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.study.StudyDao;
 import dao.study.StudyDaoImpl;
@@ -31,12 +32,15 @@ public class StudyServiceImpl implements StudyService {
 		int study_min = Integer.parseInt(req.getParameter("study_min"));
 		int study_max = Integer.parseInt(req.getParameter("study_max"));
 		String study_gender =(String)req.getParameter("study_gender");
-	
 		String study_opendate =(String)req.getParameter("study_opendate");
 		String study_period = (String)req.getParameter("study_period");
-		
 		String study_detail =(String)req.getParameter("study_detail");
 		//int u_no = Integer.parseInt(req.getParameter("u_no"));
+	
+		HttpSession session = req.getSession(true);
+		int u_no = (int)session.getAttribute("u_no"); 
+		
+		
 		
 		study.setStudy_name(study_name);
 		study.setSt_code(st_code);
@@ -50,7 +54,7 @@ public class StudyServiceImpl implements StudyService {
 		study.setStudy_opendate(study_opendate);
 		study.setStudy_period(study_period);
 		study.setStudy_details(study_detail);
-//		study.setU_no(u_no);
+		study.setU_no(u_no);
 
 
 		return study;

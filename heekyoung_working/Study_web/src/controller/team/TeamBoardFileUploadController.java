@@ -1,4 +1,4 @@
-package controller.study;
+package controller.team;
 
 import java.io.IOException;
 
@@ -17,13 +17,13 @@ import dao.file.FileDao;
 import dao.file.FileDaoImpl;
 import dto.FileUpload;
 
-@WebServlet("/file/newtab")
-public class NewTabController extends HttpServlet {
+@WebServlet("/team/board/file")
+public class TeamBoardFileUploadController extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/view/study/filenewtab.jsp").forward(request, response);
+		request.getRequestDispatcher("/view/team/teamBoardFile.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -53,9 +53,8 @@ public class NewTabController extends HttpServlet {
 		file.setFile_no(fileno);
 		file.setFile_originname(mul.getOriginalFileName("upfile"));
 		file.setFile_storedname(mul.getFilesystemName("upfile"));
-		//(req.getRequestURI()=="/study/open")
-			//file.setFut_code(5);
-			file.setFut_code(3);
+		System.out.println(req.getRequestURI());
+		file.setFut_code(3);
 		
 		//파일삽입
 		filedao.insertFile(file);
