@@ -13,13 +13,6 @@ public class TeamManageController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("/view/team/teammanage.jsp").forward(request, response);
-		
-	
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-	
 	}
 
 }

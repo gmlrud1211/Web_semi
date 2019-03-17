@@ -30,7 +30,7 @@ $(document).ready(function() {
 				+",top="+(h-200)/2 ); //y 위치
 		
 		//팝업 url 설정
-		popup.location = "/file/newtab";
+		popup.location = "/team/board/file";
 	});
 });
 

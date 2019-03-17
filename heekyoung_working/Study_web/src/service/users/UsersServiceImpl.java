@@ -13,6 +13,7 @@ public class UsersServiceImpl implements UsersService {
 	
 	@Override
 	public Users getParam(HttpServletRequest req, HttpServletResponse resp) {
+		
 		String u_id = req.getParameter("u_id");
 		String u_pw = req.getParameter("u_pw");
 		
