@@ -108,7 +108,7 @@
 		});
 		
 		function sendData(no, name) {
-			$("#fileno").val(no); //파일번호넣기
+			$("#file_no").val(no); //파일번호넣기
 			$("#upResult").html(name); //파일이름 넣기
 		}
 		

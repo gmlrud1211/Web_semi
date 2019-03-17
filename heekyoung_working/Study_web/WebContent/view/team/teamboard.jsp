@@ -58,7 +58,7 @@
 					<th style="width: 45%">내용</th>
 					<th style="width: 20%">작성일</th>
 					<th style="width: 10%">다운로드</th>
-					<!--  <th style="width: 15%">작성자</th> -->
+					<th style="width: 15%">작성자</th>
 				</tr>
 			</thead>
 			
@@ -69,6 +69,7 @@
 						<td>${studyboard.sb_content }</td>   
 						<td><fmt:formatDate value="${studyboard.sb_date }" pattern="yyyy-MM-dd"/></td>
 						<td><a href="/file/down?file_no=${studyboard.file_no }"><img src="/images/down.png" alt="다운" /></a></td>
+						<td> ${studyboard.u_no }</td>
 					</tr>
 				</c:forEach>
 			</tbody>

@@ -151,7 +151,7 @@ public class TeamDaoImpl implements TeamDao{
 
 		String sql = "";
 		sql += "INSERT INTO studyboard ( study_no , u_no, sb_content, file_no, sb_date, sb_no)";
-		sql += " VALUES ( 1, 1, ?, ?, sysdate, STUDYBOARD_SEQ.nextval  )";
+		sql += " VALUES ( 1, ?, ?, ?, sysdate, STUDYBOARD_SEQ.nextval  )";
 		
 		//INSERT INTO STUDYBOARD(STUDY_NO,U_NO,SB_CONTENT,FILE_NO,SB_DATE,SB_NO) VALUES (1,	1,'자료받아가세용~5',39,'2019/03/05',STUDYBOARD_SEQ.nextval);
 		
@@ -160,8 +160,9 @@ public class TeamDaoImpl implements TeamDao{
 		try {
 			ps = conn.prepareStatement(sql);
 			
-			ps.setString(1, board.getSb_content());
-			ps.setInt(2, board.getFile_no());
+			ps.setInt(1, board.getU_no());
+			ps.setString(2, board.getSb_content());
+			ps.setInt(3, board.getFile_no());
 			
 			ps.executeUpdate();
 			

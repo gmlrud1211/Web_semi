@@ -35,12 +35,10 @@ public class StudyServiceImpl implements StudyService {
 		String study_opendate =(String)req.getParameter("study_opendate");
 		String study_period = (String)req.getParameter("study_period");
 		String study_detail =(String)req.getParameter("study_detail");
-		//int u_no = Integer.parseInt(req.getParameter("u_no"));
 	
 		HttpSession session = req.getSession(true);
 		int u_no = (int)session.getAttribute("u_no"); 
-		
-		
+				
 		
 		study.setStudy_name(study_name);
 		study.setSt_code(st_code);

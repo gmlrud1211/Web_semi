@@ -6,7 +6,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import dto.FileUpload;
 import dto.Study;
@@ -31,29 +30,28 @@ public class StudyOpenController extends HttpServlet {
 		req.setCharacterEncoding("utf-8");
 	
 
-		//u_no 가져오기
-		HttpSession session = req.getSession(true);
-		int u_no = (int)session.getAttribute("u_no"); 
-		
 		//요청파라미터
 		Study study = studyservice.getParam(req,resp);
 		
-		//스터디 번호 얻기(조회시 필요?)
-		//int study_no = studyservice.getStudy_no();
-		
-		
-		
-		
-		
+	
 		//파일번호 구하기
 		String filenoParam = req.getParameter("file_no");
-	
+		System.out.println(req.getParameter("file_no"));
+		
 		int file_no=-1;
 		
 		if(filenoParam!=null && !"".equals(filenoParam)) {
 			file_no = Integer.parseInt(filenoParam);
 		}
+		System.out.println("구하기 : "+file_no);
 		
+		//스터디 번호 얻기(조회시 필요?)
+		int study_no = studyservice.getStudy_no();
+			
+		//스터디 번호 얻기
+		study.setStudy_no(study_no);
+		study.setFile_no(file_no);
+	
 		//스터디 정보 등록
 		studyservice.studyopen(study);
 		
