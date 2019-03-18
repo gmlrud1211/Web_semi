@@ -318,6 +318,18 @@ public class TeamDaoImpl implements TeamDao{
 		
 		return study_no;
 	}
+
+	@Override
+	public List userStudySelectAll() {
+		//sql 작성
+		String sql ="";
+		sql +="select * from userstudy";
+		//sql +=" where = ?";
+	
+		
+		
+		return userStudyList;
+	}
 	
 	
 

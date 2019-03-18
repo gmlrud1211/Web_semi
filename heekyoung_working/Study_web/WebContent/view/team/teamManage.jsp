@@ -69,12 +69,11 @@
 								<th style="width: 20%">팀원ID</th>
 								<th style="width: 25%">팀원이름</th>
 								<th style="width: 50%">방출여부</th>
-								
 							</tr>
 						</thead>
 						
 						<tbody>
-							<c:forEach items="${boardList }" var="studyboard">
+							<c:forEach items="${users }" var="userlist">
 								<tr>
 								<%-- 	<td>${studyboard.sb_no }</td>
 									<td>${studyboard.sb_content }</td>   
@@ -88,11 +87,7 @@
 				
 				</div>
    				
-   				
-   				
    			
-   			
-   				
    				<div id="btnBox" class="btn pull-right">
 					<button id="btnTeamPeople" class="btn btn-sm" style="color:#ffffff; background:#F67280">팀원관리</button>
 				</div>

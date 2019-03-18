@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dto.Achive;
+import dto.UserStudy;
 import util.Paging;
 
 public interface TeamService {
@@ -25,6 +26,10 @@ public interface TeamService {
 
 	//목표 등록
 	public Achive InsertAchive(Achive achive);
+
+	
+	//스터디 참여중인 회원 리스트 가져오기
+	public List<UserStudy> getUserStudyList();
 	
 	//목표 번호 가져오기 
 	

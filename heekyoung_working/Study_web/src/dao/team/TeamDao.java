@@ -6,6 +6,7 @@ import dto.Achive;
 import dto.FileUpload;
 import dto.Study;
 import dto.StudyBoard;
+import dto.UserStudy;
 import util.Paging;
 
 public interface TeamDao {
@@ -33,6 +34,9 @@ public interface TeamDao {
 	
 	//스터디 번호 조회
 	public int getStudy_no(Study study);
+
+	//유저가 참여중인 스터디 조회
+	public List userStudySelectAll();
 	
 	
 }
