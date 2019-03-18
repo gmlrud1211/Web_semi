@@ -24,7 +24,7 @@ public class StudyServiceImpl implements StudyService {
 		Study study = new Study();
 	
 		String study_name =(String)req.getParameter("study_name");
-		//int st_code = Integer.parseInt(req.getParameter("st_code"));
+		int st_code = Integer.parseInt(req.getParameter("st_code"));
 		//int file_no = Integer.parseInt(req.getParameter("file_no"));
 		String study_region =(String)req.getParameter("study_region");
 		String study_time =(String)req.getParameter("study_time");
@@ -41,7 +41,7 @@ public class StudyServiceImpl implements StudyService {
 				
 		
 		study.setStudy_name(study_name);
-		//study.setSt_code(st_code);
+		study.setSt_code(st_code);
 		//study.setFile_no(file_no);
 		study.setStudy_region(study_region);
 		study.setStudy_time(study_time);
