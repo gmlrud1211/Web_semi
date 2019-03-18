@@ -29,43 +29,48 @@
 	<h3 style="text-align: center;"><small>목표관리</small></h3>
 
 	
-
-
-
-	<div>
-		<canvas id="myChart" style="display: block; width: 426px; height: 213px;" width="426" height="213" ></canvas>
-
-	</div>
-
+	<canvas id="myChart"  width="200" height="250"> </canvas>
+	
+	
 	<script type="text/javascript">
+
 	var ctx = document.getElementById('myChart').getContext('2d');
-	
 	var myChart = new Chart(ctx, {
-		type :'doughnut',
-		data : {
-			label : ['1번과제','2번과제'],
-			dataset: [{
-				label:'Points',
-				data: [10,90],
-				backgroundColor : [
-					'rgba(25,140,255,1)',
-					'rgba(0,0,0,0.50)'
-				],
-				hoverBackgroundtColor : [
-					'rgba(25,140,255,1)',
-					'rgba(0,0,0,0.50)'
-				]
-			}]
-		},
-		 options: {
-		       animation : {
-		    	   animateScale : true
+	   
+		type: 'doughnut',
 		
-		       }
-		 }
+	    data: {
+	        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+	        datasets: [{
+	            label: '# of Votes',
+	            data: [12, 19, 3, 5, 2, 3],
+	            backgroundColor: [
+	                'rgba(255, 99, 132, 0.2)',
+	                'rgba(54, 162, 235, 0.2)',
+	                'rgba(255, 206, 86, 0.2)',
+	                'rgba(75, 192, 192, 0.2)',
+	                'rgba(153, 102, 255, 0.2)',
+	                'rgba(255, 159, 64, 0.2)'
+	            ],
+	            borderColor: [
+	                'rgba(255, 99, 132, 1)',
+	                'rgba(54, 162, 235, 1)',
+	                'rgba(255, 206, 86, 1)',
+	                'rgba(75, 192, 192, 1)',
+	                'rgba(153, 102, 255, 1)',
+	                'rgba(255, 159, 64, 1)'
+	            ],
+	            borderWidth: 1
+	        }]
+	    },
+	    options: {
+	      responsive : false
+	    }
 	});
-	
 	</script>
+	
+	
+	
 
 
 
