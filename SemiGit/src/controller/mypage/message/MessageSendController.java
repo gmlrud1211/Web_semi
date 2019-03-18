@@ -12,8 +12,8 @@ import dto.Message;
 import service.mypage.message.MessageService;
 import service.mypage.message.MessageServiceImpl;
 
-@WebServlet("/mypage/message/reply")
-public class MessageReplyController extends HttpServlet {
+@WebServlet("/mypage/message/send")
+public class MessageSendController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	MessageService mServ = new MessageServiceImpl();
@@ -35,9 +35,11 @@ public class MessageReplyController extends HttpServlet {
 		int sender_no = Integer.parseInt(request.getParameter("sender_no"));
 		int receiver_no = Integer.parseInt(request.getParameter("receiver_no"));
 		String m_comment = request.getParameter("m_comment");
-//		System.out.println("m"+ m_no);
+
 //		System.out.println("s"+ sender_no);
 //		System.out.println("r"+ receiver_no);
+//		System.out.println(m_comment);
+				
 		Message msg = new Message();
 		msg.setSender_no(sender_no);
 		msg.setReceiver_no(receiver_no);

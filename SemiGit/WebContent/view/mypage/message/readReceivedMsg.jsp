@@ -20,7 +20,15 @@
 <body>
 <div class="panel panel-default" style="margin: 5px;border: none; box-shadow: none;">
   <div class="panel-heading" style="background: transparent; border: none;">
-    <h3 class="panel-title" style="font-size: 12px;"><strong>보낸사람: ${msg.sender_name }</strong></h3>
+    <div>
+    <span>
+	    <strong>보낸사람: ${msg.sender_name }</strong>
+    </span>
+    <span>
+	    <strong style="float: right;">받는사람: ${msg.receiver_name }</strong>
+	 </span>
+    </div>
+	 <span style="float: right;">받은 날짜: ${msg.m_date }</span>
   </div>
   <div class="panel-body">
     ${msg.m_comment }

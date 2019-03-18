@@ -69,11 +69,8 @@
 <script>
 function popup(m_no){
 // 	window.open("/message/read?m_no="+m_no);
-	var side = document.createElement("input");
-	side.id = "side";
-	side.value = "receiver";
-// 	side.setAttribute("side", "receiver");
-	window.open("/mypage/message/read?side="+side+"&m_no="+m_no, "window팝업", "width=400, height=350, menubar=no, status=no, toolbar=no");
+	
+	window.open("/mypage/message/read?m_no="+m_no, "window팝업", "width=400, height=350, menubar=no, status=no, toolbar=no");
 };
 </script>
 

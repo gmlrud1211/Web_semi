@@ -241,7 +241,7 @@ public class MessageDaoImpl implements MessageDao {
 
 
 	@Override
-	public void sendMsg(Message msg) {
+	public void insertMsg(Message msg) {
 		
 		String sql = "";
 		sql += "INSERT INTO message(m_no, m_comment, m_read, m_date, sender_no, accepter_no)";

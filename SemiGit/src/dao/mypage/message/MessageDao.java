@@ -14,7 +14,7 @@ public interface MessageDao {
 //		public void deleteMesssage(int m_no);
 		
 		// 쪽지 보내기
-		public void sendMsg(Message msg);
+		public void insertMsg(Message msg);
 		
 		// 쪽지 페이징 처리 리스트 반환
 		public List selectMsgPagingList(int side, int u_no, Paging paging);

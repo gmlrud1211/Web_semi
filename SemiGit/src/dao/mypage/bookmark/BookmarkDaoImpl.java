@@ -90,9 +90,9 @@ public class BookmarkDaoImpl implements BookmarkDao {
 		sql += "		SELECT  B.bm_no, B.u_no, B.study_no, S.study_name, S.file_no, F.file_originname, ";
 		sql += "				F.file_storedname, B.bm_date"; 
 		sql += " 		FROM study S";
-		sql += " 		LEFT OUTER JOIN bookmark B";
+		sql += " 		JOIN bookmark B";
 		sql += " 		ON S.study_no = B.study_no";
-		sql += " 		LEFT OUTER JOIN fileupload F";
+		sql += " 		JOIN fileupload F";
 		sql += " 		ON S.file_no = F.file_no";
 		sql += " 		WHERE B.u_no=?";
 		sql += " 		ORDER BY b.bm_date";

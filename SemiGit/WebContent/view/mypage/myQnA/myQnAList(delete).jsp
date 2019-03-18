@@ -8,20 +8,12 @@ $(document).ready(function() {
 // 	$("tbody tr").click(function() {
 // 		console.log($(this).attr("data-no"));
 // 	})
-	function detail(){
-		$().click(function(){
-			
-		})
-	}
-
 });
 
-
-
-	
+function detail(one_no) {
+	location.href="/mypage/myQnA/detail?one_no="+one_no;
+}
 </script>
-
-
 
 <div class="wrapper">
 
@@ -42,12 +34,12 @@ $(document).ready(function() {
             <h2>나의 1:1 문의</h2>
             <p style="font-size: 16px">관리자에게 궁금한 점을 언제든지 질문하세요!</p>
           </div>
-          <div class="row" style="margin:0;">
+          <div class="row" style="margin: 0px;">
    
    			<table class="table table-hover">
 		      <thead>
 		        <tr>
-		          <th>번호</th>
+		          <th>문의글 번호</th>
 		          <th>제목</th>
 		          <th>작성일</th>
 		          <th>상태</th>
@@ -58,16 +50,13 @@ $(document).ready(function() {
 		        <c:if test="${qnaList.size()>0 }">
    				<c:forEach var="i" begin="0" end="${qnaList.size()-1 }">
 <%-- 	                	<tr data-no="${qnaList.get(i).one_no }"> --%> <!-- jQuery로 셀렉하기 -->
-	                	<tr> 
-	                	  <td onclick="detail();" style="cursor:pointer">${qnaList.get(i).one_title }</td>
-		                  <td>${qnaList.get(i).one_title }</td>
+	                	<tr>
+	                	  <td>${qnaList.get(i).one_no }</td>
+		                  <td onclick="detail(${qnaList.get(i).one_no });" style="cursor:pointer">${qnaList.get(i).one_title }</td>
 		                  <td>${qnaList.get(i).one_date }</td>
 		                  <c:if test="${qnaList.get(i).one_status eq 'y' }"><td>답변완료</td></c:if>
 		                  <c:if test="${qnaList.get(i).one_status eq 'n' }"><td>대기중</td></c:if>
 	                   	</tr>
-	                   	<tr class="answer" id="QnAblock" style="DISPLAY:none;">
-	                   		<td colspan="2" class="detail"> ${qnaList.get(i).one_content }</td>
-	                   	</tr> 
    			</c:forEach>
    			</c:if>
               </tbody>
@@ -79,8 +68,6 @@ $(document).ready(function() {
           <c:if test="${qnaList.size()>0 }">
           <jsp:include page="./pagingMyQnA.jsp"/>
           </c:if>
-          
-          <button style="float: right;">1:1 문의하기</button>
           
         </div><!--/.col-xs-12.col-sm-9-->
 

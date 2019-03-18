@@ -16,19 +16,32 @@
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
 <script src="/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+function confirm(){
+	alert('쪽지를 보냈습니다');
+	self.close();
+}
+</script>
 </head>
 <body>
 <div class="panel panel-default" style="margin: 5px;border: none; box-shadow: none;">
   <div class="panel-heading" style="background: transparent; border: none;">
-    <h3 class="panel-title" style="font-size: 12px;"><strong>받는사람: ${msg.receiver_name }</strong></h3>
-  </div>
+	
+		<span>
+		    <strong>받는사람: ${msg.sender_name }</strong>
+	    </span>
+	    <span>
+		    <strong style="float: right;">보내는사람: ${msg.receiver_name }</strong>
+		 </span>
+		
+	  </div>  
   <div class="panel-body">
-  	<form action="/mypage/message/reply" method="post" onsubmit="self.close();">
+  	<form action="/mypage/message/send" method="post" onsubmit="confirm();">
   	  <textarea name="m_comment" rows="10" cols="45"></textarea>
   	  <input type="hidden" name="sender_no" value="${msg.receiver_no }"/>
   	  <input type="hidden" name="receiver_no" value="${msg.sender_no }"/>
  	<div style="margin: 15px; float: right;">
-  		<button type="button">닫기</button>
+  		<button type="button" onclick="self.close();">닫기</button>
   		<button type="submit">보내기</button>
  	 </div>
   	</form>
