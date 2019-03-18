@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="dto.Users" %>
+<%@page import="java.util.List"%>
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 <jsp:include page="/view/layout/header.jsp"/>
 
@@ -7,9 +10,9 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 					
-		//새 목표 등록 이벤트
+		//팀원관리(팀원 방출) 페이지
 		$("#btnTeamPeople").click(function() {
-			location.href ="/team/achive/write";
+			location.href ="#";
 		});
 				
 		//새 목표 등록 이벤트
@@ -53,14 +56,42 @@
           <div class="jumbotron" style="padding: 5px;background-color: #eee0;border-bottom: 1px solid #f67280;
           border-radius: 0;" >
             <h2>스터디룸 관리 페이지</h2>
-            <p style="font-size: 16px">스터디룸 - 팀원관리페이지</p>
+            <p style="font-size: 16px">스터디룸 회원관리페이지 입니다.</p>
           </div>
           <div class="row">
    	
+   				<div class="container">
+		
+					<table class="table table-hover table-striped table-condensed">
+						<thead>
+							<tr>
+								<th style="width: 10%">팀원번호</th>
+								<th style="width: 20%">팀원ID</th>
+								<th style="width: 25%">팀원이름</th>
+								<th style="width: 50%">방출여부</th>
+								
+							</tr>
+						</thead>
+						
+						<tbody>
+							<c:forEach items="${boardList }" var="studyboard">
+								<tr>
+								<%-- 	<td>${studyboard.sb_no }</td>
+									<td>${studyboard.sb_content }</td>   
+									<td><fmt:formatDate value="${studyboard.sb_date }" pattern="yyyy-MM-dd"/></td>
+									<td><a href="/file/down?file_no=${studyboard.file_no }"><img src="/images/down.png" alt="다운" /></a></td>
+									<td> ${studyboard.u_no}</td> --%>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+				
+				</div>
    				
    				
    				
-   				
+   			
+   			
    				
    				<div id="btnBox" class="btn pull-right">
 					<button id="btnTeamPeople" class="btn btn-sm" style="color:#ffffff; background:#F67280">팀원관리</button>
