@@ -11,6 +11,7 @@ import dto.Achive;
 import dto.FileUpload;
 import dto.Study;
 import dto.StudyBoard;
+import dto.UserStudy;
 import util.DBConn;
 import util.Paging;
 
@@ -320,16 +321,46 @@ public class TeamDaoImpl implements TeamDao{
 	}
 
 	@Override
-	public List userStudySelectAll() {
+	public List userStudySelectAll(UserStudy userStudy) {
 		//sql 작성
 		String sql ="";
 		sql +="select * from userstudy";
-		//sql +=" where = ?";
-	
+		sql +=" where study_no = 1 ";
 		
+		List<UserStudy> userStudyList = new ArrayList<>();
 		
-		//return userStudyList;
-		return null;
+		try {
+			//sql 수행
+			ps = conn.prepareStatement(sql);
+			//ps.setInt(1, userStudy.getStudy_no());
+			
+			rs = ps.executeQuery();
+			
+			//결과처리
+			while(rs.next())
+			{
+				UserStudy user_Study = new UserStudy();
+				//ResultSet의 결과 행이 DTO에 하나씩 저장됨
+				user_Study.setU_no(rs.getInt("u_no"));;
+				user_Study.setStudy_no(rs.getInt("study_no"));
+				
+				userStudyList.add(user_Study);
+			}
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				//--- 자원 해제 ---
+				if(rs!=null)	rs.close();
+				if(ps!=null)	ps.close();
+				//-----------------
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return userStudyList;
 	}
 	
 	

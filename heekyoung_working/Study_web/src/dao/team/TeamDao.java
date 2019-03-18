@@ -36,7 +36,7 @@ public interface TeamDao {
 	public int getStudy_no(Study study);
 
 	//유저가 참여중인 스터디 조회
-	public List userStudySelectAll();
+	public List userStudySelectAll(UserStudy userStudy);
 	
 	
 }

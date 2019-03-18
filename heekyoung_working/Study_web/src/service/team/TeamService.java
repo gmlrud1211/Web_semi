@@ -29,7 +29,7 @@ public interface TeamService {
 
 	
 	//스터디 참여중인 회원 리스트 가져오기
-	public List<UserStudy> getUserStudyList();
+	public List getUserStudyList(UserStudy userStudy);
 	
 	//목표 번호 가져오기 
 	

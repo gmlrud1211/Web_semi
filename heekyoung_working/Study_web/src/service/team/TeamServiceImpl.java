@@ -68,9 +68,9 @@ public class TeamServiceImpl implements TeamService {
 	}
 
 	@Override
-	public List<UserStudy> getUserStudyList() {
+	public List getUserStudyList(UserStudy userStudy) {
 		//userStudy 조회 결과 반환
-		return teamDao.userStudySelectAll();
+		return teamDao.userStudySelectAll(userStudy);
 	}
 	
 	

@@ -21,8 +21,12 @@ public class TeamManageController extends HttpServlet {
 		
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		UserStudy userStudy = new UserStudy();
+		
 		//UserStudy-user조회
-		List<UserStudy> userStudyList = teamService.getUserStudyList();
+		List<UserStudy> userStudyList = teamService.getUserStudyList(userStudy);
+		
+		request.setAttribute("userStudy", userStudy);
 		
 		//view에 전달
 		request.setAttribute("userStudyList", userStudyList);
