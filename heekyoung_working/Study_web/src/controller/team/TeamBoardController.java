@@ -35,8 +35,7 @@ public class TeamBoardController extends HttpServlet {
 		request.setAttribute("boardList", boardList);
 		
 		request.setAttribute("paging", paging);
-		
-		
+				
 		request.getRequestDispatcher("/view/team/teamboard.jsp").forward(request, response);
 		
 		

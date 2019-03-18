@@ -1,37 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-   
-<jsp:include page="../layout/header.jsp"/>    
-<title>스터디룸 관리</title>
+<jsp:include page="../layout/header.jsp"/>
 
-<script type="text/javascript">
-	$(document).ready(function() {
-					
-		//글쓰기 버튼 이벤트
-		$("#btnEnroll").click(function() {
-			location.href ="/team/achive/write";
-		});
-		
-		//스터디룸 정보 수정 이벤트
-		$("#btnUpdate").click(function() {
-			location.href ="/team/info/update";
-		});
-	});
-</script>
+<title>목표 관리</title>
 
+<!-- chart.js cdn -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
 
+<h3 style="text-align: center;"><small>목표 현황</small></h3>
 
-
-<h3 style="text-align: center;">스터디룸 관리<small> &laquo;목표등록, 수정, 팀원 관리&raquo; </small></h3>
-<hr>	
-	<h3 style="text-align: center;"><small>목표관리</small></h3>
-
-	
-	<canvas id="myChart"  width="200" height="250"> </canvas>
-	
-	
+<div>
+	<canvas id="myChart"  width="200" height="250" > </canvas>
+</div>		
 	<script type="text/javascript">
 
 	var ctx = document.getElementById('myChart').getContext('2d');
@@ -69,19 +50,21 @@
 	});
 	</script>
 	
+
 	
-	
-
-
-
+	<div>
+		<table class="table table-bordered">
 		
-	<div id="btnBox" class="btn pull-right">
-		<button id="" class="btn btn-sm" style="color:#ffffff; background:#F67280">팀원관리</button>
+			<tr>
+				<td class="info">목표마감일</td><td>?</td>
+			</tr>
+			<tr>
+				<td class="info">목표</td><td>?</td>
+			</tr>
+			<tr>
+				<td class="info">세부목표</td><td>?</td>
+				<td><input type="checkbox" name="sub_code" value="yes" /> 달성</td>
+			</tr>		
+		
+		</table>
 	</div>
-	<div id="btnBox" class="btn pull-right">
-		<button id="btnEnroll" class="btn btn-sm" style="color:#ffffff; background:#F67280">새로운 목표 등록</button>
-	</div>
-	<div id="btnBox" class="btn pull-right">
-		<button id="btnUpdate" class="btn btn-sm" style="color:#ffffff; background:#F67280">스터디 정보 수정</button>
-	</div>
-	
