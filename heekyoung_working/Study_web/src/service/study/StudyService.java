@@ -24,6 +24,9 @@ public interface StudyService{
 	//스터디 번호 가져오기
 	public int getStudy_no();
 
+	//스터디 정보 업데이트
+	public Study studyUpdate(Study study);
+
 	//스터디 카테고리 가져옴
 	//public int getCategory();
 		

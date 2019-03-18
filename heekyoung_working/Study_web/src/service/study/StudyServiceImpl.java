@@ -77,6 +77,14 @@ public class StudyServiceImpl implements StudyService {
 		return studyDao.getStudy_no();
 	}
 
+	@Override
+	public Study studyUpdate(Study study) {
+		studyDao.studyUpdate(study);
+		
+		return study;
+		
+	}
+
 	
 
 

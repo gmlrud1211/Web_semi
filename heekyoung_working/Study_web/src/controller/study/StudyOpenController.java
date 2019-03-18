@@ -45,7 +45,7 @@ public class StudyOpenController extends HttpServlet {
 		}
 		System.out.println("구하기 : "+file_no);
 		
-		//스터디 번호 얻기(조회시 필요?)
+		//스터디 번호 얻기
 		int study_no = studyservice.getStudy_no();
 			
 		//스터디 번호 얻기

@@ -27,36 +27,40 @@
 	<script type="text/javascript">
 	
 		$(document).ready(function() {
-					
+				
+			var $div = $("<div class='form-group'>")
+			+$("<div class='col-sm-5'>")
+			+$("<input type='text' name='sub_name' />")
+			+$("</div>")
+			+$("</div>")
+			
 			//목표등록(추가) 버튼 
+			$("#btnAdd").click(function() {
+				
+
+			});
+			
+			/* 
+			 <div class="form-group">
+				<label for="sub_name" class="col-sm-3 col-sm-offset-1 control-label">세부 목표</label>
+				<div class="col-sm-5">
+					<input type="text" name="sub_name" />
+				</div>
+			</div>
+			 */
+			
 			$("#btnWrite").click(function() {
 				$("form").submit();
 			});
-
-			
-			var tag = "< input type='text' name='sub_name'/>" ;
-				
-			//세부목표 추가하는 버튼 이벤트
-			$("#btnAdd").click(function() {
-				$("#form-group1").apppend(tag);
-				
-			});
-			
-			/* 	"<div class='col-sm-4 col-sm-offset-1 contorl-label'>"+
-			"<input type='text' name='sub_name' />"+
-			"<button id='btnAdd' class='btn btn-sm' style='color:#ffffff; background:#F67280'>추가</button>"+
-			"</div>" */
-			
 			
 			$("#btnRemove").on("click", function() {
 				$(this).perv().remove();
 			});
 			
 		});
-		</script>
+	</script>
 
-
-
+	
 <h4 style="text-align: center;"><small>목표설정</small></h4>
 <hr>	
 
@@ -90,6 +94,11 @@
 					<button id="btnAdd" class="btn btn-sm" style="color:#ffffff; background:#F67280">추가</button>
 				</div>
 			</div>
+			
+			
+			
+			
+			
 			<br><br>
 		
 			

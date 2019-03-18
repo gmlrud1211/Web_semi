@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import dao.team.TeamDao;
 import dao.team.TeamDaoImpl;
 import dto.Achive;
+import dto.UserStudy;
 import util.Paging;
 
 public class TeamServiceImpl implements TeamService {
@@ -62,7 +63,14 @@ public class TeamServiceImpl implements TeamService {
 
 	@Override
 	public Achive InsertAchive(Achive achive) {
+		//목표등록
 		return teamDao.insertAchive(achive);
+	}
+
+	@Override
+	public List getUserStudyList(UserStudy userStudy) {
+		//userStudy 조회 결과 반환
+		return teamDao.userStudySelectAll(userStudy);
 	}
 	
 	
