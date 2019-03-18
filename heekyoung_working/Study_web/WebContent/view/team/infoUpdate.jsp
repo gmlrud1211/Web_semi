@@ -123,12 +123,12 @@
 	
 	<div class="container">	
 	
-		<form action="/study/open" method="post" class="form-horizontal">
+		<form action="/team/info/update" method="post" class="form-horizontal">
 
 			<div class="form-group">
 				<label for="study_name" class="col-sm-3 col-sm-offset-1 control-label">스터디제목 </label> 
 				<div class="col-sm-5">
-					<input type="text" id="study_name" name="study_name" />
+					<input type="text" id="study_name" name="study_name" readonly />
 				</div>
 			</div>
 			
