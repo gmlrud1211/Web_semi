@@ -325,7 +325,7 @@ public class TeamDaoImpl implements TeamDao{
 		//sql 작성
 		String sql ="";
 		sql +="select * from userstudy";
-		sql +=" where study_no = 1 ";
+		sql +=" where study_no = 1 "; //아직 연결안되서 임의로 값 집어넣음
 		
 		List<UserStudy> userStudyList = new ArrayList<>();
 		
