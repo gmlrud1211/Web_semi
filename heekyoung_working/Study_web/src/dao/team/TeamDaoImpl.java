@@ -328,7 +328,8 @@ public class TeamDaoImpl implements TeamDao{
 	
 		
 		
-		return userStudyList;
+		//return userStudyList;
+		return null;
 	}
 	
 	
