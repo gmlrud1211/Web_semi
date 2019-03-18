@@ -26,6 +26,12 @@
 	    $( "#studyperiod" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
 	    
 	});
+	$(function() {
+	    $( "#studyaddrecruit" ).datepicker({
+	    });
+	    $( "#studyaddrecruit" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
+	    
+	});
 	</script>
 	
 
@@ -125,7 +131,7 @@
 	
 		<form action="/team/info/update" method="post" class="form-horizontal">
 
-			<div class="form-group">
+			<!-- <div class="form-group">
 				<label for="study_name" class="col-sm-3 col-sm-offset-1 control-label">스터디제목 </label> 
 				<div class="col-sm-5">
 					<input type="text" id="study_name" name="study_name" readonly />
@@ -136,7 +142,7 @@
 			<label for="st_code" class="col-sm-3 col-sm-offset-1 control-label"> 카테고리  </label>
 					<div class="col-sm-5">
 						<select name="st_catecode" id="st_catecode" >
-								 <!-- onchange="fnGetCate(this.value);" -->
+								 onchange="fnGetCate(this.value);"
 							<option value="">1차분류</option>
 							<option value="1">IT·프로그래밍</option>
 							<option value="2">디자인</option>
@@ -164,7 +170,7 @@
 						</select>
 					</div>
 			</div>
-	
+	 		-->
 			<div class="form-group">
 			<label for="study_region" class="col-sm-3 col-sm-offset-1 control-label"> 지역  </label>  
 					<div class="col-sm-5">
@@ -250,6 +256,12 @@
 			<label class="col-sm-3 col-sm-offset-1 control-label"> 스터디기간  </label>
 				<div class="col-sm-5">
 					<input type="text" name="study_opendate" id="studyopendate" > ~ <input type="text" name="study_period" id="studyperiod"> 
+				</div>
+			</div>
+			<div class="form-group">
+			<label class="col-sm-3 col-sm-offset-1 control-label"> 추가모집기간</label>
+				<div class="col-sm-5">
+					<input type="text" name="study_addrecruit" id="studyaddrecruit" > ~ 까지 
 				</div>
 			</div>
 			<div class="form-group">
