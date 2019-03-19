@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import dao.mypage.bookmark.BookmarkDao;
 import dao.mypage.bookmark.BookmarkDaoImpl;
 import dto.Bookmark;
-import utill.Paging;
+import util.Paging;
 
 public class BookmarkServiceImpl implements BookmarkService {
 

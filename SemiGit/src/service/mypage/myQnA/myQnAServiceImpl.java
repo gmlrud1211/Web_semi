@@ -6,8 +6,9 @@ import javax.servlet.http.HttpServletRequest;
 
 import dao.mypage.myQnA.myQnADao;
 import dao.mypage.myQnA.myQnADaoImpl;
+import dto.FileUpload;
 import dto.QnA;
-import utill.Paging;
+import util.Paging;
 
 public class myQnAServiceImpl implements myQnAService {
 
@@ -47,7 +48,7 @@ public class myQnAServiceImpl implements myQnAService {
 			return curPage;
 		}
 
-		// nullÀÌ³ª ""¸é 0À¸·Î ¹ÝÈ¯
+		// nullï¿½Ì³ï¿½ ""ï¿½ï¿½ 0ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
 		return 0;
 	}
 
@@ -59,6 +60,22 @@ public class myQnAServiceImpl implements myQnAService {
 	@Override
 	public List getMyQnAPagingList(int u_no, Paging paging) {
 		return qnaDao.selectMyQnAPagingList(u_no, paging);
+	}
+
+	@Override
+	public int getQnA_no() {
+		return qnaDao.getQnA_no();
+	}
+
+	@Override
+	public void updateFile(FileUpload fileupload) {
+		qnaDao.updateFile(fileupload);
+		
+	}
+
+	@Override
+	public FileUpload getFileByFileno(int file_no) {
+		return qnaDao.selectFileByFileno(file_no);
 	}
 
 }

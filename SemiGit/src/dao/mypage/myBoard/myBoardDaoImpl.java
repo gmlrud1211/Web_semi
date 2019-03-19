@@ -9,8 +9,8 @@ import java.util.List;
 
 import dto.Message;
 import dto.MyBoard;
-import utill.DBConn;
-import utill.Paging;
+import util.DBConn;
+import util.Paging;
 
 public class myBoardDaoImpl implements myBoardDao {
 

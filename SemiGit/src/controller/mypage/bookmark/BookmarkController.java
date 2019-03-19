@@ -16,7 +16,7 @@ import dao.mypage.bookmark.BookmarkDaoImpl;
 import dto.MyBoard;
 import service.mypage.bookmark.BookmarkService;
 import service.mypage.bookmark.BookmarkServiceImpl;
-import utill.Paging;
+import util.Paging;
 
 
 @WebServlet("/mypage/bookmark")

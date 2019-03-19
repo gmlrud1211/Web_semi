@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 import dto.Message;
 import service.mypage.message.MessageService;
 import service.mypage.message.MessageServiceImpl;
-import utill.Paging;
+import util.Paging;
 
 
 @WebServlet("/mypage/message/sent")

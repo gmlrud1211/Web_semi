@@ -3,7 +3,7 @@ package dao.mypage.myBoard;
 import java.util.List;
 
 import dto.MyBoard;
-import utill.Paging;
+import util.Paging;
 
 public interface myBoardDao {
 
@@ -11,10 +11,10 @@ public interface myBoardDao {
 	
 	public MyBoard selectBoardByBno(int b_no);
 	
-	// ÃÑ ÀÛ¼º °Ô½Ã±Û ¼ö ¹ÝÈ¯
+	// ï¿½ï¿½ ï¿½Û¼ï¿½ ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ ï¿½ï¿½È¯
 	public int cntMyBoard(int u_no);
 	
-	// »ç¿ëÀÚº° ÀÛ¼º °Ô½Ã±Û ÆäÀÌÂ¡ Ã³¸® ¸®½ºÆ® ¹ÝÈ¯
+	// ï¿½ï¿½ï¿½ï¿½Úºï¿½ ï¿½Û¼ï¿½ ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½Â¡ Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½È¯
 	public List selectMyBoardPagingList(int u_no, Paging paging);
 	
 	

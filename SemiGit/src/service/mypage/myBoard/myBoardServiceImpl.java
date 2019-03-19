@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import dao.mypage.myBoard.myBoardDao;
 import dao.mypage.myBoard.myBoardDaoImpl;
 import dto.MyBoard;
-import utill.Paging;
+import util.Paging;
 
 public class myBoardServiceImpl implements myBoardService {
 	

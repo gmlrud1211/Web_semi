@@ -4,8 +4,9 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import dto.FileUpload;
 import dto.QnA;
-import utill.Paging;
+import util.Paging;
 
 public interface myQnAService {
 	
@@ -19,14 +20,22 @@ public interface myQnAService {
 	
 	public void answerQnA(QnA qna);
 	
-	// ¿äÃ»ÆÄ¶ó¹ÌÅÍ¿¡¼­ curPage ¹İÈ¯
+	// ï¿½ï¿½Ã»ï¿½Ä¶ï¿½ï¿½ï¿½Í¿ï¿½ï¿½ï¿½ curPage ï¿½ï¿½È¯
 	public int getCurPage(HttpServletRequest req);
 				
-	// ÃÑ ¹®ÀÇ±Û ¼ö ¾ò±â
+	// ï¿½ï¿½ ï¿½ï¿½ï¿½Ç±ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½
 	public int getTotalMyQnACount(int u_no);
 		
-	// »ç¿ëÀÚº° ¹®ÀÇ±Û ÆäÀÌÂ¡ ¸®½ºÆ® ¾ò±â
+	// ï¿½ï¿½ï¿½ï¿½Úºï¿½ ï¿½ï¿½ï¿½Ç±ï¿½ ï¿½ï¿½ï¿½ï¿½Â¡ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½
 	public List getMyQnAPagingList(int u_no, Paging paging);
-			
+	
+	//ì‹œí€€ìŠ¤ì—ì„œ ê²Œì‹œê¸€ ë²ˆí˜¸ ì–»ê¸°
+	public int getQnA_no();
 
+	//ì‚½ì…ëœ íŒŒì¼ì— ê²Œì‹œê¸€ë²ˆí˜¸ ì…ë ¥í•˜ê¸°
+	public void updateFile(FileUpload fileupload);
+	
+	//ì²¨ë¶€íŒŒì¼ ë°˜í™˜
+	public FileUpload getFileByFileno(int file_no);
+	
 }

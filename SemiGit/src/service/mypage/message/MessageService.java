@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dto.Message;
-import utill.Paging;
+import util.Paging;
 
 public interface MessageService {
 

@@ -5,7 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import dto.MyBoard;
-import utill.Paging;
+import util.Paging;
 
 public interface myBoardService {
 	
@@ -13,13 +13,13 @@ public interface myBoardService {
 	
 	public MyBoard getBoardByBno(int b_no);
 	
-	// ¿äÃ»ÆÄ¶ó¹ÌÅÍ¿¡¼­ curPage ¹ÝÈ¯
+	// ï¿½ï¿½Ã»ï¿½Ä¶ï¿½ï¿½ï¿½Í¿ï¿½ï¿½ï¿½ curPage ï¿½ï¿½È¯
 	public int getCurPage(HttpServletRequest req);
 			
-	// ÃÑ ÀÛ¼º °Ô½Ã±Û ¼ö ¾ò±â
+	// ï¿½ï¿½ ï¿½Û¼ï¿½ ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½
 	public int getTotalMyBoardCount(int u_no);
 	
-	// »ç¿ëÀÚº° °Ô½Ã±Û ÆäÀÌÂ¡ ¸®½ºÆ® ¾ò±â
+	// ï¿½ï¿½ï¿½ï¿½Úºï¿½ ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½Â¡ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½
 	public List getMyBoardPagingList(int u_no, Paging paging);
 		
 	

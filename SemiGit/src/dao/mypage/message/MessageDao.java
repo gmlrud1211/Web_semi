@@ -3,7 +3,7 @@ package dao.mypage.message;
 import java.util.List;
 
 import dto.Message;
-import utill.Paging;
+import util.Paging;
 
 public interface MessageDao {
 		

@@ -26,20 +26,23 @@
    				<div class="form-group">
 			    <label for="qnaTitle" class="col-sm-2 control-label">문의글 제목</label>
 			    <div class="col-sm-10">
-			    	<input type="text" class="form-control" id="qnaTitle" placeholder="제목을 입력해주세요">
+			    	<input type="text" class="form-control" name="qnaTitle" placeholder="제목을 입력해주세요">
 			    </div>
 			  </div>
 			  <div class="form-group">
 			    <label for="qnaImage" class="col-sm-2 control-label">이미지 첨부</label>
 			    <div class="col-sm-10">			    
-			   	 	<input type="file" id="qnaImage">
-			    	<p class="help-block">참고 이미지를 업로드해주세요</p>
+<!-- 			   	 	<input type="file" id="qnaImage"> -->
+<!-- 			    	<p class="help-block">참고 이미지를 업로드해주세요</p> -->
+					<button type="button" id="btnFile">파일 선택</button>&nbsp;&nbsp;<span id="upResult"></span>
+					<input type="hidden" id="file_no" name="file_no" />
 			    </div>
 			  </div>
+			  			  
 			  <div class="form-group">
 			  	<label for="qnaContent" class="col-sm-2 control-label">내용 작성</label>
 			 	<div class="col-sm-10">		
-			 		<textarea class="form-control" id="qnaContent" rows="10" placeholder="내용을 작성해주세요"></textarea>	    
+			 		<textarea class="form-control" name="qnaContent" rows="10" placeholder="내용을 작성해주세요"></textarea>	    
 			   </div>
 			  </div>
 			  
@@ -55,3 +58,35 @@
     </div>
 
 </div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#btnFile").click(function() {
+		
+		//화면크기 구하기
+		var w = screen.availWidth;
+		var h = screen.availHeight;
+		
+		//팝업 띄우기
+		var popup = window.open(
+				"",
+				"",
+				"status=no" //하단 상태바
+				+",menubar=no" //상단 메뉴
+				+",scrollbars=no" //스크롤바
+				+",resizable=no" //사이즈변경
+				+",width=300" //너비
+				+",height=200" //높이
+				+",left="+(w-300)/2 //x 위치
+				+",top="+(h-200)/2 ); //y 위치
+		
+		//팝업 url 설정
+		popup.location = "/mypage/myqna/fileupload";
+	});
+});
+
+function sendData(no, name) {
+	$("#file_no").val(no); //파일번호넣기
+	$("#upResult").html(name); //파일이름 넣기
+}
+</script>

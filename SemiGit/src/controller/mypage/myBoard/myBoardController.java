@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 import dto.MyBoard;
 import service.mypage.myBoard.myBoardService;
 import service.mypage.myBoard.myBoardServiceImpl;
-import utill.Paging;
+import util.Paging;
 
 
 @WebServlet("/mypage/myboard")

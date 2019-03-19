@@ -11,8 +11,8 @@ import java.util.List;
 import dto.Bookmark;
 import dto.Message;
 import dto.MyBoard;
-import utill.DBConn;
-import utill.Paging;
+import util.DBConn;
+import util.Paging;
 
 public class BookmarkDaoImpl implements BookmarkDao {
 

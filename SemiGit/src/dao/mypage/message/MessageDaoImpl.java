@@ -9,8 +9,8 @@ import java.util.List;
 
 import dto.Bookmark;
 import dto.Message;
-import utill.DBConn;
-import utill.Paging;
+import util.DBConn;
+import util.Paging;
 
 public class MessageDaoImpl implements MessageDao {
 	

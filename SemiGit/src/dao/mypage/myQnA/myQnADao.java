@@ -2,8 +2,9 @@ package dao.mypage.myQnA;
 
 import java.util.List;
 
+import dto.FileUpload;
 import dto.QnA;
-import utill.Paging;
+import util.Paging;
 
 public interface myQnADao {
 
@@ -17,10 +18,17 @@ public interface myQnADao {
 	
 	public void answerQnA(QnA qna);
 	
-	// ÃÑ ÀÛ¼º °Ô½Ã±Û ¼ö ¹İÈ¯
+	// ï¿½ï¿½ ï¿½Û¼ï¿½ ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ ï¿½ï¿½È¯
 	public int cntMyQnA(int u_no);
 		
-	// »ç¿ëÀÚº° ÀÛ¼º °Ô½Ã±Û ÆäÀÌÂ¡ Ã³¸® ¸®½ºÆ® ¹İÈ¯
+	// ï¿½ï¿½ï¿½ï¿½Úºï¿½ ï¿½Û¼ï¿½ ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½Â¡ Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½È¯
 	public List selectMyQnAPagingList(int u_no, Paging paging);
-		
+	
+	//ì‹œí€€ìŠ¤ì—ì„œ ê²Œì‹œê¸€ ë²ˆí˜¸ ì–»ê¸°
+	public int getQnA_no();
+	
+	public void updateFile(FileUpload fileupload);
+	
+	public FileUpload selectFileByFileno(int file_no);
+	
 }

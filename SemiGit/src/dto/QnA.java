@@ -9,10 +9,20 @@ public class QnA {
 	private String one_title;
 	private String one_content;
 	private int file_no;
+	private String file_storedname;
 	private Date one_date;
 	private String one_status;
 	private String one_anscontent;
 	private Date one_ansdate;
+	
+	
+	
+	public String getFile_storedname() {
+		return file_storedname;
+	}
+	public void setFile_storedname(String file_storedname) {
+		this.file_storedname = file_storedname;
+	}
 	public int getU_no() {
 		return u_no;
 	}

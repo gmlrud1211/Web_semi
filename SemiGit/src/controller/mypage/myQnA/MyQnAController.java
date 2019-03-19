@@ -10,10 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dto.FileUpload;
 import dto.QnA;
 import service.mypage.myQnA.myQnAService;
 import service.mypage.myQnA.myQnAServiceImpl;
-import utill.Paging;
+import util.Paging;
 
 
 @WebServlet("/mypage/myqna")
@@ -34,8 +35,7 @@ public class MyQnAController extends HttpServlet {
 								
 		// ������ ��ü ����
 		Paging paging = new Paging(totalCount, curPage);
-
-								
+						
 		// �Խñ� ��� MODEL�� �߰�
 		List<QnA> qnaList = qnaServ.getMyQnAPagingList(u_no, paging);
 				

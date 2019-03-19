@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import dto.Users;
-import utill.DBConn;
+import util.DBConn;
 
 public class UsersDaoImpl implements UsersDao {
 private Connection conn = DBConn.getConnection();

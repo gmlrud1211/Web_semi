@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import dao.mypage.message.MessageDao;
 import dao.mypage.message.MessageDaoImpl;
 import dto.Message;
-import utill.Paging;
+import util.Paging;
 
 public class MessageServiceImpl implements MessageService {
 

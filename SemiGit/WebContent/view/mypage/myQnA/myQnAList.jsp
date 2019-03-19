@@ -76,7 +76,12 @@ th, .list {
 	                   		<td colspan="4"> 
 	                   		<div>
 	                   		<p><strong style="font-size: 0.9em;">질문하신 내용입니다: </strong></p>
-	                   		${qnaList.get(i).one_content }
+	                   			<div>
+							       <c:if test="${qnaList.get(i).file_no ne null }">
+							         <img src="/cos/upload/${qnaList.get(i).file_storedname }" width="300" height="300" />
+							        </c:if>
+	                   			</div>
+	                   			${qnaList.get(i).one_content }
 	                   		</div>
 	                   		<c:if test="${qnaList.get(i).one_status eq 'y' }">
 	                   		<div>
@@ -84,6 +89,7 @@ th, .list {
 	                   		<p><strong style="font-size: 0.9em;">답변입니다: </strong></p>
 	                   		${qnaList.get(i).one_anscontent }
 	                   		</div>
+	                   		<br>
 	                   		</c:if>
 	                   		</td>
 	                   	</tr> 
