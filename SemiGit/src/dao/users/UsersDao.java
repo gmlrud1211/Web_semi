@@ -1,5 +1,7 @@
 package dao.users;
 
+import java.util.List;
+
 import dto.Users;
 
 public interface UsersDao {
@@ -9,6 +11,12 @@ public interface UsersDao {
 	public Users selectUserByUid(Users u);
 	
 	public boolean login(Users u);
+	
+	public Users selectUserByUno(int u_no);
+	
+	public List selectFavoritCateByUno(int u_no);
+			
+	public void updatePw(int u_no, String u_pw);
 
 	
 }

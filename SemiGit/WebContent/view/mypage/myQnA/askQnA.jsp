@@ -45,8 +45,8 @@
 			 		<textarea class="form-control" name="qnaContent" rows="10" placeholder="내용을 작성해주세요"></textarea>	    
 			   </div>
 			  </div>
-			  
 			  <button type="submit" class="btn btn-default" style="float:right;">문의하기</button>
+			  <button type="button" id="goList" class="btn btn-default" style="float:right;margin-right:10px;">목록으로</button>
 			</form>
    			
    
@@ -83,10 +83,15 @@ $(document).ready(function() {
 		//팝업 url 설정
 		popup.location = "/mypage/myqna/fileupload";
 	});
+	
+	$("#goList").click(function(){
+		history.go(-1);
+	})
 });
 
 function sendData(no, name) {
 	$("#file_no").val(no); //파일번호넣기
 	$("#upResult").html(name); //파일이름 넣기
 }
+
 </script>

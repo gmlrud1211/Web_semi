@@ -73,20 +73,24 @@ th, .list {
 		                  <c:if test="${qnaList.get(i).one_status eq 'n' }"><td class="list">대기중</td></c:if>
 	                   	</tr>
 	                   	<tr class="qnaContent">
-	                   		<td colspan="4"> 
+	                   		<td width="10%">
+	                   		</td>
+	                   		<td colspan="3"> 
 	                   		<div>
-	                   		<p><strong style="font-size: 0.9em;">질문하신 내용입니다: </strong></p>
-	                   			<div>
-							       <c:if test="${qnaList.get(i).file_no ne null }">
-							         <img src="/cos/upload/${qnaList.get(i).file_storedname }" width="300" height="300" />
+	                   		<p><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>&nbsp;<strong style="font-size: 0.9em;">질문하신 내용입니다: </strong></p>
+							       <c:if test="${qnaList.get(i).file_storedname ne null }">
+	                   					<div>
+							         		<img src="/cos/upload/${qnaList.get(i).file_storedname }" width="300" height="300" /><br>
+	                   						<br>
+	                   					</div>
 							        </c:if>
-	                   			</div>
 	                   			${qnaList.get(i).one_content }
+	                   			
 	                   		</div>
+	                   		<br>
 	                   		<c:if test="${qnaList.get(i).one_status eq 'y' }">
 	                   		<div>
-	                   		<hr>
-	                   		<p><strong style="font-size: 0.9em;">답변입니다: </strong></p>
+	                   		<p><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>&nbsp;<strong style="font-size: 0.9em;">답변입니다: </strong></p>
 	                   		${qnaList.get(i).one_anscontent }
 	                   		</div>
 	                   		<br>
@@ -99,7 +103,7 @@ th, .list {
 		      </tbody>
 		    </table>
    
-          <button onclick="location.href='/mypage/myqna/ask'" style="float: right;">1:1 문의하기</button>
+          <button onclick="location.href='/mypage/myqna/ask'" class="btn btn-default" style="float: right;">1:1 문의하기</button>
           
           <c:if test="${qnaList.size()>0 }">
           <jsp:include page="./pagingMyQnA.jsp"/>

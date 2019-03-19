@@ -25,7 +25,7 @@ public class myQnADaoImpl implements myQnADao {
 		sql +="SELECT O.u_no, O.one_no, O.one_title, O.one_content, O.one_status,";
 		sql	+=" O.one_date, O.one_anscontent, O.one_ansdate, O.file_no, F.file_storedname";
 		sql +=" FROM oneandboard O";
-		sql +=" JOIN fileupload F";
+		sql +=" LEFT OUTER JOIN fileupload F";
 		sql +=" ON O.file_no = F.file_no";
 		sql +=" WHERE u_no=?";
 
@@ -200,7 +200,7 @@ public class myQnADaoImpl implements myQnADao {
 		sql += "		SELECT O.u_no, O.one_no, O.one_title, O.one_content, O.one_status,"; 
 		sql	+= " 				O.one_date, O.one_anscontent, O.one_ansdate, O.file_no, F.file_storedname";
 		sql	+= " 			FROM oneandboard O";
-		sql += " 			JOIN fileupload F";
+		sql += " 			LEFT OUTER JOIN fileupload F";
 		sql += " 			ON O.file_no = F.file_no";
 		sql += " 			WHERE O.u_no=?";
 		sql += " 			ORDER BY O.one_no desc";

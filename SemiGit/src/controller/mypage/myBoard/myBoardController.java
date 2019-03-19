@@ -38,7 +38,7 @@ public class myBoardController extends HttpServlet {
 		// ����¡ ��ü MODEL�� �߰�
 		request.setAttribute("paging", paging);
 
-		request.getRequestDispatcher("/view/mypage/myboard/myBoardList.jsp").forward(request, response);
+		request.getRequestDispatcher("/view/mypage/myBoard/myBoardList.jsp").forward(request, response);
 	}
 
 
