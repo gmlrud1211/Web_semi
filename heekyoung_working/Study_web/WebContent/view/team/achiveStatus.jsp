@@ -25,13 +25,12 @@
 	}
 	table {
 		width : 500px;
-		height :100px;
-		border-top : 1px solid #ccc;
-		border-collapse : collapse;
+		height :150px;
+		border-bottom : 1px solid #ccc;
+		
 		
 	}
 	tr td {
-		border : 1px solid #ccc;
 	}
 	
 	
@@ -147,7 +146,9 @@
 			<tr>
 				<td>세부목표</td>
 				<td>${achiveList.suba_name}</td>
-				<td><input type="checkbox" name="sub_code" value="yes" />달성</td>
+				<td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="checkbox" name="sub_code" value="yes" />&nbsp;&nbsp;달성
+				</td>
 			</tr>
 
 			<c:if test="${stat.last }">
