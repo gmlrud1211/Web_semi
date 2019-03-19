@@ -119,43 +119,75 @@
 		
 		<div class="achiveView">
 		
+<%-- 			<c:set var="c" value="${achiveList[0].a_no }" /> --%>
+<%-- 			<c:set var="b" value="0" /> --%>
+			 
+<%-- 			<c:forEach items="${achiveList}" var="achiveList" varStatus="stat"> --%>
+				
+<%-- 				<c:set var="c" value="${achiveList.a_no }" /> --%>
+<%-- 				before : ${b } --%>
+<%-- 				current : ${c } --%>
+
+<%-- 				<c:if test="${b ne c }"> --%>
+<!-- 					여기다 여기 -->
+<%-- 				</c:if> --%>
+
+<%-- 				<c:set var="b" value="${c }" /> --%>
+			
+<!-- 				<table> -->
+<!-- 						<tr> -->
+<!-- 							<td>목표마감일</td> -->
+<%-- 							<td colspan='2'>${achiveList.a_ddate}</td> --%>
+<!-- 						</tr> -->
+<!-- 						<tr> -->
+<!-- 							<td>목표</td> -->
+<%-- 							<td colspan='2'>${achiveList.a_title }</td> --%>
+<!-- 						</tr> -->
+<!-- 						<tr> -->
+<!-- 							<td>세부목표</td> -->
+<%-- 							<td>${achiveList.suba_name}</td> --%>
+<!-- 							<td><input type="checkbox" name="sub_code" value="yes" />달성</td> -->
+<!-- 						</tr> -->
+<!-- 				</table> -->
+<!-- 				<br><br> -->
+<%-- 			</c:forEach> --%>
+		
+		
 		<c:set var="c" value="${achiveList[0].a_no }" />
 		<c:set var="b" value="0" />
 		 
 		<c:forEach items="${achiveList}" var="achiveList" varStatus="stat">
-		<c:set var="c" value="${achiveList.a_no }" />
+			<c:set var="c" value="${achiveList.a_no }" />
 			
-		<c:if test="${b ne c }">
-			<c:if test="${stat.first ne true }">
+			<c:if test="${b ne c }">
+				<c:if test="${stat.first ne true }">
 				</table>
 				<br><br>
+				</c:if>
+				<table>
+					<tr>
+						<td>목표마감일</td>
+						<td colspan='2'>${achiveList.a_ddate}</td>
+					</tr>
+					<tr>
+						<td>목표</td>
+						<td colspan='2'>${achiveList.a_title }</td>
+					</tr>
 			</c:if>
-				
-			<table>
-				<tr>
-					<td>목표마감일</td>
-					<td colspan='2'>${achiveList.a_ddate}</td>
-				</tr>
-				<tr>
-					<td>목표</td>
-					<td colspan='2'>${achiveList.a_title }</td>
-				</tr>
-		</c:if>
 
-		<c:set var="b" value="${c }" />
-
-			<tr>
-				<td>세부목표</td>
-				<td>${achiveList.suba_name}</td>
-				<td><input type="checkbox" name="sub_code" value="yes" />달성</td>
-			</tr>
+			<c:set var="b" value="${c }" />
+					<tr>
+						<td>세부목표</td>
+						<td>${achiveList.suba_name}</td>
+						<td><input type="checkbox" name="sub_code" value="yes" />달성</td>
+					</tr>
 
 			<c:if test="${stat.last }">
 				</table>
 				<br><br>
 			</c:if>
-		</c:forEach>
-	</div>
+			</c:forEach>
+		</div>
 
 	
   

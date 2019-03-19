@@ -375,7 +375,7 @@ public class TeamDaoImpl implements TeamDao{
 	FROM achive A JOIN subAchive S ON A.study_no = S.study_no
 	WHERE A.study_no = 1
 	ORDER BY study_no, a_no, suba_no;*/
-		sql +="select A.study_no, A.a_no, A.a_ddate, A.a_title, S.suba_no, S.suba_name";
+		sql +="select A.study_no, A.a_no, to_char(A.a_ddate, 'YYYY-MM-DD') a_ddate, A.a_title, S.suba_no, S.suba_name";
 		sql +=" FROM achive A JOIN subAchive S ON A.study_no = S.study_no";
 		sql +=" WHERE A.study_no = 1";
 		sql +=" ORDER BY study_no, a_no, suba_no";

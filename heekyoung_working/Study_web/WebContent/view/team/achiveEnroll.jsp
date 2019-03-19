@@ -86,8 +86,7 @@
 				<label for="sub_name" class="col-sm-3 col-sm-offset-1 control-label">세부 목표</label>
 				<div class="col-sm-5">
 					<input type="text" name="sub_name" />
-					<input id="input">
-					
+										
 					<!-- <button id="btnAdd" class="btn btn-sm" style="color:#ffffff; background:#F67280">추가</button>-->
 					<button type="button" id="btnAdd" class="btn btn-sm" style="color:#ffffff; background:#F67280">추가</button>
 				</div>

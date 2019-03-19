@@ -50,12 +50,14 @@ public class TeamServiceImpl implements TeamService {
 		String a_title=(String)req.getParameter("a_title");
 		String a_adate=(String)req.getParameter("a_adate");
 		String a_ddate=(String)req.getParameter("a_ddate");
+		String suba_name = (String)req.getParameter("suba_name");
 		
 		//achive.setStudy_no(study_no);
 		//achive.setA_no(a_no);
 		achive.setA_title(a_title);
 		achive.setA_adate(a_adate);
 		achive.setA_ddate(a_ddate);
+		achive.setSuba_name(suba_name);
 		
 		
 		return achive;
