@@ -362,6 +362,63 @@ public class TeamDaoImpl implements TeamDao{
 		
 		return userStudyList;
 	}
+
+	@Override
+	public List achiveSelectAll(Achive achive) {
+		//sql 작성
+		String sql ="";
+		//sql +="select * from achive";
+		//sql +=" where study_no = 1 "; //아직 연결안되서 임의로 값 집어넣음
+	/*	SELECT 
+	    A.study_no, A.a_no, A.a_title
+	    , S.suba_no, S.suba_name
+	FROM achive A JOIN subAchive S ON A.study_no = S.study_no
+	WHERE A.study_no = 1
+	ORDER BY study_no, a_no, suba_no;*/
+		sql +="select A.study_no, A.a_no, A.a_ddate, A.a_title, S.suba_no, S.suba_name";
+		sql +=" FROM achive A JOIN subAchive S ON A.study_no = S.study_no";
+		sql +=" WHERE A.study_no = 1";
+		sql +=" ORDER BY study_no, a_no, suba_no";
+		
+		
+		List<Achive> achiveList  = new ArrayList<>();
+		
+		try {
+			//sql 수행
+			ps = conn.prepareStatement(sql);
+			//ps.setInt(1, achive.getStudy_no());
+			
+			rs = ps.executeQuery();
+			
+			//결과처리
+			while(rs.next())
+			{
+				Achive achive_list = new Achive();
+				//ResultSet의 결과 행이 DTO에 하나씩 저장됨
+				achive_list.setA_no(rs.getInt("a_no"));
+				achive_list.setA_title(rs.getString("a_title"));
+				achive_list.setA_ddate(rs.getString("a_ddate"));
+				achive_list.setSuba_name(rs.getString("suba_name"));
+				//achive_list.setA_adate(rs.getString("a_sdate"));
+								
+				achiveList.add(achive_list);
+			}
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				//--- 자원 해제 ---
+				if(rs!=null)	rs.close();
+				if(ps!=null)	ps.close();
+				//-----------------
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return achiveList;
+	}
 	
 	
 

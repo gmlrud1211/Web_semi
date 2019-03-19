@@ -8,12 +8,29 @@ public class Achive {
 	private String a_adate; //목표생성일(sysdate)
 	private String a_ddate; //목표마감일
 	
+	private int suba_no; //세부목표 번호
+	private String suba_name; //세부목표 이름
+	
+	
+	
+	
 	@Override
 	public String toString() {
 		return "Achive [study_no=" + study_no + ", a_no=" + a_no + ", a_title=" + a_title + ", a_adate=" + a_adate
-				+ ", a_ddate=" + a_ddate + "]";
+				+ ", a_ddate=" + a_ddate + ", suba_no=" + suba_no + ", suba_name=" + suba_name + "]";
 	}
-	
+	public int getSuba_no() {
+		return suba_no;
+	}
+	public void setSuba_no(int suba_no) {
+		this.suba_no = suba_no;
+	}
+	public String getSuba_name() {
+		return suba_name;
+	}
+	public void setSuba_name(String suba_name) {
+		this.suba_name = suba_name;
+	}
 	public int getStudy_no() {
 		return study_no;
 	}

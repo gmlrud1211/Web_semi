@@ -72,6 +72,11 @@ public class TeamServiceImpl implements TeamService {
 		//userStudy 조회 결과 반환
 		return teamDao.userStudySelectAll(userStudy);
 	}
+
+	@Override
+	public List getAchiveList(Achive achive) {
+		return teamDao.achiveSelectAll(achive);
+	}
 	
 	
 }

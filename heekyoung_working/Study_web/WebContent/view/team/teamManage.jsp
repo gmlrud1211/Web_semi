@@ -56,7 +56,7 @@
           <div class="jumbotron" style="padding: 5px;background-color: #eee0;border-bottom: 1px solid #f67280;
           border-radius: 0;" >
             <h2>스터디룸 관리 페이지</h2>
-            <p style="font-size: 16px">스터디룸 회원관리페이지 입니다.</p>
+            <p style="font-size: 16px">스터디룸 관리페이지 입니다.</p>
           </div>
           <div class="row">
    	
@@ -82,6 +82,8 @@
 					</table>
 				
 				</div>
+   						
+   				  				
    				
    			
    				<div id="btnBox" class="btn pull-right">

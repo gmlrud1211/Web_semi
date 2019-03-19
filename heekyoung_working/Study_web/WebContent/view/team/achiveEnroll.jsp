@@ -28,11 +28,11 @@
 	
 		$(document).ready(function() {
 				
-			var $div = $("<input type='text' name='sub_name' />")
+			var inp = "<input type='text' name='sub_name' />";
 					
 			//목표등록(추가) 버튼 
 			$("#btnAdd").click(function() {
-				$(div).clone.appendTo(".col-sm-4");
+				$(input).append(inp);
 
 			});
 			
@@ -76,6 +76,7 @@
 				<label for="a_titles" class="col-sm-3 col-sm-offset-1 control-label">목표 제목</label>
 				<div class="col-sm-5">
 					<input type="text" name="a_title" />
+					
 				</div>
 			</div>
 			<br><br>
@@ -85,18 +86,14 @@
 				<label for="sub_name" class="col-sm-3 col-sm-offset-1 control-label">세부 목표</label>
 				<div class="col-sm-5">
 					<input type="text" name="sub_name" />
-				
-					<button id="btnAdd" class="btn btn-sm" style="color:#ffffff; background:#F67280">추가</button>
+					<input id="input">
+					
+					<!-- <button id="btnAdd" class="btn btn-sm" style="color:#ffffff; background:#F67280">추가</button>-->
+					<button type="button" id="btnAdd" class="btn btn-sm" style="color:#ffffff; background:#F67280">추가</button>
 				</div>
 			</div>
 			<br>
-			
-
-			<div class="col-sm-4">
-				
-			</div>
-			
-			
+		
 		</form>
 	</div>
 		

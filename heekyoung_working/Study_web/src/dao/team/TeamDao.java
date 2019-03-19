@@ -37,6 +37,9 @@ public interface TeamDao {
 
 	//유저가 참여중인 스터디 조회
 	public List userStudySelectAll(UserStudy userStudy);
+
+	//목표조회
+	public List achiveSelectAll(Achive achive);
 	
 	
 }

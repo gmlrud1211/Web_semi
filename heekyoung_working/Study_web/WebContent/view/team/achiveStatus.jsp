@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="dto.Achive" %>
+<%@page import="java.util.List"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <jsp:include page="../layout/header.jsp"/>
 
@@ -8,11 +12,39 @@
 <!-- chart.js cdn -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
 
-<h3 style="text-align: center;"><small>목표 현황</small></h3>
+<style>
 
-<div>
-	<canvas id="myChart"  width="200" height="250" > </canvas>
-</div>		
+	.canvas {
+		float : left;
+		margin-top :5%;
+	}
+	.achiveView {
+		float : left;
+		margin : 100px;
+	}
+	table {
+		width : 500px;
+		height :100px;
+		border-top : 1px solid #ccc;
+		border-collapse : collapse;
+		
+	}
+	tr td {
+		border : 1px solid #ccc;
+	}
+	
+	
+</style>
+	
+	
+	
+	
+	<h3 style="text-align: center;"><small>목표 현황</small></h3>
+	
+	<div class="canvas" >
+		<canvas id="myChart"  width="200" height="250" > </canvas>
+	</div>		
+
 	<script type="text/javascript">
 
 	var ctx = document.getElementById('myChart').getContext('2d');
@@ -52,19 +84,24 @@
 	
 
 	
-	<div>
-		<table class="table table-bordered">
-		
-			<tr>
-				<td class="info">목표마감일</td><td>?</td>
-			</tr>
-			<tr>
-				<td class="info">목표</td><td>?</td>
-			</tr>
-			<tr>
-				<td class="info">세부목표</td><td>?</td>
-				<td><input type="checkbox" name="sub_code" value="yes" /> 달성</td>
-			</tr>		
-		
-		</table>
+	<div class="achiveView">
+		<c:forEach items="${achiveList}" var="achiveList">
+			<br><br>
+			<table>
+					<tr>
+						<td>목표마감일</td>
+						<td colspan='3'>${achiveList.a_ddate}</td>
+					</tr>
+					<tr>
+						<td>목표</td>
+						<td colspan='3'>${achiveList.a_title }</td>
+					</tr>
+					<tr>
+						<td>세부목표</td>
+						<td>${achiveList.suba_name}</td>
+						<td><input type="checkbox" name="sub_code" value="yes" />달성</td>
+					</tr>
+			</table>
+			<br><br>
+		</c:forEach>
 	</div>
