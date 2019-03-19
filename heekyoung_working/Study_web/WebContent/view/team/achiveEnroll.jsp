@@ -28,25 +28,22 @@
 	
 		$(document).ready(function() {
 				
-			var $div = $("<div class='form-group'>")
-			+$("<div class='col-sm-5'>")
-			+$("<input type='text' name='sub_name' />")
-			+$("</div>")
-			+$("</div>")
-			
+			var $div = $("<input type='text' name='sub_name' />")
+					
 			//목표등록(추가) 버튼 
 			$("#btnAdd").click(function() {
-				
+				$(div).clone.appendTo(".col-sm-4");
 
 			});
 			
+			
 			/* 
-			 <div class="form-group">
-				<label for="sub_name" class="col-sm-3 col-sm-offset-1 control-label">세부 목표</label>
-				<div class="col-sm-5">
-					<input type="text" name="sub_name" />
+				<div class="form-group">
+					<label for="sub_name" class="col-sm-3 col-sm-offset-1 control-label">세부 목표</label>
+					<div class="col-sm-5">
+						<input type="text" name="sub_name" />
+					</div>
 				</div>
-			</div>
 			 */
 			
 			$("#btnWrite").click(function() {
@@ -64,9 +61,6 @@
 <h4 style="text-align: center;"><small>목표설정</small></h4>
 <hr>	
 
-
-
-	
 	<div class="container">
 	
 		<form action="/team/achive/write" method="post">
@@ -91,16 +85,16 @@
 				<label for="sub_name" class="col-sm-3 col-sm-offset-1 control-label">세부 목표</label>
 				<div class="col-sm-5">
 					<input type="text" name="sub_name" />
+				
 					<button id="btnAdd" class="btn btn-sm" style="color:#ffffff; background:#F67280">추가</button>
 				</div>
 			</div>
+			<br>
 			
-			
-			
-			
-			
-			<br><br>
-		
+
+			<div class="col-sm-4">
+				
+			</div>
 			
 			
 		</form>
