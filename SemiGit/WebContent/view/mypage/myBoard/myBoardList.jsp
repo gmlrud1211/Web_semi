@@ -7,8 +7,13 @@ function detail(one_no) {
 	location.href="/board/list?b_no="+b_no;
 }
 </script>
-<div class="wrapper">
+<style type="text/css">
+th, .list {
+	text-align: center;
+}
 
+</style>
+<div class="wrapper">
 
 <div class="container">
 
@@ -32,24 +37,25 @@ function detail(one_no) {
    			<table class="table table-hover">
 		      <thead>
 		        <tr>
-		          <th>게시글 번호</th>
-		          <th>말머리</th>
-		          <th>제목</th>
-		          <th>추천수</th>
-		          <th>조회수</th>
-		          <th>작성일</th>
+		          <th width="10%">글번호</th>
+		          <th width="15%">말머리</th>
+		          <th width="40%">제목</th>
+		          <th width="10%">추천수</th>
+		          <th width="10%">조회수</th>
+		          <th width="15%">작성일</th>
 		        </tr>
 		      </thead>
 		      <tbody>
-		        <c:if test="${qnaList.size()>0 }">
+		        <c:if test="${mbList.size()>0 }">
    				<c:forEach var="i" begin="0" end="${mbList.size()-1 }">
 	              <tbody>
 	               <tr onclick="detail(${mbList.get(i).b_no });" style="cursor:pointer">
-	                  <td>${mbList.get(i).b_no }</td>
+	                  <td class="list">${mbList.get(i).b_no }</td>
+	                  <td class="list">${mbList.get(i).b_head }</td>
 	                  <td>${mbList.get(i).b_title }</td>
-	                  <td>${mbList.get(i).b_upcount }</td>
-	                  <td>${mbList.get(i).b_count }</td>
-	                  <td>${mbList.get(i).b_date }</td>
+	                  <td class="list">${mbList.get(i).b_upcount }</td>
+	                  <td class="list">${mbList.get(i).b_count }</td>
+	                  <td class="list">${mbList.get(i).b_date }</td>
 	                </tr>
 	              </tbody>
    			</c:forEach>
@@ -58,12 +64,14 @@ function detail(one_no) {
 		    </table>
    
           </div><!--/row-->
+          <c:if test="${mbList.size()>0 }">
+          <jsp:include page="./pagingMyBoard.jsp"/>
+          </c:if>
+          
         </div><!--/.col-xs-12.col-sm-9-->
 
       </div><!--/row-->
 
     </div>
 
-
-</div>
 </div>

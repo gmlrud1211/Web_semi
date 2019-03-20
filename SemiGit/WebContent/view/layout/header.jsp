@@ -43,7 +43,7 @@
 			  <li><a href="#">스터디개설</a></li>
 			  
 			  <c:if test="${login }">
-			  <li><a href="/view/mypage/bookmark/bookmarkList.jsp">마이페이지</a></li>
+			  <li><a href="/mypage/bookmark">마이페이지</a></li>
 			  <li><a href="/users/logout">로그아웃</a></li>
 			  </c:if>
 			  <c:if test="${!login }">

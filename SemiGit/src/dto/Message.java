@@ -11,9 +11,11 @@ public class Message implements Serializable {
 	private Date m_date;
 	private Date m_rdate;
 	private int sender_no;
-	private String u_name;
+	private String sender_name;
 	private int receiver_no;
+	private String receiver_name;
 	
+
 	public int getM_no() {
 		return m_no;
 	}
@@ -50,11 +52,11 @@ public class Message implements Serializable {
 	public void setSender_no(int sender_no) {
 		this.sender_no = sender_no;
 	}
-	public String getU_name() {
-		return u_name;
+	public String getSender_name() {
+		return sender_name;
 	}
-	public void setU_name(String u_name) {
-		this.u_name = u_name;
+	public void setSender_name(String sender_name) {
+		this.sender_name = sender_name;
 	}
 	public int getReceiver_no() {
 		return receiver_no;
@@ -62,6 +64,18 @@ public class Message implements Serializable {
 	public void setReceiver_no(int receiver_no) {
 		this.receiver_no = receiver_no;
 	}
+	public String getReceiver_name() {
+		return receiver_name;
+	}
+	public void setReceiver_name(String receiver_name) {
+		this.receiver_name = receiver_name;
+	}
+	
+
+	
+	
+	
+	
 	
 	
 	

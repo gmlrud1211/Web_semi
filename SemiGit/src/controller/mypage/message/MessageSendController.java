@@ -21,11 +21,11 @@ public class MessageSendController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		int m_no = Integer.parseInt(request.getParameter("m_no"));
-		Message sMsg = mServ.getReceivedMessageByMno(m_no);
+		Message msg = mServ.getMsgByMno(m_no);
 		
-		request.setAttribute("sMsg", sMsg);
+		request.setAttribute("msg", msg);
 		
-		request.getRequestDispatcher("/view/mypage/message/sendMsg.jsp").forward(request, response);
+		request.getRequestDispatcher("/view/mypage/message/replyMsg.jsp").forward(request, response);
 	}
 
 	
@@ -35,11 +35,17 @@ public class MessageSendController extends HttpServlet {
 		int sender_no = Integer.parseInt(request.getParameter("sender_no"));
 		int receiver_no = Integer.parseInt(request.getParameter("receiver_no"));
 		String m_comment = request.getParameter("m_comment");
-//		System.out.println("m"+ m_no);
+
 //		System.out.println("s"+ sender_no);
 //		System.out.println("r"+ receiver_no);
+//		System.out.println(m_comment);
+				
+		Message msg = new Message();
+		msg.setSender_no(sender_no);
+		msg.setReceiver_no(receiver_no);
+		msg.setM_comment(m_comment);
 		
-		mServ.sendMessage(sender_no, receiver_no, m_comment);
+		mServ.sendMsg(msg);
 		
 	}
 

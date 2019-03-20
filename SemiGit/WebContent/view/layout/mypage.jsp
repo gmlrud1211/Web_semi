@@ -12,9 +12,11 @@
 	            <a href="/mypage/message/received" class="list-group-item" style="border:none;">나의 쪽지함</a>
 	            <a href="/mypage/myboard" class="list-group-item" style="border:none;">내가 쓴 게시글</a>
 	            <a href="/mypage/myqna" class="list-group-item" style="border:none;">나의 1:1 문의</a>
-	            <a href="#" class="list-group-item" style="border:none;">개인 정보 관리</a>
+	            <a href="/mypage/profile" class="list-group-item" style="border:none;">개인 정보 관리</a>
 
           </div>
         </div><!--/.sidebar-offcanvas-->
+        
+        
 
        

@@ -20,24 +20,25 @@
 <body>
 <div class="panel panel-default" style="margin: 5px;border: none; box-shadow: none;">
   <div class="panel-heading" style="background: transparent; border: none;">
-    <h3 class="panel-title" style="font-size: 12px;"><strong>보낸사람: ${rMsg.u_name }</strong></h3>
+	<div>
+	<span>
+	    <strong>보낸사람: ${msg.sender_name }</strong>
+    </span>
+    <span>
+	    <strong style="float: right;">받는사람: ${msg.receiver_name }</strong>
+	 </span>
+	</div>
+	<span style="float: right;">보낸 날짜: ${msg.m_date }</span>
   </div>
   <div class="panel-body">
-    ${rMsg.m_comment }
+    ${msg.m_comment }
   </div>
   <div style="margin: 15px; float: right;">
 
-  <button>닫기</button>
-  <button onclick="popup(${rMsg.m_no });">답장</button>
+  <button onclick="self.close();">닫기</button>
 
   </div>
 </div>
-
-<script>
-function popup(m_no){
-	window.open("/mypage/message/send?m_no="+m_no, "window팝업", "width=400, height=350, menubar=no, status=no, toolbar=no");
-};
-</script>
 
 
 </body>

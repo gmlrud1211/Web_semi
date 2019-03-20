@@ -23,19 +23,33 @@ public class MessageReadController extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(true);
+				
+		int u_no = (int)session.getAttribute("u_no"); 	
 		
 		int m_no = Integer.parseInt(request.getParameter("m_no"));
-		Message rMsg = mServ.getReceivedMessageByMno(m_no);
+		Message msg = mServ.getMsgByMno(m_no);
 		
-		if(rMsg.getM_read().equals("n")) {
-			mServ.updateRead(m_no);			
+		if(msg.getReceiver_no()==u_no) {
+			if(msg.getM_read().equals("n")) {
+				mServ.updateRead(m_no);			
+			}
+			
+			request.setAttribute("msg", msg);
+			
+			request.getRequestDispatcher("/view/mypage/message/readReceivedMsg.jsp").forward(request, response);
+			
+		} else if(msg.getSender_no()==u_no){
+			
+			request.setAttribute("msg", msg);
+			
+			request.getRequestDispatcher("/view/mypage/message/readSentMsg.jsp").forward(request, response);
+
 		}
 		
-		request.setAttribute("rMsg", rMsg);
 		
-		request.getRequestDispatcher("/view/mypage/message/readMsg.jsp").forward(request, response);
 		
 	}
+	
 	
 
 }

@@ -10,8 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dto.Message;
 import service.mypage.message.MessageService;
 import service.mypage.message.MessageServiceImpl;
+import util.Paging;
 
 
 @WebServlet("/mypage/message/sent")
@@ -23,9 +25,18 @@ public class SentMessageController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(true);
 		int u_no = (int)session.getAttribute("u_no"); 
-		List sList = mServ.getSentMessageListByUno(u_no); 
 		
-		request.setAttribute("sList", sList);
+		int side = 2;
+		
+		int curPage = mServ.getCurPage(request);
+		int totalCount = mServ.getTotalMsgCount(side, u_no);
+		
+		Paging paging = new Paging(totalCount, curPage);
+		
+
+		List<Message> msgList = mServ.getMsgPagingList(side, u_no, paging);
+		request.setAttribute("msgList", msgList);	
+		request.setAttribute("paging", paging);
 		
 		request.getRequestDispatcher("/view/mypage/message/sentMsgList.jsp").forward(request, response);	
 	}
