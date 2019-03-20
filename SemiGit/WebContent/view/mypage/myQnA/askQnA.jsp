@@ -86,7 +86,7 @@ $(document).ready(function() {
 	
 	$("#goList").click(function(){
 		history.go(-1);
-	})
+	});
 });
 
 function sendData(no, name) {

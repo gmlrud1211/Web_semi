@@ -20,6 +20,6 @@ public interface UsersService {
 
 	public List getFavoritCateByUno(int u_no);
 	
-	public void changePw(int u_no, String u_pw);
+	public void changePw(int u_no, String nu_pw);
 	
 }

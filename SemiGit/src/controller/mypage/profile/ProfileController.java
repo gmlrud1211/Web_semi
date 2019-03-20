@@ -16,14 +16,14 @@ import service.users.UsersService;
 import service.users.UsersServiceImpl;
 
 
-@WebServlet("/mypage/profile/updateProfile")
-public class ProfileChangeController extends HttpServlet {
+@WebServlet("/mypage/profile")
+public class ProfileController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	UsersService uServ = new UsersServiceImpl();
 
+	UsersService uServ = new UsersServiceImpl();
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-	
 		HttpSession session = req.getSession(true);
 		int u_no = (int) session.getAttribute("u_no");
 		
@@ -33,12 +33,8 @@ public class ProfileChangeController extends HttpServlet {
 		
 		req.setAttribute("users", u);
 		req.setAttribute("ucList", ucList);
-				
-		req.getRequestDispatcher("/view/mypage/profile/profileChange.jsp").forward(req, resp);
-	}
-	
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
+		req.getRequestDispatcher("/view/mypage/profile/usersProfile.jsp").forward(req, resp);
+
 	}
 }

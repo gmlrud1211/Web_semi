@@ -61,7 +61,7 @@ text-align:center;
 			    </div>
     		</div>
 			    	
-      		<button type="submit" id="updatePw" class="btn btn-default">비밀번호 변경</button>
+      		<button type="button" id="updatePw" class="btn btn-default">비밀번호 변경</button>
 			<button type="button" id="updateProfile" class="btn btn-default" style="float:right;">정보수정</button>
 
           </div><!--/row-->
@@ -77,8 +77,15 @@ text-align:center;
 <script type="text/javascript">
 $(document).ready(function() {
 	$("#updatePw").click(function(){
-		location.href="/mypage/profile/pw"		
+		location.href="/mypage/profile/pwchange"		
 	});
+});
+
+$(document).ready(function() {
+	$("#updateProfile").click(function(){
+		location.href="/mypage/profile/updateProfile"		
+	});
+});
 
 </script>
 

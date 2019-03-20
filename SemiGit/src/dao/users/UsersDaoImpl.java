@@ -142,7 +142,7 @@ private Connection conn = DBConn.getConnection();
 				user.setU_no(rs.getInt("u_no"));
 				user.setU_id(rs.getString("u_id"));
 				user.setU_name(rs.getString("u_name"));
-//				user.setU_pw(rs.getString("u_pw"));
+				user.setU_pw(rs.getString("u_pw"));
 				user.setU_email(rs.getString("u_email"));
 				user.setU_birth(rs.getString("u_birth"));
 				user.setU_phone(rs.getString("u_phone"));
@@ -216,16 +216,16 @@ private Connection conn = DBConn.getConnection();
 	}
 
 	@Override
-	public void updatePw(int u_no, String u_pw) {
+	public void updatePw(int u_no, String nu_pw) {
 		String sql = "";
-		sql +="UPDATE users(u_pw)";
+		sql +="UPDATE users";
 		sql +=" SET u_pw=?";
 		sql +=" WHERE u_no=?";
 				
 		try {
 			
 			ps = conn.prepareStatement(sql);
-			ps.setString(1,u_pw);
+			ps.setString(1,nu_pw);
 			ps.setInt(2, u_no);
 				
 			ps.executeUpdate();

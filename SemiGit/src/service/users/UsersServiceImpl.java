@@ -48,8 +48,8 @@ public class UsersServiceImpl implements UsersService {
 	}
 
 	@Override
-	public void changePw(int u_no, String u_pw) {
-		uDao.updatePw(u_no, u_pw);
+	public void changePw(int u_no, String nu_pw) {
+		uDao.updatePw(u_no, nu_pw);
 	}
 
 
