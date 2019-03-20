@@ -1,4 +1,4 @@
-package utill;
+package util;
 
 public class Paging {
 

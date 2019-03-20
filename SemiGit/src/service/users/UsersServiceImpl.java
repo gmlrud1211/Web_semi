@@ -1,5 +1,7 @@
 package service.users;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -33,6 +35,21 @@ public class UsersServiceImpl implements UsersService {
 	public Users getUserByUid(Users user) {
 		
 		return uDao.selectUserByUid(user);
+	}
+
+	@Override
+	public Users getUserByUno(int u_no) {
+		return uDao.selectUserByUno(u_no);
+	}
+
+	@Override
+	public List getFavoritCateByUno(int u_no) {
+		return uDao.selectFavoritCateByUno(u_no);
+	}
+
+	@Override
+	public void changePw(int u_no, String nu_pw) {
+		uDao.updatePw(u_no, nu_pw);
 	}
 
 

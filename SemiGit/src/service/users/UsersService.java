@@ -1,5 +1,7 @@
 package service.users;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -13,6 +15,11 @@ public interface UsersService {
 	public boolean login(Users user);
 	
 	public Users getUserByUid(Users user);
+	
+	public Users getUserByUno(int u_no);
 
+	public List getFavoritCateByUno(int u_no);
+	
+	public void changePw(int u_no, String nu_pw);
 	
 }

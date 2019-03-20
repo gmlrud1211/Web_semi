@@ -58,9 +58,9 @@
 	</c:if>
 
 	<%-- 끝페이지 --%>
-	<c:if test="${paging.curPage ne paging.totalPage }">
-		<li><a href="/board/paginglist?curPage=${paging.totalPage}">끝&rarr;</a></li>
-	</c:if>
+<%-- 	<c:if test="${paging.curPage ne paging.totalPage }"> --%>
+<%-- 		<li><a href="/board/paginglist?curPage=${paging.totalPage}">끝&rarr;</a></li> --%>
+<%-- 	</c:if> --%>
 	
 	</ul>
 

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>쪽지보내기</title>
+<title>쪽지확인</title>
 <!-- Theme main style -->
 <link href="/css/bootstrap.css" rel="stylesheet">
 <link href="/css/bootstrap-theme.css" rel="stylesheet">
@@ -20,19 +20,23 @@
 <body>
 <div class="panel panel-default" style="margin: 5px;border: none; box-shadow: none;">
   <div class="panel-heading" style="background: transparent; border: none;">
-    <h3 class="panel-title" style="font-size: 12px;"><strong>받는사람: ${sMsg.u_name }</strong></h3>
+	<div>
+	<span>
+	    <strong>보낸사람: ${msg.sender_name }</strong>
+    </span>
+    <span>
+	    <strong style="float: right;">받는사람: ${msg.receiver_name }</strong>
+	 </span>
+	</div>
+	<span style="float: right;">보낸 날짜: ${msg.m_date }</span>
   </div>
   <div class="panel-body">
-  	<form action="/mypage/message/send" method="post" onsubmit="self.close();">
-  	  <textarea name="m_comment" rows="10" cols="45"></textarea>
-  	  <input type="hidden" name="m_no" value="${sMsg.m_no }"/>
-  	  <input type="hidden" name="sender_no" value="${sMsg.receiver_no }"/>
-  	  <input type="hidden" name="receiver_no" value="${sMsg.sender_no }"/>
- 	<div style="margin: 15px; float: right;">
-  		<button type="button">닫기</button>
-  		<button type="submit">보내기</button>
- 	 </div>
-  	</form>
+    ${msg.m_comment }
+  </div>
+  <div style="margin: 15px; float: right;">
+
+  <button onclick="self.close();">닫기</button>
+
   </div>
 </div>
 

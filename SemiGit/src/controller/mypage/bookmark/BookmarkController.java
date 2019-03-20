@@ -13,23 +13,38 @@ import javax.servlet.http.HttpSession;
 
 import dao.mypage.bookmark.BookmarkDao;
 import dao.mypage.bookmark.BookmarkDaoImpl;
+import dto.MyBoard;
 import service.mypage.bookmark.BookmarkService;
 import service.mypage.bookmark.BookmarkServiceImpl;
+import util.Paging;
+
 
 
 @WebServlet("/mypage/bookmark")
 public class BookmarkController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	private BookmarkDao bDao = new BookmarkDaoImpl();
+
+=======
+
 	private BookmarkService bServ = new BookmarkServiceImpl();
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(true);
 		int u_no = (int)session.getAttribute("u_no"); // u_no 받아오기
-		List bmList = bServ.getBookmarkListByUno(u_no); 
+
+
+		int curPage = bServ.getCurPage(request);
+		int totalCount = bServ.getTotalBookmarkCount(u_no);
+						
+		Paging paging = new Paging(totalCount, curPage);
+
+		List<MyBoard> bmList = bServ.getBookmarkPagingList(u_no, paging);
+
+		request.setAttribute("bmList", bmList);					
+		request.setAttribute("paging", paging);
 		
-		session.setAttribute("bmList", bmList);
+
 		
 		request.getRequestDispatcher("/view/mypage/bookmark/bookmarkList.jsp").forward(request, response);	
 

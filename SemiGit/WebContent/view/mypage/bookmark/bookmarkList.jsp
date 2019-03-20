@@ -14,23 +14,9 @@
 <div class="wrapper">
 <div class="container">
 
-<div class="container">
-
       <div class="row row-offcanvas row-offcanvas-right">
 
-		<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
-			<div class="name"><h2>MY PAGE</h2></div>
-	          <div class="list-group" style="box-shadow: none;">
-	            <a href="#" class="list-group-item" style="border:none;">나의 스터디룸</a>
-	            <a href="#" class="list-group-item" style="border:none;">진행예정 스터디</a>
-	            <a href="#" class="list-group-item" style="border:none;">관심 스터디</a>
-	            <a href="#" class="list-group-item" style="border:none;">나의 쪽지함</a>
-	            <a href="#" class="list-group-item" style="border:none;">내가 쓴 게시글</a>
-	            <a href="#" class="list-group-item" style="border:none;">나의 1:1 문의</a>
-	            <a href="#" class="list-group-item" style="border:none;">개인 정보 관리</a>
-
-          </div>
-        </div><!--/.sidebar-offcanvas-->
+		<jsp:include page="/view/layout/mypage.jsp"/>
 
         <div class="col-xs-12 col-sm-9">
           <p class="pull-right visible-xs">
@@ -47,13 +33,15 @@
    			<c:forEach var="i" begin="0" end="${bmList.size()-1 }">
 	            <div class="col-xs-6 col-lg-4">
 	              <input type="button" value="X" onclick="bookmark_delete(${bmList.get(i).bm_no });" style="background: transparent;float: right;-webkit-appearance: button-bevel;"> 
-	              <div><a href="#"><img src="/upload/${bmList.get(i).file_storedname }" alt="study images"></a></div>
-	              <h4><a href="#" style="color: inherit;">${bmList.get(i).study_name }</a></h4>
+	              <div><a href="/study/detail?study_no=${bmList.get(i).study_no }"><img src="/upload/${bmList.get(i).file_storedname }" alt="study images"></a></div>
+	              <h4><a href="/study/detail?study_no=${bmList.get(i).study_no }" style="color: inherit;">${bmList.get(i).study_name }</a></h4>
              
 	            </div><!--/.col-xs-6.col-lg-4-->	
    			</c:forEach>
    			</c:if>
-   			<jsp:include page="/view/layout/paging.jsp"/>
+   			<c:if test="${bmList.size()>0 }">
+          <jsp:include page="./pagingBookmark.jsp"/>
+          </c:if>
           </div><!--/row-->
         </div><!--/.col-xs-12.col-sm-9-->
 
@@ -63,4 +51,4 @@
 
 
 </div>
-</div>
+
