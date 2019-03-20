@@ -14,6 +14,7 @@ import dto.MyBoard;
 import util.DBConn;
 import util.Paging;
 
+
 public class BookmarkDaoImpl implements BookmarkDao {
 
 	private Connection conn = DBConn.getConnection();
@@ -23,6 +24,7 @@ public class BookmarkDaoImpl implements BookmarkDao {
 
 	@Override
 	public int CntBookmark(int u_no) {
+
 		String sql = "";
 		sql +="SELECT COUNT(*) FROM bookmark";
 		sql += " WHERE u_no=?";
