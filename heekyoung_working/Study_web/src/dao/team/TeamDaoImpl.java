@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dto.Achive;
+import dto.AchivePeople;
 import dto.FileUpload;
 import dto.Study;
 import dto.StudyBoard;
@@ -367,17 +368,9 @@ public class TeamDaoImpl implements TeamDao{
 	public List achiveSelectAll(Achive achive) {
 		//sql 작성
 		String sql ="";
-		//sql +="select * from achive";
-		//sql +=" where study_no = 1 "; //아직 연결안되서 임의로 값 집어넣음
-	/*	SELECT 
-	    A.study_no, A.a_no, A.a_title
-	    , S.suba_no, S.suba_name
-	FROM achive A JOIN subAchive S ON A.study_no = S.study_no
-	WHERE A.study_no = 1
-	ORDER BY study_no, a_no, suba_no;*/
 		sql +="select A.study_no, A.a_no, to_char(A.a_ddate, 'YYYY-MM-DD') a_ddate, A.a_title, S.suba_no, S.suba_name";
 		sql +=" FROM achive A JOIN subAchive S ON A.study_no = S.study_no";
-		sql +=" WHERE A.study_no = 1";
+		sql +=" WHERE A.study_no = 1"; //아직 study_no 연결처리 안되서 임의로 study_no=1 집어넣음
 		sql +=" ORDER BY study_no, a_no, suba_no";
 		
 		
@@ -398,6 +391,7 @@ public class TeamDaoImpl implements TeamDao{
 				achive_list.setA_no(rs.getInt("a_no"));
 				achive_list.setA_title(rs.getString("a_title"));
 				achive_list.setA_ddate(rs.getString("a_ddate"));
+				achive_list.setSuba_no(rs.getInt("suba_no"));
 				achive_list.setSuba_name(rs.getString("suba_name"));
 				//achive_list.setA_adate(rs.getString("a_sdate"));
 								
@@ -419,7 +413,36 @@ public class TeamDaoImpl implements TeamDao{
 		
 		return achiveList;
 	}
-	
-	
 
+	@Override
+	public void checkSubAchive(AchivePeople achivePeople) {
+		String sql="";
+		sql+= "INSERT INTO ACHIVEPEOPLE(SUBA_NO,SUB_CODE,U_NO)";
+		sql+= " VALUES(?, ?, ?)";
+		
+		//INSERT INTO achivepeople VALUES ( 1,'yes', 1 );
+		
+		PreparedStatement ps = null;
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			
+			ps.setInt(1, achivePeople.getSuba_no());
+			ps.setString(2, achivePeople.getSub_code());
+			ps.setInt(3, achivePeople.getU_no());
+			
+			ps.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(ps!=null)	ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}		
+		
 }
+	

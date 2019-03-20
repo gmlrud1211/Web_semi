@@ -70,7 +70,7 @@
 			
 		<div class="canvas" >
 			<canvas id="myChart"  width="200" height="250" > </canvas><br>
-			<button id="sendAjax" class="btn btn-sm" style="color:#ffffff; background:#F67280">달성률 조회</button>
+			<button class="btn btn-sm" style="color:#ffffff; background:#F67280">달성률 조회</button>
 		</div>	
 		
 		<div class="canvas">	
@@ -114,51 +114,66 @@
 		</script>
 		
 		
-		
-		
-		<div class="achiveView">
-		
-		<c:set var="c" value="${achiveList[0].a_no }" />
-		<c:set var="b" value="0" />
-		 
-		<c:forEach items="${achiveList}" var="achiveList" varStatus="stat">
-		<c:set var="c" value="${achiveList.a_no }" />
+	<script type="text/javascript">
+		$(document).ready(function() {			
+			$("#btnSearch").click(function() {
+				$("form").submit();
+			});
 			
-		<c:if test="${b ne c }">
-			<c:if test="${stat.first ne true }">
-				</table>
-				<br><br>
-			</c:if>
+		});
+	</script>
+		
+		
+		
+		
+		
+		<form method="post" >
+		
+			<div class="achiveView">
+			
+			<c:set var="c" value="${achiveList[0].a_no }" />
+			<c:set var="b" value="0" />
+			 
+			<c:forEach items="${achiveList}" var="achiveList" varStatus="stat">
+			<c:set var="c" value="${achiveList.a_no }" />
 				
-			<table>
-				<tr>
-					<td>목표마감일</td>
-					<td colspan='2'>${achiveList.a_ddate}</td>
-				</tr>
-				<tr>
-					<td>목표</td>
-					<td colspan='2'>${achiveList.a_title }</td>
-				</tr>
-		</c:if>
-
-		<c:set var="b" value="${c }" />
-
-			<tr>
-				<td>세부목표</td>
-				<td>${achiveList.suba_name}</td>
-				<td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<input type="checkbox" name="sub_code" value="yes" />&nbsp;&nbsp;달성
-				</td>
-			</tr>
-
-			<c:if test="${stat.last }">
-				</table>
-				<br><br>
+			<c:if test="${b ne c }">
+				<c:if test="${stat.first ne true }">
+					</table>
+					<br><br>
+				</c:if>
+					
+				<table>
+				<button id="btnSearch" class="btn btn-sm" style="color:#ffffff; background:#F67280">달성 체크</button><br>
+					<tr>
+						<td>목표마감일</td>
+						<td colspan='2'>${achiveList.a_ddate}</td>
+					</tr>
+					<tr>
+						<td>목표</td>
+						<td colspan='2'>${achiveList.a_title }</td>
+					</tr>
 			</c:if>
-		</c:forEach>
-	</div>
-
 	
+			<c:set var="b" value="${c }" />
+	
+				<tr>
+					<td>세부목표 &nbsp;&nbsp; ${achiveList.suba_no }</td>
+					<td>${achiveList.suba_name}</td>
+					<td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<input type="hidden" name="suba_no" id="suba_no" value="${achiveList.suba_no }"/>
+						<input type="checkbox" name="sub_code" value="yes" />&nbsp;&nbsp;달성
+					</td>
+				</tr>
+				<c:if test="${stat.last }">
+					</table>
+					<br><br>
+				</c:if>
+			</c:forEach>
+				
+		</div>
+
+		</form>
   
           </div><!--/row-->
         </div><!--/.col-xs-12.col-sm-9-->

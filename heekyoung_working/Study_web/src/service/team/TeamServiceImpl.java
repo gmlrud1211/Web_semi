@@ -4,10 +4,12 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.team.TeamDao;
 import dao.team.TeamDaoImpl;
 import dto.Achive;
+import dto.AchivePeople;
 import dto.UserStudy;
 import util.Paging;
 
@@ -45,6 +47,8 @@ public class TeamServiceImpl implements TeamService {
 		
 		Achive achive = new Achive();
 	
+		//HttpSession session = req.getSession(true);
+		//int study_no =  (int)session.getAttribute("study_no");		
 		//int study_no = Integer.parseInt(req.getParameter("study_no"));
 		//int a_no = Integer.parseInt(req.getParameter("a_no"));
 		String a_title=(String)req.getParameter("a_title");
@@ -78,6 +82,32 @@ public class TeamServiceImpl implements TeamService {
 	@Override
 	public List getAchiveList(Achive achive) {
 		return teamDao.achiveSelectAll(achive);
+	}
+
+	@Override
+	public AchivePeople getAchivePeopleParam(HttpServletRequest req, HttpServletResponse resp) {
+
+		AchivePeople achivePeople = new AchivePeople();
+		
+		int suba_no = Integer.parseInt(req.getParameter("suba_no"));
+		String sub_code=(String)req.getParameter("sub_code");
+		
+		HttpSession session = req.getSession(true);
+		int u_no =  (int)session.getAttribute("u_no");
+		
+		achivePeople.setSuba_no(suba_no);
+		achivePeople.setSub_code(sub_code);
+		achivePeople.setU_no(u_no);
+			
+		
+		return achivePeople;
+	}
+
+	@Override
+	public AchivePeople checkSubAchive(AchivePeople achivePeople) {
+		teamDao.checkSubAchive(achivePeople);	
+		
+		return achivePeople;
 	}
 	
 	

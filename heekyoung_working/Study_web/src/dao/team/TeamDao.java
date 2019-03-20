@@ -3,6 +3,7 @@ package dao.team;
 import java.util.List;
 
 import dto.Achive;
+import dto.AchivePeople;
 import dto.FileUpload;
 import dto.Study;
 import dto.StudyBoard;
@@ -40,6 +41,9 @@ public interface TeamDao {
 
 	//목표조회
 	public List achiveSelectAll(Achive achive);
+
+	//목표달성한 사람 체크
+	public void checkSubAchive(AchivePeople achivePeople);
 	
 	
 }
