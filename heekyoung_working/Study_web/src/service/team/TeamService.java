@@ -26,7 +26,7 @@ public interface TeamService {
 	public Achive getParam(HttpServletRequest req, HttpServletResponse resp);
 
 	//목표 등록
-	public Achive InsertAchive(Achive achive);
+	public void InsertAchive(Achive achive);
 
 	
 	//스터디 참여중인 회원 리스트 가져오기
@@ -41,7 +41,10 @@ public interface TeamService {
 
 	//성취 체크
 	public AchivePeople checkSubAchive(AchivePeople achivePeople);
-	
+
+	//성취 체크 - jio
+	public void checkSubAchive2(AchivePeople achivePeople);
+
 	//목표 번호 가져오기 
 	
 	

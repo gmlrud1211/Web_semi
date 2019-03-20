@@ -1,14 +1,17 @@
 package controller.team;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import dto.Achive;
 import dto.AchivePeople;
@@ -31,8 +34,14 @@ public class TeamAchiveViewController extends HttpServlet {
 		request.setAttribute("achive", achive);
 		
 		request.setAttribute("achiveList", achiveList);
+		request.setAttribute("achiveListSize", achiveList==null ?0 :achiveList.size());
+
+		List<String> subANoList = new ArrayList<>();
+		for(Achive a : achiveList)	subANoList.add(String.valueOf(a.getSuba_no()));
 		
-				
+		request.setAttribute("subANoList", subANoList.toString());
+		
+		
 		request.getRequestDispatcher("/view/team/achiveStatus.jsp").forward(request, response);
 	
 	}
@@ -45,13 +54,14 @@ public class TeamAchiveViewController extends HttpServlet {
 		//요청파라미터
 		AchivePeople achivePeople = teamService.getAchivePeopleParam(req, resp);
 		
-		
-		
-		teamService.checkSubAchive(achivePeople);
-				
-		
+
+//		teamService.checkSubAchive(achivePeople);
+
+		teamService.checkSubAchive2(achivePeople);
+
+		resp.getWriter().println("\"result\"");
 			
-		resp.sendRedirect("/team/achive/view");
+//		resp.sendRedirect("/team/achive/view");
 	}
 	
 

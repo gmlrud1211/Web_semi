@@ -68,9 +68,10 @@ public class TeamServiceImpl implements TeamService {
 	}
 
 	@Override
-	public Achive InsertAchive(Achive achive) {
-		//목표등록
-		return teamDao.insertAchive(achive);
+	public void InsertAchive(Achive achive) {
+		//목표등록, 세부목표등록
+		teamDao.insertAchive(achive);
+		teamDao.insertSubAchive(achive);
 	}
 
 	@Override
@@ -90,15 +91,20 @@ public class TeamServiceImpl implements TeamService {
 		AchivePeople achivePeople = new AchivePeople();
 		
 		int suba_no = Integer.parseInt(req.getParameter("suba_no"));
-		String sub_code=(String)req.getParameter("sub_code");
+//		String sub_code=(String)req.getParameter("sub_code");
+		boolean checked= Boolean.parseBoolean(req.getParameter("checked"));
 		
 		HttpSession session = req.getSession(true);
 		int u_no =  (int)session.getAttribute("u_no");
 		
+		
+		
 		achivePeople.setSuba_no(suba_no);
-		achivePeople.setSub_code(sub_code);
+//		achivePeople.setSub_code(sub_code);
 		achivePeople.setU_no(u_no);
-			
+		achivePeople.setChecked(checked);
+		
+		System.out.println(achivePeople);
 		
 		return achivePeople;
 	}
@@ -109,6 +115,17 @@ public class TeamServiceImpl implements TeamService {
 		
 		return achivePeople;
 	}
-	
+
+	@Override
+	public void checkSubAchive2(AchivePeople achivePeople) {
+		if( achivePeople.isChecked() ) {
+			System.out.println("넣고");
+			teamDao.insertCheckSubAchive(achivePeople);
+		} else {
+			System.out.println("빼고");
+			teamDao.deleteCheckSubAchive(achivePeople);
+		}
+	}
+
 	
 }

@@ -32,6 +32,7 @@ public class TeamAchiveWriteController extends HttpServlet {
 		
 		//목표 등록
 		teamService.InsertAchive(achive);
+		
 				
 		
 		resp.sendRedirect("/team/manage");		

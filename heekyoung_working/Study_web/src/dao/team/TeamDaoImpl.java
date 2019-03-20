@@ -12,6 +12,7 @@ import dto.AchivePeople;
 import dto.FileUpload;
 import dto.Study;
 import dto.StudyBoard;
+import dto.SubAchive;
 import dto.UserStudy;
 import util.DBConn;
 import util.Paging;
@@ -369,7 +370,7 @@ public class TeamDaoImpl implements TeamDao{
 		//sql 작성
 		String sql ="";
 		sql +="select A.study_no, A.a_no, to_char(A.a_ddate, 'YYYY-MM-DD') a_ddate, A.a_title, S.suba_no, S.suba_name";
-		sql +=" FROM achive A JOIN subAchive S ON A.study_no = S.study_no";
+		sql +=" FROM achive A JOIN subAchive S ON A.study_no = S.study_no AND A.A_NO = S.A_NO";
 		sql +=" WHERE A.study_no = 1"; //아직 study_no 연결처리 안되서 임의로 study_no=1 집어넣음
 		sql +=" ORDER BY study_no, a_no, suba_no";
 		
@@ -444,5 +445,98 @@ public class TeamDaoImpl implements TeamDao{
 		}
 	}		
 		
+	
+	
+	
+	
+	
+	@Override
+	public void insertCheckSubAchive(AchivePeople achivePeople) {
+		String sql="";
+		sql+= "INSERT INTO ACHIVEPEOPLE(SUBA_NO,SUB_CODE,U_NO)";
+		sql+= " VALUES(?, '0',?)";
+		
+		PreparedStatement ps = null;
+		try {
+			ps = conn.prepareStatement(sql);
+			
+			ps.setInt(1, achivePeople.getSuba_no());
+			ps.setInt(2, achivePeople.getU_no());
+			
+			ps.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(ps!=null)	ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}		
+
+	
+	
+	
+	
+	@Override
+	public void deleteCheckSubAchive(AchivePeople achivePeople) {
+		String sql="";
+		sql+= "DELETE ACHIVEPEOPLE";
+		sql+= " WHERE suba_no=?";
+		
+		PreparedStatement ps = null;
+		try {
+			ps = conn.prepareStatement(sql);
+			
+			ps.setInt(1, achivePeople.getSuba_no());
+			
+			ps.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(ps!=null)	ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	@Override
+	public void insertSubAchive(Achive achive) {
+		String sql="";
+		sql+= "insert into subachive(study_no, a_no, suba_no, suba_name, suba_sdate, suba_ddate)";
+		sql+= " values(1,?,subachive_seq.nextval, ?,sysdate, ?)";
+		
+//		insert into subachive(study_no, a_no, suba_no, suba_name, suba_sdate, suba_ddate)
+//		values(1,43,subachive_seq.nextval, 'ㅜㅜ', sysdate, '19/03/07');
+
+		
+		PreparedStatement ps = null;
+		try {
+			ps = conn.prepareStatement(sql);
+			
+			//ps.setInt(1, achive.setStudy_no());
+			ps.setInt(1, achive.getA_no());
+			ps.setString(2, achive.getSuba_name());
+			ps.setString(3, achive.getSuba_ddate());
+			
+			ps.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(ps!=null)	ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}		
+
 }
 	

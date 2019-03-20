@@ -119,6 +119,30 @@
 			$("#btnSearch").click(function() {
 				$("form").submit();
 			});
+
+			var size = ${achiveListSize};
+			var list = '';
+			if(size!=0) {
+				console.log(${subANoList});
+			}
+			
+			$("input[name=sub_code]").click(function() {
+// 				console.log($(this).is(":checked"));
+// 				console.log($(this).attr("value"));
+
+				$.ajax({
+					url: ""
+					, type: "post"
+					, dataType: "json"
+					, data: {
+						"checked":$(this).is(":checked")
+						, "suba_no":$(this).attr("value")
+					}
+					, complete: function() {
+						location.reload();
+					}
+				});
+			})
 			
 		});
 	</script>
@@ -127,7 +151,7 @@
 		
 		
 		
-		<form method="post" >
+<!-- 		<form method="post" > -->
 		
 			<div class="achiveView">
 			
@@ -144,7 +168,7 @@
 				</c:if>
 					
 				<table>
-				<button id="btnSearch" class="btn btn-sm" style="color:#ffffff; background:#F67280">달성 체크</button><br>
+			
 					<tr>
 						<td>목표마감일</td>
 						<td colspan='2'>${achiveList.a_ddate}</td>
@@ -161,8 +185,10 @@
 					<td>세부목표 &nbsp;&nbsp; ${achiveList.suba_no }</td>
 					<td>${achiveList.suba_name}</td>
 					<td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<input type="hidden" name="suba_no" id="suba_no" value="${achiveList.suba_no }"/>
-						<input type="checkbox" name="sub_code" value="yes" />&nbsp;&nbsp;달성
+<%-- 						<input type="hidden" name="suba_no" id="suba_no" value="${achiveList.suba_no }"/> --%>
+<!-- 						<input type="checkbox" name="sub_code" value="yes" />&nbsp;&nbsp;달성 -->
+<!-- 							<button id="btnSearch" class="btn btn-sm" style="color:#ffffff; background:#F67280">달성 체크</button><br> -->
+						<input type="checkbox" name="sub_code" value="${achiveList.suba_no }" />&nbsp;&nbsp;달성
 					</td>
 				</tr>
 				<c:if test="${stat.last }">
@@ -173,7 +199,7 @@
 				
 		</div>
 
-		</form>
+<!-- 		</form> -->
   
           </div><!--/row-->
         </div><!--/.col-xs-12.col-sm-9-->
