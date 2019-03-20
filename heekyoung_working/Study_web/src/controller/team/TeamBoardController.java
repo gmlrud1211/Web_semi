@@ -32,6 +32,7 @@ public class TeamBoardController extends HttpServlet {
 		Paging paging = new Paging(totalCount, curPage);
 		
 		List<StudyBoard> boardList = teamService.getPagingList(paging);
+		
 		request.setAttribute("boardList", boardList);
 		
 		request.setAttribute("paging", paging);

@@ -25,12 +25,13 @@
 	}
 	table {
 		width : 500px;
-		height :150px;
-		border-bottom : 1px solid #ccc;
-		
+		height :100px;
+		border-top : 1px solid #ccc;
+		border-collapse : collapse;
 		
 	}
 	tr td {
+		border : 1px solid #ccc;
 	}
 	
 	
@@ -70,7 +71,7 @@
 			
 		<div class="canvas" >
 			<canvas id="myChart"  width="200" height="250" > </canvas><br>
-			<button class="btn btn-sm" style="color:#ffffff; background:#F67280">달성률 조회</button>
+			<button id="sendAjax" class="btn btn-sm" style="color:#ffffff; background:#F67280">달성률 조회</button>
 		</div>	
 		
 		<div class="canvas">	
@@ -114,61 +115,56 @@
 		</script>
 		
 		
-	<script type="text/javascript">
-		$(document).ready(function() {			
-			$("#btnSearch").click(function() {
-				$("form").submit();
-			});
-
-			var size = ${achiveListSize};
-			var list = '';
-			if(size!=0) {
-				console.log(${subANoList});
-			}
-			
-			$("input[name=sub_code]").click(function() {
-// 				console.log($(this).is(":checked"));
-// 				console.log($(this).attr("value"));
-
-				$.ajax({
-					url: ""
-					, type: "post"
-					, dataType: "json"
-					, data: {
-						"checked":$(this).is(":checked")
-						, "suba_no":$(this).attr("value")
-					}
-					, complete: function() {
-						location.reload();
-					}
-				});
-			})
-			
-		});
-	</script>
 		
 		
+		<div class="achiveView">
 		
-		
-		
-<!-- 		<form method="post" > -->
-		
-			<div class="achiveView">
-			
-			<c:set var="c" value="${achiveList[0].a_no }" />
-			<c:set var="b" value="0" />
+<%-- 			<c:set var="c" value="${achiveList[0].a_no }" /> --%>
+<%-- 			<c:set var="b" value="0" /> --%>
 			 
-			<c:forEach items="${achiveList}" var="achiveList" varStatus="stat">
-			<c:set var="c" value="${achiveList.a_no }" />
+<%-- 			<c:forEach items="${achiveList}" var="achiveList" varStatus="stat"> --%>
 				
+<%-- 				<c:set var="c" value="${achiveList.a_no }" /> --%>
+<%-- 				before : ${b } --%>
+<%-- 				current : ${c } --%>
+
+<%-- 				<c:if test="${b ne c }"> --%>
+<!-- 					여기다 여기 -->
+<%-- 				</c:if> --%>
+
+<%-- 				<c:set var="b" value="${c }" /> --%>
+			
+<!-- 				<table> -->
+<!-- 						<tr> -->
+<!-- 							<td>목표마감일</td> -->
+<%-- 							<td colspan='2'>${achiveList.a_ddate}</td> --%>
+<!-- 						</tr> -->
+<!-- 						<tr> -->
+<!-- 							<td>목표</td> -->
+<%-- 							<td colspan='2'>${achiveList.a_title }</td> --%>
+<!-- 						</tr> -->
+<!-- 						<tr> -->
+<!-- 							<td>세부목표</td> -->
+<%-- 							<td>${achiveList.suba_name}</td> --%>
+<!-- 							<td><input type="checkbox" name="sub_code" value="yes" />달성</td> -->
+<!-- 						</tr> -->
+<!-- 				</table> -->
+<!-- 				<br><br> -->
+<%-- 			</c:forEach> --%>
+		
+		
+		<c:set var="c" value="${achiveList[0].a_no }" />
+		<c:set var="b" value="0" />
+		 
+		<c:forEach items="${achiveList}" var="achiveList" varStatus="stat">
+			<c:set var="c" value="${achiveList.a_no }" />
+			
 			<c:if test="${b ne c }">
 				<c:if test="${stat.first ne true }">
-					</table>
-					<br><br>
+				</table>
+				<br><br>
 				</c:if>
-					
 				<table>
-			
 					<tr>
 						<td>목표마감일</td>
 						<td colspan='2'>${achiveList.a_ddate}</td>
@@ -178,28 +174,22 @@
 						<td colspan='2'>${achiveList.a_title }</td>
 					</tr>
 			</c:if>
-	
+
 			<c:set var="b" value="${c }" />
-	
-				<tr>
-					<td>세부목표 &nbsp;&nbsp; ${achiveList.suba_no }</td>
-					<td>${achiveList.suba_name}</td>
-					<td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<%-- 						<input type="hidden" name="suba_no" id="suba_no" value="${achiveList.suba_no }"/> --%>
-<!-- 						<input type="checkbox" name="sub_code" value="yes" />&nbsp;&nbsp;달성 -->
-<!-- 							<button id="btnSearch" class="btn btn-sm" style="color:#ffffff; background:#F67280">달성 체크</button><br> -->
-						<input type="checkbox" name="sub_code" value="${achiveList.suba_no }" />&nbsp;&nbsp;달성
-					</td>
-				</tr>
-				<c:if test="${stat.last }">
-					</table>
-					<br><br>
-				</c:if>
+					<tr>
+						<td>세부목표</td>
+						<td>${achiveList.suba_name}</td>
+						<td><input type="checkbox" name="sub_code" value="yes" />달성</td>
+					</tr>
+
+			<c:if test="${stat.last }">
+				</table>
+				<br><br>
+			</c:if>
 			</c:forEach>
-				
 		</div>
 
-<!-- 		</form> -->
+	
   
           </div><!--/row-->
         </div><!--/.col-xs-12.col-sm-9-->

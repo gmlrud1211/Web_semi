@@ -3,9 +3,11 @@ package dao.team;
 import java.util.List;
 
 import dto.Achive;
+import dto.AchivePeople;
 import dto.FileUpload;
 import dto.Study;
 import dto.StudyBoard;
+import dto.SubAchive;
 import dto.UserStudy;
 import util.Paging;
 
@@ -37,6 +39,24 @@ public interface TeamDao {
 
 	//유저가 참여중인 스터디 조회
 	public List userStudySelectAll(UserStudy userStudy);
+
+	//목표조회
+	public List achiveSelectAll(Achive achive);
+
+	//목표달성한 사람 체크
+	public void checkSubAchive(AchivePeople achivePeople);
+
+	//목표달성한 사람 체크 - jio
+	public void insertCheckSubAchive(AchivePeople achivePeople);
+
+	//목표달성한 사람 체크해제 - jio
+	public void deleteCheckSubAchive(AchivePeople achivePeople);
 	
+	//세부목표 등록
+	public void insertSubAchive(Achive achive);
+
+	//목표번호 얻어오기
+	public int getA_no(Achive achive);
+
 	
 }

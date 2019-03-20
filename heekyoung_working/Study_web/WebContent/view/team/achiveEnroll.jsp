@@ -28,27 +28,6 @@
 	
 		$(document).ready(function() {
 				
-			var $div = $("<div class='form-group'>")
-			+$("<div class='col-sm-5'>")
-			+$("<input type='text' name='sub_name' />")
-			+$("</div>")
-			+$("</div>")
-			
-			//목표등록(추가) 버튼 
-			$("#btnAdd").click(function() {
-				
-
-			});
-			
-			/* 
-			 <div class="form-group">
-				<label for="sub_name" class="col-sm-3 col-sm-offset-1 control-label">세부 목표</label>
-				<div class="col-sm-5">
-					<input type="text" name="sub_name" />
-				</div>
-			</div>
-			 */
-			
 			$("#btnWrite").click(function() {
 				$("form").submit();
 			});
@@ -58,15 +37,22 @@
 			});
 			
 		});
+		
+		
+		//input추가
+		function add_input() {
+			var div = document.createElement('div');
+			div.innerHTML = document.getElementById('inputform').innerHTML;
+			document.getElementById('wrap').appendChild(div);
+		}
+		
+		
 	</script>
 
 	
 <h4 style="text-align: center;"><small>목표설정</small></h4>
 <hr>	
 
-
-
-	
 	<div class="container">
 	
 		<form action="/team/achive/write" method="post">
@@ -82,6 +68,7 @@
 				<label for="a_titles" class="col-sm-3 col-sm-offset-1 control-label">목표 제목</label>
 				<div class="col-sm-5">
 					<input type="text" name="a_title" />
+					
 				</div>
 			</div>
 			<br><br>
@@ -89,20 +76,16 @@
 		
 			 <div class="form-group">
 				<label for="sub_name" class="col-sm-3 col-sm-offset-1 control-label">세부 목표</label>
-				<div class="col-sm-5">
-					<input type="text" name="sub_name" />
-					<button id="btnAdd" class="btn btn-sm" style="color:#ffffff; background:#F67280">추가</button>
+				<div class="col-sm-5" id="wrap">
+					<div id="inputform">
+					
+						<input type="text" id="suba_name" name="suba_name" />
+						<button type="button" onclick="add_input()" class="btn btn-sm" style="color:#ffffff; background:#F67280">추가</button>
+					</div>							
 				</div>
 			</div>
-			
-			
-			
-			
-			
-			<br><br>
+			<br>
 		
-			
-			
 		</form>
 	</div>
 		

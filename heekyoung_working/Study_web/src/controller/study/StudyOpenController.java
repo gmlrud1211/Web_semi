@@ -48,7 +48,6 @@ public class StudyOpenController extends HttpServlet {
 		//스터디 번호 얻기
 		int study_no = studyservice.getStudy_no();
 			
-		//스터디 번호 얻기
 		study.setStudy_no(study_no);
 		study.setFile_no(file_no);
 	
