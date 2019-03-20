@@ -55,5 +55,8 @@ public interface TeamDao {
 	//세부목표 등록
 	public void insertSubAchive(Achive achive);
 
+	//목표번호 얻어오기
+	public int getA_no(Achive achive);
+
 	
 }

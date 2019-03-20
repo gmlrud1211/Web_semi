@@ -71,8 +71,11 @@ public class TeamServiceImpl implements TeamService {
 	public void InsertAchive(Achive achive) {
 		//목표등록, 세부목표등록
 		teamDao.insertAchive(achive);
+		int a_no = teamDao.getA_no(achive);
+		achive.setA_no(a_no);
 		teamDao.insertSubAchive(achive);
 	}
+	
 
 	@Override
 	public List getUserStudyList(UserStudy userStudy) {

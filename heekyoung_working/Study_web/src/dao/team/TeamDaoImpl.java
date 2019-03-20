@@ -508,8 +508,8 @@ public class TeamDaoImpl implements TeamDao{
 	@Override
 	public void insertSubAchive(Achive achive) {
 		String sql="";
-		sql+= "insert into subachive(study_no, a_no, suba_no, suba_name, suba_sdate, suba_ddate)";
-		sql+= " values(1,?,subachive_seq.nextval, ?,sysdate, ?)";
+		sql+= "insert into subachive(study_no, a_no, suba_no, suba_name, suba_sdate)";
+		sql+= " values(1,?,subachive_seq.nextval, ?,sysdate)";
 		
 //		insert into subachive(study_no, a_no, suba_no, suba_name, suba_sdate, suba_ddate)
 //		values(1,43,subachive_seq.nextval, 'ㅜㅜ', sysdate, '19/03/07');
@@ -521,8 +521,8 @@ public class TeamDaoImpl implements TeamDao{
 			
 			//ps.setInt(1, achive.setStudy_no());
 			ps.setInt(1, achive.getA_no());
+			System.out.println(achive.getA_no());
 			ps.setString(2, achive.getSuba_name());
-			ps.setString(3, achive.getSuba_ddate());
 			
 			ps.executeUpdate();
 			
@@ -536,6 +536,38 @@ public class TeamDaoImpl implements TeamDao{
 			}
 		}
 		
+	}
+
+	@Override
+	public int getA_no(Achive achive) {
+		String sql = "";
+		sql += "SELECT ACHIVE_SEQ.nextval FROM dual";
+		
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		
+		int a_no = -1;
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			rs = ps.executeQuery();
+			
+			rs.next();
+		
+			a_no = rs.getInt(1);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs!=null)	rs.close();
+				if(ps!=null)	ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}		
+		
+		return a_no;
 	}		
 
 }

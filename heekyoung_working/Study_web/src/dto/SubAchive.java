@@ -7,12 +7,11 @@ public class SubAchive {
 	private int suba_no;
 	private String suba_name;
 	private String suba_sdate;
-	private String suba_ddate;
 	
 	@Override
 	public String toString() {
 		return "SubAchive [study_no=" + study_no + ", a_no=" + a_no + ", suba_no=" + suba_no + ", suba_name="
-				+ suba_name + ", suba_sdate=" + suba_sdate + ", suba_ddate=" + suba_ddate + "]";
+				+ suba_name + ", suba_sdate=" + suba_sdate + ", suba_ddate=" + "]";
 	}
 
 	public int getStudy_no() {
@@ -55,14 +54,6 @@ public class SubAchive {
 		this.suba_sdate = suba_sdate;
 	}
 
-	public String getSuba_ddate() {
-		return suba_ddate;
-	}
 
-	public void setSuba_ddate(String suba_ddate) {
-		this.suba_ddate = suba_ddate;
-	}
-
-	
 	
 }

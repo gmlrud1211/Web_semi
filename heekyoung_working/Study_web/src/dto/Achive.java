@@ -11,10 +11,6 @@ public class Achive {
 	private int suba_no; //세부목표 번호
 	private String suba_name; //세부목표 이름
 	private String suba_sdate; //세부목표 시작일
-	private String suba_ddate; //세부목표 종료일
-	
-	
-	
 
 	
 	
@@ -24,7 +20,7 @@ public class Achive {
 	public String toString() {
 		return "Achive [study_no=" + study_no + ", a_no=" + a_no + ", a_title=" + a_title + ", a_adate=" + a_adate
 				+ ", a_ddate=" + a_ddate + ", suba_no=" + suba_no + ", suba_name=" + suba_name + ", suba_sdate="
-				+ suba_sdate + ", suba_ddate=" + suba_ddate + "]";
+				+ suba_sdate + ", suba_ddate=" + "]";
 	}
 	public String getSuba_sdate() {
 		return suba_sdate;
@@ -32,12 +28,7 @@ public class Achive {
 	public void setSuba_sdate(String suba_sdate) {
 		this.suba_sdate = suba_sdate;
 	}
-	public String getSuba_ddate() {
-		return suba_ddate;
-	}
-	public void setSuba_ddate(String suba_ddate) {
-		this.suba_ddate = suba_ddate;
-	}
+
 	public int getSuba_no() {
 		return suba_no;
 	}
