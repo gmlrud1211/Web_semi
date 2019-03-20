@@ -520,7 +520,7 @@ public class TeamDaoImpl implements TeamDao{
 			ps = conn.prepareStatement(sql);
 			
 			//ps.setInt(1, achive.setStudy_no());
-			ps.setInt(1, achive.getA_no());
+			ps.setInt(1, achive.getA_no()-1);
 			System.out.println(achive.getA_no());
 			ps.setString(2, achive.getSuba_name());
 			
