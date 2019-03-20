@@ -38,6 +38,7 @@ public class TeamAchiveViewController extends HttpServlet {
 
 		List<String> subANoList = new ArrayList<>();
 		for(Achive a : achiveList)	subANoList.add(String.valueOf(a.getSuba_no()));
+			
 		
 		request.setAttribute("subANoList", subANoList.toString());
 		
