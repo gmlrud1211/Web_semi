@@ -45,7 +45,12 @@ public interface TeamService {
 	//성취 체크 - jio
 	public void checkSubAchive2(AchivePeople achivePeople);
 
-	//목표 번호 가져오기 
+	//대목표-세부목표개수 카운트
+	public int getSubAchiveCnt(AchivePeople achivePeople);
+
+	//각 유저가 달성한 세부목표개수
+	public int getUserSubAchiveCnt(AchivePeople achivePeople);
+
 	
 	
 	

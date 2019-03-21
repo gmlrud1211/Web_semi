@@ -130,5 +130,15 @@ public class TeamServiceImpl implements TeamService {
 		}
 	}
 
+	@Override
+	public int getSubAchiveCnt(AchivePeople achivePeople) {
+		return teamDao.selectSubAchiveCnt(achivePeople);
+	}
+
+	@Override
+	public int getUserSubAchiveCnt(AchivePeople achivePeople) {
+		return teamDao.selectUserSubAchiveCnt(achivePeople);
+	}
+
 	
 }

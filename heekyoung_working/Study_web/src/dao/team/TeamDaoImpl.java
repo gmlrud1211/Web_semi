@@ -511,9 +511,6 @@ public class TeamDaoImpl implements TeamDao{
 		sql+= "insert into subachive(study_no, a_no, suba_no, suba_name, suba_sdate)";
 		sql+= " values(1,?,subachive_seq.nextval, ?,sysdate)";
 		
-//		insert into subachive(study_no, a_no, suba_no, suba_name, suba_sdate, suba_ddate)
-//		values(1,43,subachive_seq.nextval, 'ㅜㅜ', sysdate, '19/03/07');
-
 		
 		PreparedStatement ps = null;
 		try {
@@ -568,7 +565,103 @@ public class TeamDaoImpl implements TeamDao{
 		}		
 		
 		return a_no;
-	}		
+	}
 
-}
+	@Override
+	public int selectSubAchiveCnt(AchivePeople achivePeople) {
+		//sql작성
+		String sql = "";
+		sql +="SELECT count(S.suba_no)";
+		sql +=" FROM achive A JOIN subAchive S ON A.study_no = S.study_no AND A.A_NO = S.A_NO";
+		sql +=" WHERE A.study_no = 1 and A.a_no =1";//목표번호 임의로 삽입
+		//sql +=" group by A.study_no, A.a_no";
+		//sql +=" ORDER BY study_no, a_no";
+		
+		/*
+			sql +="SELECT A.study_no, A.a_no,count(S.suba_no) cnt";
+			sql +=" FROM achive A JOIN subAchive S ON A.study_no = S.study_no AND A.A_NO = S.A_NO";
+			sql +=" WHERE A.study_no = 1 and A.a_no =1";//목표번호 임의로 삽입
+			sql +=" group by A.study_no, A.a_no";
+			sql +=" ORDER BY study_no, a_no";
+		*/
+		
+		
+							
+		//쿼리 결과(세부목표 갯수)저장할 변수
+		int cnt = 0;
+						
+		try {
+			//sql 수행
+			ps = conn.prepareStatement(sql);
+			rs = ps.executeQuery();
+							
+			//결과처리
+			rs.next();
+			cnt = rs.getInt(1);
+			System.out.println(cnt+"개");
+					
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				//--- 자원 해제 ---
+				if(rs!=null)	rs.close();
+				if(ps!=null)	ps.close();
+				//-----------------
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+						
+		//개수 반환
+		return cnt;
+		}
+
+	@Override
+	public int selectUserSubAchiveCnt(AchivePeople achivePeople) {
+		//sql작성
+		String sql = "";
+		sql +="SELECT A.a_no, P.u_no, count(S.suba_no)";
+		sql +=" FROM achive A JOIN subAchive S ON A.study_no = S.study_no AND A.A_NO = S.A_NO";
+		sql +=" JOIN achivepeople P ON S.suba_no=P.suba_no";
+		sql +=" WHERE A.study_no = 1 and A.a_no =1 and P.u_no=?"; //스터디번호 목표번호 임의로 삽입
+		sql +=" GROUP BY A.a_no, P.u_no";
+		sql +=" order by a_no";
+		
+									
+		//쿼리 결과 저장할 변수
+		int cnt = 0;
+		Achive achive = new Achive();
+		
+		try {
+			//sql 수행
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, achive.getA_no());
+			ps.setInt(2, achive.getU_no());
+						
+			rs = ps.executeQuery();
+									
+			//결과처리
+			rs.next();
+			
+			cnt = rs.getInt(1);
+		
+					
+		} catch (SQLException e) {
+			e.printStackTrace();
+			} finally {
+			try {
+				//--- 자원 해제 ---
+				if(rs!=null)	rs.close();
+				if(ps!=null)	ps.close();
+				//-----------------
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+								
+		//개수 반환
+		return cnt;
+		}
+	}		
 	

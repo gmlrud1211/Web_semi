@@ -12,15 +12,20 @@ public class Achive {
 	private String suba_name; //세부목표 이름
 	private String suba_sdate; //세부목표 시작일
 
-	
-	
+	private int u_no; //유저번호
 	
 	
 	@Override
 	public String toString() {
 		return "Achive [study_no=" + study_no + ", a_no=" + a_no + ", a_title=" + a_title + ", a_adate=" + a_adate
 				+ ", a_ddate=" + a_ddate + ", suba_no=" + suba_no + ", suba_name=" + suba_name + ", suba_sdate="
-				+ suba_sdate + ", suba_ddate=" + "]";
+				+ suba_sdate + ", u_no=" + u_no + "]";
+	}
+	public int getU_no() {
+		return u_no;
+	}
+	public void setU_no(int u_no) {
+		this.u_no = u_no;
 	}
 	public String getSuba_sdate() {
 		return suba_sdate;

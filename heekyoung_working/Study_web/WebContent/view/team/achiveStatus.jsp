@@ -70,7 +70,7 @@
 			
 		<div class="canvas" >
 			<canvas id="myChart"  width="200" height="250" > </canvas><br>
-			<button class="btn btn-sm" style="color:#ffffff; background:#F67280">달성률 조회</button>
+			<button id="btnSearch" class="btn btn-sm" style="color:#ffffff; background:#F67280">달성률 조회</button>
 		</div>	
 		
 		<div class="canvas">	
@@ -78,6 +78,7 @@
 		</div>
 		<script type="text/javascript">
 	
+			
 		var ctx = document.getElementById('myChart');
 		var myChart = new Chart(ctx, {
 		   
@@ -146,8 +147,32 @@
 			
 		});
 	</script>
-		
-		
+	
+	<script type="text/javascript">
+		$(document).ready(function() {			
+			$("#btnSearch").click(function() {
+				console.log($(this).is)
+				
+				$.ajax ({
+					url: ""
+					, type = "post"
+					, dataType : "json"
+					, data : {
+						"checked":$(this).is(":checked")
+						}
+					, success: function(data) {
+						
+						}
+						
+					}, error: function(e) {
+						alert(e.responseText);
+					}
+
+				});
+							
+			}
+		});
+	</script>
 		
 		
 		
