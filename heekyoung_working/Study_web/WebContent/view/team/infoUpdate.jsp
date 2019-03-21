@@ -137,12 +137,12 @@
 					<input type="text" id="study_name" name="study_name" readonly />
 				</div>
 			</div>
-			
+			-->
 			<div class="form-group">
 			<label for="st_code" class="col-sm-3 col-sm-offset-1 control-label"> 카테고리  </label>
 					<div class="col-sm-5">
 						<select name="st_catecode" id="st_catecode" >
-								 onchange="fnGetCate(this.value);"
+								<!--  onchange="fnGetCate(this.value);" -->
 							<option value="">1차분류</option>
 							<option value="1">IT·프로그래밍</option>
 							<option value="2">디자인</option>
@@ -170,7 +170,7 @@
 						</select>
 					</div>
 			</div>
-	 		-->
+	 		
 			<div class="form-group">
 			<label for="study_region" class="col-sm-3 col-sm-offset-1 control-label"> 지역  </label>  
 					<div class="col-sm-5">
