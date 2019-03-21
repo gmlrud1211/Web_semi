@@ -140,17 +140,15 @@
 						"checked":$(this).is(":checked")
 						, "suba_no":$(this).attr("value")
 					}
-					, success : function(){
+					, success: function() {
 						var apl = ${apl};
-						if( apl != null){
-							var l = apl.split(",");
-							for(var i=0; i<l.length; i++)
-							{
-								$("input[type='checkbox'][value='"+l[i]"']".prop("checked",true));	
-							}
-						}
-					} 
-			
+						if( apl != null ) {
+						var l = apl.split(",");
+					    for( var i=0; i<l.length; i++ ) {
+					      $("input[type='checkbox'][value='"+l[i]+"']".prop("checked", true);
+					     }
+					   }
+					 }			
 				});
 			});
 			
@@ -158,7 +156,7 @@
 	</script>
 	
 	<script type="text/javascript">
-		$(document).ready(function() {			
+		$(document).ready(function() {		
 			$("#btnSearch").click(function() {
 				console.log($(this).is)
 				
