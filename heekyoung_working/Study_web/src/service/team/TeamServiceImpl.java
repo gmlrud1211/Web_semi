@@ -47,7 +47,8 @@ public class TeamServiceImpl implements TeamService {
 		
 		Achive achive = new Achive();
 	
-		//HttpSession session = req.getSession(true);
+		HttpSession session = req.getSession(true);
+		int u_no =  (int)session.getAttribute("u_no");
 		//int study_no =  (int)session.getAttribute("study_no");		
 		//int study_no = Integer.parseInt(req.getParameter("study_no"));
 		//int a_no = Integer.parseInt(req.getParameter("a_no"));
@@ -136,8 +137,8 @@ public class TeamServiceImpl implements TeamService {
 	}
 
 	@Override
-	public int getUserSubAchiveCnt(AchivePeople achivePeople) {
-		return teamDao.selectUserSubAchiveCnt(achivePeople);
+	public int getUserSubAchiveCnt(Achive achive) {
+		return teamDao.selectUserSubAchiveCnt(achive);
 	}
 
 	

@@ -62,7 +62,7 @@ public interface TeamDao {
 	public int selectSubAchiveCnt();
 
 	//유저가 달성한 세부목표 개수
-	public int selectUserSubAchiveCnt(AchivePeople achivePeople);
+	public int selectUserSubAchiveCnt(Achive achive);
 
 	
 }

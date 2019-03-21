@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import dto.Achive;
 import dto.AchivePeople;
 import dto.FileUpload;
@@ -327,7 +329,7 @@ public class TeamDaoImpl implements TeamDao{
 		//sql 작성
 		String sql ="";
 		sql +="select * from userstudy";
-		sql +=" where study_no = 1 "; //아직 연결안되서 임의로 값 집어넣음
+		sql +=" where study_no = 1 "; //아직 study_no 연결안되서 임의로 값 집어넣음
 		
 		List<UserStudy> userStudyList = new ArrayList<>();
 		
@@ -618,27 +620,27 @@ public class TeamDaoImpl implements TeamDao{
 		}
 
 	@Override
-	public int selectUserSubAchiveCnt(AchivePeople achivePeople) {
+	public int selectUserSubAchiveCnt(Achive achive) {
 		//sql작성
 		String sql = "";
-		sql +="SELECT A.a_no, P.u_no, count(S.suba_no)";
+		sql +="SELECT A.a_no, P.u_no, S.suba_no";
 		sql +=" FROM achive A JOIN subAchive S ON A.study_no = S.study_no AND A.A_NO = S.A_NO";
 		sql +=" JOIN achivepeople P ON S.suba_no=P.suba_no";
-		sql +=" WHERE A.study_no = 1 and A.a_no =1 and P.u_no=?"; //스터디번호 목표번호 임의로 삽입
-		sql +=" GROUP BY A.a_no, P.u_no";
+		sql +=" WHERE A.study_no = 1 and A.a_no = 1 and P.u_no= ?"; //스터디번호 목표번호 임의로 삽입
+		sql +=" GROUP BY A.a_no, P.u_no, S.suba_no";
 		sql +=" order by a_no";
 		
 									
 		//쿼리 결과 저장할 변수
 		int cnt = 0;
-		Achive achive = new Achive();
-		
+
 		try {
 			//sql 수행
 			ps = conn.prepareStatement(sql);
-			ps.setInt(1, achive.getA_no());
-			ps.setInt(2, achive.getU_no());
-						
+			//ps.setInt(1, achive.getA_no());
+			ps.setInt(1, achive.getU_no());	
+			
+			
 			rs = ps.executeQuery();
 									
 			//결과처리

@@ -49,7 +49,7 @@ public interface TeamService {
 	public int getSubAchiveCnt();
 
 	//각 유저가 달성한 세부목표개수
-	public int getUserSubAchiveCnt(AchivePeople achivePeople);
+	public int getUserSubAchiveCnt(Achive achive);
 
 	
 	

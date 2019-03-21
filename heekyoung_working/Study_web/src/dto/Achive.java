@@ -15,6 +15,7 @@ public class Achive {
 	private int u_no; //유저번호
 	
 	
+	
 	@Override
 	public String toString() {
 		return "Achive [study_no=" + study_no + ", a_no=" + a_no + ", a_title=" + a_title + ", a_adate=" + a_adate
