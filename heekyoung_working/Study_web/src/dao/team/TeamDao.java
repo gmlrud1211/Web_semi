@@ -59,7 +59,7 @@ public interface TeamDao {
 	public int getA_no(Achive achive);
 
 	//원래 대목표에 각 세부목표 개수 얻어오기
-	public int selectSubAchiveCnt(AchivePeople achivePeople);
+	public int selectSubAchiveCnt();
 
 	//유저가 달성한 세부목표 개수
 	public int selectUserSubAchiveCnt(AchivePeople achivePeople);

@@ -568,7 +568,7 @@ public class TeamDaoImpl implements TeamDao{
 	}
 
 	@Override
-	public int selectSubAchiveCnt(AchivePeople achivePeople) {
+	public int selectSubAchiveCnt() {
 		//sql작성
 		String sql = "";
 		sql +="SELECT count(S.suba_no)";

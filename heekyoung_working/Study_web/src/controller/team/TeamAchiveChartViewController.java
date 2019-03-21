@@ -29,7 +29,7 @@ public class TeamAchiveChartViewController extends HttpServlet {
 		
 		
 		//각 대목표에 따른 세부목표 개수 카운트
-		int subAchiveCnt = teamService.getSubAchiveCnt(achivePeople);
+		int subAchiveCnt = teamService.getSubAchiveCnt();
 		System.out.println(subAchiveCnt);
 		
 		//각 유저가 대목표에 따라 달성한 세부목표 개수

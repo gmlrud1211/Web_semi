@@ -46,7 +46,7 @@ public interface TeamService {
 	public void checkSubAchive2(AchivePeople achivePeople);
 
 	//대목표-세부목표개수 카운트
-	public int getSubAchiveCnt(AchivePeople achivePeople);
+	public int getSubAchiveCnt();
 
 	//각 유저가 달성한 세부목표개수
 	public int getUserSubAchiveCnt(AchivePeople achivePeople);
