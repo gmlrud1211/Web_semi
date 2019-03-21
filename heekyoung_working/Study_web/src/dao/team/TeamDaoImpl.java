@@ -674,5 +674,62 @@ public class TeamDaoImpl implements TeamDao{
 		//개수 반환
 		return cnt;
 		}
-	}		
+
+	@Override
+	public List<AchivePeople> selectAchivePeopleList(int u_no) {
+		
+		String sql="";
+		sql +="SELECT RES.*, round(people_cnt/tot_cnt, 3)*100 ||'%' 달성률 FROM (";
+		sql +=" SELECT PCNT.*";
+		sql +=" , ( SELECT COUNT(*) FROM subachive SA WHERE SA.study_no = PCNT.study_no AND SA.a_no = PCNT.a_no ) TOT_CNT";
+		sql +=" FROM (";
+		sql +=" SELECT S.study_no, S.a_no, NVL(P.u_no, -1) u_no, count(P.u_no) people_cnt";
+		sql +=" FROM subachive S, achivepeople P";
+		sql +=" WHERE S.suba_no = P.suba_no(+)";
+		sql +=" AND u_no=?";
+		sql +=" GROUP BY study_no, a_no, u_no";
+		sql +=" ) PCNT";
+		sql +=" ) RES";
+		sql +=" ORDER BY study_no, a_no, u_no";
+				
+
+		//쿼리 결과저장할 list
+		List<AchivePeople> achivePeopleList = new ArrayList<>();
+				
+		try {
+			//sql 수행
+			ps = conn.prepareStatement(sql);
+			
+			ps.setInt(1, u_no);
+			
+			rs = ps.executeQuery();
+					
+			//결과처리
+			while(rs.next())
+			{
+				AchivePeople achive = new AchivePeople();
+							
+				achive.setU_no(rs.getInt("u_no"));
+							
+					
+				achivePeopleList.add(achive);
+			}
+				
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				//--- 자원 해제 ---
+				if(rs!=null)	rs.close();
+				if(ps!=null)	ps.close();
+				//-----------------
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+			return achivePeopleList;
+			
+	}
+	
+}		
 	

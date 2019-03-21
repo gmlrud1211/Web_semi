@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="dto.Achive" %>
+<%@ page import= "dto.AchivePeople" %>
 <%@page import="java.util.List"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -139,11 +140,19 @@
 						"checked":$(this).is(":checked")
 						, "suba_no":$(this).attr("value")
 					}
-					, complete: function() {
-						location.reload();
-					}
+					, success : function(){
+						var apl = ${apl};
+						if( apl != null){
+							var l = apl.split(",");
+							for(var i=0; i<l.length; i++)
+							{
+								$("input[type='checkbox'][value='"+l[i]"']".prop("checked",true));	
+							}
+						}
+					} 
+			
 				});
-			})
+			});
 			
 		});
 	</script>
@@ -163,8 +172,7 @@
 					, success: function(data) {
 						
 						}
-						
-					}, error: function(e) {
+					, error: function(e) {
 						alert(e.responseText);
 					}
 

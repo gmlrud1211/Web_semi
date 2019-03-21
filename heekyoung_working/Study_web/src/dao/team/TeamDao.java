@@ -65,4 +65,8 @@ public interface TeamDao {
 	public int selectUserSubAchiveCnt(Achive achive);
 
 	
+	//성취인간들 조회
+	public List<AchivePeople> selectAchivePeopleList(int u_no);
+
+	
 }

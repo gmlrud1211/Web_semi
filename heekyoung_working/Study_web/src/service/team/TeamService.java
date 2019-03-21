@@ -52,6 +52,10 @@ public interface TeamService {
 	public int getUserSubAchiveCnt(Achive achive);
 
 	
+	//성취맨들 리스트 가져오기 
+	public List<AchivePeople> getAchivePeopleList(int u_no);
+
+	
 	
 	
 }
