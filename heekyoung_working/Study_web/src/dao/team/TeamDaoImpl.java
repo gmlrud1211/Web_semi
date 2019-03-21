@@ -623,14 +623,23 @@ public class TeamDaoImpl implements TeamDao{
 	public int selectUserSubAchiveCnt(Achive achive) {
 		//sql작성
 		String sql = "";
-		sql +="SELECT A.a_no, P.u_no, S.suba_no";
+		sql +="select * from";
+		sql +=" (SELECT A.a_no, count(*) cnt, P.u_no";
+		sql +=" FROM achivepeople P, subachive A";
+		sql +=" WHERE P.suba_no = A.suba_no";
+		sql +=" GROUP BY a_no, u_no )";
+		sql +=" where u_no=?";
+		
+		
+	/*	sql +="SELECT A.a_no, P.u_no, S.suba_no";
 		sql +=" FROM achive A JOIN subAchive S ON A.study_no = S.study_no AND A.A_NO = S.A_NO";
 		sql +=" JOIN achivepeople P ON S.suba_no=P.suba_no";
 		sql +=" WHERE A.study_no = 1 and A.a_no = 1 and P.u_no= ?"; //스터디번호 목표번호 임의로 삽입
 		sql +=" GROUP BY A.a_no, P.u_no, S.suba_no";
 		sql +=" order by a_no";
-		
-									
+	 */
+
+		  
 		//쿼리 결과 저장할 변수
 		int cnt = 0;
 

@@ -154,11 +154,11 @@
 				console.log($(this).is)
 				
 				$.ajax ({
-					url: ""
+					url: "/team/achive/chart"
 					, type = "post"
 					, dataType : "json"
 					, data : {
-						"checked":$(this).is(":checked")
+						
 						}
 					, success: function(data) {
 						
