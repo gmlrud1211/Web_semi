@@ -191,8 +191,7 @@
 						<input type="radio" name="study_region" value="대구" /> 대구
 						<input type="radio" name="study_region" value="대전" /> 대전
 						<input type="radio" name="study_region" value="부산" /> 부산
-						<input type="radio" name="study_region" value="김포" /> 부산   
-						
+						<input type="radio" name="study_region" value="김포" /> 김포
 					</div>
 			</div>		
 			<div class="form-group">
