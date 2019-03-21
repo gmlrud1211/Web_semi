@@ -140,7 +140,7 @@
 						"checked":$(this).is(":checked")
 						, "suba_no":$(this).attr("value")
 					}
-					, success: function() {
+					 , success: function() {
 						var apl = ${apl};
 						if( apl != null ) {
 						var l = apl.split(",");
@@ -148,7 +148,10 @@
 					      $("input[type='checkbox'][value='"+l[i]+"']".prop("checked", true);
 					     }
 					   }
-					 }			
+					 } 
+					, complete: function() {
+						location.reload();
+					}
 				});
 			});
 			
@@ -162,7 +165,7 @@
 				
 				$.ajax ({
 					url: "/team/achive/chart"
-					, type = "post"
+					, type : "post"
 					, dataType : "json"
 					, data : {
 						
@@ -176,7 +179,7 @@
 
 				});
 							
-			}
+			})
 		});
 	</script>
 		
