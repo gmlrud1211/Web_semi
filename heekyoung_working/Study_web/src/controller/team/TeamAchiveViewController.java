@@ -43,6 +43,25 @@ public class TeamAchiveViewController extends HttpServlet {
 			
 		
 		request.setAttribute("subANoList", subANoList.toString());
+		
+		
+		HttpSession session = request.getSession(true);
+		int u_no =  (int)session.getAttribute("u_no");
+		
+		
+		List<AchivePeople> achivePeopleList = teamService.getAchivePeopleList(u_no);
+		
+		String apl="";
+		for(int i=0; i<achivePeopleList.size(); i++)
+		{
+			apl+=achivePeopleList.get(i).getSuba_no();
+			if(i!=achivePeopleList.size()-1) 
+				apl+=",";
+		}
+		request.setAttribute("apl",apl);
+		System.out.println(apl);
+			
+			
 				
 		
 		request.getRequestDispatcher("/view/team/achiveStatus.jsp").forward(request, response);
@@ -61,26 +80,6 @@ public class TeamAchiveViewController extends HttpServlet {
 //		teamService.checkSubAchive(achivePeople);
 
 		teamService.checkSubAchive2(achivePeople);
-		
-		
-
-		HttpSession session = req.getSession(true);
-		int u_no =  (int)session.getAttribute("u_no");
-		
-		
-		List<AchivePeople> achivePeopleList = teamService.getAchivePeopleList(u_no);
-		
-		String apl="";
-		for(int i=0; i<achivePeopleList.size(); i++)
-		{
-			apl+=achivePeopleList.get(i).getSuba_no();
-			if(i!=achivePeopleList.size()-1) 
-				apl+=",";
-		}
-		req.setAttribute("apl",apl);
-		
-		
-		
 		
 		
 

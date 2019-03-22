@@ -134,7 +134,7 @@
 
 				$.ajax({
 					url: ""
-					, type: "post"
+					, type: "get"
 					, dataType: "json"
 					, data: {
 						"checked":$(this).is(":checked")
@@ -145,7 +145,7 @@
 						if( apl != null ) {
 						var l = apl.split(",");
 					    for( var i=0; i<l.length; i++ ) {
-					      $("input[type='checkbox'][value='"+l[i]+"']".prop("checked", true);
+					      $("input[type='checkbox'][value='"+l[i]+"']".prop("checked", true));
 					     }
 					   }
 					 } 

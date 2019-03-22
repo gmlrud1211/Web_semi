@@ -701,19 +701,30 @@ public class TeamDaoImpl implements TeamDao{
 			ps = conn.prepareStatement(sql);
 			
 			ps.setInt(1, u_no);
-			
+					
 			rs = ps.executeQuery();
 					
+			
+			
 			//결과처리
 			while(rs.next())
 			{
 				AchivePeople achive = new AchivePeople();
-							
+				
+				achive.setStudy_no(rs.getInt("study_no"));
+				achive.setA_no(rs.getInt("a_no"));
 				achive.setU_no(rs.getInt("u_no"));
-							
+				//achive.setSuba_no(rs.getInt("suba_no"));
+				//achive.setSub_code(rs.getString("sub_code"));
+				//achive.setChecked(rs.getBoolean("checked"));
+				
 					
 				achivePeopleList.add(achive);
+				System.out.println(achivePeopleList);
+				System.out.println();
+			
 			}
+
 				
 		} catch (SQLException e) {
 			e.printStackTrace();

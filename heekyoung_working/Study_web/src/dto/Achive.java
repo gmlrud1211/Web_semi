@@ -14,6 +14,7 @@ public class Achive {
 
 	private int u_no; //유저번호
 	
+		
 	
 	
 	@Override
