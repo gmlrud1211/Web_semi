@@ -328,8 +328,11 @@ public class TeamDaoImpl implements TeamDao{
 	public List userStudySelectAll(UserStudy userStudy) {
 		//sql 작성
 		String sql ="";
-		sql +="select * from userstudy";
-		sql +=" where study_no = 1 "; //아직 study_no 연결안되서 임의로 값 집어넣음
+		sql +="select u.u_no, u.u_name";
+		sql +=" from userstudy s, users u";
+		sql +=" where s.u_no = u.u_no(+)";
+		sql +="and s.study_no=1"; //아직 study_no 연결안되서 임의로 값 집어넣음
+		
 		
 		List<UserStudy> userStudyList = new ArrayList<>();
 		
@@ -345,11 +348,14 @@ public class TeamDaoImpl implements TeamDao{
 			{
 				UserStudy user_Study = new UserStudy();
 				//ResultSet의 결과 행이 DTO에 하나씩 저장됨
-				user_Study.setU_no(rs.getInt("u_no"));;
-				user_Study.setStudy_no(rs.getInt("study_no"));
+		
+				user_Study.setU_no(rs.getInt("u_no"));
+				user_Study.setU_name(rs.getString("u_name"));
+				//user_Study.setStudy_no(rs.getInt("study_no"));
 				
 				userStudyList.add(user_Study);
 			}
+			System.out.println(userStudyList);
 		
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -362,8 +368,7 @@ public class TeamDaoImpl implements TeamDao{
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-		}
-		
+		}		
 		return userStudyList;
 	}
 
@@ -740,6 +745,16 @@ public class TeamDaoImpl implements TeamDao{
 		}
 			return achivePeopleList;
 			
+	}
+
+	@Override
+	public boolean deleteUserStudyByUserno(UserStudy userDel) {
+		String sql ="";
+		sql +="";
+		
+		
+		
+		return false;
 	}
 	
 }		

@@ -69,4 +69,8 @@ public interface TeamDao {
 	public List<AchivePeople> selectAchivePeopleList(int u_no);
 
 	
+	//스터디원 삭제(방출)
+	public boolean deleteUserStudyByUserno(UserStudy userDel);
+
+	
 }

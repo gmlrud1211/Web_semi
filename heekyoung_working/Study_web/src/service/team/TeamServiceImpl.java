@@ -1,5 +1,6 @@
 package service.team;
 
+import java.sql.Connection;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,6 +12,7 @@ import dao.team.TeamDaoImpl;
 import dto.Achive;
 import dto.AchivePeople;
 import dto.UserStudy;
+import util.DBConn;
 import util.Paging;
 
 public class TeamServiceImpl implements TeamService {
@@ -144,6 +146,21 @@ public class TeamServiceImpl implements TeamService {
 	@Override
 	public List<AchivePeople> getAchivePeopleList(int u_no) {
 		return teamDao.selectAchivePeopleList(u_no);
+	}
+
+	@Override
+	public boolean delete(UserStudy userDel) {
+		
+
+		Connection conn = DBConn.getConnection();
+		
+		//스터디원 삭제
+		if ( teamDao.deleteUserStudyByUserno(userDel) ){			
+			return  true; //삭제 성공
+		} else {
+			return false; //삭제 실패
+		}
+		
 	}
 
 	

@@ -56,6 +56,10 @@ public interface TeamService {
 	public List<AchivePeople> getAchivePeopleList(int u_no);
 
 	
+	//스터디원 삭제
+	public boolean delete(UserStudy userDel);
+
+	
 	
 	
 }
