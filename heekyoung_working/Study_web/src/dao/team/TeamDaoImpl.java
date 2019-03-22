@@ -750,11 +750,45 @@ public class TeamDaoImpl implements TeamDao{
 	@Override
 	public boolean deleteUserStudyByUserno(UserStudy userDel) {
 		String sql ="";
-		sql +="";
+		sql +="delete from userstudy";
+		sql +=" where u_no = ? and study_no=1"; //study_no = 1 임의로 설정
 		
+
+		int result = 0;
+		boolean deleteresult = false;
+
 		
+		//DB 객체
+		PreparedStatement ps = null; 
+		ResultSet rs = null;
+
 		
-		return false;
+		try {
+			//DB작업
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, userDel.getU_no());
+			
+			result = ps.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				//DB객체 닫기
+				if(rs!=null)	rs.close();
+				if(ps!=null)	ps.close();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		if (result > 0) {
+			deleteresult = true;
+		} else {
+			deleteresult = false;
+		}
+		return deleteresult;
 	}
 	
 }		

@@ -24,7 +24,7 @@ public class TeamManageDeleteController extends HttpServlet {
 		//스터디원삭제
 		boolean userDel = teamService.delete(userStudy);
 		
-		request.setAttribute("userDel", userDel);		
+		request.setAttribute("userDel", userDel);
 		
 		request.getRequestDispatcher("/view/team/manage.jsp").forward(request, response);
 		
