@@ -121,14 +121,38 @@
 			})
 		});
 		</script>
-	
-<body>
-	<h3 style="text-align: center;"><small>스터디 정보 수정</small></h3>
-	<hr>
-	
-	
-	<div class="container">	
-	
+
+		
+<div class="wrapper">
+<div class="container">
+
+<div class="container">
+
+      <div class="row row-offcanvas row-offcanvas-right">
+
+		<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+			<div class="name"><h2>Team Page</h2></div>
+	          <div class="list-group" style="box-shadow: none;">
+	            <a href="#" class="list-group-item" style="border:none;">스터디룸 메인</a>
+	            <a href="#" class="list-group-item" style="border:none;">일정 관리</a>
+	            <a href="/team/achive/view" class="list-group-item" style="border:none;">목표 관리</a>
+	            <a href="/team/board" class="list-group-item" style="border:none;">팀별 게시판</a>
+	            <a href="/team/manage" class="list-group-item" style="border:none;">스터디룸 관리</a>
+
+        	 </div>
+        	</div><!--/.sidebar-offcanvas-->
+
+        <div class="col-xs-12 col-sm-9">
+          <p class="pull-right visible-xs">
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+          </p>
+          
+          <div class="jumbotron" style="padding: 5px;background-color: #eee0;border-bottom: 1px solid #f67280; border-radius: 0;" >
+            <h2>스터디룸 수정</h2>
+            <p style="font-size: 16px">스터디룸 수정 페이지 입니다.</p>
+          </div>
+          <div class="row">
+
 		<form action="/team/info/update" method="post" class="form-horizontal">
 
 			<!-- <div class="form-group">
@@ -138,11 +162,11 @@
 				</div>
 			</div>
 			-->
-			<div class="form-group">
+<!-- 			<div class="form-group">
 			<label for="st_code" class="col-sm-3 col-sm-offset-1 control-label"> 카테고리  </label>
 					<div class="col-sm-5">
 						<select name="st_catecode" id="st_catecode" >
-								<!--  onchange="fnGetCate(this.value);" -->
+								 onchange="fnGetCate(this.value);"
 							<option value="">1차분류</option>
 							<option value="1">IT·프로그래밍</option>
 							<option value="2">디자인</option>
@@ -169,7 +193,7 @@
 							<option value="109">기타</option>
 						</select>
 					</div>
-			</div>
+			</div> -->
 	 		
 			<div class="form-group">
 			<label for="study_region" class="col-sm-3 col-sm-offset-1 control-label"> 지역  </label>  
@@ -285,6 +309,11 @@
 			<button type="button" id="btnCancel" class="btn btn-sm" style="color:#ffffff; background:#FA4C64">취소</button>
 	</div>
 
+          </div><!--/row-->
+        </div><!--/.col-xs-12.col-sm-9-->
 
-</body>
-</html>
+      </div><!--/row-->
+
+    </div>
+
+</div>

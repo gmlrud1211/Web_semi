@@ -32,12 +32,35 @@
 		});
 		</script>
 		
-		
+<div class="wrapper">
+<div class="container">
 
-		<h3 style="text-align: center;">팀별 자료실</h3>
-		<hr>		
- 
-		<div class="container">
+<div class="container">
+
+      <div class="row row-offcanvas row-offcanvas-right">
+
+		<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+			<div class="name"><h2>Team Page</h2></div>
+	          <div class="list-group" style="box-shadow: none;">
+	            <a href="#" class="list-group-item" style="border:none;">스터디룸 메인</a>
+	            <a href="#" class="list-group-item" style="border:none;">일정 관리</a>
+	            <a href="/team/achive/view" class="list-group-item" style="border:none;">목표 관리</a>
+	            <a href="/team/board" class="list-group-item" style="border:none;">팀별 게시판</a>
+	            <a href="/team/manage" class="list-group-item" style="border:none;">스터디룸 관리</a>
+
+        	 </div>
+        	</div><!--/.sidebar-offcanvas-->
+
+        <div class="col-xs-12 col-sm-9">
+          <p class="pull-right visible-xs">
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+          </p>
+          
+          <div class="jumbotron" style="padding: 5px;background-color: #eee0;border-bottom: 1px solid #f67280; border-radius: 0;" >
+            <h2>팀별 게시판</h2>
+            <p style="font-size: 16px">팀별게시판 페이지 입니다.</p>
+          </div>
+          <div class="row">
 		
 		<table class="table table-hover table-striped table-condensed">
 			<thead>
@@ -66,11 +89,21 @@
 		</div>
 	
 	
+		
+		<jsp:include page="../layout/paging.jsp"/>
 	
-	<jsp:include page="../layout/paging.jsp"/>
+		<div id="btnBox" class="btn pull-right">
+			<button id="btnWrite" class="btn btn-sm" style="color:#ffffff; background:#F67280">게시글 작성</button>
+		</div>
+	
 
-	<div id="btnBox" class="btn pull-right">
-		<button id="btnWrite" class="btn btn-sm" style="color:#ffffff; background:#F67280">게시글 작성</button>
-	</div>
+          </div><!--/row-->
+        </div><!--/.col-xs-12.col-sm-9-->
+
+      </div><!--/row-->
+
+    </div>
+
+
+</div>
 	
-</html>
