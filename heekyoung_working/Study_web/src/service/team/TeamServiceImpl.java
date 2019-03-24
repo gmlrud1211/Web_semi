@@ -163,5 +163,21 @@ public class TeamServiceImpl implements TeamService {
 		
 	}
 
+	@Override
+	public UserStudy getUserStudyParam(HttpServletRequest request, HttpServletResponse response) {
+		
+		UserStudy userStudy = new UserStudy();
+		
+		int u_no = Integer.parseInt(request.getParameter("u_no"));
+		userStudy.setU_no(u_no);
+		System.out.println("param(u_no) : "+u_no);
+				
+		//int study_no = Integer.parseInt(request.getParameter("study_no"));
+		//userStudy.setStudy_no(study_no);
+		
+
+		return userStudy;
+	}
+
 	
 }

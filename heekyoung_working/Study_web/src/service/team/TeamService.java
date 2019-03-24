@@ -60,6 +60,9 @@ public interface TeamService {
 	public boolean delete(UserStudy userDel);
 
 	
+	public UserStudy getUserStudyParam(HttpServletRequest request, HttpServletResponse response);
+
+	
 	
 	
 }

@@ -12,7 +12,8 @@
 					
 		//팀원관리(팀원 방출) 페이지
 		$("#btnDelete").click(function() {
-			location.href ="/team/manage/delete";
+			$(location).attr("href","/team/manage/delete?u_no="+u_no);
+			//location.href = "/team/manage/delete?u_no="+u_no;
 		});
 				
 		//새 목표 등록 이벤트
@@ -54,8 +55,7 @@
             <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
           </p>
           
-          <div class="jumbotron" style="padding: 5px;background-color: #eee0;border-bottom: 1px solid #f67280;
-          border-radius: 0;" >
+          <div class="jumbotron" style="padding: 5px;background-color: #eee0;border-bottom: 1px solid #f67280; border-radius: 0;" >
             <h2>스터디룸 관리 페이지</h2>
             <p style="font-size: 16px">스터디룸 관리페이지 입니다.</p>
           </div>
@@ -74,7 +74,9 @@
 								<tr>
 									<td>${userlist.u_no }</td>
 								 	<td>${userlist.u_name }</td>
-								 	<td><button id="btnDelete" class="btn btn-sm" style="color:#F67280; background:#ffffff">방출</button></td>
+								 	<td id="btnDelete"><a href="/team/manage/delete?u_no=${userlist.u_no}">방출</a></td>
+									<!-- style="color:#F67280; background:#ffffff" -->
+								
 								</tr>
 							</c:forEach>
 						</tbody>

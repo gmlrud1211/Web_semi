@@ -19,15 +19,16 @@ public class TeamManageDeleteController extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		UserStudy userStudy = new UserStudy();
+		UserStudy userStudy = teamService.getUserStudyParam(request, response);	
 		
 		//스터디원삭제
 		boolean userDel = teamService.delete(userStudy);
 		
 		request.setAttribute("userDel", userDel);
 		
-		request.getRequestDispatcher("/view/team/manage.jsp").forward(request, response);
 		
+		request.getRequestDispatcher("/view/team/teamUserDelete.jsp").forward(request, response);
+	
 	}
 
 }

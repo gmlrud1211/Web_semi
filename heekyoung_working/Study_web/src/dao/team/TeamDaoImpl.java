@@ -748,27 +748,29 @@ public class TeamDaoImpl implements TeamDao{
 	}
 
 	@Override
-	public boolean deleteUserStudyByUserno(UserStudy userDel) {
+	public boolean deleteUserStudyByUserno(UserStudy userStudy) {
 		String sql ="";
 		sql +="delete from userstudy";
 		sql +=" where u_no = ? and study_no=1"; //study_no = 1 임의로 설정
 		
-
 		int result = 0;
 		boolean deleteresult = false;
-
 		
 		//DB 객체
 		PreparedStatement ps = null; 
 		ResultSet rs = null;
 
+		//System.out.println(userStudy.getU_no());
 		
 		try {
 			//DB작업
 			ps = conn.prepareStatement(sql);
-			ps.setInt(1, userDel.getU_no());
+			ps.setInt(1, userStudy.getU_no());
+			System.out.println("u_no"+userStudy.getU_no());
 			
 			result = ps.executeUpdate();
+			System.out.println(result);
+			conn.commit();
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -788,6 +790,7 @@ public class TeamDaoImpl implements TeamDao{
 		} else {
 			deleteresult = false;
 		}
+		System.out.println(deleteresult);
 		return deleteresult;
 	}
 	
