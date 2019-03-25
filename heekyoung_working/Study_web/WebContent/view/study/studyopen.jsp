@@ -154,9 +154,18 @@
 								
 						<select name="cate_code" >
 							<option value="">2차분류</option>
-								<c:forEach items="${studycate }" var="cate">
+							<option value="101">Java·Jsp</option>
+							<option value="102">C언어</option>
+							<option value="103">Python</option>
+							<option value="104">App개발</option>
+							<option value="105">HTML·CSS 퍼블리싱</option>
+							<option value="106">Database</option>
+							<option value="107">해킹</option>
+							<option value="108">알고리즘</option>
+							<option value="109">기타</option>
+								<%-- <c:forEach items="${studycate }" var="cate">
 									<option value="${cate.st_code }">${cate.st_subcate }</option>
-								</c:forEach>   
+								</c:forEach>    --%>
 						</select>
 					</div>
 			</div>
