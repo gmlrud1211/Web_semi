@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import dto.Achive;
 import dto.AchivePeople;
+import dto.StudyTeamState;
 import dto.UserStudy;
 import util.Paging;
 
@@ -30,7 +31,7 @@ public interface TeamService {
 
 	
 	//스터디 참여중인 회원 리스트 가져오기
-	public List getUserStudyList(UserStudy userStudy);
+	public List getUserStudyList(StudyTeamState studyTeamState);
 
 	
 	//목표 리스트 가져오기

@@ -11,6 +11,7 @@ import dao.team.TeamDao;
 import dao.team.TeamDaoImpl;
 import dto.Achive;
 import dto.AchivePeople;
+import dto.StudyTeamState;
 import dto.UserStudy;
 import util.DBConn;
 import util.Paging;
@@ -81,9 +82,9 @@ public class TeamServiceImpl implements TeamService {
 	
 
 	@Override
-	public List getUserStudyList(UserStudy userStudy) {
+	public List getUserStudyList(StudyTeamState studyTeamState) {
 		//userStudy 조회 결과 반환
-		return teamDao.userStudySelectAll(userStudy);
+		return teamDao.userStudySelectAll(studyTeamState);
 	}
 
 	@Override

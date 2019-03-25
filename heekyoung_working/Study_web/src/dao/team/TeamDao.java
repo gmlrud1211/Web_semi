@@ -7,6 +7,7 @@ import dto.AchivePeople;
 import dto.FileUpload;
 import dto.Study;
 import dto.StudyBoard;
+import dto.StudyTeamState;
 import dto.SubAchive;
 import dto.UserStudy;
 import util.Paging;
@@ -38,7 +39,7 @@ public interface TeamDao {
 	public int getStudy_no(Study study);
 
 	//유저가 참여중인 스터디 조회
-	public List userStudySelectAll(UserStudy userStudy);
+	public List userStudySelectAll(StudyTeamState studyTeamState);
 
 	//목표조회
 	public List achiveSelectAll(Achive achive);

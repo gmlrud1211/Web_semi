@@ -14,6 +14,7 @@ import dto.AchivePeople;
 import dto.FileUpload;
 import dto.Study;
 import dto.StudyBoard;
+import dto.StudyTeamState;
 import dto.SubAchive;
 import dto.UserStudy;
 import util.DBConn;
@@ -325,16 +326,16 @@ public class TeamDaoImpl implements TeamDao{
 	}
 
 	@Override
-	public List userStudySelectAll(UserStudy userStudy) {
+	public List userStudySelectAll(StudyTeamState studyTeamState) {
 		//sql 작성
 		String sql ="";
 		sql +="select u.u_no, u.u_name";
-		sql +=" from userstudy s, users u";
+		sql +=" from studyteamstate s, users u";
 		sql +=" where s.u_no = u.u_no(+)";
 		sql +="and s.study_no=1"; //아직 study_no 연결안되서 임의로 값 집어넣음
 		
-		
-		List<UserStudy> userStudyList = new ArrayList<>();
+	
+		List<StudyTeamState> userStudyList = new ArrayList<>();
 		
 		try {
 			//sql 수행
@@ -346,7 +347,7 @@ public class TeamDaoImpl implements TeamDao{
 			//결과처리
 			while(rs.next())
 			{
-				UserStudy user_Study = new UserStudy();
+				StudyTeamState user_Study = new StudyTeamState();
 				//ResultSet의 결과 행이 DTO에 하나씩 저장됨
 		
 				user_Study.setU_no(rs.getInt("u_no"));

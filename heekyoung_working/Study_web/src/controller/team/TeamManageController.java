@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dto.StudyTeamState;
 import dto.UserStudy;
 import service.team.TeamService;
 import service.team.TeamServiceImpl;
@@ -21,13 +22,13 @@ public class TeamManageController extends HttpServlet {
 		
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		UserStudy userStudy = new UserStudy();
+		StudyTeamState teamStudyState = new StudyTeamState();
 		
 		//UserStudy-user조회
-		List<UserStudy> userStudyList = teamService.getUserStudyList(userStudy);
+		List<StudyTeamState> userStudyList = teamService.getUserStudyList(teamStudyState);
 		
 		
-		request.setAttribute("userStudy", userStudy);
+		request.setAttribute("teamStudyState", teamStudyState);
 		
 		//view에 전달
 		request.setAttribute("userStudyList", userStudyList);
