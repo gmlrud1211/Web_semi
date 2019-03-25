@@ -1,5 +1,7 @@
 package dao.study;
 
+import java.util.List;
+
 import dto.FileUpload;
 import dto.Study;
 
@@ -14,8 +16,8 @@ public interface StudyDao {
 	//파일업로드
 	public void updateFile(FileUpload fileupload);
 	
-	//스터디 카테고리 번호 조회
-	//public int selectCate();
+	//스터디 카테고리 세부 번호 조회
+	public List selectCate(int cate_no, String str);
 
 	
 }

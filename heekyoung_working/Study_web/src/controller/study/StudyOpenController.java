@@ -1,6 +1,9 @@
 package controller.study;
 
 import java.io.IOException;
+import java.util.List;
+
+import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import dto.FileUpload;
 import dto.Study;
+import dto.StudyCate;
 import service.study.StudyService;
 import service.study.StudyServiceImpl;
 
@@ -28,8 +32,7 @@ public class StudyOpenController extends HttpServlet {
 		
 		//한글 인코딩
 		req.setCharacterEncoding("utf-8");
-	
-
+		
 		//요청파라미터
 		Study study = studyservice.getParam(req,resp);
 		

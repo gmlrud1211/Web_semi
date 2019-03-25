@@ -13,6 +13,7 @@ import dao.study.StudyDao;
 import dao.study.StudyDaoImpl;
 import dto.FileUpload;
 import dto.Study;
+import dto.StudyCate;
 
 public class StudyServiceImpl implements StudyService {
 
@@ -53,14 +54,24 @@ public class StudyServiceImpl implements StudyService {
 		study.setStudy_period(study_period);
 		study.setStudy_details(study_detail);
 		study.setU_no(u_no);
-
-
+		
+		
+		/*
+			int cate_no = Integer.parseInt(req.getParameter("cate_no"));
+			StudyCate studycate = new StudyCate();
+			List<StudyCate> studycate1 = studyservice.selectCate(cate_no);
+			
+			req.setAttribute("cate_no", cate_no);
+			req.setAttribute("studycate1", studycate1);
+		 */
+		
 		return study;
 	}
 
 	@Override
 	public Study studyopen(Study study) {
 		studyDao.studyopen(study);
+		
 		
 		return study;
 
@@ -76,6 +87,50 @@ public class StudyServiceImpl implements StudyService {
 	public int getStudy_no() {
 		return studyDao.getStudy_no();
 	}
+
+	@Override
+	public List selectCate(int cate_no) {
+		 List<StudyCate> L1 = null;
+	      String s1 = "IT·프로그래밍";
+	      String s2 = "디자인";
+	      String s3 = "콘텐츠제작";
+	      String s4 = "자격증";
+	      String s5 = "취업";
+	      String s6 = "외국어";
+	      String s7 = "음악";
+	      String s8 = "뷰티";
+	      String s9 = "수능";
+
+	      if(cate_no == 1) {
+	         L1 = studyDao.selectCate(cate_no,s1);
+	         
+	      }else if(cate_no == 2) {
+	         L1 = studyDao.selectCate(cate_no,s2);
+	      }
+	      else if(cate_no == 3) {
+	         L1 = studyDao.selectCate(cate_no,s3);
+	      }
+	      else if(cate_no == 4) {
+	         L1 = studyDao.selectCate(cate_no,s4);
+	      }
+	      else if(cate_no == 5) {
+	         L1 = studyDao.selectCate(cate_no,s5);
+	      }
+	      else if(cate_no == 6) {
+	         L1 = studyDao.selectCate(cate_no,s6);
+	      }
+	      else if(cate_no == 7) {
+	         L1 = studyDao.selectCate(cate_no,s7);
+	      }
+	      else if(cate_no == 8) {
+	         L1 = studyDao.selectCate(cate_no,s8);
+	      }
+	      else if(cate_no == 9) {
+	         L1 = studyDao.selectCate(cate_no,s9);
+	      }
+	      return L1;
+	   
+	   }
 
 	
 }

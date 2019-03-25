@@ -29,4 +29,7 @@ public interface StudyService{
 		
 	//스터디 세부카테고리()
 	//public List getList();
+	
+	//스터디 대분류카테고리 가져오기
+	public List selectCate(int cate_no);
 }
