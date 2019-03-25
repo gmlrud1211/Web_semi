@@ -153,6 +153,7 @@
 						</select>
 								
 						<select name="st_cate" id="st_cate" >
+						<%-- <c:if test="${cate_no eq 1}"> --%>
 							<option value="">2차분류</option>
 							<option value="101">Java·Jsp</option>
 							<option value="102">C언어</option>
@@ -163,6 +164,81 @@
 							<option value="107">해킹</option>
 							<option value="108">알고리즘</option>
 							<option value="109">기타</option>
+						<%-- </c:if>	 --%>
+						<c:if test="${cate_no eq 2}">
+							<option value="201">웹·모바일 디자인</option>
+							<option value="202">3D 모델링 ·도면</option>
+							<option value="203">로고디자인</option>
+							<option value="204">포토샵편집</option>
+							<option value="205">웹툰·캐릭터</option>
+							<option value="206">캘리그라피</option>
+							<option value="207">공간·인테리어</option>
+							<option value="208">기타</option>
+						</c:if>
+						<c:if test="${cate_no eq 3 }">	
+							<option value="301">영상</option>
+							<option value="302">사진</option>
+							<option value="303">더빙·녹음</option>
+							<option value="304">음악·사운드</option>
+							<option value="305">엔터테이너</option>
+							<option value="306">기타</option>
+						</c:if>	
+						<c:if test="${cate_no eq 4 }">	
+							<option value="401">정보기술</option>
+							<option value="402">전자</option>
+							<option value="403">디자인</option>
+							<option value="404">건축</option>
+							<option value="405">도시·교통</option>
+							<option value="406">금속·재료</option>
+							<option value="407">생산관리</option>
+							<option value="408">조리·제과제빵</option>
+							<option value="409">보건의료</option>
+							<option value="410">기타</option>
+						</c:if>	
+						<c:if test="${cate_no eq 5 }">	
+							<option value="501">이력서·자소서</option>
+							<option value="502">면접</option>
+							<option value="503">인적성</option>
+							<option value="504">기타</option>
+						</c:if>	
+						<c:if test="${cate_no eq 6 }">	
+							<option value="601">영어회화</option>
+							<option value="602">중국어</option>
+							<option value="603">일본어</option>
+							<option value="604">토익/토플</option>
+							<option value="605">스페인어</option>
+							<option value="606">프랑스어</option>
+							<option value="607">독일어</option>
+							<option value="608">기타</option>
+						</c:if>	
+						<c:if test="${cate_no eq 7 }">	
+							<option value="701">보컬</option>
+							<option value="702">피아노</option>
+							<option value="703">작곡</option>
+							<option value="704">기타연주</option>
+							<option value="705">랩</option>
+							<option value="706">디제잉</option>
+							<option value="707">바이올린</option>
+							<option value="708">성악</option>
+							<option value="709">첼로</option>
+							<option value="710">기타</option>
+						</c:if>	
+						<c:if test="${cate_no eq 8 }">	
+							<option value="801">메이크업</option>
+							<option value="802">헤어</option>
+							<option value="803">네일</option>
+							<option value="804">스킨케어/마사지</option>
+							<option value="805">기타</option>
+						</c:if>	
+						<c:if test="${cate_no eq 9 }">	
+							<option value="901">언어</option>
+							<option value="902">수학</option>
+							<option value="903">외국어</option>
+							<option value="904">사탐</option>
+							<option value="905">과탐</option>
+							<option value="906">제2외국어</option>
+							<option value="907">기타</option>
+						</c:if>		
 								<%-- <c:forEach items="${studycate }" var="cate">
 									<option value="${cate.st_code }">${cate.st_subcate }</option>
 								</c:forEach>    --%>
