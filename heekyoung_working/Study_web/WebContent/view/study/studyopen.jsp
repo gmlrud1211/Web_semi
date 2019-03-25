@@ -152,7 +152,7 @@
 
 						</select>
 								
-						<select name="cate_code" >
+						<select name="st_cate" id="st_cate" >
 							<option value="">2차분류</option>
 							<option value="101">Java·Jsp</option>
 							<option value="102">C언어</option>
@@ -210,8 +210,7 @@
 			</div>		
 			<div class="form-group">
 			<label for="study_time" class="col-sm-3 col-sm-offset-1 control-label"> 시간대  </label>
-				<div class="col-sm-5">
-					
+				<div class="col-sm-5">					
 					<input type="radio" name="study_time" value="전 시간가능" /> 전시간 가능 
 					<input type="radio" name="study_time" value="주중 시간무관" /> 주중 시간무관
 					<input type="radio" name="study_time" value="주중 오전" /> 주중 오전 
