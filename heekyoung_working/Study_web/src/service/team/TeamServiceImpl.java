@@ -11,6 +11,7 @@ import dao.team.TeamDao;
 import dao.team.TeamDaoImpl;
 import dto.Achive;
 import dto.AchivePeople;
+import dto.Study;
 import dto.StudyTeamState;
 import dto.UserStudy;
 import util.DBConn;
@@ -177,5 +178,38 @@ public class TeamServiceImpl implements TeamService {
 		return studyTeamState;
 	}
 
+	@Override
+	public Study getStudyParam(HttpServletRequest req, HttpServletResponse resp) {
+		Study study = new Study();
+		
+		String study_region =(String)req.getParameter("study_region");
+		String study_time =(String)req.getParameter("study_time");
+		String study_freq =(String)req.getParameter("study_freq");
+		int study_min = Integer.parseInt(req.getParameter("study_min"));
+		int study_max = Integer.parseInt(req.getParameter("study_max"));
+		String study_gender =(String)req.getParameter("study_gender");
+		String study_period = (String)req.getParameter("study_period");
+		String study_detail =(String)req.getParameter("study_detail");
+		
+		study.setStudy_region(study_region);
+		study.setStudy_time(study_time);
+		study.setStudy_freq(study_freq);
+		study.setStudy_min(study_min);
+		study.setStudy_max(study_max);
+		study.setStudy_gender(study_gender);
+		study.setStudy_period(study_period);
+		study.setStudy_details(study_detail);
+				
+		return study;
+	}
+
+
+	@Override
+	public Study studyUpdate(Study study) {
+		teamDao.studyUpdate(study);
+		
+		return study;
+		
+	}
 	
 }

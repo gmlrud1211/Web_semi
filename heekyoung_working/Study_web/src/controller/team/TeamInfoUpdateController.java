@@ -30,22 +30,22 @@ public class TeamInfoUpdateController extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("UTF-8");
 		
-		Study study = studyservice.getParam(req,resp);
+		//Study study = studyservice.getParam(req,resp);
+		Study study = teamService.getStudyParam(req, resp);
+		
 		
 		//스터디 번호 구하기
 		
-		HttpSession session = req.getSession(true);
-		//int study_no = (int)session.getAttribute("study_no"); 
-				
-		int study_no = (int)session.getAttribute("study_no"); 
-		//스터디 번호 얻기
-		study.setStudy_no(study_no);
-
-		//스터디 정보 업데이트
-		studyservice.studyUpdate(study);
+		HttpSession session = req.getSession(true);				
+		//int study_no = (int)session.getAttribute("study_no");
 		
-			
-		resp.sendRedirect("/main");
+		//스터디 번호 얻기
+		study.setStudy_no(1); //study_no 세션으로 넘어오는게 없어서 일단 1
+		
+		//스터디 정보 업데이트
+		teamService.studyUpdate(study);
+		
+		resp.sendRedirect("/team/manage");
 			
 	}
 

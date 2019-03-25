@@ -123,52 +123,7 @@ public class StudyDaoImpl implements StudyDao {
 		}
 
 	}
-
-
-	@Override
-	public void studyUpdate(Study study) {
-		String sql ="";
-		sql +="update study set study_region='역삼', study_time='주말 오후', study_freq='주 2회', study_min=5, study_max=9, study_details='우리함게 잘해봅시다~', study_addrecruit='19/02/20'";
-		sql +=" where study_no = 1 Limit 1 "; //임의로 study_no=1 지정
-		
-		
-		try {
-			
-			ps= conn.prepareStatement(sql);
-			
-//			ps.setInt(1, study.getSt_code());
-//			ps.setString(2, study.getStudy_name());
-			ps.setInt(1, study.getFile_no());
-			ps.setString(2, study.getStudy_region());
-			ps.setString(3, study.getStudy_time());
-			ps.setString(4, study.getStudy_freq());
-			ps.setInt(5,study.getStudy_min());
-			ps.setInt(6, study.getStudy_max());
-			ps.setString(7, study.getStudy_gender());
-			ps.setString(8,study.getStudy_details());
-			ps.setString(9, study.getStudy_opendate());
-			ps.setString(10, study.getStudy_period());
-			ps.setString(11, study.getStudy_addrecruit());
-			ps.setInt(12, study.getU_no()); 
-
-			ps.executeUpdate();
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				//--- 자원 해제 ---
-				if(rs!=null)	rs.close();
-				if(ps!=null)	ps.close();
-				//-----------------
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-		
-	}
-
-		
+	
 		
 }
 

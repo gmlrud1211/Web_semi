@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import dto.Achive;
 import dto.AchivePeople;
+import dto.Study;
 import dto.StudyTeamState;
 import dto.UserStudy;
 import util.Paging;
@@ -60,8 +61,15 @@ public interface TeamService {
 	//스터디원 삭제
 	public boolean delete(StudyTeamState userDel);
 
-	
+	//팀원관리 - (스터디당 팀원 조회 필요하여 만듬)
 	public StudyTeamState getUserStudyParam(HttpServletRequest request, HttpServletResponse response);
+	
+
+	//스터디 정보 수정시에 필요
+	public Study getStudyParam(HttpServletRequest req, HttpServletResponse resp);
+	
+	//스터디 정보 업데이트
+	public Study studyUpdate(Study study);
 
 	
 	
