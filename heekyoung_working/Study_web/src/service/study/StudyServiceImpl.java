@@ -54,8 +54,17 @@ public class StudyServiceImpl implements StudyService {
 		study.setStudy_period(study_period);
 		study.setStudy_details(study_detail);
 		study.setU_no(u_no);
-
-
+		
+		
+		/*
+			int cate_no = Integer.parseInt(req.getParameter("cate_no"));
+			StudyCate studycate = new StudyCate();
+			List<StudyCate> studycate1 = studyservice.selectCate(cate_no);
+			
+			req.setAttribute("cate_no", cate_no);
+			req.setAttribute("studycate1", studycate1);
+		 */
+		
 		return study;
 	}
 
