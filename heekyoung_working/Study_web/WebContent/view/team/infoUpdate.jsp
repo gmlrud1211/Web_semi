@@ -251,7 +251,7 @@
 					<div class="form-group">
 					<label class="col-sm-3 col-sm-offset-1 control-label"> 추가모집기간</label>
 						<div class="col-sm-5">
-							<input type="text" name="study_addrecruit" id="studyaddrecruit" > ~ 까지 
+							<input type="text" name="study_addrecruit" id="studyaddrecruit" > ~ 까지 추가모집
 						</div>
 					</div>
 					<div class="form-group">
