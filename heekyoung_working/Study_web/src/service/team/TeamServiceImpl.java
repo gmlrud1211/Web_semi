@@ -150,7 +150,7 @@ public class TeamServiceImpl implements TeamService {
 	}
 
 	@Override
-	public boolean delete(UserStudy userDel) {
+	public boolean delete(StudyTeamState userDel) {
 				
 		//스터디원 삭제
 		if ( teamDao.deleteUserStudyByUserno(userDel) ){			
@@ -162,19 +162,19 @@ public class TeamServiceImpl implements TeamService {
 	}
 
 	@Override
-	public UserStudy getUserStudyParam(HttpServletRequest request, HttpServletResponse response) {
+	public StudyTeamState getUserStudyParam(HttpServletRequest request, HttpServletResponse response) {
 		
-		UserStudy userStudy = new UserStudy();
+		StudyTeamState studyTeamState = new StudyTeamState();
 		
 		int u_no = Integer.parseInt(request.getParameter("u_no"));
-		userStudy.setU_no(u_no);
+		studyTeamState.setU_no(u_no);
 		System.out.println("param(u_no) : "+u_no);
 				
 		//int study_no = Integer.parseInt(request.getParameter("study_no"));
 		//userStudy.setStudy_no(study_no);
 		
 
-		return userStudy;
+		return studyTeamState;
 	}
 
 	

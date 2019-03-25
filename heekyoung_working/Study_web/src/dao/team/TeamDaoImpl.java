@@ -332,8 +332,9 @@ public class TeamDaoImpl implements TeamDao{
 		sql +="select u.u_no, u.u_name";
 		sql +=" from studyteamstate s, users u";
 		sql +=" where s.u_no = u.u_no(+)";
-		sql +="and s.study_no=1"; //아직 study_no 연결안되서 임의로 값 집어넣음
-		
+		sql +=" and s.study_no=1"; //아직 study_no 연결안되서 임의로 값 집어넣음
+		sql +=" order by u_no asc";
+				
 	
 		List<StudyTeamState> userStudyList = new ArrayList<>();
 		
@@ -749,9 +750,9 @@ public class TeamDaoImpl implements TeamDao{
 	}
 
 	@Override
-	public boolean deleteUserStudyByUserno(UserStudy userStudy) {
+	public boolean deleteUserStudyByUserno(StudyTeamState userStudy) {
 		String sql ="";
-		sql +="delete from userstudy";
+		sql +="delete from studyteamstate";
 		sql +=" where u_no = ? and study_no=1"; //study_no = 1 임의로 설정
 		
 		int result = 0;

@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dto.StudyTeamState;
 import dto.UserStudy;
 import service.team.TeamService;
 import service.team.TeamServiceImpl;
@@ -19,14 +20,13 @@ public class TeamManageDeleteController extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		UserStudy userStudy = teamService.getUserStudyParam(request, response);	
+		StudyTeamState studyTeamState = teamService.getUserStudyParam(request, response);	
 		
 		//스터디원삭제
-		boolean userDel = teamService.delete(userStudy);
+		boolean userDel = teamService.delete(studyTeamState);
 		
 		request.setAttribute("userDel", userDel);
-		
-		
+	
 		request.getRequestDispatcher("/view/team/teamUserDelete.jsp").forward(request, response);
 	
 	}

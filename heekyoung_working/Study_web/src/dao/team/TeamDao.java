@@ -71,7 +71,7 @@ public interface TeamDao {
 
 	
 	//스터디원 삭제(방출)
-	public boolean deleteUserStudyByUserno(UserStudy userDel);
+	public boolean deleteUserStudyByUserno(StudyTeamState userDel);
 
 	
 }

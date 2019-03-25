@@ -58,10 +58,10 @@ public interface TeamService {
 
 	
 	//스터디원 삭제
-	public boolean delete(UserStudy userDel);
+	public boolean delete(StudyTeamState userDel);
 
 	
-	public UserStudy getUserStudyParam(HttpServletRequest request, HttpServletResponse response);
+	public StudyTeamState getUserStudyParam(HttpServletRequest request, HttpServletResponse response);
 
 	
 	
