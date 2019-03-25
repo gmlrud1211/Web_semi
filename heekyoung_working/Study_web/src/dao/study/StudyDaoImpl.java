@@ -128,8 +128,9 @@ public class StudyDaoImpl implements StudyDao {
 	@Override
 	public void studyUpdate(Study study) {
 		String sql ="";
-		sql +="insert into study(FILE_NO, STUDY_REGION, STUDY_TIME, STUDY_FREQ, STUDY_MIN, STUDY_MAX, STUDY_GENDER, STUDY_DETAILS, STUDY_OPENDATE, STUDY_PERIOD, STUDY_ADDRECRUIT, U_NO)";
-		sql +=" values( ?,?,?,?,?,?,?,?,?,?,?,?)";
+		sql +="update study set study_region='역삼', study_time='주말 오후', study_freq='주 2회', study_min=5, study_max=9, study_details='우리함게 잘해봅시다~', study_addrecruit='19/02/20'";
+		sql +=" where study_no = 1 Limit 1 "; //임의로 study_no=1 지정
+		
 		
 		try {
 			

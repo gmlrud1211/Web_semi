@@ -150,10 +150,7 @@ public class TeamServiceImpl implements TeamService {
 
 	@Override
 	public boolean delete(UserStudy userDel) {
-		
-
-		Connection conn = DBConn.getConnection();
-		
+				
 		//스터디원 삭제
 		if ( teamDao.deleteUserStudyByUserno(userDel) ){			
 			return  true; //삭제 성공

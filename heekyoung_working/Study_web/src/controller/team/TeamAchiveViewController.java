@@ -61,8 +61,6 @@ public class TeamAchiveViewController extends HttpServlet {
 		request.setAttribute("apl",apl);
 		System.out.println(apl);
 			
-			
-				
 		
 		request.getRequestDispatcher("/view/team/achiveStatus.jsp").forward(request, response);
 	

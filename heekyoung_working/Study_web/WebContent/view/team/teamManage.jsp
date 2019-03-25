@@ -74,8 +74,7 @@
 								<tr>
 									<td>${userlist.u_no }</td>
 								 	<td>${userlist.u_name }</td>
-								 	<td id="btnDelete"><a href="/team/manage/delete?u_no=${userlist.u_no}">방출</a></td>
-									<!-- style="color:#F67280; background:#ffffff" -->
+								 	<td id="btnDelete"><a href="/team/manage/delete?u_no=${userlist.u_no}" style="color:#f67280">방출</a></td>
 								
 								</tr>
 							</c:forEach>

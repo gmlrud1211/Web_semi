@@ -760,16 +760,14 @@ public class TeamDaoImpl implements TeamDao{
 		PreparedStatement ps = null; 
 		ResultSet rs = null;
 
-		//System.out.println(userStudy.getU_no());
 		
 		try {
 			//DB작업
 			ps = conn.prepareStatement(sql);
 			ps.setInt(1, userStudy.getU_no());
-			System.out.println("u_no"+userStudy.getU_no());
+			System.out.println("u_no : "+userStudy.getU_no());
 			
 			result = ps.executeUpdate();
-			System.out.println(result);
 			conn.commit();
 			
 		} catch (SQLException e) {
@@ -790,7 +788,6 @@ public class TeamDaoImpl implements TeamDao{
 		} else {
 			deleteresult = false;
 		}
-		System.out.println(deleteresult);
 		return deleteresult;
 	}
 	
