@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 
 
 <jsp:include page="../layout/header.jsp"/>    
@@ -138,29 +140,23 @@
 						<select name="st_catecode" id="st_catecode" >
 								 <!-- onchange="fnGetCate(this.value);" -->
 							<option value="">1차분류</option>
-							<option value="1">IT·프로그래밍</option>
-							<option value="2">디자인</option>
-							<option value="3">콘텐츠 제작</option>
-							<option value="4">자격증</option>
-							<option value="5">취업</option>
-							<option value="6">외국어</option>
-							<option value="7">음악</option>
-							<option value="8">뷰티</option>
-							<option value="9">수능</option>
+							<option value="${cate_no eq 1}">IT·프로그래밍</option>
+							<option value="${cate_no eq 2}">디자인</option>
+							<option value="${cate_no eq 3}">콘텐츠 제작</option>
+							<option value="${cate_no eq 4}">자격증</option>
+							<option value="${cate_no eq 5}">취업</option>
+							<option value="${cate_no eq 6}">외국어</option>
+							<option value="${cate_no eq 7}">음악</option>
+							<option value="${cate_no eq 8}">뷰티</option>
+							<option value="${cate_no eq 9}">수능</option>
 
 						</select>
 								
-						<select name="st_code" id="st_code">
+						<select name="cate_code" >
 							<option value="">2차분류</option>
-							<option value="101">Java·Jsp</option>
-							<option value="102">C언어</option>
-							<option value="103">Python</option>
-							<option value="104">App개발</option>
-							<option value="105">HTML·CSS 퍼블리싱</option>
-							<option value="106">Database</option>
-							<option value="107">해킹</option>
-							<option value="108">알고리즘</option>
-							<option value="109">기타</option>
+								<c:forEach items="${studycate }" var="cate">
+									<option value="${cate.st_code }">${cate.st_subcate }</option>
+								</c:forEach>   
 						</select>
 					</div>
 			</div>
@@ -175,18 +171,32 @@
 						<input type="radio" name="study_region" value="종로" /> 종로
 						<input type="radio" name="study_region" value="영등포" /> 영등포
 						<input type="radio" name="study_region" value="잠실" /> 잠실
-						<input type="radio" name="study_region" value="노원" /> 노원
-						<input type="radio" name="study_region" value="하남" /> 하남		
 						<input type="radio" name="study_region" value="인천" /> 인천
+						<input type="radio" name="study_region" value="노원" /> 노원
+						<input type="radio" name="study_region" value="경기" /> 경기
+						<input type="radio" name="study_region" value="남양주" /> 남양주
+						<input type="radio" name="study_region" value="의정부" /> 의정부
+						<input type="radio" name="study_region" value="일산" /> 일산
+						<input type="radio" name="study_region" value="하남" /> 하남		
 						<input type="radio" name="study_region" value="김포" /> 김포   
 						<input type="radio" name="study_region" value="분당" /> 분당
 						<input type="radio" name="study_region" value="수원" /> 수원
 						<input type="radio" name="study_region" value="시흥" /> 시흥
+						<input type="radio" name="study_region" value="김포" /> 김포
+						<input type="radio" name="study_region" value="울산" /> 울산
+						<input type="radio" name="study_region" value="부산" /> 부산
+						<input type="radio" name="study_region" value="강원" /> 강원
 						<input type="radio" name="study_region" value="대구" /> 대구
 						<input type="radio" name="study_region" value="대전" /> 대전
-						<input type="radio" name="study_region" value="부산" /> 부산
-						<input type="radio" name="study_region" value="김포" /> 부산   
-						
+						<input type="radio" name="study_region" value="충북" /> 충북
+						<input type="radio" name="study_region" value="충남" /> 충남
+						<input type="radio" name="study_region" value="천안" /> 천안
+						<input type="radio" name="study_region" value="전북" /> 전북
+						<input type="radio" name="study_region" value="전남" /> 전남
+						<input type="radio" name="study_region" value="경북" /> 경북
+						<input type="radio" name="study_region" value="경남" /> 경남
+						<input type="radio" name="study_region" value="제주" /> 제주
+						<input type="radio" name="study_region" value="세종" /> 세종			
 					</div>
 			</div>		
 			<div class="form-group">

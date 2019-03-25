@@ -4,9 +4,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import dto.FileUpload;
 import dto.Study;
+import dto.StudyCate;
 import util.DBConn;
 
 public class StudyDaoImpl implements StudyDao {
@@ -122,6 +125,47 @@ public class StudyDaoImpl implements StudyDao {
 			}
 		}
 
+	}
+
+
+	@Override
+	public List selectCate(int cate_no, String str) {
+		String sql = "";
+		sql += "SELECT * FROM StudyCate";
+		sql += " WHERE st_cate LIKE ?";
+
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
+		List<StudyCate> slist = new ArrayList();
+
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, "%" + str + "%");
+
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				StudyCate s = new StudyCate();
+
+				s.setSt_code(rs.getInt("st_code"));
+				s.setSt_cate(rs.getString("st_cate"));
+				s.setSt_subcate(rs.getString("st_subcate"));
+
+				slist.add(s);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(ps!=null)	ps.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return slist;
 	}
 	
 		
