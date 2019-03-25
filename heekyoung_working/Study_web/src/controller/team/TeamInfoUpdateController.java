@@ -45,9 +45,9 @@ public class TeamInfoUpdateController extends HttpServlet {
 		//스터디 정보 업데이트
 		teamService.studyUpdate(study);
 		
+		
 		resp.sendRedirect("/team/manage");
 			
 	}
-
 
 }

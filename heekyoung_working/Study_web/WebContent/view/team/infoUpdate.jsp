@@ -34,7 +34,6 @@
 	});
 	</script>
 	
-
 	
 		<!-- 상위카테고리 선택에 따른 하위카테고리  리스트 보여줌--> 
  <!-- 	<script type="text/javascript">
@@ -79,8 +78,10 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 		
-			$("#btnOpen").click(function() {
+			$("#btnUpdate").click(function() {
 				$("form").submit();
+				alert("수정 완료되었습니다!");				
+				
 			})
 			
 			$("#btnCancel").click(function() {
@@ -267,7 +268,7 @@
 		
 		
 			<div class="col-sm-offset-4">
-					<button type="button" id="btnOpen" class="btn btn-sm" style="color:#ffffff; background:#F67280">수정완료</button>
+					<button type="button" id="btnUpdate" class="btn btn-sm" style="color:#ffffff; background:#F67280">수정완료</button>
 					<button type="button" id="btnCancel" class="btn btn-sm" style="color:#ffffff; background:#FA4C64">취소</button>
 			</div>
 
