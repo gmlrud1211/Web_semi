@@ -266,10 +266,9 @@
 				</form>	
 			</div>
 		
-		
 			<div class="col-sm-offset-4">
-					<button type="button" id="btnUpdate" class="btn btn-sm" style="color:#ffffff; background:#F67280">수정완료</button>
-					<button type="button" id="btnCancel" class="btn btn-sm" style="color:#ffffff; background:#FA4C64">취소</button>
+				<button type="button" id="btnUpdate" class="btn btn-sm" style="color:#ffffff; background:#F67280">수정완료</button>
+				<button type="button" id="btnCancel" class="btn btn-sm" style="color:#ffffff; background:#FA4C64">취소</button>
 			</div>
 
           </div><!--/row-->

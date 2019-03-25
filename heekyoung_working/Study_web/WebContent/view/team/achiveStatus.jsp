@@ -148,7 +148,7 @@
 					      $("input[type='checkbox'][value='"+l[i]+"']".prop("checked", true));
 					     }
 					   }
-					 } 
+					 }
 					, complete: function() {
 						location.reload();
 					}

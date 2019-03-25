@@ -197,7 +197,11 @@ public class TeamServiceImpl implements TeamService {
 		study.setStudy_min(study_min);
 		study.setStudy_max(study_max);
 		study.setStudy_gender(study_gender);
-		study.setStudy_period(study_period);
+		if(study_period==null) {
+			study.setStudy_period(null);
+		} else {
+			study.setStudy_period(study_period);
+		}
 		study.setStudy_details(study_detail);
 				
 		return study;
