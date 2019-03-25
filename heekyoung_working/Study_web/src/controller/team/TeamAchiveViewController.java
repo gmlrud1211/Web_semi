@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dto.Achive;
 import dto.AchivePeople;
@@ -26,6 +27,7 @@ public class TeamAchiveViewController extends HttpServlet {
 		
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+
 		Achive achive = new Achive();
 		
 		//각 목표 조회
@@ -43,6 +45,23 @@ public class TeamAchiveViewController extends HttpServlet {
 		request.setAttribute("subANoList", subANoList.toString());
 		
 		
+		HttpSession session = request.getSession(true);
+		int u_no =  (int)session.getAttribute("u_no");
+		
+		
+		List<AchivePeople> achivePeopleList = teamService.getAchivePeopleList(u_no);
+		
+		String apl="";
+		for(int i=0; i<achivePeopleList.size(); i++)
+		{
+			apl+=achivePeopleList.get(i).getSuba_no();
+			if(i!=achivePeopleList.size()-1) 
+				apl+=",";
+		}
+		request.setAttribute("apl",apl);
+		System.out.println(apl);
+			
+		
 		request.getRequestDispatcher("/view/team/achiveStatus.jsp").forward(request, response);
 	
 	}
@@ -59,6 +78,8 @@ public class TeamAchiveViewController extends HttpServlet {
 //		teamService.checkSubAchive(achivePeople);
 
 		teamService.checkSubAchive2(achivePeople);
+		
+		
 
 		resp.getWriter().println("\"result\"");
 			

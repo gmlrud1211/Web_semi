@@ -11,7 +11,7 @@
 <form action="/team/board/file" method="post" enctype="multipart/form-data">
 파일선택 <input type="file" name="upfile" /><br><br>
 
-<button style="color:#ffffff; background:#F67280">업로드</button>
+<button class="btn btn-sm" style="color:#ffffff; background:#F67280">업로드</button>
 </form>
 
 

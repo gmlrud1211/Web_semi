@@ -49,9 +49,35 @@
 		
 	</script>
 
-	
-<h4 style="text-align: center;"><small>목표설정</small></h4>
-<hr>	
+<div class="wrapper">
+<div class="container">
+
+<div class="container">
+
+      <div class="row row-offcanvas row-offcanvas-right">
+
+		<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+			<div class="name"><h2>Team Page</h2></div>
+	          <div class="list-group" style="box-shadow: none;">
+	            <a href="#" class="list-group-item" style="border:none;">스터디룸 메인</a>
+	            <a href="#" class="list-group-item" style="border:none;">일정 관리</a>
+	            <a href="/team/achive/view" class="list-group-item" style="border:none;">목표 관리</a>
+	            <a href="/team/board" class="list-group-item" style="border:none;">팀별 게시판</a>
+	            <a href="/team/manage" class="list-group-item" style="border:none;">스터디룸 관리</a>
+
+        	 </div>
+        	</div><!--/.sidebar-offcanvas-->
+
+        <div class="col-xs-12 col-sm-9">
+          <p class="pull-right visible-xs">
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+          </p>
+          
+          <div class="jumbotron" style="padding: 5px;background-color: #eee0;border-bottom: 1px solid #f67280; border-radius: 0;" >
+            <h2>목표관리</h2>
+            <p style="font-size: 16px">목표등록페이지입니다.</p>
+          </div>
+          <div class="row">
 
 	<div class="container">
 	
@@ -78,7 +104,6 @@
 				<label for="sub_name" class="col-sm-3 col-sm-offset-1 control-label">세부 목표</label>
 				<div class="col-sm-5" id="wrap">
 					<div id="inputform">
-					
 						<input type="text" id="suba_name" name="suba_name" />
 						<button type="button" onclick="add_input()" class="btn btn-sm" style="color:#ffffff; background:#F67280">추가</button>
 					</div>							
@@ -93,5 +118,18 @@
 	<div id="btnBox" class="btn pull-right">
 		<button id="btnWrite" class="btn btn-sm" style="color:#ffffff; background:#F67280">목표 등록!</button>
 	</div>	
-		
+	
+
+
+          </div><!--/row-->
+        </div><!--/.col-xs-12.col-sm-9-->
+
+      </div><!--/row-->
+
+    </div>
+
+
+</div>
+	
+</div>	
 			

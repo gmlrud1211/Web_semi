@@ -2,6 +2,8 @@ package dto;
 
 public class AchivePeople {
 
+	private int study_no;
+	private int a_no;
 	private int suba_no;
 	private String sub_code;
 	private int u_no;
@@ -9,10 +11,23 @@ public class AchivePeople {
 
 	
 	
+	
 	@Override
 	public String toString() {
-		return "AchivePeople [suba_no=" + suba_no + ", sub_code=" + sub_code + ", u_no=" + u_no + ", checked=" + checked
-				+ "]";
+		return "AchivePeople [study_no=" + study_no + ", a_no=" + a_no + ", suba_no=" + suba_no + ", sub_code="
+				+ sub_code + ", u_no=" + u_no + ", checked=" + checked + "]";
+	}
+	public int getA_no() {
+		return a_no;
+	}
+	public void setA_no(int a_no) {
+		this.a_no = a_no;
+	}
+	public int getStudy_no() {
+		return study_no;
+	}
+	public void setStudy_no(int study_no) {
+		this.study_no = study_no;
 	}
 	public boolean isChecked() {
 		return checked;

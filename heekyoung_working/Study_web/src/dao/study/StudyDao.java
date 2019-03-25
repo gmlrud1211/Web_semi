@@ -13,16 +13,9 @@ public interface StudyDao {
 
 	//파일업로드
 	public void updateFile(FileUpload fileupload);
-
-	//스터디 정보 업데이트
-	public void studyUpdate(Study study);
-
-
 	
 	//스터디 카테고리 번호 조회
 	//public int selectCate();
-
-	
 
 	
 }

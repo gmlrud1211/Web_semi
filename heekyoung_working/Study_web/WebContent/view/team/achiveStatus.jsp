@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="dto.Achive" %>
+<%@ page import= "dto.AchivePeople" %>
 <%@page import="java.util.List"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -70,7 +71,7 @@
 			
 		<div class="canvas" >
 			<canvas id="myChart"  width="200" height="250" > </canvas><br>
-			<button class="btn btn-sm" style="color:#ffffff; background:#F67280">달성률 조회</button>
+			<button id="btnSearch" class="btn btn-sm" style="color:#ffffff; background:#F67280">달성률 조회</button>
 		</div>	
 		
 		<div class="canvas">	
@@ -78,6 +79,7 @@
 		</div>
 		<script type="text/javascript">
 	
+			
 		var ctx = document.getElementById('myChart');
 		var myChart = new Chart(ctx, {
 		   
@@ -132,22 +134,54 @@
 
 				$.ajax({
 					url: ""
-					, type: "post"
+					, type: "get"
 					, dataType: "json"
 					, data: {
 						"checked":$(this).is(":checked")
 						, "suba_no":$(this).attr("value")
 					}
+					 , success: function() {
+						var apl = ${apl};
+						if( apl != null ) {
+						var l = apl.split(",");
+					    for( var i=0; i<l.length; i++ ) {
+					      $("input[type='checkbox'][value='"+l[i]+"']".prop("checked", true));
+					     }
+					   }
+					 }
 					, complete: function() {
 						location.reload();
 					}
 				});
-			})
+			});
 			
 		});
 	</script>
-		
-		
+	
+	<script type="text/javascript">
+		$(document).ready(function() {		
+			$("#btnSearch").click(function() {
+				console.log($(this).is)
+				
+				$.ajax ({
+					url: "/team/achive/chart"
+					, type : "post"
+					, dataType : "json"
+					, data : {
+						
+						}
+					, success: function(data) {
+						
+						}
+					, error: function(e) {
+						alert(e.responseText);
+					}
+
+				});
+							
+			})
+		});
+	</script>
 		
 		
 		

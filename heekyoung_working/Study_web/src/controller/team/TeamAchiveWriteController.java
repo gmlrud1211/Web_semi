@@ -28,12 +28,10 @@ public class TeamAchiveWriteController extends HttpServlet {
 		
 		//요청파라미터
 		Achive achive = teamService.getParam(req,resp);
-		
-		
+				
 		//목표 등록
 		teamService.InsertAchive(achive);
-				
-		
+						
 		resp.sendRedirect("/team/manage");		
 			
 	}

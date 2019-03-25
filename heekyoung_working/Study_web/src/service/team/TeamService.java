@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import dto.Achive;
 import dto.AchivePeople;
+import dto.Study;
+import dto.StudyTeamState;
 import dto.UserStudy;
 import util.Paging;
 
@@ -30,7 +32,7 @@ public interface TeamService {
 
 	
 	//스터디 참여중인 회원 리스트 가져오기
-	public List getUserStudyList(UserStudy userStudy);
+	public List getUserStudyList(StudyTeamState studyTeamState);
 
 	
 	//목표 리스트 가져오기
@@ -45,7 +47,30 @@ public interface TeamService {
 	//성취 체크 - jio
 	public void checkSubAchive2(AchivePeople achivePeople);
 
-	//목표 번호 가져오기 
+	//대목표-세부목표개수 카운트
+	public int getSubAchiveCnt();
+
+	//각 유저가 달성한 세부목표개수
+	public int getUserSubAchiveCnt(Achive achive);
+
+	
+	//성취맨들 리스트 가져오기 
+	public List<AchivePeople> getAchivePeopleList(int u_no);
+
+	
+	//스터디원 삭제
+	public boolean delete(StudyTeamState userDel);
+
+	//팀원관리 - (스터디당 팀원 조회 필요하여 만듬)
+	public StudyTeamState getUserStudyParam(HttpServletRequest request, HttpServletResponse response);
+	
+
+	//스터디 정보 수정시에 필요
+	public Study getStudyParam(HttpServletRequest req, HttpServletResponse resp);
+	
+	//스터디 정보 업데이트
+	public Study studyUpdate(Study study);
+
 	
 	
 	

@@ -12,8 +12,7 @@ import dto.AchivePeople;
 import dto.FileUpload;
 import dto.Study;
 import dto.StudyBoard;
-import dto.SubAchive;
-import dto.UserStudy;
+import dto.StudyTeamState;
 import util.DBConn;
 import util.Paging;
 
@@ -323,13 +322,17 @@ public class TeamDaoImpl implements TeamDao{
 	}
 
 	@Override
-	public List userStudySelectAll(UserStudy userStudy) {
+	public List userStudySelectAll(StudyTeamState studyTeamState) {
 		//sql 작성
 		String sql ="";
-		sql +="select * from userstudy";
-		sql +=" where study_no = 1 "; //아직 연결안되서 임의로 값 집어넣음
-		
-		List<UserStudy> userStudyList = new ArrayList<>();
+		sql +="select u.u_no, u.u_name";
+		sql +=" from studyteamstate s, users u";
+		sql +=" where s.u_no = u.u_no(+)";
+		sql +=" and s.study_no=1"; //아직 study_no 연결안되서 임의로 값 집어넣음
+		sql +=" order by u_no asc";
+				
+	
+		List<StudyTeamState> userStudyList = new ArrayList<>();
 		
 		try {
 			//sql 수행
@@ -341,13 +344,16 @@ public class TeamDaoImpl implements TeamDao{
 			//결과처리
 			while(rs.next())
 			{
-				UserStudy user_Study = new UserStudy();
+				StudyTeamState user_Study = new StudyTeamState();
 				//ResultSet의 결과 행이 DTO에 하나씩 저장됨
-				user_Study.setU_no(rs.getInt("u_no"));;
-				user_Study.setStudy_no(rs.getInt("study_no"));
+		
+				user_Study.setU_no(rs.getInt("u_no"));
+				user_Study.setU_name(rs.getString("u_name"));
+				//user_Study.setStudy_no(rs.getInt("study_no"));
 				
 				userStudyList.add(user_Study);
 			}
+			System.out.println(userStudyList);
 		
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -360,8 +366,7 @@ public class TeamDaoImpl implements TeamDao{
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-		}
-		
+		}		
 		return userStudyList;
 	}
 
@@ -511,9 +516,6 @@ public class TeamDaoImpl implements TeamDao{
 		sql+= "insert into subachive(study_no, a_no, suba_no, suba_name, suba_sdate)";
 		sql+= " values(1,?,subachive_seq.nextval, ?,sysdate)";
 		
-//		insert into subachive(study_no, a_no, suba_no, suba_name, suba_sdate, suba_ddate)
-//		values(1,43,subachive_seq.nextval, 'ㅜㅜ', sysdate, '19/03/07');
-
 		
 		PreparedStatement ps = null;
 		try {
@@ -568,7 +570,261 @@ public class TeamDaoImpl implements TeamDao{
 		}		
 		
 		return a_no;
-	}		
+	}
 
-}
+	@Override
+	public int selectSubAchiveCnt() {
+		//sql작성
+		String sql = "";
+		sql +="SELECT count(S.suba_no)";
+		sql +=" FROM achive A JOIN subAchive S ON A.study_no = S.study_no AND A.A_NO = S.A_NO";
+		sql +=" WHERE A.study_no = 1 and A.a_no =1";//목표번호 임의로 삽입
+		//sql +=" group by A.study_no, A.a_no";
+		//sql +=" ORDER BY study_no, a_no";
+		
+		/*
+			sql +="SELECT A.study_no, A.a_no,count(S.suba_no) cnt";
+			sql +=" FROM achive A JOIN subAchive S ON A.study_no = S.study_no AND A.A_NO = S.A_NO";
+			sql +=" WHERE A.study_no = 1 and A.a_no =1";//목표번호 임의로 삽입
+			sql +=" group by A.study_no, A.a_no";
+			sql +=" ORDER BY study_no, a_no";
+		*/
+		
+		
+							
+		//쿼리 결과(세부목표 갯수)저장할 변수
+		int cnt = 0;
+						
+		try {
+			//sql 수행
+			ps = conn.prepareStatement(sql);
+			rs = ps.executeQuery();
+							
+			//결과처리
+			rs.next();
+			cnt = rs.getInt(1);
+			System.out.println(cnt+"개");
+					
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				//--- 자원 해제 ---
+				if(rs!=null)	rs.close();
+				if(ps!=null)	ps.close();
+				//-----------------
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+						
+		//개수 반환
+		return cnt;
+		}
+
+	@Override
+	public int selectUserSubAchiveCnt(Achive achive) {
+		//sql작성
+		String sql = "";
+		sql +="select * from";
+		sql +=" (SELECT A.a_no, count(*) cnt, P.u_no";
+		sql +=" FROM achivepeople P, subachive A";
+		sql +=" WHERE P.suba_no = A.suba_no";
+		sql +=" GROUP BY a_no, u_no )";
+		sql +=" where u_no=?";
+		
+		
+	/*	sql +="SELECT A.a_no, P.u_no, S.suba_no";
+		sql +=" FROM achive A JOIN subAchive S ON A.study_no = S.study_no AND A.A_NO = S.A_NO";
+		sql +=" JOIN achivepeople P ON S.suba_no=P.suba_no";
+		sql +=" WHERE A.study_no = 1 and A.a_no = 1 and P.u_no= ?"; //스터디번호 목표번호 임의로 삽입
+		sql +=" GROUP BY A.a_no, P.u_no, S.suba_no";
+		sql +=" order by a_no";
+	 */
+
+		  
+		//쿼리 결과 저장할 변수
+		int cnt = 0;
+
+		try {
+			//sql 수행
+			ps = conn.prepareStatement(sql);
+			//ps.setInt(1, achive.getA_no());
+			ps.setInt(1, achive.getU_no());	
+			
+			
+			rs = ps.executeQuery();
+									
+			//결과처리
+			rs.next();
+			
+			cnt = rs.getInt(1);
+		
+					
+		} catch (SQLException e) {
+			e.printStackTrace();
+			} finally {
+			try {
+				//--- 자원 해제 ---
+				if(rs!=null)	rs.close();
+				if(ps!=null)	ps.close();
+				//-----------------
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+								
+		//개수 반환
+		return cnt;
+		}
+
+	@Override
+	public List<AchivePeople> selectAchivePeopleList(int u_no) {
+		
+		String sql="";
+		sql +="SELECT RES.*, round(people_cnt/tot_cnt, 3)*100 ||'%' 달성률 FROM (";
+		sql +=" SELECT PCNT.*";
+		sql +=" , ( SELECT COUNT(*) FROM subachive SA WHERE SA.study_no = PCNT.study_no AND SA.a_no = PCNT.a_no ) TOT_CNT";
+		sql +=" FROM (";
+		sql +=" SELECT S.study_no, S.a_no, NVL(P.u_no, -1) u_no, count(P.u_no) people_cnt";
+		sql +=" FROM subachive S, achivepeople P";
+		sql +=" WHERE S.suba_no = P.suba_no(+)";
+		sql +=" AND u_no=?";
+		sql +=" GROUP BY study_no, a_no, u_no";
+		sql +=" ) PCNT";
+		sql +=" ) RES";
+		sql +=" ORDER BY study_no, a_no, u_no";
+				
+
+		//쿼리 결과저장할 list
+		List<AchivePeople> achivePeopleList = new ArrayList<>();
+				
+		try {
+			//sql 수행
+			ps = conn.prepareStatement(sql);
+			
+			ps.setInt(1, u_no);
+					
+			rs = ps.executeQuery();
+					
+			
+			
+			//결과처리
+			while(rs.next())
+			{
+				AchivePeople achive = new AchivePeople();
+				
+				achive.setStudy_no(rs.getInt("study_no"));
+				achive.setA_no(rs.getInt("a_no"));
+				achive.setU_no(rs.getInt("u_no"));
+				//achive.setSuba_no(rs.getInt("suba_no"));
+				//achive.setSub_code(rs.getString("sub_code"));
+				//achive.setChecked(rs.getBoolean("checked"));
+				
+					
+				achivePeopleList.add(achive);
+				System.out.println(achivePeopleList);
+				System.out.println();
+			
+			}
+
+				
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				//--- 자원 해제 ---
+				if(rs!=null)	rs.close();
+				if(ps!=null)	ps.close();
+				//-----------------
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+			return achivePeopleList;
+			
+	}
+
+	@Override
+	public boolean deleteUserStudyByUserno(StudyTeamState userStudy) {
+		String sql ="";
+		sql +="delete from studyteamstate";
+		sql +=" where u_no = ? and study_no=1"; //study_no = 1 임의로 설정
+		
+		int result = 0;
+		boolean deleteresult = false;
+		
+		//DB 객체
+		PreparedStatement ps = null; 
+		ResultSet rs = null;
+
+		
+		try {
+			//DB작업
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, userStudy.getU_no());
+			System.out.println("u_no : "+userStudy.getU_no());
+			
+			result = ps.executeUpdate();
+			conn.commit();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				//DB객체 닫기
+				if(rs!=null)	rs.close();
+				if(ps!=null)	ps.close();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		if (result > 0) {
+			deleteresult = true;
+		} else {
+			deleteresult = false;
+		}
+		return deleteresult;
+	}
+	
+	
+	@Override
+	public void studyUpdate(Study study) {
+		String sql ="";
+		sql +="update study set study_region= ?, study_time= ?, study_freq= ?, study_min=?, study_max=?, study_gender=?, study_details=?, study_addrecruit=?";
+		sql +=" where study_no = 1"; //임의로 study_no=1 지정
+
+		try {
+			
+			ps= conn.prepareStatement(sql);
+			
+			ps.setString(1, study.getStudy_region());
+			ps.setString(2, study.getStudy_time());
+			ps.setString(3, study.getStudy_freq());
+			ps.setInt(4,study.getStudy_min());
+			ps.setInt(5, study.getStudy_max());
+			ps.setString(6, study.getStudy_gender());
+			ps.setString(7,study.getStudy_details());
+			ps.setString(8, study.getStudy_addrecruit());
+
+			ps.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				//--- 자원 해제 ---
+				if(rs!=null)	rs.close();
+				if(ps!=null)	ps.close();
+				//-----------------
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
+	
+}		
 	

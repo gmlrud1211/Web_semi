@@ -8,10 +8,32 @@ public class SubAchive {
 	private String suba_name;
 	private String suba_sdate;
 	
+	private int sub_code;
+	private int u_no;
+	
+
+	
+	
 	@Override
 	public String toString() {
 		return "SubAchive [study_no=" + study_no + ", a_no=" + a_no + ", suba_no=" + suba_no + ", suba_name="
-				+ suba_name + ", suba_sdate=" + suba_sdate + ", suba_ddate=" + "]";
+				+ suba_name + ", suba_sdate=" + suba_sdate + ", sub_code=" + sub_code + ", u_no=" + u_no + "]";
+	}
+
+	public int getSub_code() {
+		return sub_code;
+	}
+
+	public void setSub_code(int sub_code) {
+		this.sub_code = sub_code;
+	}
+
+	public int getU_no() {
+		return u_no;
+	}
+
+	public void setU_no(int u_no) {
+		this.u_no = u_no;
 	}
 
 	public int getStudy_no() {
