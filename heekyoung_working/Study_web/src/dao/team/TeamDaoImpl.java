@@ -797,7 +797,6 @@ public class TeamDaoImpl implements TeamDao{
 		sql +=" where study_no = 1"; //임의로 study_no=1 지정
 
 		try {
-			
 			ps= conn.prepareStatement(sql);
 			
 			ps.setString(1, study.getStudy_region());

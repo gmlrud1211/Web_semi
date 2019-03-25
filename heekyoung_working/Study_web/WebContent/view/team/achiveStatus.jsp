@@ -79,7 +79,7 @@
 		</div>
 		<script type="text/javascript">
 	
-			
+	
 		var ctx = document.getElementById('myChart');
 		var myChart = new Chart(ctx, {
 		   
@@ -134,7 +134,7 @@
 						"checked":$(this).is(":checked")
 						, "suba_no":$(this).attr("value")
 					}
-					 , success: function() {
+					 ,/*  success: function() {
 						var apl = ${apl};
 						if( apl != null ) {
 						var l = apl.split(",");
@@ -143,39 +143,27 @@
 					     }
 					   }
 					 }
-					, complete: function() {
-						location.reload();
+					,  */
+					success : function() {
+						$("input[type='checkbox']".prop("checked", true));
 					}
+					/* , complete : function() {
+						location.reload();
+					} */
 				});
 			});
 			
 		});
 	</script>
-	
-	<script type="text/javascript">
-		$(document).ready(function() {		
-			$("#btnSearch").click(function() {
-				console.log($(this).is)
+		
+		<script type="text/javascript">
+			$(document).ready(function() {		
+				$("#btnSearch").click(function() {
+										
 				
-				$.ajax ({
-					url: "/team/achive/chart"
-					, type : "post"
-					, dataType : "json"
-					, data : {
-						
-						}
-					, success: function(data) {
-						
-						}
-					, error: function(e) {
-						alert(e.responseText);
-					}
-
-				});
-							
-			})
-		});
-	</script>
+				})
+			});
+		</script>
 		
 		
 		
