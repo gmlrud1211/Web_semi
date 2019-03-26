@@ -14,7 +14,8 @@ public interface BookmarkService {
 	
 	public void deleteBookmark(int bm_no);
 	
+	//junhwan_add(AJAX)
 	public void insertBookmark(Bookmark bookmarks);
-	
+	//junhwan_add(AJAX)
 	public void deleteBookmark(Bookmark bmark);
 }

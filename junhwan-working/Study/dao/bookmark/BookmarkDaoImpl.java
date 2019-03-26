@@ -1,4 +1,4 @@
-
+﻿
 package dao.mypage.bookmark;
 
 import java.sql.Connection;
@@ -132,7 +132,7 @@ public class BookmarkDaoImpl implements BookmarkDao {
 
 	}
 
-	//찜하기 db insert(준환)
+	//찜하기 db insert(AJAX_준환)
 	@Override
 	public void insertBookmark(Bookmark bookmark) {
 		String sql = "";
@@ -164,7 +164,7 @@ public class BookmarkDaoImpl implements BookmarkDao {
 
 	}
 
-	//bookmark 삭제(준환)
+	//bookmark 삭제(AJAX_준환)
 	@Override
 	public void deleteBookmark(Bookmark bmark) {
 		String sql = "";

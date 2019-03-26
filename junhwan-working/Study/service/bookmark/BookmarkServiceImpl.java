@@ -21,12 +21,13 @@ public class BookmarkServiceImpl implements BookmarkService {
 		bmDao.deleteBookmark(bm_no);
 	}
 
+	//junhwan_add(AJAX)
 	@Override
 	public void insertBookmark(Bookmark bookmarks) {
 		bmDao.insertBookmark(bookmarks);
 		
 	}
-
+	//junhwan_add(AJAX)
 	@Override
 	public void deleteBookmark(Bookmark bmark) {
 		bmDao.deleteBookmark(bmark);

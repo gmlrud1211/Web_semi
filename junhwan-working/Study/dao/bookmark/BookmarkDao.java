@@ -1,4 +1,4 @@
-
+﻿
 package dao.mypage.bookmark;
 
 import java.util.List;
@@ -17,9 +17,9 @@ public interface BookmarkDao {
 	// 북마크 삭제
 	public void deleteBookmark(int bm_no);
 	
-	// 북마크 db삽입
+	// 북마크 db삽입(준환추가)
 	public void insertBookmark(Bookmark bookmark);
-
+	// 북마크 db삭제(준환추가)
 	public void deleteBookmark(Bookmark bmark);
 }
 
