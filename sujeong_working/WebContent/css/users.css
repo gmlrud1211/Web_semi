@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+.form-control {
+	height: 45px;
+}
+
+.cate{
+	color:#333;
+	margin-left: 240px; 
+	padding: 30px; 
+	height: 50px;
+}
+
+.checkbox{
+	margin-left: 270px;
+}
+
+.checkbox-inline{
+	padding: 7px 40px 0px 15px;
+}
+.btn {
+	line-height: 2.1;
+}
+.joinbutton{
+	text-align: center;
+	margin-top : 30px;
+	padding: 15px;
+	
+}
+
+.radio-inline+.radio-inline, .checkbox-inline+.checkbox-inline {
+	margin-left: 0px;
+}
