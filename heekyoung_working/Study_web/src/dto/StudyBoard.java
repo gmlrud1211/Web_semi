@@ -11,6 +11,17 @@ public class StudyBoard {
 	private Date sb_date;
 	private int sb_no;
 	
+	private String u_name;
+	
+	
+	
+	
+	public String getU_name() {
+		return u_name;
+	}
+	public void setU_name(String u_name) {
+		this.u_name = u_name;
+	}
 	public int getStudy_no() {
 		return study_no;
 	}
@@ -50,8 +61,9 @@ public class StudyBoard {
 	@Override
 	public String toString() {
 		return "StudyBoard [study_no=" + study_no + ", u_no=" + u_no + ", sb_content=" + sb_content + ", file_no="
-				+ file_no + ", sb_date=" + sb_date + ", sb_no=" + sb_no + "]";
+				+ file_no + ", sb_date=" + sb_date + ", sb_no=" + sb_no + ", u_name=" + u_name + "]";
 	}
+	
 	
 	
 	

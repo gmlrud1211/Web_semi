@@ -68,7 +68,9 @@ public class TeamDaoImpl implements TeamDao{
 		String sql = "";
 		sql+="select * from (";
 		sql+=" select rownum rnum, B.* from(";
-		sql+=" select * from studyboard ";
+		sql+=" select u.u_no, u.u_name, sb_no, study_no, sb_content, file_no, sb_date ";
+		sql+=" from studyboard s, users u";
+		sql+=" where u.u_no=s.u_no";
 		sql+=" order by sb_no desc";
 		sql+=" ) B";
 		sql+=" order by rnum";
@@ -95,6 +97,7 @@ public class TeamDaoImpl implements TeamDao{
 				board.setSb_content(rs.getString("sb_content"));
 				board.setFile_no(rs.getInt("file_no"));
 				board.setSb_date(rs.getDate("sb_date"));
+				board.setU_name(rs.getString("u_name"));
 				board.setSb_no(rs.getInt("sb_no"));
 					
 				boardList.add(board);
