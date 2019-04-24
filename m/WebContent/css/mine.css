@@ -1,0 +1,114 @@
+@charset "UTF-8";
+
+      #wrapper{width:100%; height:100%; max-width:1200px; margin:50px auto;}
+         #wrapper h1{font-size:30px; margin-bottom:30px;}
+         .cate_list{height:80px; overflow: hidden; margin-bottom:8px;  height:50px; line-height: 50px; vertical-align: middle; box-sizing: border-box;}
+         .cate_list li{float:left; width: 50%;}
+         .cate_list li span.title{display: inline-block; width:100px; font-size:16px; }
+         .cate_list li .cate{width:40%; height:30px;}
+         .cate_list li .region{}
+         .cate_list li .region select{width:40%; height:30px;}
+         h4.title{font-size:16px; float:left; padding-right:60px;}/* margin:10px 0;  */
+         .checkreg{text-align:left; height: 100px;}
+         .checkreg li{display: inline-block; margin-right:30px;}
+         .checkgen{text-align:left;}
+         .checkgen li{display: inline-block; margin-right:30px;}
+         
+         .btn{margin-top:50px; width:250px; margin:0 auto; }
+         .btn button{width:200px; height:40px;; box-sizing:border-box; display: inline-block;}
+      /*연습*/
+		.container{}
+		.container .search_list{}
+		.container .search_list li{overflow:hidden; margin-bottom:20px;}
+		.container .search_list li .left{float:left;}
+		.container .search_list li .left img{height : 276px;}
+		.container .search_list li .right{float:left;}
+		
+		label{padding-right:10px; padding-left:10px;}
+		
+		/* checkbox&li태그 한줄로 정렬 */		
+		input[type="radio"], input[type="checkbox"] {
+	    margin: 4px 0 0;
+	    margin-top: 1px \9;
+	    line-height: normal;
+	    float: left;
+	    padding-top:5px;
+		} 
+	  
+	  * {
+	margin: 0;
+	padding: 0;
+}
+
+ul {
+	list-style: none;
+}
+
+#wrapper {
+	width: 100%;
+	height: 100%;
+	max-width: 1200px;
+	margin: 50px auto;
+	
+}
+
+.left {
+	float: left;
+	width: 30%;
+}
+
+.right {
+	float: left;
+	width: 70%;
+	margin-top: 40px;
+	padding: 0 30px;
+	box-sizing: border-box
+}
+
+
+.p {
+	color: #100d13;
+	font-family: 'Poppins', sans-serif;
+	margin-top: 11px;
+	margin-bottom: 11px;
+}
+
+p {
+	font-size: 16px;
+}
+
+img {
+	width: 100%;
+	height: 100%;
+	background: #333;
+	margin-top: 40px;
+	border:1px solid black;
+}
+
+ul.obj li {
+	float: left;
+	width: 50%;
+	text-align: left;
+	/*  box-sizing: border-box; */
+	/* border: 1px solid #ccc; */
+	height: 30px;
+	line-height: 50px;
+	/* background-color: #de73bc; */
+}
+
+li.obj-list {
+	box-sizing: unset;
+}
+
+li.obj-list1 {
+	border: 1px solid white;
+	background: white;
+	box-sizing: unset;
+	text-align: left;
+}
+
+
+a {
+	background: white;
+	color: #F67280;
+}
